@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 interface CardProps {
-  title: string;
+  title: ReactNode;
   href: string;
   subtitle: string;
   icon: ReactNode;
@@ -12,14 +12,18 @@ export default function Card({ title, subtitle, href, icon }: CardProps) {
   return (
     <Link href={href} legacyBehavior>
       <a className="block h-full">
-        <div className="group h-full bg-white dark:bg-[#1E293B] rounded-xl overflow-hidden shadow-xl border border-yellow-custom dark:border-yellow-custom transition-all duration-300 transform hover:shadow-2xl hover:-translate-y-1 hover:scale-105">
-          <div className="p-6 flex items-center gap-2 text-light-blue-custom dark:text-[#60A5FA]">
-            <div className="text-5xl text-light-blue-custom dark:text-[#60A5FA]">{icon}</div>
-            <div>
-              <h2 className="font-semibold text-lg text-yellow-custom dark:text-yellow-custom group-hover:text-[#F97316] transition-colors duration-300">
+        <div className="group h-full overflow-hidden rounded-xl border border-yellow-custom dark:border-yellow-custom bg-white shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl dark:bg-[#1E293B]">
+          <div className="flex min-h-[124px] items-start gap-3 p-5 text-light-blue-custom dark:text-[#60A5FA]">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[2.5rem] text-light-blue-custom dark:text-[#60A5FA]">
+              {icon}
+            </div>
+            <div className="flex min-h-[84px] flex-1 flex-col justify-center">
+              <h2 className="text-base font-semibold text-yellow-custom transition-colors duration-300 group-hover:text-[#F97316] dark:text-yellow-custom">
                 {title}
               </h2>
-              <p className="text-gray-800 dark:text-[#E5E7EB] transition-colors duration-300">{subtitle}</p>
+              <p className="text-sm leading-6 text-gray-800 transition-colors duration-300 dark:text-[#E5E7EB]">
+                {subtitle}
+              </p>
             </div>
           </div>
         </div>

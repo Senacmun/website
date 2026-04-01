@@ -4,63 +4,69 @@ import { RiTeamLine } from "react-icons/ri";
 
 export default function Equipe() {
   return (
-    <section className="h-fit">
-      <article className="flex flex-col lg:flex-row justify-between items-center xl:px-32 px-5 py-10">
-        <div>
+    <section className="min-h-screen bg-white dark:bg-[#0B1E2D]">
+      <article className="flex flex-col items-center justify-between px-5 py-10 lg:flex-row xl:px-32">
+        <div className="w-full max-w-2xl">
           <img
-            className="border-4 border-blue-custom rounded-md"
+            className="w-full rounded-md border-4 border-blue-custom object-cover"
             src={"/time/equipe.JPG"}
             alt="Time Senamun"
             width={800}
             height={400}
           />
         </div>
-        <div className="text-blue-custom dark:text-blue-light mt-10 lg:mt-0 lg:ml-10">
-            <h1 className="text-4xl text-yellow-custom font-semibold">
-            Nos somos o time SenaMUN 2025,
+        <div className="mt-10 text-blue-custom dark:text-blue-light lg:ml-10 lg:mt-0">
+          <h1 className="text-4xl text-yellow-custom font-semibold">
+            Nos somos o time SenaMUN 2026,
           </h1>
           <p className="text-2xl dark:text-blue-light">no total 37 pessoas!</p>
 
           <div className="mt-10 text-lg">
-            <p className="text-xl dark:text-soft-white">Subdivididos em 10 grupos: </p>
+            <p className="text-xl dark:text-soft-white">
+              Subdivididos em 10 grupos:{" "}
+            </p>
             <ul className="pl-10 list-disc space-y-1">
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/secretariado">Secretariado Geral</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/logistica">Logística</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/comunicacao">Comunicação</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/crises">Diretoria de Crises</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/imprensa">Diretoria de Imprensa</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/midia">Mídia</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/imagens">Imagem</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
-                <Link href="/equipe/academica-portugues">Acadêmica Português</Link>
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
+                <Link href="/equipe/academica-portugues">
+                  Acadêmica Português
+                </Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/academica-ingles">Acadêmica Inglês</Link>
               </li>
-              <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
+              <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/orientadores">Orientadores</Link>
               </li>
             </ul>
           </div>
         </div>
       </article>
-      <hr className="border-yellow-custom mx-40" />
-      <div className="">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center mx-6 my-12 xl:px-20">
+
+      <hr className="mx-40 border-yellow-custom" />
+
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 xl:px-20">
+        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <Card
             title="Secretariado Geral"
             href="/equipe/secretariado"
@@ -85,6 +91,9 @@ export default function Equipe() {
             icon={<RiTeamLine />}
             subtitle="Conheça nosso time de crises"
           />
+        </div>
+
+        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <Card
             title="Diretoria de Imprensa"
             href="/equipe/imprensa"
@@ -104,23 +113,51 @@ export default function Equipe() {
             subtitle="Conheça nosso time de imagem"
           />
           <Card
-            title="Acadêmico Português"
-            href="/equipe/academica-portugues"
-            icon={<RiTeamLine />}
-            subtitle="Conheça nosso time acadêmico em português"
-          />
-          <Card
-            title="Acadêmico Inglês"
-            href="/equipe/academica-ingles"
-            icon={<RiTeamLine />}
-            subtitle="Conheça nosso time acadêmico em inglês"
-          />
-          <Card
             title="Orientadores"
             href="/equipe/orientadores"
             icon={<RiTeamLine />}
             subtitle="Conheça nosso time de orientadores"
           />
+        </div>
+
+        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto w-full max-w-[260px]">
+            <Card
+              title={
+                <span className="block text-base leading-5">
+                  <span className="block">Acadêmico</span>
+                  <span className="block">Inglês</span>
+                </span>
+              }
+              href="/equipe/academica-ingles"
+              icon={<RiTeamLine />}
+              subtitle="Conheça nosso time acadêmico em inglês"
+            />
+          </div>
+
+          <div className="flex items-center justify-center">
+            <img
+              src="/logo-senamun.png"
+              alt="Logo SenaMUN"
+              width={180}
+              height={180}
+              className="h-auto w-[180px] object-contain"
+            />
+          </div>
+
+          <div className="mx-auto w-full max-w-[260px]">
+            <Card
+              title={
+                <span className="block text-base leading-5">
+                  <span className="block">Acadêmico</span>
+                  <span className="block">Português</span>
+                </span>
+              }
+              href="/equipe/academica-portugues"
+              icon={<RiTeamLine />}
+              subtitle="Conheça nosso time acadêmico em português"
+            />
+          </div>
         </div>
       </div>
     </section>
