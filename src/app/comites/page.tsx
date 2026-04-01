@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import dados from "./dataComites";
 
 const blurBackground = "backdrop-blur-md";
@@ -15,6 +17,52 @@ interface Committee {
   idioma: string;
   imagem: string | null;
 }
+
+const LogoWithGlow = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [visible, setVisible] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+    setPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <Link href="/">
+      <div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        className="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-2xl p-4"
+      >
+        <div
+          className="pointer-events-none absolute h-40 w-40 rounded-full transition-opacity duration-300"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)",
+            transform: `translate(${pos.x - 80}px, ${pos.y - 80}px)`,
+            opacity: visible ? 1 : 0,
+            top: 0,
+            left: 0,
+          }}
+        />
+        <Image
+          src="/logo-senamun.png"
+          alt="Logo SenaMUN"
+          width={180}
+          height={180}
+          className="relative z-10 opacity-90"
+        />
+      </div>
+    </Link>
+  );
+};
 
 export default function ComitesPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,9 +84,10 @@ export default function ComitesPage() {
     setIsOpen(false);
   };
 
+  const primaryCommittees = committees.slice(0, 12);
   const rows = [];
-  for (let i = 0; i < committees.length; i += 3) {
-    rows.push(committees.slice(i, i + 3));
+  for (let i = 0; i < primaryCommittees.length; i += 3) {
+    rows.push(primaryCommittees.slice(i, i + 3));
   }
 
   const getCommitteeImage = (committee: Committee) => {
@@ -65,65 +114,81 @@ export default function ComitesPage() {
 
         <div className="mx-auto mt-12 flex max-w-[38rem] flex-col gap-8">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-3 gap-8">
-              {row.length === 1 ? (
-                <>
-                  <div />
-                  <button
-                    type="button"
-                    onClick={() => openModal(row[0])}
-                    className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
-                  >
-                    <div
-                      className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                      style={{
-                        backgroundImage: getCommitteeImage(row[0]),
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-                    <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                      <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
-                    </div>
-                    <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                      <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                        {row[0].comite}
-                      </h2>
-                    </div>
-                  </button>
-                  <div />
-                </>
-              ) : (
-                row.map((committee, index) => (
-                  <button
-                    key={`${committee.comite}-${index}`}
-                    type="button"
-                    onClick={() => openModal(committee)}
-                    className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
-                  >
-                    <div
-                      className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                      style={{
-                        backgroundImage: getCommitteeImage(committee),
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-                    <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                      <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
-                    </div>
-                    <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                      <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                        {committee.comite}
-                      </h2>
-                    </div>
-                  </button>
-                ))
-              )}
+            <div key={rowIndex} className="grid grid-cols-3 gap-6">
+              {row.map((committee, index) => (
+                <button
+                  key={`${committee.comite}-${index}`}
+                  type="button"
+                  onClick={() => openModal(committee)}
+                  className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
+                >
+                  <div
+                    className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                    style={{
+                      backgroundImage: getCommitteeImage(committee),
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                    <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                    <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                  </div>
+                  <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                    <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                      {committee.comite}
+                    </h2>
+                  </div>
+                </button>
+              ))}
             </div>
           ))}
+
+          <div className="grid grid-cols-3 items-center gap-6">
+            <Link
+              href="/comites/special-committee-star-wars"
+              className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
+            >
+              <div
+                className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                style={{ backgroundImage: "url(/comites/SW.webp)" }}
+              />
+              <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+              <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+              <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+              </div>
+              <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                  Special Committee - Star Wars
+                </h2>
+              </div>
+            </Link>
+
+            <LogoWithGlow />
+
+            <Link
+              href="/comites/junior-council"
+              className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
+            >
+              <div
+                className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                style={{ backgroundImage: "url(/comites/junior-council.jpeg)" }}
+              />
+              <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+              <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+              <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+              </div>
+              <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                  Junior Council
+                </h2>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
