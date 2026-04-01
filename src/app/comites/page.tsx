@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import dados from "./dataComites"; // Assuming dataComites is still needed for the content below
+import React, { useEffect, useState } from "react";
+import dados from "./dataComites";
 
 const blurBackground = "backdrop-blur-md";
 
@@ -21,9 +20,11 @@ export default function ComitesPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [modalData, setModalData] = useState<Committee | null>(null);
   const [committees, setCommittees] = useState<Committee[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setCommittees(dados);
+    setIsVisible(true);
   }, []);
 
   const openModal = (item: Committee) => {
@@ -35,84 +36,126 @@ export default function ComitesPage() {
     setIsOpen(false);
   };
 
+  const rows = [];
+  for (let i = 0; i < committees.length; i += 3) {
+    rows.push(committees.slice(i, i + 3));
+  }
+
+  const getCommitteeImage = (committee: Committee) => {
+    const imagePath = committee.imagem
+      ? `/comites/${committee.imagem}`
+      : "/logo-senamun.png";
+
+    return `url("${encodeURI(imagePath)}")`;
+  };
+
   return (
-    <div>
-      {/* Novo cabeçalho simplificado */}
-      <section className="flex flex-col items-center justify-center py-16 text-center bg-white dark:bg-[#0B1E2D] transition-colors duration-300">
-        <div className="px-4 md:px-6">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-wide text-blue-custom dark:text-[#f39322]">
+    <div className="min-h-screen bg-white transition-colors duration-300 dark:bg-[#0B1E2D]">
+      <section
+        className={`mx-auto w-full max-w-5xl px-5 py-16 transition-all duration-700 ${
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+        }`}
+      >
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-yellow-custom md:text-5xl">
             Comitês
           </h1>
-          <p className="mt-3 text-gray-700 dark:text-gray-300 text-lg">
-            Explore os temas e escolha onde participar
-          </p>
-          <div className="w-full h-px my-4 bg-gradient-to-r from-transparent via-yellow-custom/40 to-transparent dark:via-[#013563]/40"></div>
+          <div className="mx-auto mt-4 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
+        </div>
+
+        <div className="mx-auto mt-12 flex max-w-[38rem] flex-col gap-8">
+          {rows.map((row, rowIndex) => (
+            <div key={rowIndex} className="grid grid-cols-3 gap-8">
+              {row.length === 1 ? (
+                <>
+                  <div />
+                  <button
+                    type="button"
+                    onClick={() => openModal(row[0])}
+                    className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
+                  >
+                    <div
+                      className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                      style={{
+                        backgroundImage: getCommitteeImage(row[0]),
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                      <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                    </div>
+                    <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                      <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                        {row[0].comite}
+                      </h2>
+                    </div>
+                  </button>
+                  <div />
+                </>
+              ) : (
+                row.map((committee, index) => (
+                  <button
+                    key={`${committee.comite}-${index}`}
+                    type="button"
+                    onClick={() => openModal(committee)}
+                    className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
+                  >
+                    <div
+                      className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                      style={{
+                        backgroundImage: getCommitteeImage(committee),
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                      <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                      <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                    </div>
+                    <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                      <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                        {committee.comite}
+                      </h2>
+                    </div>
+                  </button>
+                ))
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Conteúdo existente da página de Comitês */}
-      <div className="flex flex-col bg-gray-100 min-h-fit p-6">
-        {committees.map((committee, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg shadow-xl mb-8 flex flex-col lg:flex-row h-auto max-w-full"
-          >
-            <div className="w-full lg:w-1/3">
-              <Image
-                src={
-                  committee.imagem
-                    ? `/comites/${committee.imagem}`
-                    : "/logo-senamun.png"
-                }
-                alt="Imagem do Comitê"
-                width={800}
-                height={500}
-                className="object-cover rounded-lg w-full h-64 lg:h-72"
-              />
-            </div>
-            <div className="ml-0 lg:ml-6 w-full lg:w-2/3 p-4 lg:p-6">
-              <h2 className="text-2xl font-bold">{committee.tema}</h2>
-              <p className="mt-2 text-lg font-semibold">{committee.comite}</p>
-              <p className="mt-2">Modalidade: {committee.modalidade}</p>
-              <p className="mt-2">Idioma: {committee.idioma.toUpperCase()}</p>
-              <button
-                onClick={() => openModal(committee)}
-                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-              >
-                Ver detalhes
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
       {isOpen && modalData && (
         <div
-          className={`fixed z-10 inset-0 overflow-y-auto ${isOpen ? blurBackground : ""
-            }`}
+          className={`fixed inset-0 z-10 overflow-y-auto ${
+            isOpen ? blurBackground : ""
+          }`}
         >
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0">
             <div
               className="fixed inset-0 transition-opacity"
               aria-hidden="true"
             >
               <div className="inset-0 bg-gray-500 opacity-75"></div>
             </div>
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen"></span>
+            <span className="hidden sm:inline-block sm:h-screen sm:align-middle"></span>
             <div
-              className={`${isOpen
+              className={`${
+                isOpen
                   ? "opacity-100 transition-opacity duration-200"
                   : "opacity-0 transition-opacity duration-300"
-                } inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full`}
+              } inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle`}
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-headline"
             >
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                     <h3
-                      className="text-lg leading-6 font-medium text-gray-900"
+                      className="text-lg font-medium leading-6 text-gray-900"
                       id="modal-headline"
                     >
                       {modalData.tema}
@@ -128,13 +171,12 @@ export default function ComitesPage() {
                         Idioma: {modalData.idioma.toUpperCase()}
                       </p>
 
-                      {/* Links em Grid */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
                         <a
                           href={modalData.classroom}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
                         >
                           Classroom
                         </a>
@@ -142,18 +184,18 @@ export default function ComitesPage() {
                           href={modalData.whatsapp}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                          className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
                         >
-                          Whatsapp 
+                          Whatsapp
                         </a>
                         {modalData.pdf && (
                           <a
                             href={modalData.pdf}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                            className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
                           >
-                            PDF 
+                            PDF
                           </a>
                         )}
                       </div>
@@ -161,10 +203,10 @@ export default function ComitesPage() {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <button
                   type="button"
-                  className="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="mt-3 inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:mt-0 sm:w-auto sm:text-sm"
                   onClick={closeModal}
                 >
                   Fechar
