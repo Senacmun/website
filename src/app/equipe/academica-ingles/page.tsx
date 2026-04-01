@@ -36,7 +36,7 @@ export default function AcademicaInglesPage() {
       ref={pageRef}
       className={`min-h-screen bg-white dark:bg-[#0B1E2D] py-10 px-6 transition-all duration-500 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
     >
-      {/* ðŸ”™ BOTÃƒO */}
+      {/*BOTÃO */}
       <div className="max-w-6xl mx-auto mb-6">
         <button
           onClick={handleBack}
@@ -56,10 +56,10 @@ export default function AcademicaInglesPage() {
         </div>
         <div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
-            AcadÃªmica InglÃªs
+            Acadêmico Inglês
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            ResponsÃ¡vel pela produÃ§Ã£o e revisÃ£o acadÃªmica dos materiais em inglÃªs.
+            Responsável pela produção e revisão acadêmica dos materiais em inglês.
           </p>
         </div>
       </div>

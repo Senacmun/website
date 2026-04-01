@@ -17,7 +17,7 @@ export default function Equipe() {
         </div>
         <div className="text-blue-custom dark:text-blue-light mt-10 lg:mt-0 lg:ml-10">
             <h1 className="text-4xl text-yellow-custom font-semibold">
-            NÃ³s somos o time SenaMUN 2025,
+            Nos somos o time SenaMUN 2025,
           </h1>
           <p className="text-2xl dark:text-blue-light">no total 37 pessoas!</p>
 
@@ -28,10 +28,10 @@ export default function Equipe() {
                 <Link href="/equipe/secretariado">Secretariado Geral</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
-                <Link href="/equipe/logistica">LogÃ­stica</Link>
+                <Link href="/equipe/logistica">Logística</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
-                <Link href="/equipe/comunicacao">ComunicaÃ§Ã£o</Link>
+                <Link href="/equipe/comunicacao">Comunicação</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
                 <Link href="/equipe/crises">Diretoria de Crises</Link>
@@ -40,16 +40,16 @@ export default function Equipe() {
                 <Link href="/equipe/imprensa">Diretoria de Imprensa</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
-                <Link href="/equipe/midia">MÃ­dia</Link>
+                <Link href="/equipe/midia">Mídia</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
                 <Link href="/equipe/imagens">Imagem</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
-                <Link href="/equipe/academica-portugues">AcadÃªmica PortuguÃªs</Link>
+                <Link href="/equipe/academica-portugues">Acadêmica Português</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
-                <Link href="/equipe/academica-ingles">AcadÃªmica InglÃªs</Link>
+                <Link href="/equipe/academica-ingles">Acadêmica Inglês</Link>
               </li>
               <li className="dark:text-soft-white cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom w-fit">
                 <Link href="/equipe/orientadores">Orientadores</Link>
@@ -65,61 +65,61 @@ export default function Equipe() {
             title="Secretariado Geral"
             href="/equipe/secretariado"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de secretÃ¡rios"
+            subtitle="Conheça nosso time de secretários"
           />
           <Card
-            title="LogÃ­stica"
+            title="Logística"
             href="/equipe/logistica"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de logÃ­stica"
+            subtitle="Conheça nosso time de logística"
           />
           <Card
-            title="ComunicaÃ§Ã£o"
+            title="Comunicação"
             href="/equipe/comunicacao"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de comunicaÃ§Ã£o"
+            subtitle="Conheça nosso time de comunicação"
           />
           <Card
             title="Diretoria de Crises"
             href="/equipe/crises"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de crises"
+            subtitle="Conheça nosso time de crises"
           />
           <Card
             title="Diretoria de Imprensa"
             href="/equipe/imprensa"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de imprensa"
+            subtitle="Conheça nosso time de imprensa"
           />
           <Card
-            title="MÃ­dia"
+            title="Mídia"
             href="/equipe/midia"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de midia"
+            subtitle="Conheça nosso time de mídia"
           />
           <Card
             title="Imagem"
             href="/equipe/imagens"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de imagem"
+            subtitle="Conheça nosso time de imagem"
           />
           <Card
-            title="AcadÃªmica PortuguÃªs"
+            title="Acadêmico Português"
             href="/equipe/academica-portugues"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time acadÃªmico em portuguÃªs"
+            subtitle="Conheça nosso time acadêmico em português"
           />
           <Card
-            title="AcadÃªmica InglÃªs"
+            title="Acadêmico Inglês"
             href="/equipe/academica-ingles"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time acadÃªmico em inglÃªs"
+            subtitle="Conheça nosso time acadêmico em inglês"
           />
           <Card
             title="Orientadores"
             href="/equipe/orientadores"
             icon={<RiTeamLine />}
-            subtitle="ConheÃ§a nosso time de orientadores"
+            subtitle="Conheça nosso time de orientadores"
           />
         </div>
       </div>

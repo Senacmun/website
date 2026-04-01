@@ -56,10 +56,10 @@ export default function AcademicaPortuguesPage() {
         </div>
         <div>
           <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
-            AcadÃªmica PortuguÃªs
+            Acadêmico Português
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            ResponsÃ¡vel pela produÃ§Ã£o e revisÃ£o acadÃªmica dos materiais em portuguÃªs.
+            Responsável pela produção e revisão acadêmica dos materiais em português.
           </p>
         </div>
       </div>

@@ -59,7 +59,7 @@ export default function CrisesPage() {
               Diretoria de Crises
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-1">
-              ResponsÃ¡vel pela organizaÃ§Ã£o e conduÃ§Ã£o dos comitÃªs de crise.
+              Responsável pela organização e condução dos comitês de crise.
             </p>
           </div>
         </div>

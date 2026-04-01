@@ -59,7 +59,7 @@ export default function ImprensaPage() {
             Diretoria de Imprensa
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
-            ResponsÃ¡vel pela cobertura institucional e relaÃ§Ã£o com a imprensa do evento.
+            Responsável pela cobertura institucional e relação com a imprensa do evento.
           </p>
         </div>
       </div>
