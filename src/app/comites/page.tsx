@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import dados from "./dataComites";
@@ -17,52 +17,6 @@ interface Committee {
   idioma: string;
   imagem: string | null;
 }
-
-const LogoWithGlow = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [visible, setVisible] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    setPos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
-  return (
-    <Link href="/">
-      <div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-        className="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-2xl p-4"
-      >
-        <div
-          className="pointer-events-none absolute h-40 w-40 rounded-full transition-opacity duration-300"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)",
-            transform: `translate(${pos.x - 80}px, ${pos.y - 80}px)`,
-            opacity: visible ? 1 : 0,
-            top: 0,
-            left: 0,
-          }}
-        />
-        <Image
-          src="/logo-senamun.png"
-          alt="Logo SenaMUN"
-          width={180}
-          height={180}
-          className="relative z-10 opacity-90"
-        />
-      </div>
-    </Link>
-  );
-};
 
 export default function ComitesPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -166,7 +120,15 @@ export default function ComitesPage() {
               </div>
             </Link>
 
-            <LogoWithGlow />
+            <Link href="/" className="flex items-center justify-center">
+              <Image
+                src="/logo-senamun.png"
+                alt="Logo SenaMUN"
+                width={180}
+                height={180}
+                className="opacity-90"
+              />
+            </Link>
 
             <Link
               href="/comites/junior-council"

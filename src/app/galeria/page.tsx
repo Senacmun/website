@@ -1,38 +1,73 @@
-"use client";
+﻿"use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Exemplo de estrutura de dados. Substitua pelos caminhos reais das suas imagens.
 const photosData: Record<number, string[]> = {
-  2025: [
-    "/galeria/2025/foto1.jpg",
-    "/galeria/2025/foto2.jpg",
-    "/galeria/2025/foto3.jpg",
-    "/galeria/2025/foto4.jpg",
-    "/galeria/2025/foto5.jpg",
-    "/galeria/2025/foto6.jpg",
-  ],
+  2025: [],
   2024: [
-    "/galeria/2024/foto1.jpg",
-    "/galeria/2024/foto2.jpg",
-    "/galeria/2024/foto3.jpg",
-    "/galeria/2024/foto4.jpg",
-    "/galeria/2024/foto5.jpg",
-    "/galeria/2024/foto6.jpg",
-    "/galeria/2024/foto7.jpg",
-    "/galeria/2024/foto8.jpg",
+    "/edicoes/2024/DSC_0024_1_11zon.jpg",
+    "/edicoes/2024/DSC_0090_2_11zon.jpg",
+    "/edicoes/2024/IMG_2476 1_3_11zon.jpg",
+    "/edicoes/2024/IMG_2497_4_11zon.jpg",
+    "/edicoes/2024/IMG_2547_5_11zon.jpg",
+    "/edicoes/2024/IMG_2560_6_11zon.jpg",
+    "/edicoes/2024/IMG_2578_7_11zon.jpg",
+    "/edicoes/2024/IMG_2596_8_11zon.jpg",
+    "/edicoes/2024/IMG_2604_9_11zon.jpg",
+    "/edicoes/2024/IMG_4936_10_11zon.jpg",
+    "/edicoes/2024/IMG_4938 (1)_11_11zon.jpg",
+    "/edicoes/2024/IMG_7959_12_11zon.jpg",
+    "/edicoes/2024/IMG_7970_13_11zon.jpg",
+    "/edicoes/2024/IMG_7993_14_11zon.jpg",
+    "/edicoes/2024/IMG_8006_15_11zon.jpg",
+    "/edicoes/2024/IMG_8008_16_11zon.jpg",
+    "/edicoes/2024/IMG_8023_17_11zon.jpg",
+    "/edicoes/2024/IMG_8029_18_11zon.jpg",
+    "/edicoes/2024/IMG_8042_19_11zon.jpg",
+    "/edicoes/2024/IMG_8050_20_11zon.jpg",
+    "/edicoes/2024/IMG_8059_21_11zon.jpg",
+    "/edicoes/2024/IMG_8065_22_11zon.jpg",
+    "/edicoes/2024/IMG_8067_23_11zon.jpg",
+    "/edicoes/2024/IMG_8107_24_11zon.jpg",
   ],
   2023: [
-    "/galeria/2023/foto1.jpg",
-    "/galeria/2023/foto2.jpg",
-    "/galeria/2023/foto3.jpg",
-    "/galeria/2023/foto4.jpg",
+    "/edicoes/2023/foto18JPG.jpg",
+    "/edicoes/2023/foto19JPG.jpg",
+    "/edicoes/2023/foto20JPG.jpg",
+    "/edicoes/2023/foto21JPG.jpg",
+    "/edicoes/2023/IMG_1178JPG.jpg",
+    "/edicoes/2023/IMG_1190JPG.jpg",
+    "/edicoes/2023/IMG_1193JPG.jpg",
+    "/edicoes/2023/IMG_1197JPG.jpg",
+    "/edicoes/2023/IMG_1208JPG.jpg",
+    "/edicoes/2023/IMG_1220JPG.jpg",
+    "/edicoes/2023/IMG_1232JPG.jpg",
+    "/edicoes/2023/IMG_1258JPG.jpg",
+    "/edicoes/2023/IMG_1303JPG.jpg",
+    "/edicoes/2023/IMG_1395JPG.jpg",
+    "/edicoes/2023/IMG_1504JPG.jpg",
+    "/edicoes/2023/IMG_1590JPG.jpg",
+    "/edicoes/2023/IMG_1612JPG.jpg",
+    "/edicoes/2023/IMG_1649JPG.jpg",
   ],
   2022: [
-    "/galeria/2022/foto1.jpg",
-    "/galeria/2022/foto2.jpg",
+    "/edicoes/2022/foto1.jpg",
+    "/edicoes/2022/foto2.jpg",
+    "/edicoes/2022/foto3.jpg",
+    "/edicoes/2022/foto4.jpg",
+    "/edicoes/2022/foto5.jpg",
+    "/edicoes/2022/foto6.jpg",
+    "/edicoes/2022/foto7.jpg",
+    "/edicoes/2022/foto10.jpg",
+    "/edicoes/2022/foto11.jpg",
+    "/edicoes/2022/foto12.jpg",
+    "/edicoes/2022/foto13.jpg",
+    "/edicoes/2022/foto14.jpg",
+    "/edicoes/2022/foto15.jpg",
+    "/edicoes/2022/foto16.jpg",
+    "/edicoes/2022/foto17.jpg",
   ],
 };
 
@@ -40,7 +75,33 @@ const years = [2025, 2024, 2023, 2022];
 
 export default function GaleriaPage() {
   const [selectedYear, setSelectedYear] = useState(2025);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [zoom, setZoom] = useState<number>(1);
+  const [showControls, setShowControls] = useState(true);
+  const hideControlsTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const MIN_ZOOM = 1;
+  const MAX_ZOOM = 3;
+  const ZOOM_STEP = 0.5;
   const currentPhotos = photosData[selectedYear] || [];
+
+  const resetControlsTimer = () => {
+    setShowControls(true);
+    if (hideControlsTimer.current) clearTimeout(hideControlsTimer.current);
+    hideControlsTimer.current = setTimeout(() => {
+      setShowControls(false);
+    }, 2000);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    setZoom(1);
+    setShowControls(true);
+    if (hideControlsTimer.current) clearTimeout(hideControlsTimer.current);
+  };
+
+  useEffect(() => {
+    if (selectedImage) resetControlsTimer();
+  }, [selectedImage]);
 
   return (
     <div className="w-full min-h-screen bg-white dark:bg-[#0B1E2D] transition-colors duration-300">
@@ -51,7 +112,7 @@ export default function GaleriaPage() {
             Galeria de Fotos
           </h1>
           <p className="mt-3 text-gray-700 dark:text-gray-300 text-lg">
-            Reviva os momentos marcantes das nossas conferências
+            Reviva os momentos marcantes das nossas conferÃªncias
           </p>
           <div className="w-full h-px my-4 bg-gradient-to-r from-transparent via-yellow-custom/40 to-transparent dark:via-[#013563]/40"></div>
         </div>
@@ -91,6 +152,10 @@ export default function GaleriaPage() {
               {currentPhotos.map((img, index) => (
                 <div
                   key={index}
+                  onClick={() => {
+                    setSelectedImage(img);
+                    setZoom(1);
+                  }}
                   className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer dark:border dark:border-white/10"
                 >
                   <Image
@@ -103,6 +168,7 @@ export default function GaleriaPage() {
                   {/* Overlay Premium */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
                     <span className="opacity-0 group-hover:opacity-100 text-white text-lg font-medium transition-all duration-300">
+                      <i className="fa-solid fa-magnifying-glass mr-2" />
                       Ver imagem
                     </span>
                   </div>
@@ -115,11 +181,90 @@ export default function GaleriaPage() {
               animate={{ opacity: 1 }}
               className="text-center text-gray-500 dark:text-gray-400 mt-10 text-lg italic"
             >
-              Nenhuma foto disponível ainda para {selectedYear}
+              {selectedYear === 2025
+                ? "Ainda não temos imagens de 2025."
+                : `Nenhuma foto disponí­vel ainda para ${selectedYear}`}
             </motion.p>
           )}
         </AnimatePresence>
       </section>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={closeLightbox}
+          onMouseMove={resetControlsTimer}
+        >
+          <button
+            onClick={() => {
+              closeLightbox();
+            }}
+            className={`fixed top-4 right-4 z-[60] bg-white dark:bg-slate-800 text-gray-800 dark:text-white rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:scale-110 font-bold text-xl transition-all duration-500 ${
+              showControls ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+          >
+            ✕
+          </button>
+
+          <div
+            className="relative mx-4 w-full max-w-4xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <div
+                className="absolute inset-0 transition-transform duration-300 ease-out"
+                style={{
+                  transform: `scale(${zoom})`,
+                  transformOrigin: "center center",
+                }}
+              >
+                <Image
+                  src={selectedImage}
+                  alt="Imagem expandida"
+                  fill
+                  className="object-contain"
+                  draggable={false}
+                />
+              </div>
+            </div>
+
+            <div
+              className={`flex items-center justify-center gap-3 mt-4 transition-all duration-500 ${
+                showControls ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+              }`}
+            >
+              <button
+                onClick={() => {
+                  setZoom((z) => Math.max(MIN_ZOOM, z - ZOOM_STEP));
+                  resetControlsTimer();
+                }}
+                disabled={zoom <= MIN_ZOOM}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-gray-800 shadow transition-transform duration-200 hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800 dark:text-white"
+                title="Diminuir zoom"
+              >
+                −
+              </button>
+
+              <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow backdrop-blur-sm dark:bg-slate-800/60">
+                <i className="fa-solid fa-magnifying-glass text-yellow-custom" />
+                {Math.round(zoom * 100)}%
+              </div>
+
+              <button
+                onClick={() => {
+                  setZoom((z) => Math.min(MAX_ZOOM, z + ZOOM_STEP));
+                  resetControlsTimer();
+                }}
+                disabled={zoom >= MAX_ZOOM}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-gray-800 shadow transition-transform duration-200 hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800 dark:text-white"
+                title="Aumentar zoom"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
