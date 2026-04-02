@@ -2,12 +2,12 @@ const dadosMembros = {
   sec: [
     {
       nome: "Brenno Figueiredo de Souza",
-      cargo: "SecretÃ¡rio Geral",
+      cargo: "Secretário Geral",
       imagem: "Brenno Figueiredo (2).JPG",
     },
     {
       nome: "Giovanna Queiroz da Silva",
-      cargo: "Vice-secretÃ¡ria Geral",
+      cargo: "Vice-secretária Geral",
       imagem: "Giovanna Queiroz.JPG",
     },
     {
@@ -25,66 +25,66 @@ const dadosMembros = {
   ddc: [
     {
       nome: "Raquel Sampaio da Silva",
-      cargo: "Diretoria de ComunicaÃ§Ã£o",
+      cargo: "Diretoria de Comunicação",
       imagem: "Raquel Sampaio.JPG",
     },
     {
       nome: "Isabela Oliveira Matias",
-      cargo: "Diretoria de ComunicaÃ§Ã£o",
+      cargo: "Diretoria de Comunicação",
       imagem: "Isabela Oliveira.JPG",
     },
     {
       nome: "Gabriel Souza Santos",
-      cargo: "Diretoria de ComunicaÃ§Ã£o",
+      cargo: "Diretoria de Comunicação",
       imagem: "Gabriel Souza.JPG",
     },
     {
-      nome: "JosÃ© Francisco Chaves da Paz",
-      cargo: "Diretoria de ComunicaÃ§Ã£o",
+      nome: "José Francisco Chaves da Paz",
+      cargo: "Diretoria de Comunicação",
       imagem: "Jose Francisco Chaves.JPG",
     },
   ],
   dl: [
-    // Membros da LogÃ­stica Operacional
+    // Membros da Logística Operacional
     {
       nome: "Ana Clara Oliveira Santos",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "Ana Clara Oliveira.JPG",
     },
     {
       nome: "Agatha Moreno Serignolli",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "AGatha Serignolli.JPG",
     },
     {
       nome: "Larissa Jesus Gadelha Vieira",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "Larissa Gadelho.JPG",
     },
     {
-      nome: "Juliana De Souza ConceiÃ§Ã£o",
-      cargo: "Diretoria de LogÃ­stica",
+      nome: "Juliana De Souza Conceição",
+      cargo: "Diretoria de Logística",
       imagem: "Juliane Conceicao.JPG",
     },
-    // Membros da LogÃ­stica EstratÃ©gica
+    // Membros da Logística Estratégica
     {
       nome: "Anna Luiza Reipert",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "Anna Luiza Reipert.JPG",
     },
     {
       nome: "Paulo Henrique Souza Ferreira",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "Paulo Henrique Souza.JPG",
     },
     {
       nome: "Ana Carolina Ferreira",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "Ana Carol.JPG",
     },
     {
       nome: "Daniel Cristal Teixeira",
-      cargo: "Diretoria de LogÃ­stica",
+      cargo: "Diretoria de Logística",
       imagem: "Daniel Cristal.JPG",
     },
   ],
@@ -125,127 +125,127 @@ const dadosMembros = {
   ],
 
   dm: [
-    // Membros da MÃ­dia: Imagem
+    // Membros da Mídia: Imagem
     {
       nome: "Gabriela Monteiro da Silva",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Gabriela Monteiro.JPG",
     },
     {
       nome: "Isabel Yuki Alves Gama",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Isabel Yuki.JPG",
     },
     {
       nome: "Emily Gama Belloto",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Emily Belotto.JPG",
     },
     {
-      nome: "CauÃª Garcia Felizardo",
-      cargo: "Diretoria de MÃ­dia",
+      nome: "Cauê Garcia Felizardo",
+      cargo: "Diretoria de Mídia",
       imagem: "Caue Garcia.JPG",
     },
-    // Membros da MÃ­dia: VÃ­deo
+    // Membros da Mídia: Vídeo
     {
       nome: "Lucas Gomes Carvalho",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Lucas Gomes.JPG",
     },
     {
       nome: "Arthur Moura de Araujo",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Arthur Moura.JPG",
     },
     {
       nome: "Leonardo Mendes Sakamoto",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Leonardo Sakamoto.JPG",
     },
     {
       nome: "Rebeca de Sousa Nalin",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Rebeca Nalin.JPG",
     },
     {
       nome: "Juliane dos Anjos Silva",
-      cargo: "Diretoria de MÃ­dia",
+      cargo: "Diretoria de Mídia",
       imagem: "Juliane.JPG",
     },
   ],
   da: [
     {
       nome: "Anielle Matos Vieira",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Aniele.JPG",
     },
     {
       nome: "Isabella Cardoso",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Isabella Cardoso.JPG",
     },
     {
       nome: "Maria Eduarda Morais de Oliveira",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Maria Eduarda.JPG",
     },
     {
       nome: "Sophia Dib Troyano",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Sophia Troyano.JPG",
     },
     {
       nome: "Guilherme Spaca Botelho",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Guilherme Spaca.JPG",
     },
     {
       nome: "Nayara Alves De Lima",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Nayara Alves.JPG",
     },
     {
       nome: "Arthur Andryu Teixeira Moreira",
-      cargo: "DiretÃ³ria AcadÃªmica â€“ RevisÃ£o",
+      cargo: "Diretoria Acadêmica de Revisão",
       imagem: "Arthur Andryu.JPG",
     },
   ],
   dap: [
     {
       nome: "Anielle Matos Vieira",
-      cargo: "AcadÃªmica PortuguÃªs â€“ RevisÃ£o",
+      cargo: "Academia Português - Revisão",
       imagem: "Aniele.JPG",
     },
     {
       nome: "Isabella Cardoso",
-      cargo: "AcadÃªmica PortuguÃªs â€“ RevisÃ£o",
+      cargo: "Academia Português - Revisão",
       imagem: "Isabella Cardoso.JPG",
     },
     {
       nome: "Maria Eduarda Morais de Oliveira",
-      cargo: "AcadÃªmica PortuguÃªs â€“ RevisÃ£o",
+      cargo: "Academia Português - Revisão",
       imagem: "Maria Eduarda.JPG",
     },
     {
       nome: "Sophia Dib Troyano",
-      cargo: "AcadÃªmica PortuguÃªs â€“ RevisÃ£o",
+      cargo: "Academia Português - Revisão",
       imagem: "Sophia Troyano.JPG",
     },
   ],
   dai: [
     {
       nome: "Guilherme Spaca Botelho",
-      cargo: "AcadÃªmica InglÃªs â€“ RevisÃ£o",
+      cargo: "Academia Inglês - Revisão",
       imagem: "Guilherme Spaca.JPG",
     },
     {
       nome: "Nayara Alves De Lima",
-      cargo: "AcadÃªmica InglÃªs â€“ RevisÃ£o",
+      cargo: "Academia Inglês - Revisão",
       imagem: "Nayara Alves.JPG",
     },
     {
       nome: "Arthur Andryu Teixeira Moreira",
-      cargo: "AcadÃªmica InglÃªs â€“ RevisÃ£o",
+      cargo: "Academia Inglês - Revisão",
       imagem: "Arthur Andryu.JPG",
     },
   ],
@@ -275,7 +275,7 @@ const dadosMembros = {
     },
     {
       nome: "Isabel Yuki Alves Gama",
-      cargo: "Diretoria de Imagem - EdiÃ§Ã£o",
+      cargo: "Diretoria de Imagem - Edição",
       imagem: "Isabel Yuki.JPG",
     },
     {
@@ -284,18 +284,18 @@ const dadosMembros = {
       imagem: "Emily Belotto.JPG",
     },
     {
-      nome: "CauÃª Garcia Felizardo",
+      nome: "Cauê Garcia Felizardo",
       cargo: "Diretoria de Imagem - Fotografia",
-      imagem: "Caue Garcia.JPG",
+      imagem: "Cauê Garcia.JPG",
     },
     {
       nome: "Lucas Gomes Carvalho",
-      cargo: "Diretoria de Imagem - VÃ­deo",
+      cargo: "Diretoria de Imagem - Vídeo",
       imagem: "Lucas Gomes.JPG",
     },
     {
       nome: "Arthur Moura de Araujo",
-      cargo: "Diretoria de Imagem - EdiÃ§Ã£o",
+      cargo: "Diretoria de Imagem - Edição",
       imagem: "Arthur Moura.JPG",
     },
     {
@@ -305,7 +305,7 @@ const dadosMembros = {
     },
     {
       nome: "Rebeca de Sousa Nalin",
-      cargo: "Diretoria de Imagem - EdiÃ§Ã£o",
+      cargo: "Diretoria de Imagem - Edição",
       imagem: "Rebeca Nalin.JPG",
     },
     {

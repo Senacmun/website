@@ -261,3 +261,38 @@
 .animate-slide-out-right {
   animation: slide-out-to-right 0.35s ease-out forwards;
 }
+
+/* 3D Slider */
+.slider-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate3d 20s linear infinite;
+}
+
+.slider-3d:hover {
+  animation-play-state: paused;
+}
+
+@keyframes rotate3d {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.slide-item {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.slide-item:hover {
+  border-color: #f39322;
+}
+
+.slider-3d-wrapper {
+  perspective: 1200px;
+  perspective-origin: center center;
+}

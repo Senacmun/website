@@ -19,7 +19,7 @@ export default function DiretoriaImagemPage() {
       <div className="max-w-6xl mx-auto">
         <Link
           href="/equipe"
-          className="group inline-flex items-center gap-2 text-yellow-custom hover:text-yellow-400 font-semibold text-base mb-8 transition-all duration-200"
+          className="group mb-8 inline-flex items-center gap-2 rounded-xl bg-[#0B2A41]/70 px-4 py-2 text-sm font-medium text-yellow-custom shadow-md backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:text-yellow-400"
         >
           <span className="inline-block text-lg font-bold leading-none transition-transform duration-300 group-hover:-translate-x-1 group-active:-translate-x-2">
             ←
@@ -32,10 +32,10 @@ export default function DiretoriaImagemPage() {
             <i className="fa-solid fa-camera text-yellow-custom text-3xl" />
           </div>
           <div>
-            <h1 className="text-white dark:text-white font-bold text-4xl md:text-5xl">
+            <h1 className="text-[#0B2E4A] dark:text-white font-bold text-4xl md:text-5xl">
               Diretoria de Imagem
             </h1>
-            <p className="text-gray-400 dark:text-gray-400 text-sm mt-1">
+            <p className="text-[#36566F] dark:text-gray-400 text-sm mt-1">
               Responsáveis pelos registros fotográficos e identidade visual
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function DiretoriaImagemPage() {
                   className="aspect-square object-cover rounded-xl"
                 />
               </div>
-              <h3 className="text-lg font-semibold mt-3 text-blue-custom dark:text-[#f39322]">
+              <h3 className="text-lg font-semibold mt-3 text-[#0B2E4A] dark:text-white">
                 {membro.nome}
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -72,6 +72,7 @@ export default function DiretoriaImagemPage() {
     </main>
   );
 }
+
 
 
 

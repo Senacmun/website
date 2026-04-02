@@ -1,58 +1,61 @@
 ﻿"use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 
 const membros = [
   {
     nome: "Leonardo",
     cargo: "Secretariado Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
     imagem: "/time/secretarios/Marina de Anna.JPG",
   },
   {
     nome: "Gustavo",
     cargo: "Secretariado Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
     imagem: "/time/secretarios/Giovanna Queiroz.JPG",
   },
   {
     nome: "Kauan",
     cargo: "Secretariado Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
     imagem: "/time/secretarios/Gabriela Sanches.JPG",
   },
   {
     nome: "Ana",
     cargo: "Secretariado Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
     imagem: "/time/secretarios/Brenno Figueiredo (2).JPG",
   },
   {
     nome: "Emily",
     cargo: "Secretariado Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
     imagem: "/time/secretarios/Marina de Anna.JPG",
   },
   {
     nome: "Letícia",
     cargo: "Secretariado Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
     imagem: "/time/secretarios/Giovanna Queiroz.JPG",
   },
 ];
 
 export default function SecretariadoPage() {
   const [current, setCurrent] = useState(0);
-  const [trackOffset, setTrackOffset] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [visible, setVisible] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const dragStartX = useRef<number | null>(null);
-  const DRAG_THRESHOLD = 60;
-  const SLIDE_WIDTH = 280;
+  const COUNT = membros.length;
   const AUTOPLAY_MS = 5000;
+
+  const resetTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % COUNT);
+    }, AUTOPLAY_MS);
+  };
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
@@ -64,13 +67,6 @@ export default function SecretariadoPage() {
     }
   }, []);
 
-  const resetTimer = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setCurrent((c) => (c + 1) % membros.length);
-    }, AUTOPLAY_MS);
-  };
-
   useEffect(() => {
     resetTimer();
     return () => {
@@ -78,226 +74,131 @@ export default function SecretariadoPage() {
     };
   }, []);
 
-  const slideTo = (dir: "left" | "right") => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setTrackOffset(dir === "right" ? -SLIDE_WIDTH : SLIDE_WIDTH);
-    setTimeout(() => {
-      setCurrent((c) =>
-        dir === "right"
-          ? (c + 1) % membros.length
-          : (c - 1 + membros.length) % membros.length,
-      );
-      setIsTransitioning(false);
-      setTrackOffset(0);
-    }, 350);
+  const selectMembro = (i: number) => {
+    setCurrent(i);
     resetTimer();
   };
 
-  const prev = () => slideTo("left");
-  const next = () => slideTo("right");
-
-  const goTo = (i: number) => {
-    const dir = i > current ? "right" : "left";
-    slideTo(dir);
+  const prev = () => {
+    setCurrent((c) => (c - 1 + COUNT) % COUNT);
+    resetTimer();
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    dragStartX.current = e.clientX;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (dragStartX.current === null || isTransitioning) return;
-    const diff = e.clientX - dragStartX.current;
-    setTrackOffset(diff * 0.4);
-  };
-
-  const handleMouseUp = (e: React.MouseEvent) => {
-    if (dragStartX.current === null) return;
-    const diff = e.clientX - dragStartX.current;
-    if (Math.abs(diff) > DRAG_THRESHOLD) {
-      slideTo(diff < 0 ? "right" : "left");
-    } else {
-      setIsTransitioning(true);
-      setTrackOffset(0);
-      setTimeout(() => setIsTransitioning(false), 350);
-    }
-    dragStartX.current = null;
-  };
-
-  const handleMouseLeave = () => {
-    if (dragStartX.current !== null) {
-      setIsTransitioning(true);
-      setTrackOffset(0);
-      setTimeout(() => setIsTransitioning(false), 350);
-      dragStartX.current = null;
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    dragStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (dragStartX.current === null || isTransitioning) return;
-    const diff = e.touches[0].clientX - dragStartX.current;
-    setTrackOffset(diff * 0.4);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (dragStartX.current === null) return;
-    const diff = e.changedTouches[0].clientX - dragStartX.current;
-    if (Math.abs(diff) > DRAG_THRESHOLD) {
-      slideTo(diff < 0 ? "right" : "left");
-    } else {
-      setIsTransitioning(true);
-      setTrackOffset(0);
-      setTimeout(() => setIsTransitioning(false), 350);
-    }
-    dragStartX.current = null;
+  const next = () => {
+    setCurrent((c) => (c + 1) % COUNT);
+    resetTimer();
   };
 
   return (
     <main
-      className={`min-h-screen bg-white px-6 py-10 transition-all duration-500 dark:bg-[#0B1E2D] ${
+      className={`min-h-screen overflow-x-hidden bg-white px-4 py-12 transition-all duration-500 dark:bg-[#0B1E2D] ${
         visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       }`}
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto max-w-6xl">
         <Link
           href="/equipe"
-          className="group inline-flex items-center gap-2 text-yellow-custom hover:text-yellow-400 font-semibold text-base mb-8 transition-all duration-200"
+          className="group mb-8 inline-flex items-center gap-2 rounded-xl bg-[#0B2A41]/70 px-4 py-2 text-sm font-medium text-yellow-custom shadow-md backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:text-yellow-400"
         >
-          <span className="inline-block text-lg font-bold leading-none transition-transform duration-300 group-hover:-translate-x-1 group-active:-translate-x-2">
-            ←
-          </span>
+          <span className="inline-block transition-transform duration-300 group-hover:-translate-x-1">←</span>
           Voltar para Equipe
         </Link>
 
-        <div className="flex items-center gap-4 mb-2">
-          <div className="bg-yellow-custom/10 dark:bg-yellow-custom/20 rounded-full p-4 flex items-center justify-center">
-            <i className="fa-solid fa-user-tie text-yellow-custom text-3xl" />
+        <div className="mb-2 flex items-center gap-4">
+          <div className="rounded-full bg-yellow-custom/10 p-4">
+            <i className="fa-solid fa-user-tie text-3xl text-yellow-custom" />
           </div>
           <div>
-            <h1 className="text-white dark:text-white font-bold text-4xl md:text-5xl">
-              Secretariado Geral
-            </h1>
-            <p className="text-gray-400 dark:text-gray-400 text-sm mt-1">
-              Responsáveis pela coordenação geral do SenaMUN V
-            </p>
+            <h1 className="text-4xl font-bold text-[#0B2E4A] dark:text-white md:text-5xl">Secretariado Geral</h1>
+            <p className="mt-1 text-sm text-[#36566F] dark:text-gray-400">Responsáveis pela coordenação geral do SenaMUN V</p>
           </div>
         </div>
-
-        <div className="w-full h-px bg-gradient-to-r from-yellow-custom/40 via-transparent to-transparent mt-6 mb-10" />
+        <div className="mb-16 mt-6 h-px w-full bg-gradient-to-r from-yellow-custom/40 via-transparent to-transparent" />
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-5xl flex-col items-center gap-8 md:flex-row">
-        <div className="w-full md:w-1/2">
-          <div
-            className="relative w-full select-none overflow-hidden py-8"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-            style={{ cursor: "grab" }}
-          >
-            <div
-              className="flex items-center justify-center gap-4"
-              style={{
-                transform: `translateX(${trackOffset}px)`,
-                transition: isTransitioning
-                  ? "transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)"
-                  : "none",
-                willChange: "transform",
-              }}
-            >
-              {[-1, 0, 1].map((offset) => {
-                const index = (current + offset + membros.length) % membros.length;
-                const membro = membros[index];
-                const isCenter = offset === 0;
+      <div className="flex flex-col items-center gap-16 xl:flex-row xl:justify-start">
+        <div className="relative w-full max-w-2xl xl:-ml-8">
+          <div className="relative h-[340px] w-full md:h-[380px]">
+            {[-1, 0, 1].map((offset) => {
+              const index = (current + offset + COUNT) % COUNT;
+              const membro = membros[index];
+              const isCenter = offset === 0;
 
-                return (
-                  <div
-                    key={`${index}-${offset}`}
-                    onClick={() => !isCenter && goTo(index)}
-                    className={`relative flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl shadow-xl ${
-                      isCenter
-                        ? "w-64 md:w-72 h-80 md:h-96 opacity-100 scale-100 z-20"
-                        : "w-48 md:w-56 h-68 md:h-80 opacity-50 scale-95 z-10 blur-[1px] hover:opacity-70 hover:blur-0"
+              const offsetClass =
+                offset === -1
+                  ? "-translate-x-[48%] md:-translate-x-[56%] scale-[0.85] opacity-65 z-20"
+                  : offset === 1
+                    ? "translate-x-[48%] md:translate-x-[56%] scale-[0.85] opacity-65 z-20"
+                    : "translate-x-0 scale-100 opacity-100 z-30";
+
+              return (
+                <button
+                  key={`${index}-${offset}`}
+                  type="button"
+                  onClick={() => selectMembro(index)}
+                  className={`absolute left-1/2 top-1/2 h-60 w-40 -translate-y-1/2 -translate-x-1/2 overflow-hidden rounded-2xl shadow-2xl transition-all duration-700 ease-out md:h-[320px] md:w-52 ${offsetClass}`}
+                >
+                  <Image
+                    src={membro.imagem}
+                    alt={membro.nome}
+                    fill
+                    className={`object-cover object-top transition-all duration-700 ${
+                      isCenter ? "grayscale-0" : "grayscale"
                     }`}
-                    style={{
-                      transition: "all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                    }}
-                  >
-                    <Image
-                      src={membro.imagem}
-                      alt={membro.nome}
-                      fill
-                      className="object-cover object-top"
-                      draggable={false}
-                    />
-                    {!isCenter && (
-                      <div className="absolute inset-0 bg-black/30 transition-all duration-300 hover:bg-black/10" />
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                    draggable={false}
+                  />
+                  {!isCenter && (
+                    <div className="absolute inset-0 bg-black/35 transition-all duration-500 hover:bg-black/20" />
+                  )}
+                  {isCenter && (
+                    <div className="pointer-events-none absolute inset-0 ring-2 ring-yellow-custom ring-offset-2 ring-offset-[#0B1E2D]" />
+                  )}
+                </button>
+              );
+            })}
 
             <button
+              type="button"
               onClick={prev}
-              className="absolute left-0 top-1/2 z-30 -translate-y-1/2 p-2 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white"
+              className="absolute left-52 top-1/2 z-40 -translate-y-1/2 p-2 text-[#0B2E4A]/80 transition-all duration-300 hover:scale-125 hover:text-[#0B2E4A] dark:text-white/40 dark:hover:text-white"
               aria-label="Membro anterior"
             >
-              <i className="fa-solid fa-chevron-left text-xl" />
+              <i className="fa-solid fa-chevron-left text-lg" />
             </button>
             <button
+              type="button"
               onClick={next}
-              className="absolute right-0 top-1/2 z-30 -translate-y-1/2 p-2 text-white/50 transition-all duration-300 hover:scale-110 hover:text-white"
+              className="absolute right-0 top-1/2 z-40 -translate-y-1/2 p-2 text-[#0B2E4A]/80 transition-all duration-300 hover:scale-125 hover:text-[#0B2E4A] dark:text-white/40 dark:hover:text-white"
               aria-label="Próximo membro"
             >
-              <i className="fa-solid fa-chevron-right text-xl" />
+              <i className="fa-solid fa-chevron-right text-lg" />
             </button>
-
-            <div className="mt-6 flex justify-center gap-2">
-              {membros.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === current
-                      ? "w-8 bg-yellow-custom"
-                      : "w-2 bg-gray-400 dark:bg-slate-600"
-                  }`}
-                  aria-label={`Ir para membro ${i + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
 
         <div
           key={current}
-          className="w-full rounded-2xl border-2 border-yellow-custom bg-[#0B1E2D]/60 p-6 shadow-xl backdrop-blur-sm animate-fade-in dark:bg-[#0F2A3D]/80 md:w-1/2"
+          className="animate-fade-in w-full max-w-sm rounded-2xl border-2 border-yellow-custom bg-[#0B1E2D]/60 p-8 shadow-xl backdrop-blur-sm dark:bg-[#0F2A3D]/80"
         >
-          <h2 className="mb-1 text-2xl font-bold text-yellow-custom md:text-3xl">
-            {membros[current].nome}
-          </h2>
-          <p className="mb-4 text-base font-medium text-light-blue-custom">
-            {membros[current].cargo}
-          </p>
+          <h2 className="mb-1 text-3xl font-bold text-yellow-custom">{membros[current].nome}</h2>
+          <p className="mb-4 text-base font-medium text-light-blue-custom">{membros[current].cargo}</p>
           <div className="mb-4 h-px w-full bg-yellow-custom/30" />
-          <p className="text-sm font-light leading-relaxed text-gray-300 dark:text-gray-400">
-            {membros[current].bio}
-          </p>
+          <p className="text-sm font-light leading-relaxed text-gray-300">{membros[current].bio}</p>
+
+          <div className="mt-6 flex gap-2">
+            {membros.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => selectMembro(i)}
+                style={{ transition: "all 0.4s ease" }}
+                className={`h-1.5 rounded-full ${i === current ? "w-8 bg-yellow-custom" : "w-2 bg-gray-500"}`}
+                aria-label={`Selecionar membro ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </main>
   );
 }
-
-
 
