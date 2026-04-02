@@ -51,35 +51,37 @@ export default function OrientadoresPage() {
         </div>
 
         <div className="w-full h-px bg-gradient-to-r from-yellow-custom/40 via-transparent to-transparent mt-6 mb-10" />
-      </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {membros.map((membro, index) => (
-          <div
-            key={index}
-            className="bg-white dark:bg-slate-800 shadow-lg hover:scale-105 hover:-translate-y-1 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl"
-          >
-            <div className="relative w-full aspect-square mb-4">
-              <Image
-                src={`/time/orientadores/${membro.imagem}`}
-                alt={membro.nome}
-                fill
-                className="object-cover object-top rounded-xl"
-              />
+        {/* Grid de cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          {membros.map((membro, index) => (
+            <div
+              key={index}
+              className="w-full max-w-xs bg-white dark:bg-[#0F2A3D] rounded-2xl overflow-hidden shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+            >
+              {/* Foto ocupando a maior parte do card */}
+              <div className="relative w-full aspect-[3/4]">
+                <Image
+                  src={`/time/orientadores/${membro.imagem}`}
+                  alt={membro.nome}
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+
+              {/* Nome e cargo embaixo */}
+              <div className="px-4 py-4 text-center bg-white dark:bg-[#0F2A3D]">
+                <h3 className="text-base font-semibold text-[#0B2E4A] dark:text-white leading-snug">
+                  {membro.nome}
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  {membro.nome === "Naja de Oliveira Vieira" ? "Advisor" : membro.cargo}
+                </p>
+              </div>
             </div>
-            <h3 className="text-lg font-semibold text-[#0B2E4A] dark:text-white mt-3">
-              {membro.nome}
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {membro.cargo}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </main>
   );
 }
-
-
-
-
