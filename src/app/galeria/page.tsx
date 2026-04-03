@@ -112,7 +112,7 @@ export default function GaleriaPage() {
             Galeria de Fotos
           </h1>
           <p className="mt-3 text-gray-700 dark:text-gray-300 text-lg">
-            Reviva os momentos marcantes das nossas conferÃªncias
+            Reviva os momentos marcantes das nossas conferências
           </p>
           <div className="w-full h-px my-4 bg-gradient-to-r from-transparent via-yellow-custom/40 to-transparent dark:via-[#013563]/40"></div>
         </div>
