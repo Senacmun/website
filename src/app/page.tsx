@@ -156,8 +156,8 @@ const CartaCarrossel = () => {
             className="relative w-full max-w-4xl flex flex-col md:flex-row items-stretch rounded-2xl overflow-hidden shadow-2xl animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Foto real do secretário */}
-            <div className="relative w-full md:w-1/2 min-h-[350px] md:min-h-[460px] flex-shrink-0">
+            {/* Foto real do secretário — ajustada para ser mais fina */}
+            <div className="relative w-full md:w-[35%] min-h-[350px] md:min-h-[460px] flex-shrink-0">
               <Image
                 src={carta.imagemSecretario}
                 alt={carta.nome}
@@ -168,7 +168,7 @@ const CartaCarrossel = () => {
             </div>
 
             {/* Card bio */}
-            <div className="w-full md:w-1/2 bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-8 md:p-10 flex flex-col justify-between">
+            <div className="w-full md:flex-1 bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-8 md:p-10 flex flex-col justify-between">
               <div>
                 <h2 className="text-yellow-custom font-bold text-2xl md:text-3xl mb-1">
                   {carta.nome}

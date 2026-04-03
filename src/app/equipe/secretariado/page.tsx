@@ -129,7 +129,7 @@ export default function SecretariadoPage() {
               >
                 {/* Foto */}
                 <div
-                  className="relative w-full md:w-1/2 aspect-[3/4] max-h-[420px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl"
+                  className="relative w-full md:w-1/3 aspect-[2/3] max-h-[480px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl"
                 >
                   <Image
                     src={membro.imagem}
@@ -144,7 +144,7 @@ export default function SecretariadoPage() {
 
                 {/* Card informativo — sempre visível */}
                 <div
-                  className="w-full md:w-1/2 transition-all duration-500 ease-out"
+                  className="w-full md:flex-1 transition-all duration-500 ease-out"
                 >
                   <div className="border-2 border-yellow-custom rounded-2xl p-8 bg-[#0B1E2D]/60 dark:bg-[#0F2A3D]/80 backdrop-blur-sm shadow-xl">
                     {/* Nome */}
