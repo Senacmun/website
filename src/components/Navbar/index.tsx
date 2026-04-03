@@ -1,12 +1,136 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiChevronDown } from "react-icons/fi";
 import IconHeader from "./icon-header.svg";
 import { menuData } from "./menuData";
 import dadosComites from "@/app/comites/dataComites";
+
+const faqs = [
+  {
+    pergunta: "O que é o evento Senamun?",
+    resposta: "O evento Senamun é o evento do Senac voltado às simulações da ONU, com debates políticos, fantasiosos ou históricos, organizado e liderado por nosso time completamente formado por estudantes. Os debates têm como base eventos políticos reais, indo desde a regularização do comércio mundial até o debate da escala 6x1. O evento Senamun ocorre esse ano (2026) nos dias 11 e 12 de setembro, respectivamente uma sexta e um sábado.",
+  },
+  {
+    pergunta: "O que é a oficina Senamun?",
+    resposta: "A oficina Senamun é onde os professores (Fabrício, Naja e Thais) se reúnem para ensinar nossos estudantes desde a base de geopolítica até os debates em si, com simulações internas para aprendizado e prática e, por fim, saindo da escola para representar o Senac em outras organizações, sendo a oficina exclusiva para estudantes do Senac.",
+  },
+  {
+    pergunta: "Quais os temas abordados em debates?",
+    resposta: "Depende bastante da organização do debate em si! Porém, as MUN's são focadas em debates políticos tanto da atualidade quanto do passado, como comitês históricos. No Senac também temos os comitês especiais, voltados a temas mitológicos ou fantasiosos, como a extinção da humanidade sendo debatida por deuses.",
+  },
+  {
+    pergunta: "Os debates necessitam de um código de vestimenta?",
+    resposta: "Sim! Geralmente as especificações são guiadas pelos mesários, tudo depende da simulação. Grande parte exige um código de vestimenta formal, porém, a maior questão é a vestimenta dos seus companheiros de debate — todos vão estar, então esteja também!",
+  },
+  {
+    pergunta: "Existem outras simulações?",
+    resposta: "Sim! Existem diversas outras simulações em outras escolas ou instituições de ensino, onde muitas fazem parcerias garantindo vagas e participação. Lá, assim como no Senamun, debatemos assuntos do cenário político global, voltados à resolução de problemas, liderança, proatividade e, principalmente, trabalho em equipe.",
+  },
+  {
+    pergunta: "Como me preparar para o evento Senamun?",
+    resposta: "Com a inscrição no Evento Senamun os delegados receberão no e-mail um convite para participar da turma no Google Classroom, que também será divulgado no Instagram do Senamun. Assim o delegado terá acesso ao guia de estudos e todos os outros documentos produzidos para auxílio nos estudos.",
+  },
+];
+
+const SACButton = ({
+  isOpen,
+  onToggle,
+  onClose,
+}: {
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose: () => void;
+}) => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Sinaliza navbar para não sumir enquanto FAQ aberto
+  useEffect(() => {
+    const nav = document.querySelector("nav");
+    if (nav) nav.setAttribute("data-faq-open", isOpen ? "true" : "false");
+  }, [isOpen]);
+
+  // Fecha ao clicar fora
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        onClose();
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [onClose]);
+
+  return (
+    <div ref={ref} className="relative flex items-center">
+      {/* Botão SAC */}
+      <button
+        onClick={onToggle}
+        title="Perguntas Frequentes"
+        className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm text-yellow-custom hover:bg-yellow-custom/10 transition-all duration-200"
+      >
+        <i className="fa-solid fa-headset text-base" />
+        <span className="hidden lg:inline text-xs font-medium">FAQ</span>
+      </button>
+
+      {/* Painel FAQ */}
+      <div
+        className={`absolute right-0 top-14 z-50 w-80 md:w-96 rounded-2xl bg-white dark:bg-[#0F2A3D] border border-yellow-custom/30 shadow-2xl dropdown-glass transition-all duration-300 ease-out ${
+          isOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
+        }`}
+      >
+        {/* Header do painel */}
+        <div className="flex items-center gap-2 px-5 py-4 border-b border-yellow-custom/20">
+          <i className="fa-solid fa-headset text-yellow-custom" />
+          <h3 className="text-[#0B2E4A] dark:text-white font-semibold text-sm">
+            Perguntas Frequentes
+          </h3>
+        </div>
+
+        {/* Lista de FAQs */}
+        <div className="max-h-[400px] overflow-y-auto divide-y divide-white/5">
+          {faqs.map((faq, i) => (
+            <div key={i} className="px-5 py-3">
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full flex items-center justify-between gap-3 text-left text-sm font-medium text-[#0B2E4A] dark:text-white hover:text-yellow-custom dark:hover:text-yellow-custom transition-colors duration-200"
+              >
+                <span>{faq.pergunta}</span>
+                <i className={`fa-solid fa-chevron-down text-yellow-custom text-xs flex-shrink-0 transition-transform duration-300 ${openIndex === i ? "rotate-180" : "rotate-0"}`} />
+              </button>
+              <div className={`overflow-hidden transition-all duration-400 ease-out ${openIndex === i ? "max-h-96 mt-2 opacity-100" : "max-h-0 opacity-0"}`}>
+                <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed pb-1">
+                  {faq.resposta}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Rodapé — link para email centralizado e link para Gmail funcional */}
+        <div className="px-5 py-4 border-t border-yellow-custom/20 text-center">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-light-blue-custom hover:text-yellow-custom transition-colors duration-200 underline underline-offset-2 block mb-2"
+          >
+            Sua dúvida não foi respondida? Fale com a gente
+          </a>
+          <p className="text-xs text-gray-500 dark:text-gray-500 select-all">
+            comunicacaosenamun@gmail.com
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -215,6 +339,11 @@ const Navbar: React.FC = () => {
                     )}
                   </div>
                 ))}
+                <SACButton 
+                  isOpen={dropdownOpen === "FAQ"} 
+                  onToggle={() => toggleDropdown("FAQ")}
+                  onClose={closeDropdown}
+                />
               </div>
             </div>
           </div>
@@ -265,6 +394,17 @@ const Navbar: React.FC = () => {
               )}
             </div>
           ))}
+          <div className="border-t border-white/10 pt-3 mt-2">
+            <a 
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-3 py-2 text-sm text-yellow-custom"
+            >
+              <i className="fa-solid fa-headset" />
+              Perguntas Frequentes / SAC
+            </a>
+          </div>
         </div>
       </div>
     </nav>

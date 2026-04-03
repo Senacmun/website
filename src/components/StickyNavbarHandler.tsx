@@ -10,46 +10,37 @@ export default function StickyNavbarHandler() {
     const header = document.querySelector("nav") as HTMLElement;
     if (!header) return;
 
-    // ❌ Páginas onde NÃO aplica a animação
     const disabledPages = ["galeria", "parcerias", "inscricao"];
-
-    if (disabledPages.some(page => pathname.includes(page))) return;
+    if (disabledPages.some((page) => pathname.includes(page))) return;
 
     let timeout: ReturnType<typeof setTimeout>;
 
     header.classList.add(
-      "sticky",
-      "top-0",
-      "left-0",
-      "w-full",
-      "z-50",
-      "transition-all",
-      "duration-500",
-      "ease-out"
+      "sticky", "top-0", "left-0", "w-full", "z-50",
+      "transition-all", "duration-500", "ease-out"
     );
 
     header.style.transform = "translateY(0)";
     header.style.opacity = "1";
 
-    // 🔒 Detecta se algum dropdown está aberto ou ativo no DOM
     const isDropdownActive = () => {
       return (
-        !!document.querySelector(".dropdown-glass:hover") || 
-        !!document.querySelector(".dropdown-glass.opacity-100") || 
+        !!document.querySelector(".dropdown-glass:hover") ||
+        !!document.querySelector(".dropdown-glass.opacity-100") ||
         !!document.querySelector("[data-state='open']") ||
-        document.body.classList.contains("menu-open")
+        document.body.classList.contains("menu-open") ||
+        // ✅ Detecta FAQ aberto
+        document.querySelector("nav")?.getAttribute("data-faq-open") === "true"
       );
     };
 
     const handleScroll = () => {
-      // Sempre mostra ao mexer
       header.style.transform = "translateY(0)";
       header.style.opacity = "1";
 
       clearTimeout(timeout);
 
       timeout = setTimeout(() => {
-        // ❗ NÃO esconder se algum dropdown estiver visível ou ativo
         if (isDropdownActive()) return;
 
         if (window.scrollY > 50) {
@@ -66,14 +57,8 @@ export default function StickyNavbarHandler() {
       clearTimeout(timeout);
 
       header.classList.remove(
-        "sticky",
-        "top-0",
-        "left-0",
-        "w-full",
-        "z-50",
-        "transition-all",
-        "duration-500",
-        "ease-out"
+        "sticky", "top-0", "left-0", "w-full", "z-50",
+        "transition-all", "duration-500", "ease-out"
       );
 
       header.style.transform = "";

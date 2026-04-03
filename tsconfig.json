@@ -12,6 +12,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "ignoreDeprecations": "6.0",
+    "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "plugins": [
       {
