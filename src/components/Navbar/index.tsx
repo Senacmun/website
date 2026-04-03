@@ -65,7 +65,7 @@ const SACButton = ({
   }, [onClose, isOpen]);
 
   return (
-    <div ref={ref} className="relative flex items-center">
+    <div ref={ref} className="relative flex items-center" style={{ marginTop: '-3px' }}>
       <button
         onClick={(e) => {
           e.stopPropagation(); // Evita que o clique feche outros elementos
@@ -79,7 +79,7 @@ const SACButton = ({
       </button>
 
       <div
-        className={`absolute right-0 top-14 z-50 w-80 md:w-96 rounded-2xl bg-white dark:bg-[#0F2A3D] border border-yellow-custom/30 shadow-2xl dropdown-glass transition-all duration-300 ease-out ${
+        className={`absolute right-0 top-6 z-50 w-80 md:w-96 rounded-2xl bg-white dark:bg-[#0F2A3D] border border-yellow-custom/30 shadow-2xl dropdown-glass transition-all duration-300 ease-out ${
           isOpen
             ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
             : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
@@ -136,8 +136,14 @@ const Navbar: React.FC = () => {
   const [activeCommittee, setActiveCommittee] = useState<number | null>(null);
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
+  const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
+
   const toggleDropdown = (name: string) => {
     setDropdownOpen(prev => prev === name ? null : name);
+  };
+
+  const toggleMobileFaq = () => {
+    setFaqOpenIndex(faqOpenIndex === null ? 0 : null);
   };
 
   const closeDropdown = () => {
@@ -303,6 +309,43 @@ const Navbar: React.FC = () => {
               )}
             </div>
           ))}
+          {/* Mobile FAQ */}
+          <div>
+            <button
+              className="w-full text-left text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
+              onClick={toggleMobileFaq}
+            >
+              FAQ
+              <FiChevronDown className={`inline-block ml-1 transform transition-transform ${faqOpenIndex !== null ? "rotate-180" : ""}`} />
+            </button>
+            <div className={`pl-4 transition-all duration-300 ${faqOpenIndex !== null ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
+              {faqs.map((faq, i) => (
+                <div key={i} className="py-2">
+                  <button
+                    onClick={() => setFaqOpenIndex(faqOpenIndex === i ? null : i)}
+                    className="w-full text-left text-sm font-medium text-yellow-custom hover:text-yellow-custom/80 transition-colors"
+                  >
+                    {faq.pergunta}
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-300 ${faqOpenIndex === i ? "max-h-96 opacity-100 mt-1" : "max-h-0 opacity-0"}`}>
+                    <p className="text-gray-400 text-xs leading-relaxed px-2">
+                      {faq.resposta}
+                    </p>
+                  </div>
+                </div>
+              ))}
+              <div className="pt-2 pb-2">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-light-blue-custom hover:text-yellow-custom underline underline-offset-2 px-2"
+                >
+                  Sua dúvida não foi respondida? Fale com a gente
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
