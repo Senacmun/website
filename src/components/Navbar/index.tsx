@@ -8,7 +8,6 @@ import IconHeader from "./icon-header.svg";
 import { menuData } from "./menuData";
 import dadosComites from "@/app/comites/dataComites";
 
-// ─── DADOS DO FAQ ─────────────────────────────────────────────────────────────
 const faqs = [
   {
     pergunta: "O que é o evento Senamun?",
@@ -36,7 +35,6 @@ const faqs = [
   },
 ];
 
-// ─── COMPONENTE SAC / FAQ ─────────────────────────────────────────────────────
 const SACButton = ({
   isOpen,
   onToggle,
@@ -50,20 +48,29 @@ const SACButton = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const nav = document.querySelector("nav");
+    if (nav) nav.setAttribute("data-faq-open", isOpen ? "true" : "false");
+  }, [isOpen]);
+
+  useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
+      // Só dispara o fechamento se clicar fora E se o FAQ estiver aberto
+      if (isOpen && ref.current && !ref.current.contains(e.target as Node)) {
         onClose();
         setOpenIndex(null);
       }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [onClose]);
+  }, [onClose, isOpen]);
 
   return (
     <div ref={ref} className="relative flex items-center">
       <button
-        onClick={onToggle}
+        onClick={(e) => {
+          e.stopPropagation(); // Evita que o clique feche outros elementos
+          onToggle();
+        }}
         title="Perguntas Frequentes"
         className="flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm text-yellow-custom hover:bg-yellow-custom/10 transition-all duration-200"
       >
@@ -74,8 +81,8 @@ const SACButton = ({
       <div
         className={`absolute right-0 top-14 z-50 w-80 md:w-96 rounded-2xl bg-white dark:bg-[#0F2A3D] border border-yellow-custom/30 shadow-2xl dropdown-glass transition-all duration-300 ease-out ${
           isOpen
-            ? "opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-2 pointer-events-none"
+            ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+            : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
         }`}
       >
         <div className="flex items-center gap-2 px-5 py-4 border-b border-yellow-custom/20">
@@ -122,7 +129,6 @@ const SACButton = ({
   );
 };
 
-// ─── NAVBAR PRINCIPAL ──────────────────────────────────────────────────────────
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
@@ -131,13 +137,20 @@ const Navbar: React.FC = () => {
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const toggleDropdown = (name: string) => {
-    setDropdownOpen(dropdownOpen === name ? null : name);
+    setDropdownOpen(prev => prev === name ? null : name);
   };
 
   const closeDropdown = () => {
     setDropdownOpen(null);
     setLateralOpen(null);
     setActiveCommittee(null);
+  };
+
+  // Função específica para fechar apenas o FAQ sem resetar outros estados globais se não necessário
+  const closeFAQ = () => {
+    if (dropdownOpen === "FAQ") {
+      setDropdownOpen(null);
+    }
   };
 
   const handleLateralHover = (name: string | null) => {
@@ -149,12 +162,20 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    item: any
+  ) => {
+    if (item.submenu) {
+      e.preventDefault();
+      toggleDropdown(item.name);
+    }
+  };
+
   return (
     <nav className="bg-blue-custom relative z-50">
       <div className="2xl:max-w-screen-2xl max-w-screen-xl mx-auto px-2 md:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-20">
-          
-          {/* Mobile Menu Button */}
           <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -163,132 +184,80 @@ const Navbar: React.FC = () => {
             >
               <span className="sr-only">Open main menu</span>
               {!isOpen ? (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               ) : (
-                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               )}
             </button>
           </div>
-
-          <div className="flex-1 flex items-center md:justify-between justify-center md:items-stretch">
-            {/* Logo */}
+          
+          <div className="flex-1 flex items-center md:justify-between justify-center md:items-stretch lg">
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center gap-4 opacity-95 hover:scale-105 transition-all duration-200">
-                <Image
-                  className="hover:rotate-6 hover:scale-105 transition-transform duration-300"
-                  src={IconHeader}
-                  alt="Icone do Header"
-                  width={45}
-                />
-                <p className="text-white font-medium text-xl tracking-widest text-center">
-                  S E N A M U N
-                </p>
+                <Image src={IconHeader} alt="Icone do Header" width={45} className="hover:rotate-6 transition-transform" />
+                <p className="text-white font-medium text-xl tracking-widest">S E N A M U N</p>
               </Link>
             </div>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex md:ml-6 items-center">
-              <div className="flex space-x-4 items-center">
-                {menuData.map((item: any) => (
-                  <div
-                    key={item.name}
-                    className="relative"
-                    onMouseLeave={closeDropdown}
-                  >
-                    {item.submenu ? (
-                      <button
-                        onClick={() => toggleDropdown(item.name)}
-                        style={{ fontSize: "14px" }}
-                        className="text-white hover:bg-light-blue-custom lg:px-5 px-2 py-2 rounded-lg tracking-widest duration-150 flex items-center cursor-pointer"
-                      >
-                        {item.name}
-                        <FiChevronDown
-                          className={`inline-block ml-1 h-4 w-4 transform transition-transform ${
-                            dropdownOpen === item.name ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        style={{ fontSize: "14px" }}
-                        className="text-white hover:bg-light-blue-custom lg:px-5 px-2 py-2 rounded-lg tracking-widest duration-150"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-
-                    {/* Submenu Dropdown */}
+              <div className="flex space-x-4">
+                {menuData.map((item) => (
+                  <div key={item.name} className="relative" onMouseLeave={closeDropdown}>
+                    <a
+                      href={item.href}
+                      style={{ fontSize: "14px" }}
+                      className={`text-white hover:bg-light-blue-custom lg:px-5 px-2 py-2 rounded-lg tracking-widest duration-150 ${item.submenu ? "cursor-pointer" : ""}`}
+                      onClick={(e) => handleLinkClick(e, item)}
+                    >
+                      {item.name}
+                      {item.submenu && (
+                        <FiChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform ${dropdownOpen === item.name ? "rotate-180" : ""}`} />
+                      )}
+                    </a>
+                    
                     {item.submenu && (
-                      <div
-                        className={`z-50 origin-top-right absolute right-0 mt-2 w-56 dropdown-glass transition-all duration-300 ease-out transform ${
-                          dropdownOpen === item.name
-                            ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-                            : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
-                        }`}
-                      >
-                        {item.submenu.map((subItem: any) => {
+                      <div className={`z-50 origin-top-right absolute right-0 mt-2 w-56 dropdown-glass transition-all duration-300 ease-out transform ${dropdownOpen === item.name ? "opacity-100 translate-y-0 scale-100 pointer-events-auto" : "opacity-0 -translate-y-2 scale-95 pointer-events-none"}`}>
+                        {item.submenu.map((subItem) => {
                           const isComites = subItem.name === "Comitês";
                           return (
-                            <div 
-                              key={subItem.name} 
-                              className="relative"
-                              onMouseEnter={() => isComites && handleLateralHover(subItem.name)}
-                              onMouseLeave={() => isComites && handleLateralHover(null)}
-                            >
-                              {isComites ? (
-                                <button className="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-800 dark:text-gray-200 rounded-md hover:bg-[#1F6FEB] hover:text-white dark:hover:bg-[#013563] transition-all duration-200">
-                                  <span>{subItem.name}</span>
-                                  <span className="ml-2">›</span>
-                                </button>
-                              ) : (
-                                <Link
-                                  href={subItem.href}
-                                  onClick={closeDropdown}
-                                  className="flex items-center px-4 py-2 text-sm text-gray-800 dark:text-gray-200 rounded-md hover:bg-[#1F6FEB] hover:text-white dark:hover:bg-[#013563] transition-all duration-200"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              )}
+                            <div key={subItem.name} className="relative" onMouseEnter={() => isComites && handleLateralHover(subItem.name)} onMouseLeave={() => isComites && handleLateralHover(null)}>
+                              <a
+                                href={subItem.href}
+                                onClick={(e) => isComites && e.preventDefault()}
+                                onDoubleClick={() => { window.location.href = subItem.href; }}
+                                className="flex items-center justify-between px-4 py-2 text-md text-gray-800 dark:text-gray-200 rounded-md hover:bg-[#1F6FEB] hover:text-white transition-all duration-200"
+                              >
+                                <span>{subItem.name}</span>
+                                {isComites && <span className="ml-2">›</span>}
+                              </a>
 
-                              {/* Lateral Submenu (Comitês) */}
                               {isComites && (
-                                <div
-                                  className={`absolute left-full top-0 ml-0 w-72 z-50 origin-top-left dropdown-glass transition-all duration-300 ease-in-out transform ${
-                                    lateralOpen === subItem.name
-                                      ? "opacity-100 translate-x-0 scale-100 pointer-events-auto"
-                                      : "opacity-0 -translate-x-2 scale-95 pointer-events-none"
-                                  }`}
-                                >
+                                <div className={`absolute left-full top-0 ml-0 w-72 z-50 origin-top-left dropdown-glass transition-all duration-300 transform ${lateralOpen === subItem.name ? "opacity-100 translate-x-0 scale-100" : "opacity-0 -translate-x-2 scale-95 pointer-events-none"}`}>
                                   <div className="p-2">
-                                    <Link href="/comites" onClick={closeDropdown} className="block px-4 py-2 text-sm font-semibold text-gray-800 dark:text-gray-200 rounded-md hover:bg-[#1F6FEB] hover:text-white transition-all duration-200 mb-1 border-b border-white/10 pb-2">
-                                      Ver todos os comitês
-                                    </Link>
-                                    <div className="mt-1">
-                                      <ul className="space-y-0 max-h-60 overflow-auto">
-                                        {dadosComites.map((c: any, ci: number) => (
-                                          <li key={ci}>
-                                            <button
-                                              onClick={() => setActiveCommittee(ci === activeCommittee ? null : ci)}
-                                              className={`w-full text-left px-4 py-2 text-sm text-gray-800 dark:text-gray-200 rounded-md transition-all duration-200 flex items-center justify-between ${activeCommittee === ci ? 'bg-[#1F6FEB] text-white' : 'hover:bg-white/10'}`}
-                                            >
-                                              <span className="truncate">{c.comite}</span>
-                                              <span className="ml-2 text-xs text-gray-400">›</span>
-                                            </button>
-                                            {activeCommittee === ci && (
-                                              <div className="mt-1 ml-2 mb-2 p-2 bg-black/20 dark:bg-white/5 rounded-lg space-y-1">
-                                                <a href={c.classroom || "#"} target="_blank" rel="noreferrer" className="block px-2 py-1 text-xs text-gray-700 dark:text-gray-300 hover:text-[#1F6FEB] dark:hover:text-white transition-colors">• Classroom</a>
-                                                <a href={c.whatsapp || "#"} target="_blank" rel="noreferrer" className="block px-2 py-1 text-xs text-gray-700 dark:text-gray-300 hover:text-[#1F6FEB] dark:hover:text-white transition-colors">• WhatsApp</a>
-                                                <a href={c.pdf || "#"} target="_blank" rel="noreferrer" className="block px-2 py-1 text-xs text-gray-700 dark:text-gray-300 hover:text-[#1F6FEB] dark:hover:text-white transition-colors">• Baixar PDF</a>
-                                              </div>
-                                            )}
-                                          </li>
-                                        ))}
-                                      </ul>
+                                    <a href="/comites" className="block px-4 py-2 text-sm font-semibold text-gray-800 dark:text-gray-200 rounded-md hover:bg-[#1F6FEB] hover:text-white transition-all mb-1 border-b border-white/10 pb-2">Ver todos os comitês</a>
+                                    <div className="mt-1 max-h-60 overflow-auto">
+                                      {dadosComites.map((c, ci) => (
+                                        <div key={ci}>
+                                          <button
+                                            onClick={() => setActiveCommittee(ci === activeCommittee ? null : ci)}
+                                            className={`w-full text-left px-4 py-2 text-sm rounded-md flex items-center justify-between ${activeCommittee === ci ? 'bg-[#1F6FEB] text-white' : 'hover:bg-white/10'}`}
+                                          >
+                                            <span className="truncate">{c.comite}</span>
+                                            <span className="ml-2 text-xs opacity-50">›</span>
+                                          </button>
+                                          {activeCommittee === ci && (
+                                            <div className="mt-1 ml-2 mb-2 p-2 bg-black/10 dark:bg-white/5 rounded-lg space-y-1">
+                                              <a href={c.classroom || "#"} className="block px-2 py-1 text-xs hover:text-[#1F6FEB]" target="_blank" rel="noreferrer">• Classroom</a>
+                                              <a href={c.whatsapp || "#"} className="block px-2 py-1 text-xs hover:text-[#1F6FEB]" target="_blank" rel="noreferrer">• WhatsApp</a>
+                                              <a href={c.pdf || "#"} className="block px-2 py-1 text-xs hover:text-[#1F6FEB]" target="_blank" rel="noreferrer">• Baixar PDF</a>
+                                            </div>
+                                          )}
+                                        </div>
+                                      ))}
                                     </div>
                                   </div>
                                 </div>
@@ -300,12 +269,10 @@ const Navbar: React.FC = () => {
                     )}
                   </div>
                 ))}
-
-                {/* BOTÃO FAQ INTEGRADO */}
                 <SACButton
                   isOpen={dropdownOpen === "FAQ"}
                   onToggle={() => toggleDropdown("FAQ")}
-                  onClose={closeDropdown}
+                  onClose={closeFAQ}
                 />
               </div>
             </div>
@@ -313,36 +280,24 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Content */}
-      <div
-        className={`md:hidden transition-all duration-200 ${
-          isOpen ? "max-h-screen opacity-100 scale-100" : "max-h-0 opacity-0 scale-95 overflow-hidden"
-        }`}
-        id="mobile-menu"
-      >
+      {/* Mobile Menu */}
+      <div className={`md:hidden transition-all duration-200 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {menuData.map((item) => (
             <div key={item.name}>
               <button
-                style={{ fontSize: "14px" }}
-                className="w-full text-left text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md font-medium"
+                className="w-full text-left text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
                 onClick={() => toggleDropdown(item.name)}
               >
                 {item.name}
-                {item.submenu && (
-                  <FiChevronDown className={`inline-block ml-1 h-4 w-4 transform transition-transform ${dropdownOpen === item.name ? "rotate-180" : ""}`} />
-                )}
+                {item.submenu && <FiChevronDown className={`inline-block ml-1 transform transition-transform ${dropdownOpen === item.name ? "rotate-180" : ""}`} />}
               </button>
               {item.submenu && (
-                <div className={`pl-5 transition-all duration-300 ease-out transform ${dropdownOpen === item.name ? "opacity-100 max-h-screen" : "opacity-0 max-h-0 overflow-hidden"}`}>
-                  {item.submenu.map((subItem: any) => (
-                    <Link
-                      key={subItem.name}
-                      href={subItem.href}
-                      className="block px-4 py-2 text-md text-gray-400 hover:text-white transition-all duration-200"
-                    >
+                <div className={`pl-5 transition-all duration-300 ${dropdownOpen === item.name ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
+                  {item.submenu.map((subItem) => (
+                    <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-sm text-gray-300 hover:text-white">
                       {subItem.name}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               )}
