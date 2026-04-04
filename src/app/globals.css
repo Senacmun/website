@@ -299,16 +299,20 @@
 
 /* Contact cards hover effect */
 .contact-card {
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .contact-card:hover {
   transform: scale(1.02);
-  background-color: #0d2a4a !important;
+  background-color: #f3f4f6 !important;
+  border-color: #d1d5db !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
 .dark .contact-card:hover {
   background-color: #1a3a5c !important;
+  border-color: #1F6FEB !important;
+  box-shadow: 0 4px 12px rgba(31, 111, 235, 0.15) !important;
 }
 

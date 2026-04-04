@@ -110,7 +110,7 @@ function ContactForm() {
             <div className="space-y-4">
               <a
                 href="mailto:senamunsenac@gmail.com"
-                className="contact-card flex items-center gap-3 p-4 rounded-2xl bg-transparent dark:bg-[#0F2A3D] border border-gray-200 dark:border-white/10 hover:border-[#1F6FEB] transition-all group cursor-pointer"
+                className="contact-card flex items-center gap-3 p-4 rounded-2xl bg-transparent dark:bg-[#0F2A3D] border border-gray-200 dark:border-white/10 transition-all group cursor-pointer"
               >
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-light-blue-custom/10 text-light-blue-custom group-hover:bg-light-blue-custom group-hover:text-white transition-colors">
                   <FaEnvelope className="text-lg" />
@@ -129,7 +129,7 @@ function ContactForm() {
                 href="https://www.instagram.com/senamun_/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-card flex items-center gap-3 p-4 rounded-2xl bg-transparent dark:bg-[#0F2A3D] border border-gray-200 dark:border-white/10 hover:border-[#1F6FEB] transition-all group cursor-pointer"
+                className="contact-card flex items-center gap-3 p-4 rounded-2xl bg-transparent dark:bg-[#0F2A3D] border border-gray-200 dark:border-white/10 transition-all group cursor-pointer"
               >
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-pink-500/10 text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors">
                   <FaInstagram className="text-lg" />
