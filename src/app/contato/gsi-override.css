@@ -1,0 +1,30 @@
+/* Remove white background from Google Sign-In button wrapper */
+div[data-gsi_origin],
+div[data-gsi_clientid],
+div[data-gsi_origin] div,
+div[data-gsi_clientid] div,
+.gsi-material-button,
+.gsi-material-button > div {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Force any iframe wrapper to be transparent */
+iframe[src*="accounts.google.com"],
+iframe[title*="Sign in"],
+iframe[title*="sign in"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Target the Google button wrapper divs specifically */
+div > iframe[src*="accounts.google.com"] {
+  background: transparent !important;
+}
+
+/* Remove any white box-shadow or background from the button itself */
+iframe[src*="accounts.google.com"] > * {
+  background: transparent !important;
+}

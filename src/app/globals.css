@@ -296,3 +296,19 @@
   perspective: 1200px;
   perspective-origin: center center;
 }
+
+/* Contact cards hover effect */
+.contact-card {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  transform: scale(1.02);
+  background-color: #0d2a4a !important;
+}
+
+.dark .contact-card:hover {
+  background-color: #1a3a5c !important;
+}
+
