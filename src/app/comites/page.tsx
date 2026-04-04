@@ -44,6 +44,9 @@ export default function ComitesPage() {
     rows.push(primaryCommittees.slice(i, i + 3));
   }
 
+  const specialCommittee = committees[12]; // Special
+  const especialCommittee = committees[13]; // Especial
+
   const getCommitteeImage = (committee: Committee) => {
     const imagePath = committee.imagem
       ? `/comites/${committee.imagem}`
@@ -66,9 +69,9 @@ export default function ComitesPage() {
           <div className="mx-auto mt-4 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
         </div>
 
-        <div className="mx-auto mt-12 flex max-w-[38rem] flex-col gap-8">
+        <div className="mx-auto mt-12 flex max-w-[38rem] flex-col gap-12">
           {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-3 gap-6">
+            <div key={rowIndex} className="grid grid-cols-3 gap-12">
               {row.map((committee, index) => (
                 <button
                   key={`${committee.comite}-${index}`}
@@ -98,58 +101,72 @@ export default function ComitesPage() {
             </div>
           ))}
 
-          <div className="grid grid-cols-3 items-center gap-6">
-            <Link
-              href="/comites/special-committee-star-wars"
-              className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
-            >
-              <div
-                className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                style={{ backgroundImage: "url(/comites/SW.webp)" }}
-              />
-              <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-              <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-              <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
-              </div>
-              <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                  Special Committee - Star Wars
-                </h2>
-              </div>
-            </Link>
+          <div className="grid grid-cols-3 items-center gap-12">
+            {specialCommittee && (
+              <button
+                type="button"
+                onClick={() => openModal(specialCommittee)}
+                className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20"
+              >
+                <div
+                  className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                  style={{
+                    backgroundImage: specialCommittee.imagem
+                      ? `url(/comites/${specialCommittee.imagem})`
+                      : "url(/logo-senamun.png)",
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+                <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                  <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                </div>
+                <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                  <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                    {specialCommittee.comite}
+                  </h2>
+                </div>
+              </button>
+            )}
 
-            <Link href="/" className="flex items-center justify-center">
+            <Link href="/" className="flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
               <Image
                 src="/logo-senamun.png"
                 alt="Logo SenaMUN"
                 width={180}
                 height={180}
-                className="opacity-90"
+                className="h-auto w-[180px] object-contain"
               />
             </Link>
 
-            <Link
-              href="/comites/junior-council"
-              className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
-            >
-              <div
-                className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                style={{ backgroundImage: "url(/comites/junior-council.jpeg)" }}
-              />
-              <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-              <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-              <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
-              </div>
-              <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                  Junior Council
-                </h2>
-              </div>
-            </Link>
+            {especialCommittee && (
+              <button
+                type="button"
+                onClick={() => openModal(especialCommittee)}
+                className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20"
+              >
+                <div
+                  className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                  style={{
+                    backgroundImage: especialCommittee.imagem
+                      ? `url(/comites/${especialCommittee.imagem})`
+                      : "url(/logo-senamun.png)",
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
+                <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
+                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
+                  <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                </div>
+                <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
+                  <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
+                    {especialCommittee.comite}
+                  </h2>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </section>

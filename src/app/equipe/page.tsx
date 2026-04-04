@@ -65,8 +65,8 @@ export default function Equipe() {
 
       <hr className="mx-40 border-yellow-custom" />
 
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-12 xl:px-20">
-        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-6 py-12 xl:px-20">
+        <div className="grid auto-rows-fr grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <Card
             title="Secretariado Geral"
             href="/equipe/secretariado"
@@ -93,7 +93,7 @@ export default function Equipe() {
           />
         </div>
 
-        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid auto-rows-fr grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <Card
             title="Diretoria de Imprensa"
             href="/equipe/imprensa"
@@ -120,22 +120,20 @@ export default function Equipe() {
           />
         </div>
 
-        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="mx-auto w-full max-w-[260px]">
-            <Card
-              title={
-                <span className="block text-base leading-5">
-                  <span className="block">Acadêmico</span>
-                  <span className="block">Inglês</span>
-                </span>
-              }
-              href="/equipe/academica-ingles"
-              icon={<RiTeamLine />}
-              subtitle="Conheça nosso time acadêmico em inglês"
-            />
-          </div>
+        <div className="grid auto-rows-fr grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <Card
+            title={
+              <span className="block text-base leading-5">
+                <span className="block">Acadêmico</span>
+                <span className="block">Inglês</span>
+              </span>
+            }
+            href="/equipe/academica-ingles"
+            icon={<RiTeamLine />}
+            subtitle="Conheça nosso time acadêmico em inglês"
+          />
 
-          <div className="flex items-center justify-center">
+          <div className="hidden items-center justify-center lg:flex">
             <img
               src="/logo-senamun.png"
               alt="Logo SenaMUN"
@@ -145,19 +143,19 @@ export default function Equipe() {
             />
           </div>
 
-          <div className="mx-auto w-full max-w-[260px]">
-            <Card
-              title={
-                <span className="block text-base leading-5">
-                  <span className="block">Acadêmico</span>
-                  <span className="block">Português</span>
-                </span>
-              }
-              href="/equipe/academica-portugues"
-              icon={<RiTeamLine />}
-              subtitle="Conheça nosso time acadêmico em português"
-            />
-          </div>
+          <Card
+            title={
+              <span className="block text-base leading-5">
+                <span className="block">Acadêmico</span>
+                <span className="block">Português</span>
+              </span>
+            }
+            href="/equipe/academica-portugues"
+            icon={<RiTeamLine />}
+            subtitle="Conheça nosso time acadêmico em português"
+          />
+
+          <div className="hidden sm:block" />
         </div>
       </div>
     </section>
