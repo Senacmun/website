@@ -37,12 +37,12 @@ export default function Campus() {
       </section>
 
       {/* Imagem + Info */}
-      <section className="bg-white dark:bg-[#0B1E2D] px-14 py-16">
-        <div className="flex flex-wrap items-start gap-x-4 gap-y-0">
-          {/* Imagem (esquerda) */}
+      <section className="bg-white dark:bg-[#0B1E2D] px-4 md:px-14 py-10 md:py-16">
+        <div className="flex flex-col lg:flex-row items-start gap-x-4 gap-y-6">
+          {/* Imagem */}
           <div
             ref={containerRef}
-            className="flex-shrink-0 cursor-pointer transition-all duration-500 ease-in-out"
+            className="hidden lg:flex-shrink-0 cursor-pointer transition-all duration-500 ease-in-out"
             style={{ width: imageExpanded ? "calc(100% - 12px)" : 420 }}
             onMouseEnter={() => setImageExpanded(true)}
             onMouseLeave={() => setImageExpanded(false)}
@@ -61,18 +61,14 @@ export default function Campus() {
                 sizes="(max-width: 768px) 100vw, 800px"
                 priority
               />
-
-              {!imageExpanded && (
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="bg-black/40 text-white text-sm px-3 py-1.5 rounded-full">
-                    Passe o mouse para ampliar
-                  </span>
-                </div>
-              )}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span className="bg-black/40 text-white text-sm px-3 py-1.5 rounded-full">
+                  Toque para ampliar
+                </span>
+              </div>
             </div>
 
-            {/* Botão baixar — só aparece quando imagem está recolhida */}
-            <div className={`overflow-hidden transition-all duration-500 ${imageExpanded ? "max-h-0 opacity-0 mt-0" : "max-h-20 opacity-100 mt-3"}`}>
+            <div className="mt-3">
               <a
                 href="/mapa/campus.jpg"
                 download="campus.jpg"
@@ -83,10 +79,10 @@ export default function Campus() {
             </div>
           </div>
 
-          {/* Info (direita por padrão, desce quando imagem expande) */}
+          {/* Info */}
           <div
-            className="text-gray-800 dark:text-gray-300 leading-relaxed flex-shrink-0 transition-all duration-500"
-            style={{ width: imageExpanded ? "100%" : 560 }}
+            className="text-gray-800 dark:text-gray-300 leading-relaxed"
+            style={{ width: "100%" }}
           >
             <p className="flex items-center gap-2 text-base">
               <FaMapPin className="flex-shrink-0" />
@@ -121,9 +117,40 @@ export default function Campus() {
         </div>
       </section>
 
+      {/* Imagem Mobile (visível só em mobile/tablet) */}
+      <section className="lg:hidden bg-white dark:bg-[#0B1E2D] px-4 pb-8">
+        <div
+          className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-md cursor-pointer"
+          onClick={() => setMapZoomed(true)}
+        >
+          <Image
+            src="/mapa/campus.jpg"
+            alt="Mapa Senamun"
+            fill
+            style={{ objectFit: "cover" }}
+            className="transition-transform duration-300 active:scale-105"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span className="bg-black/40 text-white text-sm px-3 py-1.5 rounded-full">
+              Toque para ampliar
+            </span>
+          </div>
+        </div>
+        <div className="flex justify-center mt-3">
+          <a
+            href="/mapa/campus.jpg"
+            download="campus.jpg"
+            className="inline-block bg-yellow-custom text-white text-sm py-2 px-5 rounded-lg hover:opacity-90 transition-all shadow-md"
+          >
+            Baixar Imagem
+          </a>
+        </div>
+      </section>
+
       {/* Google Maps Iframe */}
-      <section className="bg-white dark:bg-[#0B1E2D] px-14 pb-16">
-        <div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
+      <section className="bg-white dark:bg-[#0B1E2D] px-4 md:px-14 pb-16">
+        <div className="w-full h-[350px] md:h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.7758!2d-46.7024387!3d-23.6710058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce497db00627e7%3A0x9e1e31d52e1b6!2sAv.+Eng.+Eus%C3%A9bio+Stevaux%2C+823+-+Campo+Grande%2C+S%C3%A3o+Paulo+-+SP%2C+04696-000!5e0!3m2!1spt-BR!2sbr!4v1712000000000"
             width="100%"

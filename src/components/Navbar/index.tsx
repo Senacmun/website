@@ -287,67 +287,73 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-200 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          {menuData.map((item) => (
-            <div key={item.name}>
-              <button
-                className="w-full text-left text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
-                onClick={() => toggleDropdown(item.name)}
-              >
-                {item.name}
-                {item.submenu && <FiChevronDown className={`inline-block ml-1 transform transition-transform ${dropdownOpen === item.name ? "rotate-180" : ""}`} />}
-              </button>
-              {item.submenu && (
-                <div className={`pl-5 transition-all duration-300 ${dropdownOpen === item.name ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
-                  {item.submenu.map((subItem) => (
-                    <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-sm text-gray-300 hover:text-white">
-                      {subItem.name}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          {/* Mobile FAQ */}
-          <div>
-            <button
-              className="w-full text-left text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
-              onClick={toggleMobileFaq}
-            >
-              FAQ
-              <FiChevronDown className={`inline-block ml-1 transform transition-transform ${faqOpenIndex !== null ? "rotate-180" : ""}`} />
-            </button>
-            <div className={`pl-4 transition-all duration-300 ${faqOpenIndex !== null ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}`}>
-              {faqs.map((faq, i) => (
-                <div key={i} className="py-2">
+      {isOpen && (
+        <div className="fixed inset-0 top-20 bg-blue-custom/95 backdrop-blur-sm z-40 md:hidden flex flex-col">
+          <div className="flex-1 overflow-y-auto w-full max-w-sm mx-auto px-4 py-4">
+            <div className="w-full space-y-1">
+              {menuData.map((item) => (
+                <div key={item.name} className="text-center">
                   <button
-                    onClick={() => setFaqOpenIndex(faqOpenIndex === i ? null : i)}
-                    className="w-full text-left text-sm font-medium text-yellow-custom hover:text-yellow-custom/80 transition-colors"
+                    className="w-full text-center text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
+                    onClick={() => toggleDropdown(item.name)}
                   >
-                    {faq.pergunta}
+                    {item.name}
+                    {item.submenu && <FiChevronDown className={`inline-block ml-1 transform transition-transform ${dropdownOpen === item.name ? "rotate-180" : ""}`} />}
                   </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${faqOpenIndex === i ? "max-h-96 opacity-100 mt-1" : "max-h-0 opacity-0"}`}>
-                    <p className="text-gray-400 text-xs leading-relaxed px-2">
-                      {faq.resposta}
-                    </p>
-                  </div>
+                  {item.submenu && dropdownOpen === item.name && (
+                    <div className="mt-1">
+                      {item.submenu.map((subItem) => (
+                        <a key={subItem.name} href={subItem.href} className="block px-4 py-2 text-sm text-gray-300 hover:text-white">
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
-              <div className="pt-2 pb-2">
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-light-blue-custom hover:text-yellow-custom underline underline-offset-2 px-2"
+              {/* Mobile FAQ */}
+              <div className="text-center">
+                <button
+                  className="w-full text-center text-gray-300 hover:bg-light-blue-custom hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
+                  onClick={toggleMobileFaq}
                 >
-                  Sua dúvida não foi respondida? Fale com a gente
-                </a>
+                  FAQ
+                  <FiChevronDown className={`inline-block ml-1 transform transition-transform ${faqOpenIndex !== null ? "rotate-180" : ""}`} />
+                </button>
+                {faqOpenIndex !== null && (
+                  <div className="mt-2 space-y-2 px-2">
+                    {faqs.map((faq, i) => (
+                      <div key={i} className="pb-2">
+                        <button
+                          onClick={() => setFaqOpenIndex(faqOpenIndex === i ? null : i)}
+                          className="w-full text-left text-sm font-medium text-yellow-custom hover:text-yellow-custom/80 transition-colors"
+                        >
+                          {faq.pergunta}
+                        </button>
+                        {faqOpenIndex === i && (
+                          <p className="text-gray-300 text-xs leading-relaxed mt-1">
+                            {faq.resposta}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                    <div className="pb-4">
+                      <a
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-light-blue-custom hover:text-yellow-custom underline underline-offset-2"
+                      >
+                        Sua dúvida não foi respondida? Fale com a gente
+                      </a>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
