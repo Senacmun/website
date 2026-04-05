@@ -38,12 +38,12 @@ export default function Campus() {
 
       {/* Imagem + Info */}
       <section className="bg-white dark:bg-[#0B1E2D] px-4 md:px-14 py-10 md:py-16">
-        <div className="flex flex-col lg:flex-row items-start gap-x-4 gap-y-6">
-          {/* Imagem */}
+        <div className="flex flex-wrap items-start gap-4">
+          {/* Imagem Desktop */}
           <div
             ref={containerRef}
-            className="hidden lg:flex-shrink-0 cursor-pointer transition-all duration-500 ease-in-out"
-            style={{ width: imageExpanded ? "calc(100% - 12px)" : 420 }}
+            className="cursor-pointer transition-all duration-500 ease-in-out"
+            style={{ width: imageExpanded ? "100%" : "420px" }}
             onMouseEnter={() => setImageExpanded(true)}
             onMouseLeave={() => setImageExpanded(false)}
             onClick={toggleExpanded}
@@ -61,14 +61,16 @@ export default function Campus() {
                 sizes="(max-width: 768px) 100vw, 800px"
                 priority
               />
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <span className="bg-black/40 text-white text-sm px-3 py-1.5 rounded-full">
-                  Toque para ampliar
-                </span>
-              </div>
+              {!imageExpanded && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="bg-black/40 text-white text-sm px-3 py-1.5 rounded-full">
+                    Passe o mouse para ampliar
+                  </span>
+                </div>
+              )}
             </div>
 
-            <div className="mt-3">
+            <div className={`overflow-hidden transition-all duration-500 ${imageExpanded ? "max-h-0 opacity-0 mt-0" : "max-h-20 opacity-100 mt-3"}`}>
               <a
                 href="/mapa/campus.jpg"
                 download="campus.jpg"
@@ -82,7 +84,11 @@ export default function Campus() {
           {/* Info */}
           <div
             className="text-gray-800 dark:text-gray-300 leading-relaxed"
-            style={{ width: "100%" }}
+            style={{
+              width: imageExpanded ? "100%" : "calc(100% - 436px)",
+              maxWidth: 560,
+              minWidth: 300,
+            }}
           >
             <p className="flex items-center gap-2 text-base">
               <FaMapPin className="flex-shrink-0" />
