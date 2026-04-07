@@ -51,13 +51,13 @@ function ResourceCard({
 }) {
   const [hovered, setHovered] = useState(false);
 
-  const handleDownload = () => {
-    const downloadLink = document.createElement("a");
-    downloadLink.href = file;
-    downloadLink.download = file.split("/")[1];
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
+  const handleDownload = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const link = document.createElement("a");
+    link.href = file;
+    link.download = file.split("/").pop()!;
+    link.click();
   };
 
   return (
@@ -117,16 +117,6 @@ export default function Recursos() {
             Acesse materiais e documentos importantes
           </p>
           <div className="w-48 h-[2px] mx-auto mt-4 bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
-        </div>
-
-        {/* Subtitulo */}
-        <div className="text-center mb-8">
-          <h2 className="text-xl font-semibold text-[#0B2E4A] dark:text-white">
-            Documentos
-          </h2>
-          <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
-            Clique em qualquer card para baixar
-          </p>
         </div>
 
         {/* Grid */}

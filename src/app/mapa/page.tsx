@@ -293,21 +293,21 @@ export default function Campus() {
           </button>
 
           {/* Zoom controls */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 z-50">
-            <button
-              onClick={() => setZoom((z) => Math.max(z - 0.3, 1))}
-              className="bg-white/20 hover:bg-white/40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
-            >
-              <FaMinus />
-            </button>
-            <span className="text-white/80 text-sm min-w-[40px] text-center">
-              {Math.round(zoom * 100)}%
-            </span>
+          <div className="absolute top-1/2 right-5 -translate-y-1/2 flex flex-col items-center gap-3 z-50">
             <button
               onClick={() => setZoom((z) => Math.min(z + 0.3, 5))}
               className="bg-white/20 hover:bg-white/40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
             >
               <FaPlus />
+            </button>
+            <span className="text-white/80 text-xs min-w-[36px] text-center text-center">
+              {Math.round(zoom * 100)}%
+            </span>
+            <button
+              onClick={() => setZoom((z) => Math.max(z - 0.3, 1))}
+              className="bg-white/20 hover:bg-white/40 text-white rounded-full w-10 h-10 flex items-center justify-center transition-colors"
+            >
+              <FaMinus />
             </button>
           </div>
 

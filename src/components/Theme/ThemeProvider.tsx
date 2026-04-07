@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { FiMoon, FiSun, FiChevronLeft } from "react-icons/fi";
+import VLibrasWidget from "@/components/VLibras/VLibrasWidget";
 
 const STORAGE_KEY = "site-theme";
 const HIDE_KEY = "theme-toggle-hidden";
@@ -97,6 +98,11 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
         >
           {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
         </button>
+
+        {/* BOTÃO VLIBRAS */}
+        <div className={`${minimized ? "opacity-0 scale-75 pointer-events-none w-0" : "w-12 opacity-100 scale-100"} transition-all duration-300`}>
+          <VLibrasWidget />
+        </div>
 
         {/* BOTÃO ESCONDER */}
         <button
