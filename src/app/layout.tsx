@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyNavbarHandler from "@/components/StickyNavbarHandler";
 import ThemeProvider from "@/components/Theme/ThemeProvider";
-import VLibrasNative from "@/components/VLibras/VLibrasNative";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -30,15 +29,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
-  {/* VLibras — personagem 3D Ícaro */}
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js" async />
-</head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+      </head>
       <body className={poppins.className}>
-        <VLibrasNative />
         <ThemeProvider>
           <StickyNavbarHandler />
           <Navbar />
