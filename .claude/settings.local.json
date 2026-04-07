@@ -7,7 +7,9 @@
       "Bash(curl -sL https://api.github.com/repos/spbgovbr-vlibras/vlibras-portal/contents/)",
       "Bash(python3 -c \"import sys,json; [print\\(x[''''name'''']\\) for x in json.load\\(sys.stdin\\)]\")",
       "Bash(curl -sL https://raw.githubusercontent.com/spbgovbr-vlibras/vlibras-portal/master/index.html)",
-      "Bash(curl -sL https://raw.githubusercontent.com/spbgovbr-vlibras/vlibras-portal/master/app/vlibras-plugin.js)"
+      "Bash(curl -sL https://raw.githubusercontent.com/spbgovbr-vlibras/vlibras-portal/master/app/vlibras-plugin.js)",
+      "Bash(npx next:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
