@@ -43,18 +43,18 @@ const cartas = [
     imagemSecretario: "/time/secretarios/Gabriela Sanches.JPG",
   },
   {
-    nome: "Gustavo Vezzá",
-    cargo: "Sub-Secretário Geral de Comunicação — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 4.jpg",
-    imagemSecretario: "/time/secretarios/Brenno Figueiredo (2).JPG",
-  },
-  {
     nome: "Leticia Leocádio",
     cargo: "Secretária Geral de Comunicação — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imagemFundo: "/cronogramas/foto 2.webp",
     imagemSecretario: "/time/secretarios/Giovanna Queiroz.JPG",
+  },
+    {
+    nome: "Gustavo Vezzá",
+    cargo: "Sub-Secretário Geral de Comunicação — SenaMUN V",
+    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    imagemFundo: "/cronogramas/foto 4.jpg",
+    imagemSecretario: "/time/secretarios/Brenno Figueiredo (2).JPG",
   },
 ];
 

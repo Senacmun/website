@@ -1,11 +1,39 @@
 ﻿"use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const photosData: Record<number, string[]> = {
-  2025: [],
+  2025: [
+    "/edicoes/2025/IMG_5931.JPG",
+    "/edicoes/2025/DSC_0057.webp",
+    "/edicoes/2025/IMG_0471.CR2.webp",
+    "/edicoes/2025/IMG_0498.CR2.webp",
+    "/edicoes/2025/IMG_0535.CR2.webp",
+    "/edicoes/2025/IMG_0607.CR2.webp",
+    "/edicoes/2025/IMG_0676.CR2.webp",
+    "/edicoes/2025/IMG_0731.CR2.webp",
+    "/edicoes/2025/IMG_0748.CR2.webp",
+    "/edicoes/2025/IMG_5388.png",
+    "/edicoes/2025/IMG_5429.webp",
+    "/edicoes/2025/IMG_5446.webp",
+    "/edicoes/2025/IMG_5453.webp",
+    "/edicoes/2025/IMG_5462.webp",
+    "/edicoes/2025/IMG_5498.webp",
+    "/edicoes/2025/IMG_5502.webp",
+    "/edicoes/2025/IMG_5539.webp",
+    "/edicoes/2025/IMG_5546.webp",
+    "/edicoes/2025/IMG_5554.webp",
+    "/edicoes/2025/IMG_5569.webp",
+    "/edicoes/2025/IMG_5600.webp",
+    "/edicoes/2025/IMG_5602.webp",
+    "/edicoes/2025/IMG_5692.webp",
+    "/edicoes/2025/IMG_5697.webp",
+    "/edicoes/2025/IMG_5720.JPG",
+    "/edicoes/2025/IMG_5809.webp",
+    "/edicoes/2025/IMG_5928.webp",
+  ],
   2024: [
     "/edicoes/2024/DSC_0024_1_11zon.jpg",
     "/edicoes/2024/DSC_0090_2_11zon.jpg",
@@ -75,33 +103,84 @@ const years = [2025, 2024, 2023, 2022];
 
 export default function GaleriaPage() {
   const [selectedYear, setSelectedYear] = useState(2025);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
   const [zoom, setZoom] = useState<number>(1);
-  const [showControls, setShowControls] = useState(true);
-  const hideControlsTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const currentPhotos = photosData[selectedYear] || [];
+  const selectedPhoto =
+    selectedPhotoIndex === null ? null : currentPhotos[selectedPhotoIndex] ?? null;
+  const selectedPhotoKey =
+    selectedPhotoIndex === null || selectedPhoto === null
+      ? ""
+      : `${selectedYear}-${selectedPhotoIndex}-${selectedPhoto}`;
+  const isFirstPhoto = selectedPhotoIndex === 0;
+  const isLastPhoto =
+    selectedPhotoIndex !== null && selectedPhotoIndex === currentPhotos.length - 1;
+  const editionButtonYear =
+    selectedYear === 2022 ? 2025 : years[years.indexOf(selectedYear) + 1];
+  const editionButtonText =
+    selectedYear === 2022
+      ? "Ver fotos da edição mais recente"
+      : "Ver fotos da edição anterior";
   const MIN_ZOOM = 1;
   const MAX_ZOOM = 3;
   const ZOOM_STEP = 0.5;
-  const currentPhotos = photosData[selectedYear] || [];
 
-  const resetControlsTimer = () => {
-    setShowControls(true);
-    if (hideControlsTimer.current) clearTimeout(hideControlsTimer.current);
-    hideControlsTimer.current = setTimeout(() => {
-      setShowControls(false);
-    }, 2000);
+  const selectYear = (year: number) => {
+    setSelectedYear(year);
+    setSelectedPhotoIndex(null);
+    setZoom(1);
+  };
+
+  const openLightbox = (index: number) => {
+    setSelectedPhotoIndex(index);
+    setZoom(1);
   };
 
   const closeLightbox = () => {
-    setSelectedImage(null);
+    setSelectedPhotoIndex(null);
     setZoom(1);
-    setShowControls(true);
-    if (hideControlsTimer.current) clearTimeout(hideControlsTimer.current);
+  };
+
+  const showPreviousPhoto = () => {
+    setSelectedPhotoIndex((index) => {
+      if (index === null) return index;
+      return Math.max(0, index - 1);
+    });
+    setZoom(1);
+  };
+
+  const showNextPhoto = () => {
+    setSelectedPhotoIndex((index) => {
+      if (index === null) return index;
+      return Math.min(currentPhotos.length - 1, index + 1);
+    });
+    setZoom(1);
+  };
+
+  const showEditionGallery = () => {
+    if (!editionButtonYear) return;
+
+    setSelectedYear(editionButtonYear);
+    setSelectedPhotoIndex(null);
+    setZoom(1);
   };
 
   useEffect(() => {
-    if (selectedImage) resetControlsTimer();
-  }, [selectedImage]);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    };
+
+    if (selectedPhotoIndex !== null) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedPhotoIndex]);
 
   return (
     <div className="w-full min-h-screen bg-white dark:bg-[#0B1E2D] transition-colors duration-300">
@@ -124,7 +203,7 @@ export default function GaleriaPage() {
           {years.map((year) => (
             <button
               key={year}
-              onClick={() => setSelectedYear(year)}
+              onClick={() => selectYear(year)}
               className={`rounded-xl px-6 py-2 text-sm font-semibold transition-all duration-300 ${
                 selectedYear === year
                   ? "bg-blue-custom text-white shadow-md dark:bg-[#f39322] dark:text-[#0B1E2D]"
@@ -150,13 +229,12 @@ export default function GaleriaPage() {
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
             >
               {currentPhotos.map((img, index) => (
-                <div
-                  key={index}
-                  onClick={() => {
-                    setSelectedImage(img);
-                    setZoom(1);
-                  }}
-                  className="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer dark:border dark:border-white/10"
+                <button
+                  key={img}
+                  type="button"
+                  onClick={() => openLightbox(index)}
+                  className="group relative overflow-hidden rounded-2xl shadow-lg dark:border dark:border-white/10"
+                  aria-label={`Abrir foto ${index + 1} de ${selectedYear}`}
                 >
                   <Image
                     src={img}
@@ -172,7 +250,7 @@ export default function GaleriaPage() {
                       Ver imagem
                     </span>
                   </div>
-                </div>
+                </button>
               ))}
             </motion.div>
           ) : (
@@ -189,79 +267,114 @@ export default function GaleriaPage() {
         </AnimatePresence>
       </section>
 
-      {selectedImage && (
+      {selectedPhoto && selectedPhotoIndex !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm"
           onClick={closeLightbox}
-          onMouseMove={resetControlsTimer}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Visualização da foto"
         >
           <button
-            onClick={() => {
-              closeLightbox();
-            }}
-            className={`fixed top-4 right-4 z-[60] bg-white dark:bg-slate-800 text-gray-800 dark:text-white rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:scale-110 font-bold text-xl transition-all duration-500 ${
-              showControls ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
-            }`}
+            type="button"
+            onClick={closeLightbox}
+            className="fixed right-4 top-4 z-[60] flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl font-bold text-gray-800 shadow-lg transition-transform duration-200 hover:scale-110 dark:bg-slate-800 dark:text-white"
+            aria-label="Fechar imagem"
           >
             ✕
           </button>
 
           <div
-            className="relative mx-4 w-full max-w-4xl"
-            onClick={(e) => e.stopPropagation()}
+            className="flex w-full max-w-5xl flex-col items-center"
+            onClick={(event) => event.stopPropagation()}
           >
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
-              <div
-                className="absolute inset-0 transition-transform duration-300 ease-out"
-                style={{
-                  transform: `scale(${zoom})`,
-                  transformOrigin: "center center",
-                }}
-              >
-                <Image
-                  src={selectedImage}
-                  alt="Imagem expandida"
-                  fill
-                  className="object-contain"
-                  draggable={false}
-                />
+            <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+              <div className="relative h-[70vh] w-full bg-transparent">
+                <div
+                  key={selectedPhotoKey}
+                  className="absolute inset-0 transition-transform duration-300 ease-out"
+                  style={{
+                    transform: `scale(${zoom})`,
+                    transformOrigin: "center center",
+                  }}
+                >
+                  <Image
+                    key={selectedPhotoKey}
+                    src={selectedPhoto}
+                    alt={`SenaMUN ${selectedYear} - Foto ${selectedPhotoIndex + 1}`}
+                    fill
+                    sizes="100vw"
+                    className="object-contain"
+                    draggable={false}
+                  />
+                </div>
               </div>
+
+              {!isFirstPhoto && (
+                <button
+                  type="button"
+                  onClick={showPreviousPhoto}
+                  className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-2xl font-bold text-white transition-all duration-200 hover:bg-black/70"
+                  aria-label="Foto anterior"
+                >
+                  {"<"}
+                </button>
+              )}
+
+              {!isLastPhoto && (
+                <button
+                  type="button"
+                  onClick={showNextPhoto}
+                  className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-2xl font-bold text-white transition-all duration-200 hover:bg-black/70"
+                  aria-label="Próxima foto"
+                >
+                  {">"}
+                </button>
+              )}
             </div>
 
-            <div
-              className={`flex items-center justify-center gap-3 mt-4 transition-all duration-500 ${
-                showControls ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
-              }`}
-            >
+            <p className="mt-4 text-sm font-medium text-white">
+              Foto {selectedPhotoIndex + 1} de {currentPhotos.length} - {selectedYear}
+            </p>
+
+            <div className="mt-4 flex items-center justify-center gap-3">
               <button
-                onClick={() => {
-                  setZoom((z) => Math.max(MIN_ZOOM, z - ZOOM_STEP));
-                  resetControlsTimer();
-                }}
+                type="button"
+                onClick={() => setZoom((value) => Math.max(MIN_ZOOM, value - ZOOM_STEP))}
                 disabled={zoom <= MIN_ZOOM}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-gray-800 shadow transition-transform duration-200 hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800 dark:text-white"
                 title="Diminuir zoom"
+                aria-label="Diminuir zoom"
               >
                 −
               </button>
 
-              <div className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow backdrop-blur-sm dark:bg-slate-800/60">
+              <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-800 shadow backdrop-blur-sm dark:bg-slate-800 dark:text-white">
                 <i className="fa-solid fa-magnifying-glass text-yellow-custom" />
                 {Math.round(zoom * 100)}%
               </div>
 
               <button
-                onClick={() => {
-                  setZoom((z) => Math.min(MAX_ZOOM, z + ZOOM_STEP));
-                  resetControlsTimer();
-                }}
+                type="button"
+                onClick={() => setZoom((value) => Math.min(MAX_ZOOM, value + ZOOM_STEP))}
                 disabled={zoom >= MAX_ZOOM}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg font-bold text-gray-800 shadow transition-transform duration-200 hover:scale-110 disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800 dark:text-white"
                 title="Aumentar zoom"
+                aria-label="Aumentar zoom"
               >
                 +
               </button>
             </div>
+
+            {isLastPhoto && (
+              <button
+                type="button"
+                onClick={showEditionGallery}
+                className="mt-5 rounded-xl bg-blue-custom px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:scale-[1.02] hover:opacity-90 dark:bg-[#f39322] dark:text-[#0B1E2D]"
+              >
+                {editionButtonText}
+              </button>
+            )}
           </div>
         </div>
       )}
