@@ -169,7 +169,27 @@ export default function GaleriaPage() {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        closeLightbox();
+        setSelectedPhotoIndex(null);
+        setZoom(1);
+        return;
+      }
+
+      if (selectedPhotoIndex === null) return;
+
+      if (event.key === "ArrowLeft" && selectedPhotoIndex > 0) {
+        setSelectedPhotoIndex((index) => {
+          if (index === null) return index;
+          return Math.max(0, index - 1);
+        });
+        setZoom(1);
+      }
+
+      if (event.key === "ArrowRight" && selectedPhotoIndex < currentPhotos.length - 1) {
+        setSelectedPhotoIndex((index) => {
+          if (index === null) return index;
+          return Math.min(currentPhotos.length - 1, index + 1);
+        });
+        setZoom(1);
       }
     };
 
@@ -180,7 +200,7 @@ export default function GaleriaPage() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedPhotoIndex]);
+  }, [currentPhotos.length, selectedPhotoIndex]);
 
   return (
     <div className="w-full min-h-screen bg-white dark:bg-[#0B1E2D] transition-colors duration-300">
