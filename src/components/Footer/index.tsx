@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import Link from "next/link";
 
@@ -55,6 +55,9 @@ export default function Footer() {
         <div className="flex text-white gap-3 text-xl">
           <Link href={"https://www.instagram.com/senamun_/"}>
             <FaInstagram />
+          </Link>
+          <Link href={"https://www.tiktok.com/@senamun_"} aria-label="TikTok do SenaMUN">
+            <FaTiktok />
           </Link>
           <Link href={"mailto:senamunsenac@gmail.com"}>
             <IoIosMail />
