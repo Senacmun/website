@@ -8,7 +8,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Direitos Humanos.png",
+    imagem: "DireitosHumanos_Discutindo_a_Eficácia_das_Intervenções_dos_Organismos_Internacionais_na_Proteção_dos_Direitos_Humanos.JPG",
+    sinopse: "Espaço reservado para a sinopse detalhada do comitê de Direitos Humanos, onde serão discutidas as intervenções internacionais.",
   },
   {
     tema: "Tema a definir",
@@ -18,7 +19,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Conselho de Seguranca.png",
+    imagem: "Conselho de Segurança.AVIF",
+    sinopse: "Espaço reservado para a sinopse do Conselho de Segurança.",
   },
   {
     tema: "Tema a definir",
@@ -28,7 +30,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "SC.jpg",
+    imagem: "Conselho de Segurança.AVIF",
+    sinopse: "Espaço reservado para a sinopse do Conselho de Segurança.",
   },
   {
     tema: "Tema a definir",
@@ -38,7 +41,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Camara dos Deputados.webp",
+    imagem: "Escala_6x1.JPG",
+    sinopse: "Espaço reservado para a sinopse da Câmara dos Deputados.",
   },
   {
     tema: "Tema a definir",
@@ -48,7 +52,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "COP.png",
+    imagem: "Parlamento Americano.WEBP",
+    sinopse: "Espaço reservado para a sinopse do Parlamento Americano.",
   },
 
   // English
@@ -61,6 +66,7 @@ const dadosComites = [
     pdf: null,
     idioma: "en",
     imagem: "ONU Mulheres.jpg",
+    sinopse: "Reserved space for the Human Rights committee synopsis.",
   },
   {
     tema: "Tema a definir",
@@ -70,7 +76,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "en",
-    imagem: "HSC.jpg",
+    imagem: "Adressing_the_Russian_Civil_War.PNG",
+    sinopse: "Reserved space for the Historical Security Council synopsis.",
   },
 
   // Siglas
@@ -82,7 +89,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "junior-council.jpeg",
+    imagem: "Falta_de_Recursos_2100.JPG",
+    sinopse: "Espaço reservado para a sinopse do Junior Council.",
   },
   {
     tema: "Tema a definir",
@@ -93,6 +101,7 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "OMS.png",
+    sinopse: "Espaço reservado para a sinopse da OMS.",
   },
   {
     tema: "Tema a definir",
@@ -102,7 +111,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "ECOSOC.png",
+    imagem: "NeoLudismo.JPG",
+    sinopse: "Espaço reservado para a sinopse do ECOSOC.",
   },
   {
     tema: "Tema a definir",
@@ -112,7 +122,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Fao.webp",
+    imagem: "FAO_Discutindo_Impactos_das_MudançasClimáticas.PNG",
+    sinopse: "Espaço reservado para a sinopse da FAO.",
   },
   {
     tema: "Tema a definir",
@@ -122,7 +133,8 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "omc.png",
+    imagem: "OMC_Abordando_a_Privatização_de_Setores_Essenciais_seus_Impactos_no_Comércio_Internacional.PNG",
+    sinopse: "Espaço reservado para a sinopse da OMC.",
   },
 
   // Especiais
@@ -135,16 +147,19 @@ const dadosComites = [
     pdf: null,
     idioma: "en",
     imagem: "SW.webp",
+    sinopse: "Reserved space for the Special committee synopsis.",
   },
   {
-    tema: "Tema a definir",
+    tema: "Ordem Paranormal",
     comite: "Especial",
     modalidade: "Individual",
     classroom: "https://classroom.google.com/c/Nzk3MDI1NzIxMjQ2?cjc=a2zozprb",
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Especial.webp",
+    imagem: "Ordem.JPG",
+    posicao: "left center",
+    sinopse: "Espaço reservado para a sinopse do comitê Especial.",
   },
 ];
 

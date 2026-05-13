@@ -16,6 +16,8 @@ interface Committee {
   pdf: string | null;
   idioma: string;
   imagem: string | null;
+  posicao?: string;
+  sinopse?: string;
 }
 
 export default function ComitesPage() {
@@ -80,9 +82,10 @@ export default function ComitesPage() {
                   className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
                 >
                   <div
-                    className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                    className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
                     style={{
                       backgroundImage: getCommitteeImage(committee),
+                      backgroundPosition: committee.posicao || "center",
                     }}
                   />
                   <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
@@ -92,8 +95,13 @@ export default function ComitesPage() {
                     <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
                   </div>
                   <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                    <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                      {committee.comite}
+                    <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5">
+                      <span>{committee.comite}</span>
+                      {committee.tema && committee.tema !== "Tema a definir" && (
+                        <span className="no-underline text-base font-medium opacity-90">
+                          — {committee.tema}
+                        </span>
+                      )}
                     </h2>
                   </div>
                 </button>
@@ -109,11 +117,10 @@ export default function ComitesPage() {
                 className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20"
               >
                 <div
-                  className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                  className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
                   style={{
-                    backgroundImage: specialCommittee.imagem
-                      ? `url(/comites/${specialCommittee.imagem})`
-                      : "url(/logo-senamun.png)",
+                    backgroundImage: getCommitteeImage(specialCommittee),
+                    backgroundPosition: specialCommittee.posicao || "center",
                   }}
                 />
                 <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
@@ -123,8 +130,13 @@ export default function ComitesPage() {
                   <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
                 </div>
                 <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                  <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                    {specialCommittee.comite}
+                  <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5">
+                    <span>{specialCommittee.comite}</span>
+                    {specialCommittee.tema && specialCommittee.tema !== "Tema a definir" && (
+                      <span className="no-underline text-base font-medium opacity-90">
+                        — {specialCommittee.tema}
+                      </span>
+                    )}
                   </h2>
                 </div>
               </button>
@@ -147,11 +159,10 @@ export default function ComitesPage() {
                 className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20"
               >
                 <div
-                  className="absolute inset-0 scale-100 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
+                  className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
                   style={{
-                    backgroundImage: especialCommittee.imagem
-                      ? `url(/comites/${especialCommittee.imagem})`
-                      : "url(/logo-senamun.png)",
+                    backgroundImage: getCommitteeImage(especialCommittee),
+                    backgroundPosition: especialCommittee.posicao || "center",
                   }}
                 />
                 <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
@@ -161,8 +172,13 @@ export default function ComitesPage() {
                   <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
                 </div>
                 <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                  <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105">
-                    {especialCommittee.comite}
+                  <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5">
+                    <span>{especialCommittee.comite}</span>
+                    {especialCommittee.tema && especialCommittee.tema !== "Tema a definir" && (
+                      <span className="no-underline text-base font-medium opacity-90">
+                        — {especialCommittee.tema}
+                      </span>
+                    )}
                   </h2>
                 </div>
               </button>
@@ -182,75 +198,72 @@ export default function ComitesPage() {
               className="fixed inset-0 transition-opacity"
               aria-hidden="true"
             >
-              <div className="inset-0 bg-gray-500 opacity-75"></div>
+              <div className="inset-0 bg-black/60 opacity-100"></div>
             </div>
             <span className="hidden sm:inline-block sm:h-screen sm:align-middle"></span>
             <div
               className={`${
                 isOpen
-                  ? "opacity-100 transition-opacity duration-200"
-                  : "opacity-0 transition-opacity duration-300"
-              } inline-block transform overflow-hidden rounded-lg bg-white text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle`}
+                  ? "opacity-100 translate-y-0 scale-100"
+                  : "opacity-0 translate-y-4 scale-95"
+              } inline-block transform overflow-hidden rounded-3xl bg-gray-50 text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle dark:bg-slate-900`}
               role="dialog"
               aria-modal="true"
               aria-labelledby="modal-headline"
             >
-              <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                    <h3
-                      className="text-lg font-medium leading-6 text-gray-900"
-                      id="modal-headline"
-                    >
-                      {modalData.tema}
-                    </h3>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        Comitê: {modalData.comite}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        Modalidade: {modalData.modalidade}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        Idioma: {modalData.idioma.toUpperCase()}
-                      </p>
+              <div className="px-6 py-8 sm:px-10">
+                <div className="text-left">
+                  {/* Título Principal */}
+                  <h3
+                    className="text-3xl font-extrabold text-gray-900 dark:text-white leading-tight"
+                    id="modal-headline"
+                  >
+                    {modalData.tema}
+                  </h3>
 
-                      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                        <a
-                          href={modalData.classroom}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-                        >
-                          Classroom
-                        </a>
-                        <a
-                          href={modalData.whatsapp}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
-                        >
-                          Whatsapp
-                        </a>
-                        {modalData.pdf && (
-                          <a
-                            href={modalData.pdf}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-                          >
-                            PDF
-                          </a>
-                        )}
-                      </div>
-                    </div>
+                  {/* Informações do Comitê */}
+                  <div className="mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-400">
+                    <p><span className="font-semibold text-gray-800 dark:text-gray-200">Comitê:</span> {modalData.comite}</p>
+                    <p><span className="font-semibold text-gray-800 dark:text-gray-200">Modalidade:</span> {modalData.modalidade}</p>
+                    <p><span className="font-semibold text-gray-800 dark:text-gray-200">Idioma:</span> {modalData.idioma.toUpperCase()}</p>
+                  </div>
+
+                  {/* Seção de Sinopse */}
+                  <div className="mt-8">
+                    <h4 className="text-base font-bold text-gray-900 dark:text-gray-100">
+                      Sinopse sobre o comitê
+                    </h4>
+                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed italic">
+                      {modalData.sinopse || "A sinopse deste comitê estará disponível em breve para consulta dos delegados."}
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+
+              {/* Área de Botões Alinhada */}
+              <div className="bg-gray-100/50 px-6 py-5 sm:px-10 flex flex-row items-center justify-between dark:bg-slate-800/50 border-t border-gray-200 dark:border-gray-700">
+                <div className="flex gap-3">
+                  <a
+                    href={modalData.classroom}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:scale-105 active:scale-95"
+                  >
+                    Classroom
+                  </a>
+                  <a
+                    href={modalData.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-xl bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-green-700 hover:scale-105 active:scale-95"
+                  >
+                    Whatsapp
+                  </a>
+                </div>
+
                 <button
                   type="button"
-                  className="mt-3 inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:mt-0 sm:w-auto sm:text-sm"
+                  className="inline-flex items-center justify-center rounded-xl bg-red-500/10 px-6 py-2.5 text-sm font-bold text-red-600 transition-all duration-200 hover:bg-red-600 hover:text-white active:scale-95"
                   onClick={closeModal}
                 >
                   Fechar

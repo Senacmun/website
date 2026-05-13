@@ -1,7 +1,7 @@
 ﻿"use client";
 
-import Image from "next/image";
 import dados from "../dataMembros";
+import TeamMemberCard from "@/components/TeamMemberCard";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -54,13 +54,13 @@ export default function AcademicoPage() {
       {/* CARDS */}
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {membros.map((membro, index) => (
-          <div key={index} className="bg-white dark:bg-slate-800 shadow-lg hover:scale-105 hover:-translate-y-1 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl">
-            <div className="relative w-full aspect-square mb-4">
-              <Image src={`/time/academico/${membro.imagem}`} alt={membro.nome} fill className="object-cover rounded-xl" />
-            </div>
-            <h3 className="text-lg font-semibold text-blue-custom dark:text-[#f39322] mt-3">{membro.nome}</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{membro.cargo}</p>
-          </div>
+          <TeamMemberCard
+            key={index}
+            name={membro.nome}
+            role={membro.cargo}
+            imageSrc={`/time/academico/${membro.imagem}`}
+            nameClassName="text-lg font-semibold text-blue-custom dark:text-[#f39322] mt-3"
+          />
         ))}
       </div>
     </main>

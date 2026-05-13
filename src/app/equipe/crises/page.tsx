@@ -1,8 +1,8 @@
 ﻿"use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import dados from "../dataMembros";
+import TeamMemberCard from "@/components/TeamMemberCard";
 import { useEffect, useRef, useState } from "react";
 
 export default function CrisesPage() {
@@ -69,21 +69,13 @@ export default function CrisesPage() {
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {membros && membros.length > 0 ? (
           membros.map((membro, index) => (
-            <div
+            <TeamMemberCard
               key={index}
-              className="bg-white dark:bg-slate-800 shadow-lg hover:scale-105 hover:-translate-y-1 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl"
-            >
-              <div className="relative w-full aspect-square mb-4">
-                <Image
-                  src={`/time/crises/${membro.imagem}`}
-                  alt={membro.nome}
-                  fill
-                  className="object-cover rounded-xl"
-                />
-              </div>
-              <h3 className="font-bold text-[#0B2E4A] dark:text-white text-lg">{membro.nome}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{membro.cargo}</p>
-            </div>
+              name={membro.nome}
+              role={membro.cargo}
+              imageSrc={`/time/crises/${membro.imagem}`}
+              nameClassName="font-bold text-[#0B2E4A] dark:text-white text-lg mt-3"
+            />
           ))
         ) : (
           <div className="col-span-full text-center py-10 dark:text-gray-400">

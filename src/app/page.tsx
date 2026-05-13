@@ -15,46 +15,46 @@ import Card from "@/components/Card";
 
 const cartas = [
   {
-    nome: "Ana Luisa",
+    nome: "Letícia Leocadio",
+    cargo: "Secretária Geral de Comunicação — SenaMUN V",
+    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    imagemFundo: "/cronogramas/foto 2.webp",
+    imagemSecretario: "/time/secretarios/Letícia Leocadio.JPG",
+  },
+  {
+    nome: "Gustavo Vezzá",
+    cargo: "Sub-Secretário Geral de Comunicação — SenaMUN V",
+    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    imagemFundo: "/cronogramas/foto 4.jpg",
+    imagemSecretario: "/time/secretarios/Gustavo Vezzá.JPG",
+  },
+  {
+    nome: "Ana Luisa Brito",
     cargo: "Secretary General — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imagemFundo: "/cronogramas/foto 6.webp",
-    imagemSecretario: "/time/secretarios/Giovanna Queiroz.JPG",
+    imagemSecretario: "/time/secretarios/Ana Luisa Brito.JPG",
   },
   {
     nome: "Leonardo Zanetti",
     cargo: "Under-Secretary General — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imagemFundo: "/cronogramas/foto 1.webp",
-    imagemSecretario: "/time/secretarios/Marina de Anna.JPG",
+    imagemSecretario: "/time/secretarios/Leonardo Zenetti.JPG",
   },
   {
     nome: "Emily Dilser",
     cargo: "Secretária Geral — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imagemFundo: "/cronogramas/foto 5.webp",
-    imagemSecretario: "/time/secretarios/Marina de Anna.JPG",
+    imagemSecretario: "/time/secretarios/Emily Dilser.JPG",
   },
   {
-    nome: "Kauan Gomes",
+    nome: "Kauan Oliveira",
     cargo: "Sub-Secretário Geral — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imagemFundo: "/cronogramas/foto 3.webp",
-    imagemSecretario: "/time/secretarios/Gabriela Sanches.JPG",
-  },
-  {
-    nome: "Leticia Leocádio",
-    cargo: "Secretária Geral de Comunicação — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 2.webp",
-    imagemSecretario: "/time/secretarios/Giovanna Queiroz.JPG",
-  },
-    {
-    nome: "Gustavo Vezzá",
-    cargo: "Sub-Secretário Geral de Comunicação — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 4.jpg",
-    imagemSecretario: "/time/secretarios/Brenno Figueiredo (2).JPG",
+    imagemSecretario: "/time/secretarios/Kauan Oliveira.JPG",
   },
 ];
 
@@ -136,10 +136,10 @@ const CartaCarrossel = () => {
               Uma palavrinha do <br /> Secretariado
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed mb-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ao longo dos anos, o SenaMUN foi moldado pela visão e dedicação de seus Secretários Gerais. Cada um deixou sua marca — guiando delegados pelos desafios, fomentando a colaboração e construindo a forte comunidade que define nossa conferência hoje.
+              Ao longo dos anos, o SenaMUN foi moldado pela visão e dedicação de seus Secretários Gerais. Cada um deixou sua marca — guiando delegados pelos desafios, fomentando a colaboração e construindo a forte comunidade que define nossa conferência hoje.
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, suas contribuições ajudaram a conferência a crescer e florescer, tornando cada edição uma experiência inesquecível.
+              Suas contribuições ajudaram a conferência a crescer e florescer, tornando cada edição uma experiência inesquecível.
             </p>
           </div>
 

@@ -1,12 +1,12 @@
 ﻿"use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import dadosMembros from "../dataMembros";
+import TeamMemberCard from "@/components/TeamMemberCard";
 import { useEffect } from "react";
 
 export default function DiretoriaImagemPage() {
-  const membros = dadosMembros.di;
+  const membros = dadosMembros.di.filter((membro) => membro.pasta === "midia_imagem");
 
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).FontAwesome) {
@@ -47,25 +47,14 @@ export default function DiretoriaImagemPage() {
       <div className="max-w-6xl mx-auto mb-20">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {membros.map((membro, index) => (
-            <div
+            <TeamMemberCard
               key={index}
-              className="bg-white dark:bg-slate-800 shadow-lg hover:scale-105 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl"
-            >
-              <div className="relative w-full aspect-square mb-4">
-                <Image
-                  src={`/time/${membro.imagem}`}
-                  alt={membro.nome}
-                  fill
-                  className="aspect-square object-cover rounded-xl"
-                />
-              </div>
-              <h3 className="text-lg font-semibold mt-3 text-[#0B2E4A] dark:text-white">
-                {membro.nome}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                {membro.cargo}
-              </p>
-            </div>
+              name={membro.nome}
+              role={membro.cargo}
+              imageSrc={`/time/${membro.pasta}/${membro.imagem}`}
+              cardClassName="bg-white dark:bg-slate-800 shadow-lg hover:scale-105 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl"
+              imageClassName="aspect-square object-cover rounded-xl"
+            />
           ))}
         </div>
       </div>

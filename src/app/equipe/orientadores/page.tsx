@@ -1,8 +1,8 @@
 ﻿"use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import dados from "../dataMembros";
+import TeamMemberCard from "@/components/TeamMemberCard";
 import { useEffect, useState } from "react";
 
 export default function OrientadoresPage() {
@@ -55,30 +55,18 @@ export default function OrientadoresPage() {
         {/* Grid de cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {membros.map((membro, index) => (
-            <div
+            <TeamMemberCard
               key={index}
-              className="w-full max-w-xs bg-white dark:bg-[#0F2A3D] rounded-2xl overflow-hidden shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300"
-            >
-              {/* Foto ocupando a maior parte do card */}
-              <div className="relative w-full aspect-[3/4]">
-                <Image
-                  src={`/time/orientadores/${membro.imagem}`}
-                  alt={membro.nome}
-                  fill
-                  className="object-cover object-center"
-                />
-              </div>
-
-              {/* Nome e cargo embaixo */}
-              <div className="px-4 py-4 text-center bg-white dark:bg-[#0F2A3D]">
-                <h3 className="text-base font-semibold text-[#0B2E4A] dark:text-white leading-snug">
-                  {membro.nome}
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  {membro.nome === "Naja de Oliveira Vieira" ? "Advisor" : membro.cargo}
-                </p>
-              </div>
-            </div>
+              name={membro.nome}
+              role={membro.nome === "Naja de Oliveira Vieira" ? "Advisor" : membro.cargo}
+              imageSrc={`/time/orientadores/${membro.imagem}`}
+              cardClassName="w-full max-w-xs bg-white dark:bg-[#0F2A3D] rounded-2xl overflow-hidden shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+              imageWrapperClassName="relative w-full aspect-[3/4]"
+              imageClassName="object-cover object-center"
+              contentClassName="px-4 py-4 text-center bg-white dark:bg-[#0F2A3D]"
+              nameClassName="text-base font-semibold text-[#0B2E4A] dark:text-white leading-snug"
+              roleClassName="text-sm text-gray-500 dark:text-gray-400 mt-1"
+            />
           ))}
         </div>
       </div>

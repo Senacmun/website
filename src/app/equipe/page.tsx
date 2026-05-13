@@ -42,10 +42,10 @@ export default function Equipe() {
                 <Link href="/equipe/imprensa">Diretoria de Imprensa</Link>
               </li>
               <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
-                <Link href="/equipe/midia">Mídia</Link>
+                <Link href="/equipe/imagens">Imagem</Link>
               </li>
               <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
-                <Link href="/equipe/imagens">Imagem</Link>
+                <Link href="/equipe/midia">Vídeo</Link>
               </li>
               <li className="w-fit cursor-pointer transition-all duration-300 hover:scale-105 hover:text-yellow-custom dark:text-soft-white">
                 <Link href="/equipe/academica-portugues">
@@ -101,16 +101,16 @@ export default function Equipe() {
             subtitle="Conheça nosso time de imprensa"
           />
           <Card
-            title="Mídia"
-            href="/equipe/midia"
-            icon={<RiTeamLine />}
-            subtitle="Conheça nosso time de mídia"
-          />
-          <Card
             title="Imagem"
             href="/equipe/imagens"
             icon={<RiTeamLine />}
             subtitle="Conheça nosso time de imagem"
+          />
+          <Card
+            title="Vídeo"
+            href="/equipe/midia"
+            icon={<RiTeamLine />}
+            subtitle="Conheça nosso time de vídeo"
           />
           <Card
             title="Orientadores"

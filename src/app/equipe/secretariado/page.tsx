@@ -3,48 +3,51 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { createPortal } from "react-dom";
 
 const membros = [
   {
-    nome: "Ana Luisa",
+    nome: "Ana Luisa Brito",
     cargo: "Secretary General",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imagem: "/time/secretarios/Giovanna Queiroz.JPG",
+    imagem: "/time/secretarios/Ana Luisa Brito.JPG",
   },
   {
     nome: "Leonardo Zanetti",
     cargo: "Under-Secretary General",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imagem: "/time/secretarios/Marina de Anna.JPG",
+    imagem: "/time/secretarios/Leonardo Zenetti.JPG",
   },
   {
     nome: "Emily Dilser",
     cargo: "Secretária Geral",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imagem: "/time/secretarios/Marina de Anna.JPG",
+    imagem: "/time/secretarios/Emily Dilser.JPG",
   },
   {
-    nome: "Kauan Gomes",
+    nome: "Kauan Oliveira",
     cargo: "Sub-Secretário Geral",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imagem: "/time/secretarios/Gabriela Sanches.JPG",
+    imagem: "/time/secretarios/Kauan Oliveira.JPG",
+  },
+    {
+    nome: "Letícia Leocadio",
+    cargo: "Secretária Geral de Comunicação",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    imagem: "/time/secretarios/Letícia Leocadio.JPG",
   },
   {
     nome: "Gustavo Vezzá",
     cargo: "Sub-Secretário Geral de Comunicação",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imagem: "/time/secretarios/Brenno Figueiredo (2).JPG",
-  },
-  {
-    nome: "Leticia Leocádio",
-    cargo: "Secretária Geral de Comunicação",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    imagem: "/time/secretarios/Giovanna Queiroz.JPG",
+    imagem: "/time/secretarios/Gustavo Vezzá.JPG",
   },
 ];
 
 export default function SecretariadoPage() {
   const [visible, setVisible] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<(typeof membros)[number] | null>(null);
+  const [isMounted, setIsMounted] = useState(false);
   const observerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleItems, setVisibleItems] = useState<boolean[]>(
     new Array(membros.length).fill(false)
@@ -52,6 +55,7 @@ export default function SecretariadoPage() {
 
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
+    setIsMounted(true);
   }, []);
 
   useEffect(() => {
@@ -59,6 +63,22 @@ export default function SecretariadoPage() {
       (window as any).FontAwesome.dom.i2svg();
     }
   }, []);
+
+  useEffect(() => {
+    if (!selectedMember) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedMember(null);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedMember]);
 
   useEffect(() => {
     const observers = observerRefs.current.map((ref, i) => {
@@ -128,7 +148,10 @@ export default function SecretariadoPage() {
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
                 {/* Foto */}
-                <div
+                <button
+                  type="button"
+                  onClick={() => setSelectedMember(membro)}
+                  aria-label={`Abrir foto de ${membro.nome}`}
                   className="relative w-full md:w-1/3 aspect-[2/3] max-h-[480px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl"
                 >
                   <Image
@@ -140,7 +163,7 @@ export default function SecretariadoPage() {
                   />
                   {/* Overlay gradiente */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                </div>
+                </button>
 
                 {/* Card informativo — sempre visível */}
                 <div
@@ -169,6 +192,53 @@ export default function SecretariadoPage() {
           })}
         </div>
       </div>
+
+      {selectedMember &&
+        isMounted &&
+        createPortal(
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm"
+          onClick={() => setSelectedMember(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Foto de ${selectedMember.nome}`}
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedMember(null)}
+            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
+            aria-label="Fechar imagem"
+          >
+            x
+          </button>
+
+          <div
+            className="flex w-full max-w-5xl flex-col items-center"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
+              <div className="relative h-[70vh] w-full bg-transparent">
+                <Image
+                  src={selectedMember.imagem}
+                  alt={selectedMember.nome}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
+            </div>
+
+            <h2 className="mt-4 text-xl font-semibold text-white">
+              {selectedMember.nome}
+            </h2>
+            <p className="mt-1 text-sm font-medium text-gray-200">
+              {selectedMember.cargo}
+            </p>
+          </div>
+        </div>,
+        document.body
+      )}
     </main>
   );
 }
