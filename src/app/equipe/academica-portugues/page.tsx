@@ -34,7 +34,7 @@ export default function AcademicaPortuguesPage() {
   return (
     <main
       ref={pageRef}
-      className={`min-h-screen overflow-x-hidden bg-[#071c2c] transition-all duration-500 ${
+      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#0B1E2D] transition-all duration-500 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
@@ -44,7 +44,7 @@ export default function AcademicaPortuguesPage() {
         image="/images/diretorias/Diretoria Acadêmico PT.jpg"
       />
 
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4 bg-white dark:bg-[#0B1E2D] transition-colors duration-500">
         {membros.map((membro, index) => (
           <TeamMemberCard
             key={index}
@@ -57,7 +57,3 @@ export default function AcademicaPortuguesPage() {
     </main>
   );
 }
-
-
-
-

@@ -149,7 +149,7 @@ const CartaCarrossel = () => {
       {/* Lightbox — foto real do secretário + card bio */}
       {expanded && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 dark:bg-[#0B1E2D]/95 backdrop-blur-sm px-4"
           onClick={() => setExpanded(false)}
         >
           <div
@@ -157,7 +157,7 @@ const CartaCarrossel = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Foto real do secretário — ajustada para ser mais fina */}
-            <div className="relative w-full md:w-[35%] min-h-[350px] md:min-h-[460px] flex-shrink-0">
+            <div className="relative w-full md:w-[35%] min-h-[350px] md:min-h-[460px] flex-shrink-0 bg-white dark:bg-[#0B1E2D]">
               <Image
                 src={carta.imagemSecretario}
                 alt={carta.nome}
@@ -168,7 +168,7 @@ const CartaCarrossel = () => {
             </div>
 
             {/* Card bio */}
-            <div className="w-full md:flex-1 bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-6 md:p-10 flex flex-col justify-between overflow-hidden">
+            <div className="w-full md:flex-1 bg-white dark:bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-6 md:p-10 flex flex-col justify-between overflow-hidden">
               <div>
                 <h2 className="text-yellow-custom font-bold text-2xl md:text-3xl mb-1">
                   {carta.nome}
@@ -178,7 +178,7 @@ const CartaCarrossel = () => {
                 </p>
                 <div className="w-full h-px bg-yellow-custom/30 mb-5" />
                 <div className="max-h-[250px] md:max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
-                  <p className="text-gray-300 text-xs md:text-sm font-light leading-relaxed whitespace-pre-line">
+                  <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm font-light leading-relaxed whitespace-pre-line">
                     {carta.texto}
                   </p>
                 </div>
@@ -217,7 +217,7 @@ export default function Home() {
   return (
     <main>
       <section
-        className="flex items-center xl:justify-between xl:px-32 md:px-32 px-12 justify-center text-nowrap"
+        className="flex items-center xl:justify-between xl:px-32 md:px-32 px-12 justify-center text-nowrap bg-white dark:bg-[#0B1E2D] transition-colors duration-500"
         style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}
       >
         <div className="text-light-blue-custom font-semibold text-center xl:text-left xl:text-4xl md:text-3xl sm:text-2xl text-xl">

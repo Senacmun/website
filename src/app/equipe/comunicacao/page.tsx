@@ -21,13 +21,13 @@ export default function ComunicacaoPage() {
 
   return (
     <main
-      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#071c2c] transition-all duration-500 ${
+      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#0B1E2D] transition-all duration-500 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
       <DirectorHeroBanner
         title="Comunicação"
-        subtitle="Responsáveis pela divulgação e comunicação do SenaMUN V"
+        subtitle="Responsáveis pelas parcerias e comunicações"
         image="/images/diretorias/Diretoria de Comunicação.jpg"
       />
 

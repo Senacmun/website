@@ -19,7 +19,7 @@ function getDirectorIcon(title: string) {
   if (normalizedTitle.includes("log")) return "fa-table";
   if (normalizedTitle.includes("video") || normalizedTitle.includes("vídeo")) return "fa-mobile";
   if (normalizedTitle.includes("imagem")) return "fa-camera";
-  if (normalizedTitle.includes("ingl")) return "fa-book-open";
+  if (normalizedTitle.includes("ingl") || normalizedTitle.includes("port") || normalizedTitle.includes("acad")) return "fa-book-open";
   return "fa-book";
 }
 
@@ -33,7 +33,7 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
   }, [icon]);
 
   return (
-    <section className="relative isolate h-[420px] min-h-[420px] overflow-hidden bg-white dark:bg-[#071c2c] transition-colors duration-500 md:h-[450px] lg:h-[480px]">
+    <section className="relative isolate h-[420px] min-h-[420px] overflow-hidden bg-white dark:bg-[#0B1E2D] transition-colors duration-500 md:h-[450px] lg:h-[480px]">
 
       {/* 
          MUDANÇA: object-contain + position right
@@ -49,8 +49,8 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
           sizes="100vw"
           className="rounded-3xl object-contain object-[90%_center]"
           style={{
-            maskImage: "linear-gradient(to right, black 0%, black 70%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to right, black 0%, black 70%, transparent 100%)",
+            maskImage: "linear-gradient(to right, black 0%, black 85%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, black 0%, black 85%, transparent 100%)",
           }}
         />
       </div>
@@ -59,10 +59,10 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
       <div className="absolute inset-0 z-10 bg-transparent transition-colors duration-500" />
 
       {/* Gradiente Esquerdo: Legibilidade do texto (Suavizado em 80% no Light Mode) */}
-      <div className="absolute inset-y-0 left-0 z-10 w-full bg-gradient-to-r from-white/20 via-white/15 to-transparent dark:from-[#071c2c] dark:via-[#071c2c]/75 dark:to-transparent transition-all duration-500" />
+      <div className="absolute inset-y-0 left-0 z-10 w-full bg-gradient-to-r from-white via-white/40 to-transparent dark:from-[#0B1E2D] dark:via-[#0B1E2D]/75 dark:to-transparent transition-all duration-500" />
 
-      {/* Gradiente Direito: Mesclagem suavizada (Reduzido para 5% no Light Mode para não "apagar" a foto) */}
-      <div className="absolute inset-y-0 right-0 z-10 w-1/4 bg-gradient-to-l from-white/5 to-transparent dark:from-[#071c2c]/65 transition-all duration-500" />
+      {/* Gradiente Direito: Reduzido para não tapar rostos no lado direito */}
+      <div className="absolute inset-y-0 right-0 z-10 w-1/6 bg-gradient-to-l from-white/10 to-transparent dark:from-[#0B1E2D]/30 transition-all duration-500" />
 
       {/* Overlay topo: Desativado em ambos os modos para manter a nitidez da foto */}
       <div className="absolute inset-0 z-10 bg-none transition-all duration-500" />
@@ -101,7 +101,7 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
         aria-hidden="true"
       >
         <path
-          className="fill-white dark:fill-[#071c2c] transition-colors duration-500"
+          className="fill-white dark:fill-[#0B1E2D] transition-colors duration-500"
           d="M0 120V72L60 66C120 60 240 48 360 52C480 56 600 76 720 78C840 80 960 64 1080 54C1200 44 1320 40 1380 38L1440 36V120H0Z"
         />
       </svg>

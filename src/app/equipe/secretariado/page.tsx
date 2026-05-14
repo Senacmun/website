@@ -104,7 +104,7 @@ export default function SecretariadoPage() {
 
   return (
     <main
-      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#071c2c] transition-all duration-500 ${
+      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#0B1E2D] transition-all duration-500 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       }`}
     >
@@ -179,7 +179,7 @@ export default function SecretariadoPage() {
         isMounted &&
         createPortal(
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-white/90 dark:bg-[#0B1E2D]/95 px-4 backdrop-blur-sm"
           onClick={() => setSelectedMember(null)}
           role="dialog"
           aria-modal="true"
@@ -188,7 +188,7 @@ export default function SecretariadoPage() {
           <button
             type="button"
             onClick={() => setSelectedMember(null)}
-            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
+            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-gray-800 dark:text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
             aria-label="Fechar imagem"
           >
             x
@@ -199,7 +199,7 @@ export default function SecretariadoPage() {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
-              <div className="relative h-[70vh] w-full bg-transparent">
+              <div className="relative h-[70vh] w-full bg-white dark:bg-[#0B1E2D]">
                 <Image
                   src={selectedMember.imagem}
                   alt={selectedMember.nome}
@@ -211,10 +211,10 @@ export default function SecretariadoPage() {
               </div>
             </div>
 
-            <h2 className="mt-4 text-xl font-semibold text-white">
+            <h2 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
               {selectedMember.nome}
             </h2>
-            <p className="mt-1 text-sm font-medium text-gray-200">
+            <p className="mt-1 text-sm font-medium text-gray-600 dark:text-gray-200">
               {selectedMember.cargo}
             </p>
           </div>

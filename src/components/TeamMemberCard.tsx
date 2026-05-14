@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
 
 type TeamMemberCardProps = {
@@ -20,7 +20,7 @@ export default function TeamMemberCard({
   name,
   role,
   imageSrc,
-  cardClassName = "bg-white dark:bg-slate-800 shadow-lg hover:scale-105 hover:-translate-y-1 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl",
+  cardClassName = "bg-white dark:bg-[#0B1E2D] border border-gray-200/50 dark:border-white/5 shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center p-4 rounded-xl",
   imageWrapperClassName = "relative w-full aspect-square mb-4",
   imageClassName = "object-cover rounded-xl",
   nameClassName = "text-lg font-semibold text-[#0B2E4A] dark:text-white mt-3",
@@ -29,9 +29,31 @@ export default function TeamMemberCard({
 }: TeamMemberCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Para a animação rodar apenas uma vez ao entrar na tela
+          if (cardRef.current) observer.unobserve(cardRef.current);
+        }
+      },
+      { 
+        threshold: 0.1, // Dispara quando 10% do card está visível
+        rootMargin: "0px 0px -30px 0px" // Ajuste fino para o disparo
+      }
+    );
+
+    if (cardRef.current) observer.observe(cardRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -52,7 +74,12 @@ export default function TeamMemberCard({
 
   return (
     <>
-      <div className={cardClassName}>
+      <div 
+        ref={cardRef}
+        className={`${cardClassName} transition-all duration-700 ease-out will-change-transform ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}
+      >
         <button
           type="button"
           onClick={() => setIsOpen(true)}
@@ -72,7 +99,7 @@ export default function TeamMemberCard({
         isMounted &&
         createPortal(
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-white/90 dark:bg-[#0B1E2D]/95 px-4 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -81,7 +108,7 @@ export default function TeamMemberCard({
           <button
             type="button"
             onClick={() => setIsOpen(false)}
-            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
+            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-gray-800 dark:text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
             aria-label="Fechar imagem"
           >
             x
@@ -92,7 +119,7 @@ export default function TeamMemberCard({
             onClick={(event) => event.stopPropagation()}
           >
             <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
-              <div className="relative h-[70vh] w-full bg-transparent">
+              <div className="relative h-[70vh] w-full bg-white dark:bg-[#0B1E2D]">
                 <Image
                   src={imageSrc}
                   alt={name}
@@ -104,8 +131,8 @@ export default function TeamMemberCard({
               </div>
             </div>
 
-            <h2 className="mt-4 text-xl font-semibold text-white">{name}</h2>
-            <p className="mt-1 text-sm font-medium text-gray-200">{role}</p>
+            <h2 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">{name}</h2>
+            <p className="mt-1 text-sm font-medium text-gray-600 dark:text-gray-200">{role}</p>
           </div>
         </div>,
         document.body

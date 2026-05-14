@@ -1,12 +1,18 @@
 ﻿"use client";
 
-import dadosMembros from "../dataMembros";
+import dados from "../dataMembros";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import DirectorHeroBanner from "@/components/DirectorHeroBanner";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function DiretoriaImagemPage() {
-  const membros = dadosMembros.di.filter((membro) => membro.pasta === "midia_imagem");
+export default function AcademicoPtPage() {
+  // Assumindo que 'dap' é a chave para a diretoria Acadêmica de Português em dataMembros
+  const membros = dados["dap"]; 
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined" && (window as any).FontAwesome) {
@@ -15,31 +21,27 @@ export default function DiretoriaImagemPage() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#071c2c]">
+    <main
+      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#0B1E2D] transition-all duration-500 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
       <DirectorHeroBanner
-        title="Diretoria de Imagem"
-        subtitle="Responsáveis pelos registros fotográficos e identidade visual"
-        image="/images/diretorias/Diretoria Mídia - Imagem.jpg"
+        title="Acadêmico de Português"
+        subtitle="Responsáveis pelo suporte acadêmico e correção de documentos"
+        image="/images/diretorias/Diretoria Academico - Portugues.jpg" // Ajuste o caminho da imagem se necessário
       />
 
-      <div className="mx-auto mb-20 max-w-6xl px-6 py-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {membros.map((membro, index) => (
-            <TeamMemberCard
-              key={index}
-              name={membro.nome}
-              role={membro.cargo}
-              imageSrc={`/time/${membro.pasta}/${membro.imagem}`}
-              cardClassName="bg-white dark:bg-slate-800 shadow-lg hover:scale-105 transition duration-300 flex flex-col items-center text-center p-4 rounded-xl"
-              imageClassName="aspect-square object-cover rounded-xl"
-            />
-          ))}
-        </div>
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4 bg-white dark:bg-[#0B1E2D] transition-colors duration-500">
+        {membros.map((membro, index) => (
+          <TeamMemberCard
+            key={index}
+            name={membro.nome}
+            role={membro.cargo}
+            imageSrc={`/time/academico-pt/${membro.imagem}`} // Ajuste o caminho da pasta se necessário
+          />
+        ))}
       </div>
     </main>
   );
 }
-
-
-
-
