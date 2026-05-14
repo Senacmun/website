@@ -31,8 +31,8 @@ const cartas = [
   {
     nome: "Emily Dilser",
     cargo: "Secretária Geral — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 5.webp",
+    texto: `O SenaMUN foi algo inexplicável na minha vida, que me impactou de um modo que eu mal consigo colocar em palavras. Sei que não é nenhum eufemismo afirmar que o SenaMUN salvou meu ensino médio e me mudou para melhor como pessoa. Para mim tudo isso não é apenas uma simulação da ONU, mas é a simulação da ONU. Sou eternamente grata por tudo que o SenaMUN me proporcionou, desde discursos feitos às pressas até pessoas valiosas que desejo ter na minha vida para muito além do ensino médio.  Enquanto preparamos esta conferência, pensamos em cada mínimo detalhe, cada vírgula dos guias de estudos, cada post, cada email, cada brinde, preparamos tudo para que possamos fazer com que a experiência de quem vier para o nosso evento sinta-se tão maravilhado com o SenaMUN quanto todos ficamos pela primeira vez que participamos desta conferência. Esperamos, como todos os anos, nos superarmos e fazermos nosso melhor! `,
+    imagemFundo: "/images/foto_emily.jpeg",
     imagemSecretario: "/time/secretarios/Emily Dilser.JPG",
   },
   {
@@ -100,8 +100,8 @@ const CartaCarrossel = () => {
                 <Image src={c.imagemFundo} alt={c.nome} fill className="object-cover object-top" draggable={false} />
                 <div className="absolute inset-0 bg-black/55" />
                 <div className="absolute inset-0 flex flex-col justify-between p-8 z-10">
-                  <p className="text-white text-sm md:text-base leading-relaxed max-w-md">
-                    &ldquo;{c.texto}&rdquo;
+                  <p className="text-white text-xs md:text-sm leading-relaxed max-w-md line-clamp-[7] md:line-clamp-none whitespace-pre-line">
+                    &ldquo;{c.texto.length > 300 ? c.texto.substring(0, 300) + "..." : c.texto}&rdquo;
                   </p>
                   <div>
                     <p className="text-white italic font-medium">{c.nome},</p>
@@ -168,7 +168,7 @@ const CartaCarrossel = () => {
             </div>
 
             {/* Card bio */}
-            <div className="w-full md:flex-1 bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-8 md:p-10 flex flex-col justify-between">
+            <div className="w-full md:flex-1 bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-6 md:p-10 flex flex-col justify-between overflow-hidden">
               <div>
                 <h2 className="text-yellow-custom font-bold text-2xl md:text-3xl mb-1">
                   {carta.nome}
@@ -177,9 +177,11 @@ const CartaCarrossel = () => {
                   {carta.cargo}
                 </p>
                 <div className="w-full h-px bg-yellow-custom/30 mb-5" />
-                <p className="text-gray-300 text-sm font-light leading-relaxed">
-                  {carta.texto}
-                </p>
+                <div className="max-h-[250px] md:max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
+                  <p className="text-gray-300 text-xs md:text-sm font-light leading-relaxed whitespace-pre-line">
+                    {carta.texto}
+                  </p>
+                </div>
               </div>
 
               {/* Botão Ver Secretariado — parte inferior direita */}

@@ -22,7 +22,7 @@ const membros = [
   {
     nome: "Emily Dilser",
     cargo: "Secretária Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Olá, senhores delegados! Me chamo Emily, tenho 17 anos, estudo no Senac Nações Unidas e tenho a honra de ser a Secretária-Geral da 5ª edição do SenaMUN. Ingressei no SenaMUN em 2024, ainda no meu 1⁰ ano do Ensino Médio, e acabei por me encontrar no mundo das simulações. Desde então nunca mais parei!",
     imagem: "/time/secretarios/Emily Dilser.JPG",
   },
   {
