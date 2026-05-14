@@ -1,8 +1,8 @@
 ﻿"use client";
 
-import Link from "next/link";
 import dadosMembros from "../dataMembros";
 import TeamMemberCard from "@/components/TeamMemberCard";
+import DirectorHeroBanner from "@/components/DirectorHeroBanner";
 import { useEffect } from "react";
 
 export default function DiretoriaImagemPage() {
@@ -15,36 +15,14 @@ export default function DiretoriaImagemPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#0B1E2D] py-10 px-6">
-      <div className="max-w-6xl mx-auto">
-        <Link
-          href="/equipe"
-          className="group mb-8 inline-flex items-center gap-2 rounded-xl bg-[#0B2A41]/70 px-4 py-2 text-sm font-medium text-yellow-custom shadow-md backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:text-yellow-400"
-        >
-          <span className="inline-block text-lg font-bold leading-none transition-transform duration-300 group-hover:-translate-x-1 group-active:-translate-x-2">
-            ←
-          </span>
-          Voltar para Equipe
-        </Link>
+    <main className="min-h-screen overflow-x-hidden bg-[#071c2c]">
+      <DirectorHeroBanner
+        title="Diretoria de Imagem"
+        subtitle="Responsáveis pelos registros fotográficos e identidade visual"
+        image="/images/diretorias/Diretoria Mídia - Imagem.jpg"
+      />
 
-        <div className="flex items-center gap-4 mb-2">
-          <div className="bg-yellow-custom/10 dark:bg-yellow-custom/20 rounded-full p-4 flex items-center justify-center">
-            <i className="fa-solid fa-camera text-yellow-custom text-3xl" />
-          </div>
-          <div>
-            <h1 className="text-[#0B2E4A] dark:text-white font-bold text-4xl md:text-5xl">
-              Diretoria de Imagem
-            </h1>
-            <p className="text-[#36566F] dark:text-gray-400 text-sm mt-1">
-              Responsáveis pelos registros fotográficos e identidade visual
-            </p>
-          </div>
-        </div>
-
-        <div className="w-full h-px bg-gradient-to-r from-yellow-custom/40 via-transparent to-transparent mt-6 mb-10" />
-      </div>
-
-      <div className="max-w-6xl mx-auto mb-20">
+      <div className="mx-auto mb-20 max-w-6xl px-6 py-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {membros.map((membro, index) => (
             <TeamMemberCard

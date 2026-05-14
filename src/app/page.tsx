@@ -15,20 +15,6 @@ import Card from "@/components/Card";
 
 const cartas = [
   {
-    nome: "Letícia Leocadio",
-    cargo: "Secretária Geral de Comunicação — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 2.webp",
-    imagemSecretario: "/time/secretarios/Letícia Leocadio.JPG",
-  },
-  {
-    nome: "Gustavo Vezzá",
-    cargo: "Sub-Secretário Geral de Comunicação — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 4.jpg",
-    imagemSecretario: "/time/secretarios/Gustavo Vezzá.JPG",
-  },
-  {
     nome: "Ana Luisa Brito",
     cargo: "Secretary General — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -55,6 +41,20 @@ const cartas = [
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     imagemFundo: "/cronogramas/foto 3.webp",
     imagemSecretario: "/time/secretarios/Kauan Oliveira.JPG",
+  },
+  {
+    nome: "Letícia Leocadio",
+    cargo: "General Secretary of Communication — SenaMUN V",
+    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    imagemFundo: "/cronogramas/foto 2.webp",
+    imagemSecretario: "/time/secretarios/Letícia Leocadio.JPG",
+  },
+    {
+    nome: "Gustavo Vezzá",
+    cargo: "Secretário Geral de Comunicação — SenaMUN V",
+    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    imagemFundo: "/cronogramas/foto 4.jpg",
+    imagemSecretario: "/time/secretarios/Gustavo Vezzá.JPG",
   },
 ];
 

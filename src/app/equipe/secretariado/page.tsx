@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { createPortal } from "react-dom";
+import DirectorHeroBanner from "@/components/DirectorHeroBanner";
 
 const membros = [
   {
@@ -32,13 +33,13 @@ const membros = [
   },
     {
     nome: "Letícia Leocadio",
-    cargo: "Secretária Geral de Comunicação",
+    cargo: "General Secretary of Communication",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     imagem: "/time/secretarios/Letícia Leocadio.JPG",
   },
   {
     nome: "Gustavo Vezzá",
-    cargo: "Sub-Secretário Geral de Comunicação",
+    cargo: "Secretário Geral de Comunicação",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     imagem: "/time/secretarios/Gustavo Vezzá.JPG",
   },
@@ -103,36 +104,17 @@ export default function SecretariadoPage() {
 
   return (
     <main
-      className={`min-h-screen overflow-x-hidden bg-white px-4 py-12 transition-all duration-500 dark:bg-[#0B1E2D] ${
+      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#071c2c] transition-all duration-500 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       }`}
     >
-      <div className="mx-auto max-w-5xl">
-        {/* Botão Voltar */}
-        <Link
-          href="/equipe"
-          className="group mb-8 inline-flex items-center gap-2 rounded-xl bg-[#0B2A41]/70 px-4 py-2 text-sm font-medium text-yellow-custom shadow-md backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:text-yellow-400"
-        >
-          <span className="inline-block transition-transform duration-300 group-hover:-translate-x-1">←</span>
-          Voltar para Equipe
-        </Link>
+      <DirectorHeroBanner
+        title="Secretariado Geral"
+        subtitle="Responsáveis pela coordenação geral do SenaMUN V"
+        image="/images/diretorias/Secretariado.jpg"
+      />
 
-        {/* Header */}
-        <div className="mb-2 flex items-center gap-4">
-          <div className="rounded-full bg-yellow-custom/10 p-4">
-            <i className="fa-solid fa-user-tie text-3xl text-yellow-custom" />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold text-[#0B2E4A] dark:text-white md:text-5xl">
-              Secretariado Geral
-            </h1>
-            <p className="mt-1 text-sm text-[#36566F] dark:text-gray-400">
-              Responsáveis pela coordenação geral do SenaMUN V
-            </p>
-          </div>
-        </div>
-        <div className="mb-16 mt-6 h-px w-full bg-gradient-to-r from-yellow-custom/40 via-transparent to-transparent" />
-
+      <div className="mx-auto max-w-5xl px-4 py-12">
         {/* Lista de membros */}
         <div className="flex flex-col gap-10">
           {membros.map((membro, i) => {
@@ -169,7 +151,7 @@ export default function SecretariadoPage() {
                 <div
                   className="w-full md:flex-1 transition-all duration-500 ease-out"
                 >
-                  <div className="border-2 border-yellow-custom rounded-2xl p-8 bg-[#0B1E2D]/60 dark:bg-[#0F2A3D]/80 backdrop-blur-sm shadow-xl">
+                  <div className="border-2 border-yellow-custom rounded-2xl p-8 bg-white dark:bg-[#0B1E2D]/60 backdrop-blur-sm shadow-xl">
                     {/* Nome */}
                     <h2 className="text-yellow-custom font-bold text-2xl md:text-3xl mb-1">
                       {membro.nome}
@@ -181,7 +163,7 @@ export default function SecretariadoPage() {
                     {/* Divisória */}
                     <div className="w-full h-px bg-yellow-custom/30 mb-4" />
                     {/* Bio */}
-                    <p className="text-gray-300 dark:text-gray-400 text-sm font-light leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm font-light leading-relaxed">
                       {membro.bio}
                     </p>
                   </div>
