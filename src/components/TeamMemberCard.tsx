@@ -99,7 +99,7 @@ export default function TeamMemberCard({
         isMounted &&
         createPortal(
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-white/90 dark:bg-[#0B1E2D]/95 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -108,31 +108,31 @@ export default function TeamMemberCard({
           <button
             type="button"
             onClick={() => setIsOpen(false)}
-            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-gray-800 dark:text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
+            className="fixed right-6 top-6 z-[90] text-4xl font-light leading-none text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
             aria-label="Fechar imagem"
           >
-            x
+            &times;
           </button>
 
           <div
             className="flex w-full max-w-5xl flex-col items-center"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
-              <div className="relative h-[70vh] w-full bg-white dark:bg-[#0B1E2D]">
+            <div className="relative w-full overflow-hidden rounded-2xl">
+              <div className="relative h-[70vh] w-full bg-transparent">
                 <Image
                   src={imageSrc}
                   alt={name}
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   sizes="100vw"
                   priority
                 />
               </div>
             </div>
 
-            <h2 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">{name}</h2>
-            <p className="mt-1 text-sm font-medium text-gray-600 dark:text-gray-200">{role}</p>
+            <h2 className="mt-4 text-xl font-semibold text-white">{name}</h2>
+            <p className="mt-1 text-sm font-medium text-gray-300">{role}</p>
           </div>
         </div>,
         document.body

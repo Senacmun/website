@@ -38,7 +38,7 @@ const cartas = [
   {
     nome: "Kauan Oliveira",
     cargo: "Sub-Secretário Geral — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    texto: "O Senamun é o um projeto que vou levar para a vida, acredito que tudo o que eu faça quando sair do Senac vai ser lembrar principalmente das simulações e das brincadeiras com meus colegas. Acredito que é um ambiente que mudou a forma que eu vejo o mundo e que com toda certeza vou tentar continuar quando me formar. Espero acima de tudo que essa conferência seja a melhor de todas, todos estão muito empenhados nisso!",
     imagemFundo: "/cronogramas/foto 3.webp",
     imagemSecretario: "/time/secretarios/Kauan Oliveira.JPG",
   },
@@ -52,7 +52,7 @@ const cartas = [
     {
     nome: "Gustavo Vezzá",
     cargo: "Secretário Geral de Comunicação — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    texto: "O Senamun é muito mais que só um projeto. É um sentimento que envolve gente, amizade, memórias e muito companheirismo. Foi aqui que eu me encontrei e vou ser sempre grato por fazer parte da história desse projeto que eu amo tanto. ​A gente tá planejando cada detalhe pra que a conferência seja perfeita pra vocês. Meu maior desejo esse ano é fazer com que vocês se apaixonem pelo Senamun do mesmo jeito que eu sou apaixonado. ​Espero vocês na conferência!",
     imagemFundo: "/cronogramas/foto 4.jpg",
     imagemSecretario: "/time/secretarios/Gustavo Vezzá.JPG",
   },

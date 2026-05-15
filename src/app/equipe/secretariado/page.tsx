@@ -16,7 +16,7 @@ const membros = [
   {
     nome: "Leonardo Zanetti",
     cargo: "Under-Secretary General",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Olá! Sou o Leonardo, Under Secretary General da conferência. Tenho 17 anos, estou desde 2025 no SenaMUN, já fui em 10 conferências e sou um dos secretários responsáveis pelo setor acadêmico e de imprensa do evento.",
     imagem: "/time/secretarios/Leonardo Zenetti.JPG",
   },
   {
@@ -28,7 +28,7 @@ const membros = [
   {
     nome: "Kauan Oliveira",
     cargo: "Sub-Secretário Geral",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Oii! Me chamo Kauan e sou vice-secretário geral de português do Senamun! Tenho 17 anos e estou no senamun desde 2023, já fui em torno de 20+ simulações, sendo só uma sendo mesa. Dentro do projeto, sou responsável pela equipe acadêmica e imprensa!!",
     imagem: "/time/secretarios/Kauan Oliveira.JPG",
   },
     {
@@ -40,7 +40,7 @@ const membros = [
   {
     nome: "Gustavo Vezzá",
     cargo: "Secretário Geral de Comunicação",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Olá! Eu sou o Gustavo o Secretário Geral de Comunicação, tenho 17 anos e estou no Senamun desde 2025, já fui para 8 conferencias e criei memórias incriveis em todas elas. Nessa edição, eu sou o responsável por toda a comunicação do Senamun.",
     imagem: "/time/secretarios/Gustavo Vezzá.JPG",
   },
 ];
@@ -179,7 +179,7 @@ export default function SecretariadoPage() {
         isMounted &&
         createPortal(
         <div
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-white/90 dark:bg-[#0B1E2D]/95 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 px-4 backdrop-blur-sm"
           onClick={() => setSelectedMember(null)}
           role="dialog"
           aria-modal="true"
@@ -188,18 +188,18 @@ export default function SecretariadoPage() {
           <button
             type="button"
             onClick={() => setSelectedMember(null)}
-            className="fixed right-6 top-6 z-[90] text-2xl font-light leading-none text-gray-800 dark:text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
+            className="fixed right-6 top-6 z-[90] text-4xl font-light leading-none text-white transition-transform duration-200 hover:scale-110 hover:text-yellow-custom focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-custom"
             aria-label="Fechar imagem"
           >
-            x
+            &times;
           </button>
 
           <div
             className="flex w-full max-w-5xl flex-col items-center"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="relative w-full overflow-hidden rounded-2xl shadow-2xl">
-              <div className="relative h-[70vh] w-full bg-white dark:bg-[#0B1E2D]">
+            <div className="relative w-full overflow-hidden rounded-2xl">
+              <div className="relative h-[70vh] w-full bg-transparent">
                 <Image
                   src={selectedMember.imagem}
                   alt={selectedMember.nome}
@@ -211,10 +211,10 @@ export default function SecretariadoPage() {
               </div>
             </div>
 
-            <h2 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+            <h2 className="mt-4 text-xl font-semibold text-white">
               {selectedMember.nome}
             </h2>
-            <p className="mt-1 text-sm font-medium text-gray-600 dark:text-gray-200">
+            <p className="mt-1 text-sm font-medium text-gray-300">
               {selectedMember.cargo}
             </p>
           </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+﻿﻿"use client";
 
 import dados from "../dataMembros";
 import TeamMemberCard from "@/components/TeamMemberCard";
@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 export default function ComunicacaoPage() {
   const membros = dados["ddc"];
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     setTimeout(() => setVisible(true), 100);
   }, []);
