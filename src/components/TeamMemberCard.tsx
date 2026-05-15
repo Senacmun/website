@@ -124,7 +124,7 @@ export default function TeamMemberCard({
                   src={imageSrc}
                   alt={name}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   sizes="100vw"
                   priority
                 />

@@ -49,7 +49,7 @@ export default function AcademicaPortuguesPage() {
           <TeamMemberCard
             key={index}
             name={membro.nome}
-            role={membro.cargo}
+            role={`${membro.cargo} — Acadêmica Português`}
             imageSrc={`/time/academico/${membro.imagem}`}
           />
         ))}

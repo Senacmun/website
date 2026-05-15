@@ -34,7 +34,7 @@ const membros = [
     {
     nome: "Letícia Leocadio",
     cargo: "General Secretary of Communication",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    bio: "Oi gente, meu nome é Leticia Leocadio, estou cursando meu último ano em marketing no Senac Nações Unidas. Faço simulações da ONU desde o meu primeiro ano do ensino médio e desde então as simulações da ONU ganharam um grande espaço na minha vida, mudando vários aspectos dela. Atualmente já fiz mais de 10 simulações, explorando todas as funções, delegada, mesária, imprensa e agora tenho a honra de estrear o cargo de General Secretary of Communication no Senamun V! Estou extremamente animada para conhecer vocês e espero que vocês aproveitem essa edição do Senamun e que também aproveitem as postagens nas redes sociais que foram preparados com muito carinho e dedicação. Vejo vocês em breve, beijos Leticia!",
     imagem: "/time/secretarios/Letícia Leocadio.JPG",
   },
   {
@@ -158,7 +158,7 @@ export default function SecretariadoPage() {
                     </h2>
                     {/* Cargo */}
                     <p className="text-light-blue-custom font-medium text-base mb-4">
-                      {membro.cargo}
+                      {membro.cargo} — Secretariado Geral
                     </p>
                     {/* Divisória */}
                     <div className="w-full h-px bg-yellow-custom/30 mb-4" />
@@ -215,7 +215,7 @@ export default function SecretariadoPage() {
               {selectedMember.nome}
             </h2>
             <p className="mt-1 text-sm font-medium text-gray-300">
-              {selectedMember.cargo}
+              {selectedMember.cargo} — Secretariado Geral
             </p>
           </div>
         </div>,

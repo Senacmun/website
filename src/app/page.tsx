@@ -46,7 +46,7 @@ const cartas = [
     nome: "Letícia Leocadio",
     cargo: "General Secretary of Communication — SenaMUN V",
     texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    imagemFundo: "/cronogramas/foto 2.webp",
+    imagemFundo: "/images/foto_leticia.jpg",
     imagemSecretario: "/time/secretarios/Letícia Leocadio.JPG",
   },
     {

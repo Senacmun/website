@@ -1,23 +1,19 @@
-﻿"use client";
+"use client";
 
+import { useEffect, useState } from "react";
 import dados from "../dataMembros";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import DirectorHeroBanner from "@/components/DirectorHeroBanner";
-import { useEffect, useState } from "react";
 
 export default function DiretoriaImagemPage() {
-  // Filtramos os membros da diretoria de mídia (chave 'di') que pertencem à delegação de imagem
-  const membros = dados["di"].filter((m) => m.pasta === "midia_imagem"); 
+  // Filtramos os membros da diretoria de mídia que pertencem especificamente à delegação de imagem
+  const membros = dados["di"].filter((m) => m.pasta === "midia_imagem");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setVisible(true), 100);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).FontAwesome) {
-      (window as any).FontAwesome.dom.i2svg();
-    }
+    // Pequeno delay para garantir a animação de entrada
+    const timer = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -29,7 +25,7 @@ export default function DiretoriaImagemPage() {
       <DirectorHeroBanner
         title="Mídia & Imagem"
         subtitle="Responsáveis pela cobertura visual e identidade do SenaMUN V"
-        image="/images/diretorias/Diretoria Mídia - Imagem.jpg"
+        image="/images/diretorias/Midia.jpg"
       />
 
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4 bg-white dark:bg-[#0B1E2D] transition-colors duration-500">
@@ -37,7 +33,7 @@ export default function DiretoriaImagemPage() {
           <TeamMemberCard
             key={index}
             name={membro.nome}
-            role={`${membro.cargo} — Mídia & Imagem`}
+            role="Delegação de Mídia Imagem"
             imageSrc={`/time/midia_imagem/${membro.imagem}`}
           />
         ))}
