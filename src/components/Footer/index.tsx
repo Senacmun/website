@@ -86,7 +86,7 @@ export default function Footer() {
           </h3>
         </div>
 
-        <div className="max-h-[400px] overflow-y-auto divide-y divide-white/5">
+        <div className="max-h-[400px] overflow-y-auto divide-y divide-gray-100 dark:divide-white/5 custom-scrollbar">
           {faqs.map((faq, i) => (
             <div key={i} className="px-5 py-3">
               <button

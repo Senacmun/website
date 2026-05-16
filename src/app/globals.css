@@ -22,6 +22,30 @@
            border border-white/20 dark:border-white/10 
            rounded-xl shadow-lg transition-all duration-300 ease-in-out;
   }
+
+  /* Glassmorphism v2 Especificação Exata */
+  .glass-v2 {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px) saturate(1.5);
+    -webkit-backdrop-filter: blur(12px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .dark .glass-v2 {
+    background: rgba(10, 20, 45, 0.85);
+  }
+
+  /* Scrollbar Dropdown */
+  .dropdown-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .dropdown-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-200 dark:bg-[#1e3a5f];
+  }
+  .dropdown-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-blue-600 dark:bg-[#3b82f6] rounded-full;
+  }
 }
 
 /* ATIVA DARK MODE */
@@ -316,3 +340,53 @@
   box-shadow: 0 4px 12px rgba(31, 111, 235, 0.15) !important;
 }
 
+/* ============================================================
+   ESTILIZAÇÃO GLOBAL DA SCROLLBAR (Light & Dark Mode)
+   ============================================================ */
+
+/* 1. Configuração para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #003c5e #ffffff;
+}
+
+/* 2. Configuração para Webkit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #003c5e;
+  border-radius: 20px;
+  border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #00507d;
+}
+
+/* 3. Estilização para Dark Mode (classe .dark no HTML) */
+.dark, .dark * {
+  scrollbar-color: #02466e #003c5e;
+}
+
+.dark::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track {
+  background: #003c5e;
+}
+
+.dark::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #02466e;
+  border: 2px solid #003c5e;
+}
+
+.dark::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #03598a;
+}
