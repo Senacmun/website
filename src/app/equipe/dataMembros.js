@@ -232,43 +232,7 @@ const dadosMembros = {
     },
   ],
 
-  da: [
-    {
-      nome: "Eduarda Santos Cerri",
-      cargo: "Acadêmico PT",
-      imagem: "Eduarda Santos Cerri.JPG",
-    },
-    {
-      nome: "Nicolas Pietro Luiz Di Pallo",
-      cargo: "Acadêmico PT",
-      imagem: "Nicolas Pietro Luiz Di Pallo.JPG",
-    },
-    {
-      nome: "Sthefany da Cruz Moreira",
-      cargo: "Acadêmico PT",
-      imagem: "Sthefany da Cruz Moreira.JPG",
-    },
-    {
-      nome: "Anna Julia Sant'Ana",
-      cargo: "Acadêmico PT",
-      imagem: "Anna Julia Sant_Ana.JPG",
-    },
-    {
-      nome: "Isabela Martins Gonçalves",
-      cargo: "Acadêmico PT",
-      imagem: "Isabela Martins Gonçalves.JPG",
-    },
-    {
-      nome: "Isabella Ferreira de Jesus Santos",
-      cargo: "Acadêmico PT",
-      imagem: "Isabella Ferreira de Jesus Santos.JPG",
-    },
-    {
-      nome: "Vitória Farias de Oliveira",
-      cargo: "Acadêmico PT",
-      imagem: "Vitória Farias de Oliveira.JPG",
-    },
-  ],
+  da: [],
 
   dap: [
     {
@@ -282,33 +246,34 @@ const dadosMembros = {
       imagem: "Nicolas Pietro Luiz Di Pallo.JPG",
     },
     {
-      nome: "Sthefany da Cruz Moreira",
-      cargo: "Acadêmico PT",
-      imagem: "Sthefany da Cruz Moreira.JPG",
-    },
-    {
       nome: "Anna Julia Sant'Ana",
       cargo: "Acadêmico PT",
       imagem: "Anna Julia Sant_Ana.JPG",
-    },
-    {
-      nome: "Isabela Martins Gonçalves",
-      cargo: "Acadêmico PT",
-      imagem: "Isabela Martins Gonçalves.JPG",
     },
     {
       nome: "Isabella Ferreira de Jesus Santos",
       cargo: "Acadêmico PT",
       imagem: "Isabella Ferreira de Jesus Santos.JPG",
     },
+  ],
+
+  dai: [
+    {
+      nome: "Sthefany da Cruz Moreira",
+      cargo: "Acadêmico Inglês",
+      imagem: "Sthefany da Cruz Moreira.JPG",
+    },
+    {
+      nome: "Isabela Martins Gonçalves",
+      cargo: "Acadêmico Inglês",
+      imagem: "Isabela Martins Gonçalves.JPG",
+    },
     {
       nome: "Vitória Farias de Oliveira",
-      cargo: "Acadêmico PT",
+      cargo: "Acadêmico Inglês",
       imagem: "Vitória Farias de Oliveira.JPG",
     },
   ],
-
-  dai: [],
 
   ori: [
     {

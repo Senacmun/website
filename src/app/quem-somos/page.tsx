@@ -71,14 +71,14 @@ export default function QuemSomosPage() {
         <FadeInSection className="grid md:grid-cols-2 gap-10 items-center">
           <div className="text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-blue-custom dark:text-[#f39322]">
-              Nossa Missão
+              Missão
             </h3>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto mt-5">
               {quemSomos}
             </p>
           </div>
           <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
-            <Image src="/quem-somos/foto.jpg" alt="Nossa Missão" fill className="object-cover" />
+            <Image src="/quem-somos/Foto_1.jpeg" alt="Nossa Missão" fill className="object-cover" />
           </div>
         </FadeInSection>
 
@@ -86,14 +86,14 @@ export default function QuemSomosPage() {
         <FadeInSection className="grid md:grid-cols-2 gap-10 items-center">
           <div className="md:order-2 text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-blue-custom dark:text-[#f39322]">
-              Visões
+              Visão
             </h3>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto mt-5">
               Nossa visão é consolidar o SenaMUN como a principal simulação estudantil de São Paulo...
             </p>
           </div>
           <div className="md:order-1 relative h-[280px] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
-            <Image src="/quem-somos/foto.jpg" alt="Visões" fill className="object-cover" />
+            <Image src="/quem-somos/Foto_2.jpeg" alt="Visões" fill className="object-cover" />
           </div>
         </FadeInSection>
 
@@ -101,14 +101,14 @@ export default function QuemSomosPage() {
         <FadeInSection className="grid md:grid-cols-2 gap-10 items-center">
           <div className="text-center">
             <h3 className="text-3xl md:text-4xl font-bold text-blue-custom dark:text-[#f39322]">
-              Ideal SenaMUN
+              Valores
             </h3>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto mt-5">
               O ideal SenaMUN baseia-se na excelência acadêmica...
             </p>
           </div>
           <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
-            <Image src="/quem-somos/foto.jpg" alt="Ideal SenaMUN" fill className="object-cover" />
+            <Image src="/quem-somos/Foto_3.jpeg" alt="Valores" fill className="object-cover" />
           </div>
         </FadeInSection>
 

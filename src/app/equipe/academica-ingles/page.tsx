@@ -34,7 +34,7 @@ export default function AcademicaInglesPage() {
   return (
     <main
       ref={pageRef}
-      className={`min-h-screen overflow-x-hidden bg-[#071c2c] transition-all duration-500 ${
+      className={`min-h-screen overflow-x-hidden bg-white dark:bg-[#0b1f2e] transition-all duration-500 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
@@ -57,7 +57,3 @@ export default function AcademicaInglesPage() {
     </main>
   );
 }
-
-
-
-

@@ -2,12 +2,13 @@ const dia1 = {
   data: "11 de Setembro",
   diaSemana: "sexta-feira",
   atividades: [
-    { horario: "12h – 13h", atividade: "Credenciamento", local: "Auditório" },
+    { horario: "12h30 – 13h", atividade: "Credenciamento", local: "Auditório" },
     { horario: "13h – 14h20", atividade: "Cerimônia de Abertura", local: "Auditório" },
-    { horario: "14h20–14h40", atividade: "Intervalo", local: "-" },
-    { horario: "14h40–16h", atividade: "Sessão 1", local: "Salas Específicas" },
-    { horario: "16h – 16h15", atividade: "Intervalo", local: "-" },
-    { horario: "16h15– 18h15", atividade: "Sessão 2", local: "Salas Específicas" },
+    { horario: "14h20 – 14h30", atividade: "Intervalo", local: "-" },
+    { horario: "14h30 – 15h50", atividade: "Sessão 1", local: "Salas Específicas" },
+    { horario: "15h50 – 16h", atividade: "Intervalo", local: "-" },
+    { horario: "16h – 18h", atividade: "Sessão 2", local: "Salas Específicas" },
+    { horario: "18h", atividade: "Encerramento Sessão", local: "Salas Específicas" },
   ],
 };
 
@@ -15,12 +16,13 @@ const dia2 = {
   data: "12 de Setembro",
   diaSemana: "sábado",
   atividades: [
-    { horario: "13h – 14h20", atividade: "Sessão 3", local: "Salas Específicas" },
-    { horario: "14h20–14h40", atividade: "Intervalo", local: "-" },
-    { horario: "14h40–16h", atividade: "Sessão 4", local: "Salas Específicas" },
-    { horario: "16h–16h15", atividade: "Intervalo", local: "-" },
-    { horario: "16h15– 17h15", atividade: "Sessão 5", local: "Salas Específicas" },
-    { horario: "17h15 – 19h", atividade: "Cerimônia de Encerramento", local: "Auditório" },
+    { horario: "09h – 10h20", atividade: "Sessão 3", local: "Salas Específicas" },
+    { horario: "10h20 – 10h40", atividade: "Intervalo", local: "-" },
+    { horario: "10h40 – 12h20", atividade: "Sessão 4", local: "Salas Específicas" },
+    { horario: "12h20 – 13h", atividade: "Almoço", local: "-" },
+    { horario: "13h – 14h40", atividade: "Sessão 5", local: "Salas Específicas" },
+    { horario: "14h40 – 14h50", atividade: "Intervalo", local: "-" },
+    { horario: "14h50 – 16h20", atividade: "Cerimônia de Encerramento do Evento", local: "Espaço do Avião" },
   ],
 };
 

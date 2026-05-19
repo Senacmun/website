@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FiChevronDown } from "react-icons/fi";
-import { FaWhatsapp, FaGoogle } from "react-icons/fa"; // Para Classroom e WhatsApp
+import { FiChevronDown, FiX, FiChevronsDown, FiChevronRight } from "react-icons/fi";
 import IconHeader from "./icon-header.svg";
-import { menuData } from "./menuData";
 import StickyNavbarHandler from "../StickyNavbarHandler";
-import { FiChevronRight } from "react-icons/fi";
+import committeeData from "@/app/comites/dataComites";
+
+const sortedCommitteeData = [...committeeData].sort((a, b) => 
+  a.comite.localeCompare(b.comite)
+);
 
 const dropdownItems = {
   sobre: [
@@ -23,24 +25,34 @@ const dropdownItems = {
     { name: "Parcerias", href: "/parcerias" },
     { name: "Edições Anteriores", href: "/edicoes" },
   ],
-  comites: [
-    "Direitos Humanos",
-    "Conselho de Segurança",
-    "Conselho de Segurança",
-    "Câmara dos Deputados",
-    "Parlamento Americano",
-    "Human Rights",
-    "Historical Security Council",
-  ]
 };
+
+const faqs = [
+  { pergunta: "O que é o evento Senamun?", resposta: "O evento Senamun é o evento do Senac voltado às simulações da ONU." },
+  { pergunta: "O que é a oficina Senamun?", resposta: "A oficina Senamun é onde os professores se reúnem para ensinar nossos estudantes." },
+  { pergunta: "Quais os temas abordados em debates?", resposta: "Depende bastante da organização do debate em si!" },
+  { pergunta: "Os debates necessitam de um código de vestimenta?", resposta: "Sim! Geralmente as especificações são guiadas pelos mesários." },
+  { pergunta: "Existem outras simulações?", resposta: "Sim! Existem diversas outras simulações em outras escolas." },
+  { pergunta: "Como me preparar para o evento Senamun?", resposta: "Com a inscrição no Evento Senamun os delegados receberão no e-mail um convite." },
+];
 
 const Navbar: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [committeesOpen, setCommitteesOpen] = useState(false);
+  const [expandedCommittee, setExpandedCommittee] = useState<string | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Fechar ao clicar fora ou ESC
+  const dropdownPanelStyle = "rounded-[10px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.18)] dark:border-white/10";
+
+  const scrollbarStyles = `
+    .dropdown-scrollbar::-webkit-scrollbar { width: 4px; }
+    .dropdown-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+    .dropdown-scrollbar::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 10px; }
+    .dark .dropdown-scrollbar::-webkit-scrollbar-track { background: #0d1b2e; }
+  `;
+
   useEffect(() => {
     const handleInteraction = (e: any) => {
       if (e.key === "Escape") setActiveDropdown(null);
@@ -57,85 +69,244 @@ const Navbar: React.FC = () => {
   return (
     <>
       <StickyNavbarHandler />
+      <style dangerouslySetInnerHTML={{ __html: scrollbarStyles }} />
       <nav ref={navRef} className="bg-blue-custom relative z-50 w-full h-20 shadow-md">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          
           <Link href="/" className="flex items-center gap-4">
             <Image src={IconHeader} alt="Icone" width={45} />
             <p className="text-white text-xl tracking-widest font-semibold uppercase">S E N A M U N</p>
           </Link>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 h-full">
-            {/* Item Simples: Sobre Nós */}
             <div className="relative h-full flex items-center">
-              <button 
+              <button
                 onClick={() => setActiveDropdown(activeDropdown === 'sobre' ? null : 'sobre')}
-                className={`flex items-center gap-2 text-[15px] font-medium transition-all duration-200 px-4 py-1.5 ${activeDropdown === 'sobre' ? 'bg-[#3b82f6] text-white rounded-full' : 'text-white hover:text-yellow-custom'}`}
+                className={`flex items-center gap-2 text-[15px] font-normal transition-all duration-150 px-4 py-2 rounded-lg hover:bg-[#1f6feb] hover:text-white ${
+                  activeDropdown === 'sobre' ? 'bg-[#1f6feb] text-white' : 'text-white'}`}
               >
-                Sobre Nós 
+                Sobre Nós
                 <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'sobre' ? 'rotate-180' : ''}`} />
               </button>
 
-              <div className={`absolute top-[calc(100%-10px)] left-0 min-w-[220px] glass-v2 rounded-[10px] py-2 transition-all duration-150 ${activeDropdown === 'sobre' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-                {dropdownItems.sobre.map(i => (
-                  <Link key={i.name} href={i.href} className="block px-5 py-[10px] text-[15px] text-[#1a1a2e] dark:text-white hover:bg-blue-500/10 hover:text-[#3b82f6] transition-colors">{i.name}</Link>
+              <div className={`absolute top-[calc(100%+8px)] left-0 min-w-[220px] py-2 transition-all duration-150 ${dropdownPanelStyle} ${
+                activeDropdown === 'sobre' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+              } bg-white/80 dark:bg-[rgba(10,20,45,0.75)] backdrop-blur-[12px]`}>
+                {dropdownItems.sobre.map((item, index) => (
+                  <Fragment key={item.name}>
+                    <Link href={item.href} className="block px-5 py-2 text-[15px] transition-colors dark:text-white text-[#1a1a2e] hover:bg-[#1f6feb] hover:text-white">
+                      {item.name}
+                    </Link>
+                    {index < dropdownItems.sobre.length - 1 && <div className="border-b border-black/5 dark:border-white/7 mx-4" />}
+                  </Fragment>
                 ))}
               </div>
             </div>
 
-            {/* Item Complexo: SenaMUN 2026 */}
             <div className="relative h-full flex items-center">
-              <button 
+              <button
                 onClick={() => setActiveDropdown(activeDropdown === 'senamun' ? null : 'senamun')}
-                className={`flex items-center gap-2 text-[15px] font-medium transition-all duration-200 px-4 py-1.5 ${activeDropdown === 'senamun' ? 'bg-[#3b82f6] text-white rounded-full' : 'text-white hover:text-yellow-custom'}`}
+                className={`flex items-center gap-2 text-[15px] font-normal transition-all duration-150 px-4 py-2 rounded-lg hover:bg-[#1f6feb] hover:text-white ${
+                  activeDropdown === 'senamun' ? 'bg-[#1f6feb] text-white' : 'text-white'}`}
               >
                 SenaMUN 2026
                 <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'senamun' ? 'rotate-180' : ''}`} />
               </button>
 
-              <div className={`absolute top-[calc(100%-10px)] left-0 min-w-[220px] glass-v2 rounded-[10px] py-2 transition-all duration-150 ${activeDropdown === 'senamun' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
+              <div className={`absolute top-[calc(100%+8px)] left-0 min-w-[220px] py-2 transition-all duration-150 ${dropdownPanelStyle} ${
+                activeDropdown === 'senamun' ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+              } bg-white/80 dark:bg-[rgba(10,20,45,0.75)] backdrop-blur-[12px]`}>
                 {dropdownItems.senamun.map(i => (
-                  <div key={i.name} className="relative group/sub">
-                    <Link 
-                      href={i.href} 
-                      onMouseEnter={() => i.hasSub && setCommitteesOpen(true)}
-                      onMouseLeave={() => i.hasSub && setCommitteesOpen(false)}
-                      className={`flex items-center justify-between px-5 py-[10px] text-[15px] transition-colors ${i.hasSub && committeesOpen ? 'bg-[#3b6fc4] text-white' : 'text-[#1a1a2e] dark:text-white hover:bg-blue-500/10 hover:text-[#3b82f6]'}`}
-                    >
-                      {i.name} {i.hasSub && <FiChevronRight />}
-                    </Link>
-
-                    {/* Sub-painel Comitês */}
-                    {i.hasSub && (
-                      <div className={`absolute left-[calc(100%+2px)] top-0 w-72 glass-v2 rounded-[10px] p-4 transition-all duration-150 ${committeesOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 pointer-events-none'}`}>
-                        <Link href="/comites" className="block text-[13px] font-bold text-gray-400 uppercase tracking-wider mb-2 border-b border-white/10 pb-2 hover:text-[#3b82f6]">Ver todos os comitês</Link>
-                        <div className="max-height-[260px] overflow-y-auto dropdown-scrollbar pr-2 flex flex-col gap-[2px]">
-                          {dropdownItems.comites.map(c => (
-                            <Link key={c} href="#" className="flex items-center justify-between px-3 py-[10px] text-[14px] text-[#1a1a2e] dark:text-white hover:bg-blue-500/10 hover:text-[#3b82f6] rounded-md transition-colors">
-                              {c} <FiChevronRight className="text-[12px] opacity-50" />
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
+                  <div key={i.name} className="relative">
+                    {i.hasSub ? (
+                      <button
+                        onMouseEnter={() => setCommitteesOpen(true)}
+                        onMouseLeave={() => setCommitteesOpen(false)}
+                        className="flex items-center justify-between w-full px-5 py-2 text-[15px] transition-colors dark:text-white text-[#1a1a2e] hover:bg-[#1f6feb] hover:text-white"
+                      >
+                        Comitês <FiChevronRight />
+                      </button>
+                    ) : (
+                      <Link href={i.href} className="flex items-center justify-between px-5 py-2 text-[15px] transition-colors dark:text-white text-[#1a1a2e] hover:bg-[#1f6feb] hover:text-white">
+                        {i.name}
+                      </Link>
                     )}
                   </div>
                 ))}
+
+                <div
+                  onMouseEnter={() => setCommitteesOpen(true)}
+                  onMouseLeave={() => setCommitteesOpen(false)}
+                  className={`absolute left-[calc(100%+2px)] top-0 w-72 py-4 px-3 transition-all duration-150 ${dropdownPanelStyle} ${
+                    committeesOpen ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-2 pointer-events-none'
+                  } bg-white/95 dark:bg-[rgba(10,20,45,0.92)] backdrop-blur-[12px]`}
+                >
+                  <Link href="/comites" className="block text-[13px] font-bold uppercase tracking-wider mb-2 border-b border-black/5 dark:border-white/7 pb-2 text-[#6b7280] dark:text-gray-400 hover:text-[#2563eb]">
+                    Ver todos os comitês
+                  </Link>
+                  <div className="max-h-[260px] overflow-y-auto dropdown-scrollbar pr-2 flex flex-col gap-[2px]">
+                    {sortedCommitteeData.map((committee) => (
+                      <div key={committee.comite}>
+                        <button
+                          onClick={() => setExpandedCommittee(expandedCommittee === committee.comite ? null : committee.comite)}
+                          className="flex items-center justify-between w-full px-3 py-1.5 text-[14px] transition-colors dark:text-white text-[#1a1a2e] hover:bg-[#1f6feb] hover:text-white rounded"
+                        >
+                          <span className="truncate">{committee.comite}</span>
+                          <FiChevronRight className={`text-[12px] opacity-50 flex-shrink-0 transition-transform duration-200 ${expandedCommittee === committee.comite ? 'rotate-90' : ''}`} />
+                        </button>
+
+                        <div className={`overflow-hidden transition-all duration-200 ${
+                          expandedCommittee === committee.comite ? 'max-h-40 mt-1' : 'max-h-0'
+                        }`}>
+                          <div className="pl-6">
+                            <div className="inline-flex flex-col gap-2 px-8 py-3 min-w-[200px] text-[14px] text-black/70 dark:text-white/70 bg-gray-100 dark:bg-white/10 rounded-xl">
+                              <a href={committee.classroom || ""} className="hover:text-black dark:hover:text-white">• Classroom</a>
+                              <a href={committee.whatsapp || ""} className="hover:text-black dark:hover:text-white">• WhatsApp</a>
+                              <a href={committee.pdf || ""} className="hover:text-black dark:hover:text-white">• Baixar PDF</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
-            <Link href="/inscricao" className="text-white text-[15px] font-medium hover:text-yellow-custom">Inscrição</Link>
-            <Link href="/contato" className="text-white text-[15px] font-medium hover:text-yellow-custom">Fale Conosco</Link>
-            
-            <button className="flex items-center gap-2 text-[15px] text-yellow-custom font-medium hover:text-white">
-              <i className="fa-solid fa-headset" /> FAQ
-            </button>
+            <Link href="/inscricao" className="text-white text-[15px] font-normal px-4 py-2 rounded-lg hover:bg-[#1f6feb] transition-all duration-150">Inscrição</Link>
+            <Link href="/contato" className="text-white text-[15px] font-normal px-4 py-2 rounded-lg hover:bg-[#1f6feb] transition-all duration-150">Fale Conosco</Link>
+
+            <div className="relative h-full flex items-center">
+              <button
+                onClick={() => setActiveDropdown(activeDropdown === 'faq' ? null : 'faq')}
+                className={`flex items-center gap-2 text-[15px] font-normal transition-all duration-150 px-4 py-1.5 rounded-lg hover:bg-yellow-custom/10 ${
+                  activeDropdown === 'faq' ? 'bg-yellow-custom/10 text-yellow-custom' : 'text-yellow-custom'}`}
+              >
+                <i className="fa-solid fa-headset" /> FAQ
+              </button>
+
+              <div className={`absolute top-[calc(100%+8px)] right-0 w-[360px] md:w-[384px] rounded-2xl overflow-hidden transition-all duration-300 ease-out ${
+                activeDropdown === 'faq' ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto' : 'opacity-0 translate-y-2 scale-95 pointer-events-none'
+              } bg-white dark:bg-[#0F2A3D] border border-yellow-custom/30 shadow-2xl`}>
+                <div className="flex items-center gap-2 px-5 py-4 border-b border-yellow-custom/20">
+                  <i className="fa-solid fa-headset text-yellow-custom" />
+                  <h3 className="text-[#0B2E4A] dark:text-white font-semibold text-sm">Perguntas Frequentes</h3>
+                </div>
+
+                <div className="max-h-[400px] overflow-y-auto divide-y divide-gray-100 dark:divide-white/5">
+                  {faqs.map((item, index) => (
+                    <div key={index} className="px-5 py-3">
+                      <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full flex items-center justify-between gap-3 text-left text-sm font-medium text-[#0B2E4A] dark:text-white hover:text-yellow-custom transition-colors duration-200">
+                        <span>{item.pergunta}</span>
+                        <i className={`fa-solid fa-chevron-down text-yellow-custom text-xs flex-shrink-0 transition-transform duration-300 ${openFaq === index ? "rotate-180" : "rotate-0"}`} />
+                      </button>
+                      <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === index ? 'max-h-96 mt-2 opacity-100' : 'max-h-0 opacity-0'}`}>
+                        <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed pb-1">{item.resposta}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="px-5 py-4 border-t border-yellow-custom/20 text-center bg-black/[0.02] dark:bg-white/[0.02]">
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com" target="_blank" rel="noopener noreferrer" className="text-xs text-light-blue-custom hover:text-yellow-custom transition-colors duration-200 underline underline-offset-2 block mb-2">Sua dúvida não foi respondida? Fale com a gente</a>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 select-all">comunicacaosenamun@gmail.com</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Hamburger Mobile */}
           <button onClick={() => setMobileMenuOpen(true)} className="md:hidden p-2 text-white">
-             <i className="fa-solid fa-bars text-2xl" />
+            <i className="fa-solid fa-bars text-2xl" />
           </button>
+        </div>
+
+        <div className={`fixed inset-0 z-[100] bg-white dark:bg-blue-custom md:hidden transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <div className="flex flex-col h-full">
+            <div className="flex justify-between items-center px-4 h-20 border-b border-black/5 dark:border-white/10">
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-4">
+                <Image src={IconHeader} alt="Icone" width={45} />
+                <p className="text-[#0B2E4A] dark:text-white text-xl tracking-widest font-semibold uppercase">S E N A M U N</p>
+              </Link>
+              <button onClick={() => setMobileMenuOpen(false)} className="text-[#0B2E4A] dark:text-white p-2">
+                <FiX className="text-3xl" />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-4">
+              <div className="flex flex-col">
+                <button onClick={() => setActiveDropdown(activeDropdown === 'sobre' ? null : 'sobre')} className="flex items-center justify-between text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">
+                  Sobre Nós <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'sobre' ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'sobre' ? 'max-h-60 py-2' : 'max-h-0'}`}>
+                  {dropdownItems.sobre.map(i => (
+                    <Link key={i.name} href={i.href} onClick={() => setMobileMenuOpen(false)} className="block py-2 text-gray-600 dark:text-white/70 hover:text-[#3b82f6] dark:hover:text-white">{i.name}</Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <button onClick={() => setActiveDropdown(activeDropdown === 'senamun' ? null : 'senamun')} className="flex items-center justify-between text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">
+                  SenaMUN 2026 <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'senamun' ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'senamun' ? 'max-h-[800px] py-2' : 'max-h-0'}`}>
+                  {dropdownItems.senamun.map(i => (
+                    <div key={i.name}>
+                      {i.hasSub ? (
+                        <>
+                          <button onClick={() => setCommitteesOpen(!committeesOpen)} className="flex items-center justify-between w-full py-2 text-gray-600 dark:text-white/70 hover:text-[#3b82f6] dark:hover:text-white">
+                            {i.name} <FiChevronDown className={`transition-transform duration-200 ${committeesOpen ? 'rotate-180' : ''}`} />
+                          </button>
+                          <div className={`overflow-hidden transition-all duration-300 pl-4 border-l border-black/5 dark:border-white/10 ${committeesOpen ? 'max-h-[400px] mb-4' : 'max-h-0'}`}>
+                            <Link href="/comites" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-[#3b82f6] font-bold text-sm uppercase">Ver todos os comitês</Link>
+                            {sortedCommitteeData.map(c => (
+                              <a 
+                                key={c.comite} 
+                                href={c.classroom} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                onClick={() => setMobileMenuOpen(false)} 
+                                className="block py-1.5 text-gray-600 dark:text-white/70 hover:text-[#1f6feb] dark:hover:text-white transition-colors"
+                              >
+                                {c.comite}
+                              </a>
+                            ))}
+                          </div>
+                        </>
+                      ) : (
+                        <Link href={i.href} onClick={() => setMobileMenuOpen(false)} className="block py-2 text-gray-600 dark:text-white/70 hover:text-[#3b82f6] dark:hover:text-white">{i.name}</Link>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <Link href="/inscricao" onClick={() => setMobileMenuOpen(false)} className="text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">Inscrição</Link>
+              <Link href="/contato" onClick={() => setMobileMenuOpen(false)} className="text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">Fale Conosco</Link>
+
+              <div className="flex flex-col">
+                <button onClick={() => setActiveDropdown(activeDropdown === 'faq' ? null : 'faq')} className="flex items-center justify-between text-yellow-custom text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">
+                  <span className="flex items-center gap-2"><i className="fa-solid fa-headset" /> FAQ</span>
+                  <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'faq' ? 'rotate-180' : ''}`} />
+                </button>
+                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'faq' ? 'max-h-[800px] py-2' : 'max-h-0'}`}>
+                  {faqs.map((item, index) => (
+                    <div key={index} className="border-b border-white/5 last:border-0">
+                      <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full flex items-center justify-between py-3 text-left">
+                        <span className="text-gray-600 dark:text-white/70 text-sm">{item.pergunta}</span>
+                        <FiChevronsDown className={`text-gray-400 dark:text-white/30 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} />
+                      </button>
+                      <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-40 pb-3' : 'max-h-0'}`}>
+                        <p className="text-gray-500 dark:text-white/50 text-xs leading-relaxed">{item.resposta}</p>
+                      </div>
+                    </div>
+                  ))}
+                  <div className="py-4 text-center">
+                    <Link href="/contato" onClick={() => setMobileMenuOpen(false)} className="text-[#3b82f6] text-xs underline block mb-1">Sua dúvida não foi respondida? Fale com a gente</Link>
+                    <span className="text-gray-400 dark:text-white/30 text-[10px]">comunicacaosenamun@gmail.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </>
