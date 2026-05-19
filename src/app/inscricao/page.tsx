@@ -26,8 +26,8 @@ const data = [
   },
   {
     id: "mesarios",
-    title: "Mesários / Chairs",
-    href: "https://forms.gle/LcoZxPhci9bx8nqR6",
+    title: "Mesários / Chairs (Encerrado)",
+    href: "#",
     icon: FaGavel,
   },
 ];

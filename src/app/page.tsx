@@ -44,7 +44,7 @@ const cartas = [
   },
   {
     nome: "Letícia Leocadio",
-    cargo: "General Secretary of Communication — SenaMUN V",
+    cargo: "Secretary General of Communication — SenaMUN V",
     texto: "O senamun é muito importante para mim, por causa dele consegui amadurecer como pessoa e enxergar o mundo de uma maneira diferente com diferentes pontos de vista, também conheci lugares e pessoas incríveis. Além disso o senamun foi único motivo que me fez continuar estudando no Senac. Espero que vocês aproveitem o evento e que essa simulação seja produtiva para todos! Um beijo, Leticia",
     imagemFundo: "/images/foto_leticia.jpg",
     imagemSecretario: "/time/secretarios/Letícia Leocadio.JPG",
@@ -262,8 +262,8 @@ export default function Home() {
                 <FaRegClock className="text-3xl text-yellow-custom mx-auto" />
                 <h3 className="text-sm font-medium text-gray-800 dark:text-gray-100 mt-4">Horário</h3>
                 <div className="text-base font-light text-gray-700 dark:text-gray-200 mt-1">
-                  <p>Sexta: 12h-18h15</p>
-                  <p>Sábado: 13h-19h</p>
+                  <p>Sexta: 12h30-18h</p>
+                  <p>Sábado: 09h-16h20</p>
                 </div>
               </Link>
               <Link href="/mapa" className="bg-transparent dark:bg-white/5 border border-transparent dark:border-white/10 rounded-xl p-6 transition-all hover:scale-[1.02] hover:shadow-lg hover:opacity-80 block">

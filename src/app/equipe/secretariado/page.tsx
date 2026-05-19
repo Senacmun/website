@@ -33,7 +33,7 @@ const membros = [
   },
     {
     nome: "Letícia Leocadio",
-    cargo: "General Secretary of Communication",
+    cargo: "Secretary General of Communication",
     bio: "Oi gente, meu nome é Leticia Leocadio, estou cursando meu último ano em marketing no Senac Nações Unidas. Faço simulações da ONU desde o meu primeiro ano do ensino médio e desde então as simulações da ONU ganharam um grande espaço na minha vida, mudando vários aspectos dela. Atualmente já fiz mais de 10 simulações, explorando todas as funções, delegada, mesária, imprensa e agora tenho a honra de estrear o cargo de General Secretary of Communication no Senamun V! Estou extremamente animada para conhecer vocês e espero que vocês aproveitem essa edição do Senamun e que também aproveitem as postagens nas redes sociais que foram preparados com muito carinho e dedicação. Vejo vocês em breve, beijos Leticia!",
     imagem: "/time/secretarios/Letícia Leocadio.JPG",
   },
