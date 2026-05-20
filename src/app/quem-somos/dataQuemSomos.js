@@ -1,2 +1,2 @@
-const quemSomos = "A missão do SenaMUN é democratizar o acesso à diplomacia e promover a educação de jovens por meio do diálogo, da cooperação e do respeito. Ele busca desenvolver habilidades essenciais nos estudantes — como oratória, negociação e liderança — enquanto debate dilemas e desafios globais complexos. O evento funciona como um espaço colaborativo onde os participantes assumem o papel de diplomatas para criar resoluções e entender perspectivas diferentes."
+const quemSomos = "Garantir que o acesso a simulações da ONU seja democratizado, capacitando os estudantes a compreenderem a complexidade das relações globais e a proporem soluções inovadoras para os desafios do mundo real."
 export default quemSomos

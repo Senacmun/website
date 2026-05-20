@@ -89,7 +89,7 @@ export default function QuemSomosPage() {
               Visão
             </h3>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto mt-5">
-              Nossa visão é consolidar o SenaMUN como a principal simulação estudantil de São Paulo...
+              Tornar-se referência na área de MUN's pela excelência acadêmica, pluralidade, inclusão e impacto social.
             </p>
           </div>
           <div className="md:order-1 relative h-[280px] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
@@ -104,7 +104,7 @@ export default function QuemSomosPage() {
               Valores
             </h3>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto mt-5">
-              O ideal SenaMUN baseia-se na excelência acadêmica...
+              Excelência Acadêmica, ​Diplomacia, Respeito, ​Protagonismo Jovem, ​Inclusão e Pluralidade, ​Ética e Transparência
             </p>
           </div>
           <div className="relative h-[280px] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
