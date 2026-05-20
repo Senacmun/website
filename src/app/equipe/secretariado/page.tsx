@@ -116,7 +116,7 @@ export default function SecretariadoPage() {
 
       <div className="mx-auto max-w-5xl px-4 py-12">
         {/* Lista de membros */}
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-6 md:gap-10">
           {membros.map((membro, i) => {
             const isLeft = i % 2 === 0;
 
@@ -124,7 +124,7 @@ export default function SecretariadoPage() {
               <div
                 key={i}
                 ref={(el) => { observerRefs.current[i] = el; }}
-                className={`flex flex-col md:flex-row items-center gap-8 transition-all duration-700 ease-out ${
+                className={`flex flex-col md:flex-row items-center gap-3 md:gap-8 transition-all duration-700 ease-out ${
                   visibleItems[i] ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 } ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
                 style={{ transitionDelay: `${i * 80}ms` }}
@@ -134,24 +134,35 @@ export default function SecretariadoPage() {
                   type="button"
                   onClick={() => setSelectedMember(membro)}
                   aria-label={`Abrir foto de ${membro.nome}`}
-                  className="relative w-full md:w-1/3 aspect-[2/3] max-h-[480px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl"
+                  className="relative w-full md:w-1/3 aspect-[2/3] max-h-[480px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl bg-gray-50 dark:bg-[#0d1b2e]/20"
                 >
                   <Image
                     src={membro.imagem}
                     alt={membro.nome}
                     fill
-                    className="object-cover object-top transition-transform duration-500 hover:scale-105"
+                    className="object-contain object-top transition-transform duration-500 hover:scale-105"
                     draggable={false}
                   />
                   {/* Overlay gradiente */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+
+                  {/* Efeito de Ondinha */}
+                  <svg
+                    className="pointer-events-none absolute bottom-[-1px] left-0 z-20 h-[45px] w-full"
+                    viewBox="0 0 1440 120"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      className="fill-white dark:fill-[#0B1E2D] transition-colors duration-500"
+                      d="M0 120V72L60 66C120 60 240 48 360 52C480 56 600 76 720 78C840 80 960 64 1080 54C1200 44 1320 40 1380 38L1440 36V120H0Z"
+                    />
+                  </svg>
                 </button>
 
                 {/* Card informativo — sempre visível */}
-                <div
-                  className="w-full md:flex-1 transition-all duration-500 ease-out"
-                >
-                  <div className="border-2 border-yellow-custom rounded-2xl p-8 bg-white dark:bg-[#0B1E2D]/60 backdrop-blur-sm shadow-xl">
+                <div className="w-full md:flex-1 transition-all duration-500 ease-out">
+                  <div className="border-2 border-yellow-custom rounded-2xl p-4 md:p-8 bg-white dark:bg-[#0B1E2D]/60 backdrop-blur-sm shadow-xl">
                     {/* Nome */}
                     <h2 className="text-yellow-custom font-bold text-2xl md:text-3xl mb-1">
                       {membro.nome}
@@ -163,7 +174,7 @@ export default function SecretariadoPage() {
                     {/* Divisória */}
                     <div className="w-full h-px bg-yellow-custom/30 mb-4" />
                     {/* Bio */}
-                    <p className="text-gray-600 dark:text-gray-300 text-sm font-light leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-300 text-sm font-light leading-relaxed whitespace-pre-line">
                       {membro.bio}
                     </p>
                   </div>

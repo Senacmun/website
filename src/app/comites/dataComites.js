@@ -24,7 +24,7 @@ const dadosComites = [
   },
   {
     tema: "Tema a definir",
-    comite: "Conselho de Segurança Histórico",
+    comite: "C. de Segurança Histórico",
     modalidade: "Dupla/Individual",
     classroom: "https://classroom.google.com/c/Nzk3MDI1MTczNjgx?cjc=xo2cvltp",
     whatsapp: "",

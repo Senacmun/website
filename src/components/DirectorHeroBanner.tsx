@@ -47,7 +47,7 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
           fill
           priority
           sizes="100vw"
-          className="rounded-3xl object-contain object-[90%_center]"
+          className="rounded-3xl rounded-bl-[40px] md:rounded-bl-[80px] object-contain object-center md:object-[90%_center]"
           style={{
             maskImage: "linear-gradient(to right, black 0%, black 85%, transparent 100%)",
             WebkitMaskImage: "linear-gradient(to right, black 0%, black 85%, transparent 100%)",
@@ -59,7 +59,7 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
       <div className="absolute inset-0 z-10 bg-transparent transition-colors duration-500" />
 
       {/* Gradiente Esquerdo: Legibilidade do texto (Suavizado em 80% no Light Mode) */}
-      <div className="absolute inset-y-0 left-0 z-10 w-full bg-gradient-to-r from-white via-white/40 to-transparent dark:from-[#0B1E2D] dark:via-[#0B1E2D]/75 dark:to-transparent transition-all duration-500" />
+      <div className="absolute inset-y-0 left-0 z-10 w-full bg-gradient-to-r from-white via-white/70 to-transparent dark:from-[#0B1E2D] dark:via-[#0B1E2D]/90 md:via-white/40 md:dark:via-[#0B1E2D]/75 dark:to-transparent transition-all duration-500" />
 
       {/* Gradiente Direito: Reduzido para não tapar rostos no lado direito */}
       <div className="absolute inset-y-0 right-0 z-10 w-1/6 bg-gradient-to-l from-white/10 to-transparent dark:from-[#0B1E2D]/30 transition-all duration-500" />
@@ -95,7 +95,7 @@ export default function DirectorHeroBanner({ title, subtitle, image }: DirectorH
 
       {/* Onda Grande */}
      <svg
-        className="pointer-events-none absolute bottom-[-1px] left-0 z-30 h-[120px] w-full md:h-[155px]"
+        className="pointer-events-none absolute bottom-[-1px] left-0 z-30 h-[80px] sm:h-[100px] md:h-[155px] w-full"
         viewBox="0 0 1440 120"
         preserveAspectRatio="none"
         aria-hidden="true"

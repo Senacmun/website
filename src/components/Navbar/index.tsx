@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect, Fragment } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
-import { FiChevronDown, FiX, FiChevronsDown, FiChevronRight } from "react-icons/fi";
+import { FiChevronDown, FiX, FiChevronsDown, FiChevronRight, FiMenu } from "react-icons/fi";
 import IconHeader from "./icon-header.svg";
 import StickyNavbarHandler from "../StickyNavbarHandler";
 import committeeData from "@/app/comites/dataComites";
@@ -42,6 +43,7 @@ const Navbar: React.FC = () => {
   const [expandedCommittee, setExpandedCommittee] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [faqModalOpen, setFaqModalOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   const dropdownPanelStyle = "rounded-[10px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.18)] dark:border-white/10";
@@ -55,7 +57,11 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleInteraction = (e: any) => {
-      if (e.key === "Escape") setActiveDropdown(null);
+      if (e.key === "Escape") {
+        setActiveDropdown(null);
+        setMobileMenuOpen(false);
+        setFaqModalOpen(false);
+      }
       if (navRef.current && !navRef.current.contains(e.target)) setActiveDropdown(null);
     };
     document.addEventListener("mousedown", handleInteraction);
@@ -214,100 +220,180 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <button onClick={() => setMobileMenuOpen(true)} className="md:hidden p-2 text-white">
-            <i className="fa-solid fa-bars text-2xl" />
+          {/* HAMBURGER BUTTON */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+            className={`md:hidden ${mobileMenuOpen ? 'p-4' : 'p-2'} text-white bg-transparent border-none focus:outline-none z-[110] transition-all`}
+          >
+            {mobileMenuOpen ? <FiX className="text-[20px]" /> : <FiMenu className="text-3xl" />}
           </button>
         </div>
 
-        <div className={`fixed inset-0 z-[100] bg-white dark:bg-blue-custom md:hidden transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-          <div className="flex flex-col h-full">
-            <div className="flex justify-between items-center px-4 h-20 border-b border-black/5 dark:border-white/10">
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-4">
-                <Image src={IconHeader} alt="Icone" width={45} />
-                <p className="text-[#0B2E4A] dark:text-white text-xl tracking-widest font-semibold uppercase">S E N A M U N</p>
-              </Link>
-              <button onClick={() => setMobileMenuOpen(false)} className="text-[#0B2E4A] dark:text-white p-2">
-                <FiX className="text-3xl" />
-              </button>
-            </div>
+        {/* MOBILE OVERLAY */}
+        {mobileMenuOpen && (
+          <div 
+            className="fixed inset-0 z-[90] bg-black/40 md:hidden" 
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
 
-            <div className="flex-1 overflow-y-auto px-6 py-8 flex flex-col gap-4">
-              <div className="flex flex-col">
-                <button onClick={() => setActiveDropdown(activeDropdown === 'sobre' ? null : 'sobre')} className="flex items-center justify-between text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">
-                  Sobre Nós <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'sobre' ? 'rotate-180' : ''}`} />
+        {/* MOBILE MENU PANEL */}
+        <div className={`fixed top-0 right-0 z-[100] h-screen w-[70%] bg-[#f8fafc] dark:bg-[rgba(10,20,45,0.97)] backdrop-blur-[12px] md:hidden transform transition-transform duration-[250ms] ease-out ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="flex flex-col h-full">
+            {/* Header Bar */}
+            <div className="h-20 bg-[#0d1b2e] w-full shrink-0 flex items-center justify-end" />
+
+            <div className="flex-1 overflow-y-auto">
+              
+              {/* Sobre Nós Accordion */}
+              <div>
+                <button 
+                  onClick={() => setActiveDropdown(activeDropdown === 'sobre' ? null : 'sobre')} 
+                  className="w-full flex items-center justify-between px-6 py-4 text-[#0f172a] dark:text-white text-[16px] hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5 transition-colors"
+                >
+                  Sobre Nós 
+                  <FiChevronRight className={`text-[#0f172a] dark:text-white transition-transform duration-200 ${activeDropdown === 'sobre' ? 'rotate-90' : ''}`} />
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'sobre' ? 'max-h-60 py-2' : 'max-h-0'}`}>
+                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'sobre' ? 'max-h-60' : 'max-h-0'}`}>
                   {dropdownItems.sobre.map(i => (
-                    <Link key={i.name} href={i.href} onClick={() => setMobileMenuOpen(false)} className="block py-2 text-gray-600 dark:text-white/70 hover:text-[#3b82f6] dark:hover:text-white">{i.name}</Link>
+                    <Link key={i.name} href={i.href} onClick={() => setMobileMenuOpen(false)} className="block pl-10 pr-6 py-3 text-[14px] text-[#0f172a]/70 dark:text-white/75 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5">
+                      {i.name}
+                    </Link>
                   ))}
                 </div>
               </div>
 
-              <div className="flex flex-col">
-                <button onClick={() => setActiveDropdown(activeDropdown === 'senamun' ? null : 'senamun')} className="flex items-center justify-between text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">
-                  SenaMUN 2026 <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'senamun' ? 'rotate-180' : ''}`} />
+              {/* SenaMUN 2026 Accordion */}
+              <div>
+                <button 
+                  onClick={() => setActiveDropdown(activeDropdown === 'senamun' ? null : 'senamun')} 
+                  className="w-full flex items-center justify-between px-6 py-4 text-[#0f172a] dark:text-white text-[16px] hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5 transition-colors"
+                >
+                  SenaMUN 2026 
+                  <FiChevronRight className={`text-[#0f172a] dark:text-white transition-transform duration-200 ${activeDropdown === 'senamun' ? 'rotate-90' : ''}`} />
                 </button>
-                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'senamun' ? 'max-h-[800px] py-2' : 'max-h-0'}`}>
+                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'senamun' ? 'max-h-[1200px]' : 'max-h-0'}`}>
                   {dropdownItems.senamun.map(i => (
                     <div key={i.name}>
                       {i.hasSub ? (
                         <>
-                          <button onClick={() => setCommitteesOpen(!committeesOpen)} className="flex items-center justify-between w-full py-2 text-gray-600 dark:text-white/70 hover:text-[#3b82f6] dark:hover:text-white">
-                            {i.name} <FiChevronDown className={`transition-transform duration-200 ${committeesOpen ? 'rotate-180' : ''}`} />
+                          <button onClick={() => setCommitteesOpen(!committeesOpen)} className="w-full flex items-center justify-between pl-10 pr-6 py-3 text-[14px] text-[#0f172a]/70 dark:text-white/75 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5">
+                            {i.name} 
+                            <FiChevronRight className={`text-[#0f172a] dark:text-white transition-transform duration-200 ${committeesOpen ? 'rotate-90' : ''}`} />
                           </button>
-                          <div className={`overflow-hidden transition-all duration-300 pl-4 border-l border-black/5 dark:border-white/10 ${committeesOpen ? 'max-h-[400px] mb-4' : 'max-h-0'}`}>
-                            <Link href="/comites" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-[#3b82f6] font-bold text-sm uppercase">Ver todos os comitês</Link>
+                          <div className={`overflow-hidden transition-all duration-300 ${committeesOpen ? 'max-h-[1000px] mb-2' : 'max-h-0'}`}>
+                            <Link href="/comites" onClick={() => setMobileMenuOpen(false)} className="block pl-10 pr-6 py-2 text-light-blue-custom font-bold text-xs uppercase">Ver todos os comitês</Link>
                             {sortedCommitteeData.map(c => (
-                              <a 
-                                key={c.comite} 
-                                href={c.classroom} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                onClick={() => setMobileMenuOpen(false)} 
-                                className="block py-1.5 text-gray-600 dark:text-white/70 hover:text-[#1f6feb] dark:hover:text-white transition-colors"
-                              >
-                                {c.comite}
-                              </a>
+                              <div key={c.comite}>
+                                <button 
+                                  onClick={() => setExpandedCommittee(expandedCommittee === c.comite ? null : c.comite)}
+                                  className="w-full flex items-center justify-between pl-10 pr-6 py-2 text-[14px] text-[#0f172a]/70 dark:text-white/70 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5"
+                                >
+                                  <span className="truncate max-w-[200px]">{c.comite}</span>
+                                  <FiChevronRight className={`text-xs text-[#0f172a] dark:text-white transition-transform duration-200 ${expandedCommittee === c.comite ? 'rotate-90' : ''}`} />
+                                </button>
+                                <div className={`overflow-hidden transition-all duration-200 ${expandedCommittee === c.comite ? 'max-h-40' : 'max-h-0'}`}>
+                                  <div className="flex flex-col gap-1 pl-14 py-2 text-[13px] text-[#0f172a]/70 dark:text-white/60">
+                                    <a href={c.classroom} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>• Classroom</a>
+                                    <a href={c.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>• WhatsApp</a>
+                                    <a href={c.pdf || "#"} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>• Baixar PDF</a>
+                                  </div>
+                                </div>
+                              </div>
                             ))}
                           </div>
                         </>
                       ) : (
-                        <Link href={i.href} onClick={() => setMobileMenuOpen(false)} className="block py-2 text-gray-600 dark:text-white/70 hover:text-[#3b82f6] dark:hover:text-white">{i.name}</Link>
+                        <Link href={i.href} onClick={() => setMobileMenuOpen(false)} className="block pl-10 pr-6 py-3 text-[14px] text-[#0f172a]/70 dark:text-white/75 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5">
+                          {i.name}
+                        </Link>
                       )}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Link href="/inscricao" onClick={() => setMobileMenuOpen(false)} className="text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">Inscrição</Link>
-              <Link href="/contato" onClick={() => setMobileMenuOpen(false)} className="text-[#0B2E4A] dark:text-white text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">Fale Conosco</Link>
+              <Link href="/inscricao" onClick={() => setMobileMenuOpen(false)} className="block px-6 py-4 text-[#0f172a] dark:text-white text-[16px] hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5 transition-colors">Inscrição</Link>
+              <Link href="/contato" onClick={() => setMobileMenuOpen(false)} className="block px-6 py-4 text-[#0f172a] dark:text-white text-[16px] hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5 transition-colors">Fale Conosco</Link>
+            </div>
 
-              <div className="flex flex-col">
-                <button onClick={() => setActiveDropdown(activeDropdown === 'faq' ? null : 'faq')} className="flex items-center justify-between text-yellow-custom text-lg font-medium py-3 border-b border-black/5 dark:border-white/10">
-                  <span className="flex items-center gap-2"><i className="fa-solid fa-headset" /> FAQ</span>
-                  <FiChevronDown className={`transition-transform duration-200 ${activeDropdown === 'faq' ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ${activeDropdown === 'faq' ? 'max-h-[800px] py-2' : 'max-h-0'}`}>
-                  {faqs.map((item, index) => (
-                    <div key={index} className="border-b border-white/5 last:border-0">
-                      <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full flex items-center justify-between py-3 text-left">
-                        <span className="text-gray-600 dark:text-white/70 text-sm">{item.pergunta}</span>
-                        <FiChevronsDown className={`text-gray-400 dark:text-white/30 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} />
-                      </button>
-                      <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-40 pb-3' : 'max-h-0'}`}>
-                        <p className="text-gray-500 dark:text-white/50 text-xs leading-relaxed">{item.resposta}</p>
-                      </div>
-                    </div>
-                  ))}
-                  <div className="py-4 text-center">
-                    <Link href="/contato" onClick={() => setMobileMenuOpen(false)} className="text-[#3b82f6] text-xs underline block mb-1">Sua dúvida não foi respondida? Fale com a gente</Link>
-                    <span className="text-gray-400 dark:text-white/30 text-[10px]">comunicacaosenamun@gmail.com</span>
-                  </div>
-                </div>
-              </div>
+            {/* FAQ BUTTON FIXED AT BOTTOM */}
+            <div className="p-5 border-t border-black/[0.07] dark:border-white/[0.07] bg-transparent">
+              <button 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setFaqModalOpen(true);
+                }}
+                className="w-full flex items-center gap-2 px-6 py-4 text-[#0f172a] dark:text-white text-[16px]"
+              >
+                <i className="fa-solid fa-headset text-[#f97316]" /> FAQ
+              </button>
             </div>
           </div>
         </div>
+
+        {/* FAQ MODAL MOBILE */}
+        {faqModalOpen && typeof document !== 'undefined' && createPortal(
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:hidden">
+            {/* Overlay */}
+            <div 
+              className="fixed inset-0 z-[9998] bg-black/60 backdrop-blur-sm"
+              onClick={() => setFaqModalOpen(false)}
+            />
+            
+            {/* Modal Box */}
+            <div 
+              className="relative z-[9999] w-[90vw] max-w-[420px] max-h-[80vh] bg-white dark:bg-[#0d1b2e] backdrop-blur-[12px] rounded-[14px] shadow-[0_16px_48px_rgba(0,0,0,0.3)] flex flex-col p-5 overflow-y-auto transition-all duration-200 animate-in fade-in zoom-in-95"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <i className="fa-solid fa-headset text-[#f97316]" />
+                  <h3 className="text-[#0f172a] dark:text-white font-bold text-lg">Perguntas Frequentes</h3>
+                </div>
+                <button 
+                  onClick={() => setFaqModalOpen(false)}
+                  className="text-gray-400 dark:text-white/40 hover:text-[#1a1a2e] dark:hover:text-white text-[20px] p-1"
+                >
+                  <FiX />
+                </button>
+              </div>
+
+              {/* Modal Content - FAQ List */}
+              <div className="flex-1 pr-1">
+                {faqs.map((item, index) => (
+                  <div key={index} className="py-3 border-b border-black/[0.08] dark:border-white/[0.08] last:border-none">
+                    <button 
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)} 
+                      className="w-full flex items-center justify-between gap-3 text-left text-sm font-medium text-[#0f172a] dark:text-white"
+                    >
+                      <span>{item.pergunta}</span>
+                      <i className={`fa-solid fa-chevron-down text-[#f97316] text-xs flex-shrink-0 transition-transform duration-300 ${openFaq === index ? "rotate-180" : "rotate-0"}`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === index ? 'max-h-96 mt-2 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed pb-1">{item.resposta}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Modal Footer */}
+              <div className="mt-6 pt-4 border-t border-black/[0.08] dark:border-white/[0.08] text-center">
+                <a 
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=comunicacaosenamun@gmail.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-sm text-[#2563eb] underline underline-offset-2 block mb-1"
+                >
+                  Sua dúvida não foi respondida? Fale com a gente
+                </a>
+                <p className="text-xs text-gray-500 dark:text-gray-500">comunicacaosenamun@gmail.com</p>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
       </nav>
     </>
   );

@@ -1,13 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dados from "../dataMembros";
+import dados from "@/app/equipe/dataMembros";
 import TeamMemberCard from "@/components/TeamMemberCard";
 import DirectorHeroBanner from "@/components/DirectorHeroBanner";
 
+interface Membro {
+  nome: string;
+  imagem: string;
+  pasta: string;
+  cargo?: string;
+}
+
 export default function DiretoriaImagemPage() {
   // Filtramos os membros da diretoria de mídia que pertencem especificamente à delegação de imagem
-  const membros = dados["di"].filter((m) => m.pasta === "midia_imagem");
+  const membros = (dados as any)["di"].filter((m: Membro) => m.pasta === "midia_imagem");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -28,8 +35,8 @@ export default function DiretoriaImagemPage() {
         image="/images/diretorias/Midia.jpg"
       />
 
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4 bg-white dark:bg-[#0B1E2D] transition-colors duration-500">
-        {membros.map((membro, index) => (
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 md:gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4 bg-white dark:bg-[#0B1E2D] transition-colors duration-500">
+        {membros.map((membro: Membro, index: number) => (
           <TeamMemberCard
             key={index}
             name={membro.nome}

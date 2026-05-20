@@ -31,6 +31,14 @@ export default function ComitesPage() {
     setIsVisible(true);
   }, []);
 
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
+
   const openModal = (item: Committee) => {
     setModalData(item);
     setIsOpen(true);
@@ -68,10 +76,52 @@ export default function ComitesPage() {
           <h1 className="text-4xl font-bold text-yellow-custom md:text-5xl">
             Comitês
           </h1>
-          <div className="mx-auto mt-4 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
+        <div className="mx-auto mt-4 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
+      </div>
+
+      <div className="mx-auto mt-12 max-w-[38rem]">
+        {/* Mobile List Layout */}
+        <div className="flex flex-col gap-[12px] md:hidden">
+          {committees.map((committee, index) => (
+            <button
+              key={`${committee.comite}-${index}`}
+              type="button"
+              onClick={() => openModal(committee)}
+              className="flex w-full h-[100px] bg-white dark:bg-[#0d1b2e] border border-black/10 dark:border-white/10 rounded-lg overflow-hidden text-left shadow-sm active:scale-[0.98] transition-transform"
+            >
+              <div className="w-[40%] h-full relative shrink-0">
+                <Image
+                  src={committee.imagem ? `/comites/${committee.imagem}` : "/logo-senamun.png"}
+                  alt={committee.comite}
+                  fill
+                  className="object-cover rounded-l-lg"
+                />
+              </div>
+              <div className="w-[60%] p-3 flex flex-col justify-center">
+                <h3 className="font-bold text-[16px] text-gray-900 dark:text-white truncate">
+                  {committee.comite}
+                </h3>
+                <div className="mt-1 text-[12px] text-gray-500 dark:text-gray-400">
+                  <p>Comitê: {committee.comite}</p>
+                  <p>Modalidade: {committee.modalidade}</p>
+                  <p>Idioma: {committee.idioma.toUpperCase()}</p>
+                </div>
+              </div>
+            </button>
+          ))}
+          <Link href="/" className="flex items-center justify-center pt-8">
+            <Image
+              src="/logo-senamun.png"
+              alt="Logo SenaMUN"
+              width={140}
+              height={140}
+              className="object-contain"
+            />
+          </Link>
         </div>
 
-        <div className="mx-auto mt-12 flex max-w-[38rem] flex-col gap-12">
+        {/* Desktop Grid Layout (unchanged logic) */}
+        <div className="hidden md:flex md:flex-col md:gap-12">
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="grid grid-cols-3 gap-12">
               {row.map((committee, index) => (
@@ -184,91 +234,70 @@ export default function ComitesPage() {
               </button>
             )}
           </div>
+          </div>
         </div>
       </section>
 
       {isOpen && modalData && (
         <div
-          className={`fixed inset-0 z-10 overflow-y-auto ${
-            isOpen ? blurBackground : ""
-          }`}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          onClick={closeModal}
         >
-          <div className="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0">
-            <div
-              className="fixed inset-0 transition-opacity"
-              aria-hidden="true"
-            >
-              <div className="inset-0 bg-black/60 opacity-100"></div>
+          <div className="fixed inset-0 bg-black/50" />
+          
+          <div
+            className="relative w-full max-w-[420px] bg-white dark:bg-[#0d1b2e] rounded-[12px] p-[24px] shadow-[0_16px_48px_rgba(0,0,0,0.3)] flex flex-col animate-in fade-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Título Principal */}
+            <h2 className="text-[22px] font-bold text-gray-900 dark:text-white mb-[16px] leading-tight">
+              {modalData.tema || "Tema a definir"}
+            </h2>
+
+            {/* Informações do Comitê */}
+            <div className="text-[13px] leading-[1.8] text-gray-800 dark:text-gray-200">
+              <p><span className="font-bold">Comitê:</span> {modalData.comite}</p>
+              <p><span className="font-bold">Modalidade:</span> {modalData.modalidade}</p>
+              <p><span className="font-bold">Idioma:</span> {modalData.idioma.toUpperCase()}</p>
             </div>
-            <span className="hidden sm:inline-block sm:h-screen sm:align-middle"></span>
-            <div
-              className={`${
-                isOpen
-                  ? "opacity-100 translate-y-0 scale-100"
-                  : "opacity-0 translate-y-4 scale-95"
-              } inline-block transform overflow-hidden rounded-3xl bg-gray-50 text-left align-bottom shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:align-middle dark:bg-slate-900`}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="modal-headline"
-            >
-              <div className="px-6 py-8 sm:px-10">
-                <div className="text-left">
-                  {/* Título Principal */}
-                  <h3
-                    className="text-3xl font-extrabold text-gray-900 dark:text-white leading-tight"
-                    id="modal-headline"
-                  >
-                    {modalData.tema}
-                  </h3>
 
-                  {/* Informações do Comitê */}
-                  <div className="mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-400">
-                    <p><span className="font-semibold text-gray-800 dark:text-gray-200">Comitê:</span> {modalData.comite}</p>
-                    <p><span className="font-semibold text-gray-800 dark:text-gray-200">Modalidade:</span> {modalData.modalidade}</p>
-                    <p><span className="font-semibold text-gray-800 dark:text-gray-200">Idioma:</span> {modalData.idioma.toUpperCase()}</p>
-                  </div>
+            {/* Divisor */}
+            <div className="my-4 border-t border-black/[0.08] dark:border-white/[0.08]" />
 
-                  {/* Seção de Sinopse */}
-                  <div className="mt-8">
-                    <h4 className="text-base font-bold text-gray-900 dark:text-gray-100">
-                      Sinopse sobre o comitê
-                    </h4>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed italic">
-                      {modalData.sinopse || "A sinopse deste comitê estará disponível em breve para consulta dos delegados."}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {/* Seção de Sinopse */}
+            <div className="mt-[16px]">
+              <h3 className="text-[15px] font-bold text-gray-900 dark:text-white">
+                Sinopse sobre o comitê
+              </h3>
+              <p className="mt-2 text-[13px] text-gray-500 dark:text-gray-400 italic leading-relaxed">
+                {modalData.sinopse || "A sinopse deste comitê estará disponível em breve para consulta dos delegados."}
+              </p>
+            </div>
 
-              {/* Área de Botões Alinhada */}
-              <div className="bg-gray-100/50 px-6 py-5 sm:px-10 flex flex-row items-center justify-between dark:bg-slate-800/50 border-t border-gray-200 dark:border-gray-700">
-                <div className="flex gap-3">
-                  <a
-                    href={modalData.classroom}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:scale-105 active:scale-95"
-                  >
-                    Classroom
-                  </a>
-                  <a
-                    href={modalData.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-green-700 hover:scale-105 active:scale-95"
-                  >
-                    Whatsapp
-                  </a>
-                </div>
-
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-xl bg-red-500/10 px-6 py-2.5 text-sm font-bold text-red-600 transition-all duration-200 hover:bg-red-600 hover:text-white active:scale-95"
-                  onClick={closeModal}
-                >
-                  Fechar
-                </button>
-              </div>
+            {/* Footer com Botões */}
+            <div className="mt-8 flex gap-2">
+              <a
+                href={modalData.classroom}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center rounded-[8px] bg-[#2563eb] py-[10px] px-[16px] text-sm font-semibold text-white transition-all hover:bg-blue-700 active:scale-95"
+              >
+                Classroom
+              </a>
+              <a
+                href={modalData.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center rounded-[8px] bg-[#16a34a] py-[10px] px-[16px] text-sm font-semibold text-white transition-all hover:bg-green-700 active:scale-95"
+              >
+                WhatsApp
+              </a>
+              <button
+                onClick={closeModal}
+                className="flex-1 inline-flex items-center justify-center rounded-[8px] bg-[#fecaca] py-[10px] px-[16px] text-sm font-semibold text-[#dc2626] transition-all hover:bg-red-200 active:scale-95"
+              >
+                Fechar
+              </button>
             </div>
           </div>
         </div>

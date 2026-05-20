@@ -44,7 +44,7 @@ export default function AcademicaInglesPage() {
         image="/images/diretorias/Diretoria Acadêmico PT.jpg"
       />
 
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 md:gap-6 px-6 py-10 md:grid-cols-3 lg:grid-cols-4">
         {membros.map((membro, index) => (
           <TeamMemberCard
             key={index}

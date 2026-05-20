@@ -111,7 +111,7 @@ export default function Campus() {
           {/* Imagem Desktop */}
           {activeTab !== 0 ? (
           <div
-            className="cursor-pointer"
+            className="hidden lg:block cursor-pointer"
             style={{ width: "420px" }}
             onClick={() => setMapZoomed(true)}
           >
@@ -148,7 +148,7 @@ export default function Campus() {
           ) : (
           <div
             ref={containerRef}
-            className="cursor-pointer transition-all duration-500 ease-in-out"
+            className="hidden lg:block cursor-pointer transition-all duration-500 ease-in-out"
             style={{ width: imageExpanded ? "100%" : "420px" }}
             onMouseEnter={() => setImageExpanded(true)}
             onMouseLeave={() => setImageExpanded(false)}
@@ -190,18 +190,15 @@ export default function Campus() {
 
           {/* Info */}
           <div
-            className="text-gray-800 dark:text-gray-300 leading-relaxed"
-            style={{
-              width: imageExpanded ? "100%" : "calc(100% - 436px)",
-              maxWidth: 560,
-              minWidth: 300,
-            }}
+            className={`w-full ${imageExpanded ? 'lg:w-full' : 'lg:w-[calc(100%-436px)]'} text-gray-800 dark:text-gray-300 leading-relaxed max-w-[560px]`}
           >
-            <p className="flex items-center gap-2 text-base">
+            <p className="flex items-center gap-2 text-sm md:text-base break-normal whitespace-normal">
               <FaMapPin className="flex-shrink-0" />
-              <span>
-                Centro Universitário Senac Santo Amaro – Av. Eng. Eusébio
-                Stevaux, 823 - Campo Grande - São Paulo - SP, 04696-000 (Portaria 1)
+              <span className="leading-snug">
+                Centro Universitário Senac Santo Amaro<br />
+                Av. Eng. Eusébio Stevaux, 823<br />
+                Campo Grande, São Paulo - SP<br />
+                04696-000 (Portaria 1)
               </span>
             </p>
 
@@ -211,19 +208,22 @@ export default function Campus() {
 
             <div className="text-justify flex flex-col gap-4 mt-4 text-sm">
               <p>
-                Esta é a principal entrada da unidade, porém há a Portaria 2,
-                que fica localizada na Rua Professor Campos de Oliveira, 588 -
-                Jardim Anhanguera, São Paulo - SP, 04675-100.
+                Esta é a principal entrada da unidade (Portaria 1).
               </p>
               <p>
-                O Senac Nações Unidas está localizado no bairro Campo Grande, na
-                zona Sul de São Paulo. Possui fácil acesso pelas principais vias
-                da região, como as avenidas Marginal Pinheiros e Nações Unidas.
+                Há também a Portaria 2, localizada na Rua Professor Campos de Oliveira, 588.
               </p>
               <p>
-                Na frente do Senac (Portaria 1) passam 2 ônibus: Jd. Luso
-                (546L-10) e Metrô Conceição (675P-10). A estação Jurubatuba-Senac
-                fica apenas 1.1km de distância do Campus.
+                O Campus está localizado no bairro Campo Grande, na zona Sul de São Paulo.
+              </p>
+              <p>
+                Possui fácil acesso pelas avenidas Marginal Pinheiros e Nações Unidas.
+              </p>
+              <p>
+                Linhas de ônibus que passam na frente: Jd. Luso (546L-10) e Metrô Conceição (675P-10).
+              </p>
+              <p>
+                A estação Jurubatuba (Linha 9-Esmeralda) fica a apenas 1.1km de distância.
               </p>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function Campus() {
             >
               <FaPlus />
             </button>
-            <span className="text-white/80 text-xs min-w-[36px] text-center text-center">
+            <span className="text-white/80 text-xs min-w-[36px] text-center">
               {Math.round(zoom * 100)}%
             </span>
             <button
