@@ -9,9 +9,11 @@ import IconHeader from "./icon-header.svg";
 import StickyNavbarHandler from "../StickyNavbarHandler";
 import committeeData from "@/app/comites/dataComites";
 
-const sortedCommitteeData = [...committeeData].sort((a, b) => 
-  a.comite.localeCompare(b.comite)
-);
+const sortedCommitteeData = [...committeeData].sort((a, b) => {
+  const nameA = a.comite === "C. de Segurança Histórico" ? "Conselho de Segurança Histórico" : a.comite;
+  const nameB = b.comite === "C. de Segurança Histórico" ? "Conselho de Segurança Histórico" : b.comite;
+  return nameA.localeCompare(nameB);
+});
 
 const dropdownItems = {
   sobre: [
