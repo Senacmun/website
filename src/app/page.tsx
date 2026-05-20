@@ -17,14 +17,16 @@ const cartas = [
   {
     nome: "Ana Luisa Brito",
     cargo: "Secretary General — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    texto: "Dear Delegates, Chairs, Advisors, and Guests, It is with immense pride and excitement that I welcome you all to SENAMUN V. My name is Ana Luisa Brito, and it is truly an honor to serve as the Secretary-General of this conference. Since beginning my journey in Model United Nations in 2024, MUN has become much more than an academic activity to me. It became a space where I learned how to challenge myself, listen to different perspectives, and grow both as a student and as a person. Through debates, resolutions, and diplomacy, I discovered the importance of empathy, dialogue, and international cooperation, values that continue to inspire me every day. SENAMUN V represents more than just a conference. It is a place where ideas are exchanged, friendships are created, and future leaders are shaped. Whether this is your first conference or one of many, I hope you find in this experience the same sense of belonging, growth, and passion that MUN gave me. Our Secretariat has worked with dedication and care to create a conference that is not only academically enriching, but also welcoming, engaging, and unforgettable for everyone involved. We hope every delegate feels encouraged to speak, collaborate, and make their voice heard throughout the conference. MUN teaches us that diplomacy is built through understanding, respect, and the willingness to work together despite our differences. In a constantly changing world, these values have never been more important. On behalf of the entire SENAMUN V Secretariat, thank you for being part of this journey. We are incredibly excited to welcome you to SENAMUN V, and we cannot wait to see the passion, creativity, and talent that each of you will bring to our committees. I sincerely hope this conference leaves a lasting impact on all of you, just as MUN has left on me. Warm regards, Ana Luisa Brito. Secretary General of SENAMUN V",
+    textoPT: `Prezados Delegados, Presidentes de Comitê, Assessores e Convidados, é com imenso orgulho e entusiasmo que dou as boas-vindas a todos à SENAMUN V. Meu nome é Ana Luisa Brito e é uma verdadeira honra servir como Secretária-Geral desta conferência. Desde que comecei minha jornada no Model United Nations em 2024, o MUN se tornou muito mais do que uma atividade acadêmica para mim. Tornou-se um espaço onde aprendi a me desafiar, ouvir diferentes perspectivas e crescer tanto como estudante quanto como pessoa. Por meio de debates, resoluções e diplomacia, descobri a importância da empatia, do diálogo e da cooperação internacional, valores que continuam a me inspirar todos os dias. A SENAMUN V representa mais do que apenas uma conferência. É um lugar onde ideias são trocadas, amizades são criadas e futuros líderes são formados. Seja esta sua primeira conferência ou uma entre muitas, espero que você encontre nesta experiência o mesmo sentimento de pertencimento, crescimento e paixão que o MUN me proporcionou. Nosso Secretariado trabalhou com dedicação e cuidado para criar uma conferência que não seja apenas academicamente enriquecedora, mas também acolhedora, envolvente e inesquecível para todos os envolvidos. Esperamos que cada delegado se sinta encorajado a falar, colaborar e fazer sua voz ser ouvida ao longo da conferência. O MUN nos ensina que a diplomacia é construída por meio da compreensão, do respeito e da disposição de trabalhar juntos apesar de nossas diferenças. Em um mundo em constante mudança, esses valores nunca foram tão importantes. Em nome de todo o Secretariado da SENAMUN V, obrigado por fazer parte desta jornada. Estamos extremamente animados para recebê-los na SENAMUN V e mal podemos esperar para ver a paixão, criatividade e talento que cada um de vocês trará aos nossos comitês. Espero sinceramente que esta conferência deixe um impacto duradouro em todos vocês, assim como o MUN deixou em mim. Atenciosamente, Ana Luisa Brito. Secretária-Geral da SENAMUN V`,
     imagemFundo: "/cronogramas/foto 6.webp",
     imagemSecretario: "/time/secretarios/Ana Luisa Brito.JPG",
   },
   {
     nome: "Leonardo Zanetti",
     cargo: "Under-Secretary General — SenaMUN V",
-    texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    texto: "Hello! I am Leonardo, the conference's Under-Secretary General. I am 17 years old and have been with SenaMUN since 2025. I have attended 10 conferences and am one of the secretaries responsible for the event's academic and press sectors.",
+    textoPT: "Olá! Sou o Leonardo, Under Secretary General da conferência. Tenho 17 anos, estou desde 2025 no SenaMUN, já fui em 10 conferências e sou um dos secretários responsáveis pelo setor acadêmico e de imprensa do evento.",
     imagemFundo: "/images/foto_leonardo.jpeg",
     imagemSecretario: "/time/secretarios/Leonardo Zenetti.JPG",
   },
@@ -38,21 +40,22 @@ const cartas = [
   {
     nome: "Kauan Oliveira",
     cargo: "Sub-Secretário Geral — SenaMUN V",
-    texto: "O Senamun é o um projeto que vou levar para a vida, acredito que tudo o que eu faça quando sair do Senac vai ser lembrar principalmente das simulações e das brincadeiras com meus colegas. Acredito que é um ambiente que mudou a forma que eu vejo o mundo e que com toda certeza vou tentar continuar quando me formar. Espero acima de tudo que essa conferência seja a melhor de todas, todos estão muito empenhados nisso!",
+    texto: "O SenaMUN é o um projeto que vou levar para a vida, acredito que tudo o que eu faça quando sair do Senac vai ser lembrar principalmente das simulações e das brincadeiras com meus colegas. Acredito que é um ambiente que mudou a forma que eu vejo o mundo e que com toda certeza vou tentar continuar quando me formar. Espero acima de tudo que essa conferência seja a melhor de todas, todos estão muito empenhados nisso!",
     imagemFundo: "/images/foto_kauan.jpeg",
     imagemSecretario: "/time/secretarios/Kauan Oliveira.JPG",
   },
   {
     nome: "Letícia Leocadio",
-    cargo: "Secretary General of Communication — SenaMUN V",
-    texto: "O senamun é muito importante para mim, por causa dele consegui amadurecer como pessoa e enxergar o mundo de uma maneira diferente com diferentes pontos de vista, também conheci lugares e pessoas incríveis. Além disso o senamun foi único motivo que me fez continuar estudando no Senac. Espero que vocês aproveitem o evento e que essa simulação seja produtiva para todos! Um beijo, Leticia",
+    cargo: "Secretary of Communications — SenaMUN V",
+    texto: "SenaMUN is very important to me; because of it, I was able to mature as a person and see the world in a different way with different points of view. I also met incredible places and people. Furthermore, SenaMUN was the only reason that kept me studying at Senac. I hope you enjoy the event and that this simulation is productive for everyone! Kisses, Leticia",
+    textoPT: "O SenaMUN é muito importante para mim, por causa dele consegui amadurecer como pessoa e enxergar o mundo de uma maneira diferente com diferentes pontos de vista, também conheci lugares e pessoas incríveis. Além disso o senamun foi único motivo que me fez continuar estudando no Senac. Espero que vocês aproveitem o evento e que essa simulação seja produtiva para todos! Um beijo, Leticia",
     imagemFundo: "/images/foto_leticia.jpg",
     imagemSecretario: "/time/secretarios/Letícia Leocadio.JPG",
   },
     {
     nome: "Gustavo Vezzá",
     cargo: "Secretário Geral de Comunicação — SenaMUN V",
-    texto: "O Senamun é muito mais que só um projeto. É um sentimento que envolve gente, amizade, memórias e muito companheirismo. Foi aqui que eu me encontrei e vou ser sempre grato por fazer parte da história desse projeto que eu amo tanto. ​A gente tá planejando cada detalhe pra que a conferência seja perfeita pra vocês. Meu maior desejo esse ano é fazer com que vocês se apaixonem pelo Senamun do mesmo jeito que eu sou apaixonado. ​Espero vocês na conferência!",
+    texto: "O SenaMUN é muito mais que só um projeto. É um sentimento que envolve gente, amizade, memórias e muito companheirismo. Foi aqui que eu me encontrei e vou ser sempre grato por fazer parte da história desse projeto que eu amo tanto. ​A gente tá planejando cada detalhe pra que a conferência seja perfeita pra vocês. Meu maior desejo esse ano é fazer com que vocês se apaixonem pelo SenaMUN do mesmo jeito que eu sou apaixonado. ​Espero vocês na conferência!",
     imagemFundo: "/images/foto_gustavo.jpeg",
     imagemSecretario: "/time/secretarios/Gustavo Vezzá.JPG",
   },
@@ -61,6 +64,7 @@ const cartas = [
 const CartaCarrossel = () => {
   const [current, setCurrent] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [isTranslated, setIsTranslated] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const AUTOPLAY_MS = 6000;
 
@@ -150,7 +154,7 @@ const CartaCarrossel = () => {
       {expanded && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 dark:bg-[#0B1E2D]/95 backdrop-blur-sm px-4"
-          onClick={() => setExpanded(false)}
+          onClick={() => { setExpanded(false); setIsTranslated(false); }}
         >
           <div
             className="relative w-full max-w-4xl flex flex-col md:flex-row items-stretch rounded-2xl overflow-hidden shadow-2xl animate-fade-in"
@@ -168,7 +172,7 @@ const CartaCarrossel = () => {
             </div>
 
             {/* Card bio */}
-            <div className="w-full md:flex-1 bg-white dark:bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-6 md:p-10 flex flex-col justify-between overflow-hidden">
+            <div className="w-full md:flex-1 bg-white dark:bg-[#0B1E2D] border-t-2 border-b-2 border-r-2 border-yellow-custom p-6 md:p-10 flex flex-col justify-between overflow-hidden relative">
               <div>
                 <h2 className="text-yellow-custom font-bold text-2xl md:text-3xl mb-1">
                   {carta.nome}
@@ -178,14 +182,24 @@ const CartaCarrossel = () => {
                 </p>
                 <div className="w-full h-px bg-yellow-custom/30 mb-5" />
                 <div className="max-h-[250px] md:max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
-                  <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm font-light leading-relaxed whitespace-pre-line">
-                    {carta.texto}
+                  <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm font-light leading-relaxed whitespace-pre-line transition-opacity duration-200">
+                    {isTranslated && (carta as any).textoPT ? (carta as any).textoPT : carta.texto}
                   </p>
                 </div>
               </div>
 
               {/* Botão Ver Secretariado — parte inferior direita */}
-              <div className="flex justify-end mt-8">
+              <div className="flex justify-between items-center mt-8">
+                {(carta as any).textoPT && (
+                  <button
+                    onClick={() => setIsTranslated((prev) => !prev)}
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-yellow-custom text-yellow-custom text-sm font-medium transition-all duration-200 hover:scale-105 hover:bg-yellow-custom hover:text-white"
+                  >
+                    {isTranslated ? "Ver em inglês" : "Traduzir Carta"}
+                    <i className="fa-solid fa-language text-sm" />
+                  </button>
+                )}
+                {!((carta as any).textoPT) && <div />}
                 <Link
                   href="/equipe/secretariado"
                   onClick={() => setExpanded(false)}
@@ -199,7 +213,7 @@ const CartaCarrossel = () => {
 
             {/* Botão X */}
             <button
-              onClick={() => setExpanded(false)}
+              onClick={() => { setExpanded(false); setIsTranslated(false); }}
               className="fixed top-4 right-4 z-[60] bg-white dark:bg-slate-800 text-gray-800 dark:text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200 font-bold"
             >
               ✕
