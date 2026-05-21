@@ -102,9 +102,9 @@ export default function ComitesPage() {
                   {committee.comite}
                 </h3>
                 <div className="mt-1 text-[12px] text-gray-500 dark:text-gray-400">
-                  <p>Comitê: {committee.comite}</p>
-                  <p>Modalidade: {committee.modalidade}</p>
-                  <p>Idioma: {committee.idioma.toUpperCase()}</p>
+                  <p>{committee.idioma === 'en' ? 'Committee' : 'Comitê'}: {committee.comite}</p>
+                  <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
+                  <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
                 </div>
               </div>
             </button>
@@ -147,11 +147,6 @@ export default function ComitesPage() {
                   <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
                     <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5">
                       <span>{committee.comite}</span>
-                      {committee.tema && committee.tema !== "Tema a definir" && (
-                        <span className="no-underline text-base font-medium opacity-90">
-                          — {committee.tema}
-                        </span>
-                      )}
                     </h2>
                   </div>
                 </button>
@@ -182,11 +177,6 @@ export default function ComitesPage() {
                 <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
                   <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5">
                     <span>{specialCommittee.comite}</span>
-                    {specialCommittee.tema && specialCommittee.tema !== "Tema a definir" && (
-                      <span className="no-underline text-base font-medium opacity-90">
-                        — {specialCommittee.tema}
-                      </span>
-                    )}
                   </h2>
                 </div>
               </button>
@@ -224,11 +214,6 @@ export default function ComitesPage() {
                 <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
                   <h2 className="translate-y-0 text-lg font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5">
                     <span>{especialCommittee.comite}</span>
-                    {especialCommittee.tema && especialCommittee.tema !== "Tema a definir" && (
-                      <span className="no-underline text-base font-medium opacity-90">
-                        — {especialCommittee.tema}
-                      </span>
-                    )}
                   </h2>
                 </div>
               </button>
@@ -256,9 +241,9 @@ export default function ComitesPage() {
 
             {/* Informações do Comitê */}
             <div className="text-[13px] leading-[1.8] text-gray-800 dark:text-gray-200">
-              <p><span className="font-bold">Comitê:</span> {modalData.comite}</p>
-              <p><span className="font-bold">Modalidade:</span> {modalData.modalidade}</p>
-              <p><span className="font-bold">Idioma:</span> {modalData.idioma.toUpperCase()}</p>
+              <p><span className="font-bold">{modalData.idioma === 'en' ? 'Committee' : 'Comitê'}:</span> {modalData.comite}</p>
+              <p><span className="font-bold">{modalData.idioma === 'en' ? 'Modality' : 'Modalidade'}:</span> {modalData.modalidade}</p>
+              <p><span className="font-bold">{modalData.idioma === 'en' ? 'Language' : 'Idioma'}:</span> {modalData.idioma.toUpperCase()}</p>
             </div>
 
             {/* Divisor */}
@@ -267,7 +252,7 @@ export default function ComitesPage() {
             {/* Seção de Sinopse */}
             <div className="mt-[16px]">
               <h3 className="text-[15px] font-bold text-gray-900 dark:text-white">
-                Sinopse sobre o comitê
+                {modalData.idioma === 'en' ? 'Synopsis about the committee' : 'Sinopse sobre o comitê'}
               </h3>
               <p className="mt-2 text-[13px] text-gray-500 dark:text-gray-400 italic leading-relaxed">
                 {modalData.sinopse || "A sinopse deste comitê estará disponível em breve para consulta dos delegados."}
