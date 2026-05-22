@@ -127,6 +127,11 @@ const dadosMembros = {
       cargo: "Crise",
       imagem: "Yasmin dos Santos.JPG",
     },
+    {
+      nome: "Matheus Schunck",
+      cargo: "Crise",
+      imagem: "Matheus Schunck.JPEG",
+    },
   ],
 
   ddi: [
