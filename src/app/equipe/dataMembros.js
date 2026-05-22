@@ -284,17 +284,17 @@ const dadosMembros = {
     {
       nome: "Thais Domingos do Santos Rodrigues",
       cargo: "Orientador",
-      imagem: "thais-rodrigues.jpg",
+      imagem: "Thaís Domingos.jpg",
     },
     {
       nome: "Naja de Oliveira Vieira",
       cargo: "Orientador",
-      imagem: "naja-vieira.jpg",
+      imagem: "Naja_Foto.jpg",
     },
     {
       nome: "Fabricio Nascimento Soares",
       cargo: "Orientador",
-      imagem: "fabricio-nascimento.jpg",
+      imagem: "Fabrício Soares.jpg",
     },
   ],
 
