@@ -72,13 +72,13 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "Câmara dos Deputados.JPG",
-    sinopse: "Espaço reservado para a sinopse da Câmara dos Deputados.",
+    sinopse: "O debate sobre a escala de trabalho de 44 horas semanais (6x1) vem se tornando cada vez mais relevante e necessário. No Brasil, um dos países mais desiguais do mundo, essa se torna a realidade - e muitas vezes, a única possibilidade - de milhões de trabalhadores que buscam se sustentar com o custo de vida cada vez mais alto. Por um outro lado, empresários e parlamentares julgam como necessário tal jornada para manter a economia e o comércio de pé. Quais serão as consequências desse embate?",
     chairs: [
       {
-        nome: "João Silva",
+        nome: "Lucas Mielitz",
         cargo: "Head-Chair",
-        foto: "/chairs/joao.png",
-        bio: "Interessado em políticas públicas e legislação trabalhista brasileira."
+        foto: "/images/Chairs/Lucas Mielitz.png",
+        bio: "Oi, gente! Sou Lucas Mielitz, tenho 19 anos e estudo Relações Internacionais na PUC-SP. Já participei de mais de 20 simulações da ONU e já fui secretário do SenaMUN, em 2024, por isso tenho grande apreço por esta simulação. Além disso, atualmente sou secretário geral institucional da simulação Cenários, da PUC. Gosto muito de simular e escolhi meu curso de bacharelado por causa das vivências que tive nessas conferências. "
       }
     ],
   },
@@ -91,13 +91,13 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "Parlamento Americano.WEBP",
-    sinopse: "Espaço reservado para a sinopse do Parlamento Americano.",
+    sinopse: "Nosso comitê irá debater sobre a crise de segurança ligada à imigração irregular nos Estados Unidos, que intensificou-se com o aumento dos fluxos migratórios nas fronteiras, especialmente na região sul do país. Nesse contexto, o Immigration and Customs Enforcement (ICE) ampliou operações de fiscalização, detenções e deportações de imigrantes em situação irregular e mesmo regular, gerando discussões sobre soberania, segurança nacional e direitos humanos. Defensores das ações do ICE argumentam que o fortalecimento do controle migratório combate crimes transnacionais, tráfico humano e entrada ilegal. Já críticos apontam violações de direitos civis, separação de famílias e condições inadequadas em centros de detenção. E cabe ao comitê decidir, o ICE acerta em suas decisões e é necessário, ou é uma arma eleitoreira do governo Trump.",
     chairs: [
       {
-        nome: "Ana Luiza",
+        nome: "Felipe Éllero",
         cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
-        bio: "Focada em relações internacionais e políticas migratórias das Américas."
+        foto: "/images/Chairs/Felipe Éllero.JPEG",
+        bio: "Meu nome é Felipe Éllero Silva, tenho 20 anos e sou graduando em psicologia e licenciando em história. Minha trajetória em simulações começou efetivamente em 2021, quando participei do XVII Fórum FAAP e a partir daí não parei mais. Participei de mais oito edições do Fórum FAAP como delegado, chefe de delegação e professor/conselheiro e conquistando o título de Melhor Delegação com minha instituição de ensino por 7 vezes consecutivas. Participei do Fórum interno de minha escola, o Fórum Emilie, em já 4 edições como delegado e mesa diretora. Debati também em edições do SPMUN, SINU, SIMULAI, SISC, ANGLOMUN, SICE, GVMUN, BANDMUN, entre outras, com várias premiações nesse processo. Por fim, fundei e sou Secretário-Geral Institucional da ASMUN, uma das maiores simulações do país, já caminhando para sua terceira edição."
       }
     ],
   },
@@ -115,10 +115,10 @@ const dadosComites = [
     sinopse: "Reserved space for the Human Rights committee synopsis.",
     chairs: [
       {
-        nome: "John Doe",
-        cargo: "Head-Chair",
-        foto: "/chairs/joao.png",
-        bio: "Focuses on global social justice and the protection of vulnerable populations."
+        nome: "Enzo Aguiar",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Enzo Aguiar.jpg",
+        bio: "Hello delegates, my name is Enzo Aguiar, I am currently a sophomore at Senac Nações Unidas and it’s such an honor to serve as a chair in this year’s Human Rights Council. I am deeply excited to be your dais, accompanied by David and Luana, supporting you throughout this journey and working together to develop the best we can in the days ahead of the conference. I have been passionate about International Relations and debates since 6th grade, and I started my MUN journey in 2025. I found myself in this incredible world through debating and studying with amazing people, whom I couldn’t be more grateful to stand alongside. My first conference was SENAMUN last year, and my life has completely changed since then. I am truly excited to see you engage in this committee and witness all your efforts while studying and debating this incredible topic. Our goal as your chairs is to build a safe space where everyone can debate and work together for the best conference experience possible. Please never hesitate to contact me if you have any doubts or concerns regarding the committee. It is an honor to help guide you all on this journey. See you all in September! Best wishes, Enzo Aguiar (enzoaguiarsantosnunes@gmail.com)"
       }
     ],
   },
@@ -134,10 +134,10 @@ const dadosComites = [
     sinopse: "Reserved space for the Historical Security Council synopsis.",
     chairs: [
       {
-        nome: "Ana Luiza",
-        cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
-        bio: "Passionate about history and its impacts on modern diplomacy."
+        nome: "Lívia Chiavone",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Lívia Chiavone.JPEG",
+        bio: "Hello delegates! My name is Lívia Chiavone, and I’m 16 years old. I’m a student at E.E. Prof. Pedro Fonseca, and it’s an honor to serve as a co-chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me really excited for this committee. I’ve been participating in MUNs for the past two years, mainly in security council and crisis committees, and through this journey I discovered how much I love debating and international relations. When I started MUNs, I was really nervous and intimidated, especially because I had no previous experience. Because of that, one of my main goals as part of the dais is to create a welcoming and safe environment where delegates feel comfortable participating, sharing ideas, and growing throughout the committee. I truly believe the best debates happen when people feel respected and supported, regardless of their level of experience. As someone who once felt intimidated stepping into their first committee, I know how important it is to have a dais that is approachable and encouraging. I’m really excited to meet all of you and share this experience together. Please never hesitate to reach out if you have any questions or concerns regarding the committee. See you all in September, Lívia Chiavone ( [livia.chiavone230210@gmail.com](mailto:livia.chiavone230210@gmail.com) )"
       }
     ],
   },
@@ -152,13 +152,19 @@ const dadosComites = [
     pdf: null,
     idioma: "en",
     imagem: "Junior ECOSOC.JPG",
-    sinopse: "Reserved space for the Junior ECOSOC synopsis.",
+    sinopse: "By the year 2100, humanity is expected to face unprecedented challenges regarding access to essential resources for human life. Starting from a dystopian scenario created by the chairs, the committee will explore the causes and consequences of the future. Rapid population growth, climate change, environmental degradation, and unequal global development threaten the availability of most needed resources, such as clean water, food, energy, and habitable land. As resources diminished, poverty, migration, and conflicts all around the world became more and more frequent. On the other hand, there is a famous cliché: flying cars and robots are everywhere; artificial intelligences are dominating e-sports, manual work, climate governance, and healthcare. Delegates will be encouraged to think creatively and enjoy a mix of creativity and diplomacy. Remember that the future is uncertain, but leadership begins here. Embrace ideas, proposals, and speeches—because, except for the chairs, no one knows how the world will be in 2100.",
     chairs: [
       {
-        nome: "John Doe",
+        nome: "Antonio Natale",
         cargo: "Head-Chair",
-        foto: "/chairs/joao.png",
-        bio: "Expert in economic sustainability and resource management."
+        foto: "/images/Chairs/Antonio Natale.png",
+        bio: "Greetings, my name is Antonio Natale, a freshman at Escola Concept SP, and I will serve as Head Chair of the Junior ECOSOC at SenaMUN V alongside Anna. My journey with United Nations simulations began three years ago, when my school invited me to participate in an internal conference and explore a diplomatic world that was entirely new to me. From the moment I stepped into the committee room and delivered my first speech, I discovered a version of myself I had never imagined: someone who believes in a better world and feels capable of inspiring change. After attending more than 20 conferences, I feel confident and honored to take on this responsibility. I hope we can work together throughout the conference to make this event a truly memorable experience for everyone involved. Please feel free to contact me with any questions or concerns regarding the committee ([oantonionatale@gmail.com](mailto:oantonionatale@gmail.com))."
+      },
+      {
+        nome: "Anna Rocha",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Anna Rocha.png",
+        bio: "Hey! I am Anna Rocha, a senior at Colégio Jardim São Paulo and Co-Chair of the Jr. ECOSOC at the 5th SenaMUN alongside Antonio. Back in 2024, I participated in my first Model United Nations conference online and completely fell in love with the experience. Since then, I’ve had the opportunity to attend many amazing conferences — including the 4th SenaMUN — where I learned incredible things, met wonderful people, and lived experiences I could never have imagined before. I’ve always believed that everything happens for a reason, and joining Model UN only reinforced that belief. I truly hope this committee will be both successful and productive, providing effective and meaningful responses to the many challenges faced in the year 2100. At any moment of doubt or concern, please feel completely free to email or text me (annarocha0108@gmail.com; (11) 94387-1296)!"
       }
     ],
   },
@@ -228,13 +234,13 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "OMC.PNG",
-    sinopse: "Espaço reservado para a sinopse da OMC.",
+    sinopse: "A privatização de setores essenciais têm impactado diretamente o comércio internacional, trazendo debates sobre crescimento econômico, influência de grandes empresas e acesso da população a serviços básicos. Neste comitê, os delegados discutirão os desafios de equilibrar desenvolvimento, soberania nacional e direitos essenciais no cenário global.",
     chairs: [
       {
-        nome: "João Silva",
+        nome: "Vinicius de Souza",
         cargo: "Head-Chair",
-        foto: "/chairs/joao.png",
-        bio: "Estudioso de comércio exterior e políticas de privatização globais."
+        foto: "/images/Chairs/Vinicius de Souza.png",
+        bio: "Meu nome é Vinicius de Souza, tenho 18 anos e é uma honra atuar como Head Chair do comitê da Organização Mundial do Comércio. Participo de simulações da ONU desde 2024, acumulando diversas experiências e aprendizados ao longo dessa trajetória. Foi por conta dessas conferências que decidi cursar Direito e, atualmente, estou no primeiro semestre da Universidade Presbiteriana Mackenzie. Estou muito animado por ter a oportunidade de auxiliar e apoiar todos vocês durante esta edição do SENAMUN! Qualquer dúvida ou preocupação, estou à disposição."
       }
     ],
   },
@@ -249,13 +255,13 @@ const dadosComites = [
     pdf: null,
     idioma: "en",
     imagem: "Special - Trial of Socrates.jpg",
-    sinopse: "Reserved space for the Special committee synopsis.",
+    sinopse: "In this Special Committee, we will be entertaining the Trial of Socrates. In which we will focus on one of history’s most famous trials, that of the philosopher Socrates. In this trial, Socrates has been accused of corrupting the youth, impiety, disrespect of the gods, and challenging Athenian values. Delegates must deal with the political instability in Athens following the Peloponnesian War; they must also grapple with the broader themes of justice, democracy, freedom of speech, morality, and public opinion. In this committee, delegates must decide whether Socrates was indeed a threat or a visionary by representing the prosecution, defence, and witness. This committee challenges delegates to examine the balance between justice and freedom of thought.",
     chairs: [
       {
-        nome: "Ana Luiza",
+        nome: "Sofia Vargas",
         cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
-        bio: "Philosophy enthusiast with a focus on historical legal trials."
+        foto: "/images/Chairs/Sofia Vargas.png",
+        bio: "Hello everyone, I’m Sofia Vargas, an 11th-grade student at Concept São Paulo, and at SenaMUN V I will be serving as the Head Chair for the Special Committee. MUN has always been very special to me because it is a space where people can grow, challenge themselves, and connect with others who are equally passionate about making an impact on the world. I truly believe this conference will be an incredible experience, and I cannot wait to meet all of you. I am deeply honored and excited to share this journey with everyone participating in the committee. If you have any questions whatsoever, please do not hesitate to reach out to me ([sofiabvargas09@gmail.com](mailto:sofiabvargas09@gmail.com))."
       }
     ],
   },
