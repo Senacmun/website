@@ -393,7 +393,7 @@ export default function ComitesPage() {
               <div className="mt-6 flex shrink-0 flex-col gap-3">
                 <button
                   onClick={() => setShowChairs(true)}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-yellow-custom py-3 text-sm font-bold text-black transition-all hover:brightness-110 active:scale-95"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-yellow-custom py-3 text-sm font-bold text-black shadow-sm transition-all duration-300 ease-in-out hover:brightness-110 hover:text-white hover:scale-[1.02] hover:shadow-md active:scale-95"
                 >
                   <i className="fa-solid fa-users" />
                   {modalData.idioma === 'en' ? 'Meet the Chairs' : 'Ver Chairs / Mesários'}

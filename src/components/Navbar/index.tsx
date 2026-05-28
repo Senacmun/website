@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, Fragment } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FiChevronDown, FiX, FiChevronsDown, FiChevronRight, FiMenu } from "react-icons/fi";
 import IconHeader from "./icon-header.svg";
 import StickyNavbarHandler from "../StickyNavbarHandler";
@@ -40,6 +41,7 @@ const faqs = [
 ];
 
 const Navbar: React.FC = () => {
+  const router = useRouter();
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [committeesOpen, setCommitteesOpen] = useState(false);
   const [expandedCommittee, setExpandedCommittee] = useState<string | null>(null);
@@ -143,6 +145,7 @@ const Navbar: React.FC = () => {
                       <button
                         onMouseEnter={() => setCommitteesOpen(true)}
                         onMouseLeave={() => setCommitteesOpen(false)}
+                        onDoubleClick={() => router.push("/comites")}
                         className="flex items-center justify-between w-full px-5 py-2 text-[15px] transition-colors dark:text-white text-[#1a1a2e] hover:bg-[#1f6feb] hover:text-white"
                       >
                         Comitês <FiChevronRight />
@@ -308,7 +311,14 @@ const Navbar: React.FC = () => {
                     <div key={i.name}>
                       {i.hasSub ? (
                         <>
-                          <button onClick={() => setCommitteesOpen(!committeesOpen)} className="w-full flex items-center justify-between pl-10 pr-6 py-3 text-[14px] text-[#0f172a]/70 dark:text-white/75 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5">
+                          <button 
+                            onClick={() => setCommitteesOpen(!committeesOpen)} 
+                            onDoubleClick={() => {
+                              setMobileMenuOpen(false);
+                              router.push("/comites");
+                            }}
+                            className="w-full flex items-center justify-between pl-10 pr-6 py-3 text-[14px] text-[#0f172a]/70 dark:text-white/75 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5"
+                          >
                             {i.name} 
                             <FiChevronRight className={`text-[#0f172a] dark:text-white transition-transform duration-200 ${committeesOpen ? 'rotate-90' : ''}`} />
                           </button>
