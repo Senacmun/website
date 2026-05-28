@@ -323,7 +323,7 @@ const dadosComites = [
       {
         nome: "Raíssa Scarassatti",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Raissa Scarassatti.png",
+        foto: "/images/Chairs/Raíssa.png",
         bio:"Olá"
       },
       {
