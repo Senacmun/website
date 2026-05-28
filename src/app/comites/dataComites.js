@@ -37,10 +37,10 @@ const dadosComites = [
         bio: "Olá pessoal! Sou a Melissa Mayra, alumni do Senac e atualmente estou no Rio de Janeiro como graduanda em Defesa e Gestão Estratégica Internacional na Universidade Federal do Rio de Janeiro. Participo de MUNs desde o ensino médio — inclusive fui secretária na edição de 2024 — mas dei uma afastada para focar nos estudos, o que é até irônico, já que essa experiência influenciou fortemente minha escolha de carreira. Além do meu interesse por geopolítica e questões sociais, também sou apaixonada por dança, música e qualquer outra forma de expressão cultural. O Conselho de Segurança tem um lugar muito especial no meu coração e espero que vocês tenham uma experiência incrível não apenas nele, mas no evento como um todo! Estou ansiosa para conhecê-los em setembro! No caso de quaisquer dúvidas relacionadas à minha função, não hesitem em me contatar através do meu e-mail: sotomer.m@gmail.com"
       },
       {
-        nome: "Beatriz Santos",
+        nome: "Bruno",
         cargo: "Co-Chair",
-        foto: "/chairs/beatriz.png",
-        bio: "Interessada em resolução de conflitos e mediação internacional no contexto multipolar."
+        foto: "/images/Chairs/Bruno.jpg",
+        bio: "Olá pessoal! Meu nome é Bruno e serei parte da mesa do CSNU. Durante o período da conferência, estarei com 20 anos e cursando o segundo semestre de Relações Internacionais na Fundação Escola de Comércio Álvares Penteado. Gosto muito de jogar videogame, vôlei e baralho, além de ter cursado o ensino médio no Senac, onde me formei como técnico em multimídia. Comecei minha trajetória em MUNs na metade do segundo ano do ensino médio e, até minha formatura, participei de cerca de 20 simulações, tanto como mesa quanto como delegado. Durante esse período, desenvolvi uma grande paixão pelo debate político e pelos estudos na área, o que me levou a conquistar alguns prêmios e também influenciou minha escolha de graduação. Acredito que a prática das simulações pode ser extremamente enriquecedora e é justamente por isso que estou aqui. Espero que todos tenham uma experiência incrível no SENAMUN, assim como eu tive durante meus dois anos de participação. Por fim, sintam-se à vontade para entrar em contato comigo caso tenham quaisquer dúvidas. Atenciosamente, Bruno Tachian Zacharauskas tachianb@gmail.com."
       },
       {
         nome: "Carolina",
