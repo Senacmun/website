@@ -414,26 +414,20 @@ export default function ComitesPage() {
                   >
                     WhatsApp
                   </button>
-                  {modalData.pdf ? (
-                    <a
-                      href={modalData.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 py-2 font-bold text-white transition-all hover:bg-red-700 active:scale-95"
-                    >
-                      <i className="fa-solid fa-file-pdf" />
-                      {modalData.idioma === 'en' ? 'Study Guide' : 'Baixar PDF'}
-                    </a>
-                  ) : (
-                    <span className="flex-1 inline-flex flex-col items-center justify-center rounded-xl bg-gray-400 py-1 text-center font-bold text-white cursor-not-allowed leading-tight">
+                  <button
+                    type="button"
+                    onClick={handleComingSoonClick}
+                    className="flex-1 inline-flex flex-col items-center justify-center rounded-xl bg-gray-400 py-1 text-center font-bold text-white active:scale-95 leading-tight"
+                  >
+                      <div className="flex flex-col items-center leading-tight">
                       <span className="text-[10px]">
                         {modalData.idioma === 'en' ? 'Study Guides' : 'Guias de Estudo'}
                       </span>
                       <span className="text-[9px] font-medium opacity-80 mt-0.5">
                         {modalData.idioma === 'en' ? '(Coming Soon)' : '(Em Breve)'}
                       </span>
-                    </span>
-                  )}
+                      </div>
+                  </button>
                 </div>
               </div>
             </div>

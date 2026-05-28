@@ -46,6 +46,9 @@ const Navbar: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [faqModalOpen, setFaqModalOpen] = useState(false);
+  const [showComingSoonToast, setShowComingSoonToast] = useState(false);
+  const [isExitingToast, setIsExitingToast] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   const dropdownPanelStyle = "rounded-[10px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.18)] dark:border-white/10";
@@ -58,6 +61,7 @@ const Navbar: React.FC = () => {
   `;
 
   useEffect(() => {
+    setIsMounted(true);
     const handleInteraction = (e: any) => {
       if (e.key === "Escape") {
         setActiveDropdown(null);
@@ -73,6 +77,19 @@ const Navbar: React.FC = () => {
       window.removeEventListener("keydown", handleInteraction);
     };
   }, []);
+
+  const handleComingSoonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsExitingToast(false);
+    setShowComingSoonToast(true);
+    
+    setTimeout(() => closeToast(), 4000);
+  };
+
+  const closeToast = () => {
+    setIsExitingToast(true);
+    setTimeout(() => setShowComingSoonToast(false), 500);
+  };
 
   return (
     <>
@@ -164,9 +181,24 @@ const Navbar: React.FC = () => {
                         }`}>
                           <div className="pl-6">
                             <div className="inline-flex flex-col gap-2 px-8 py-3 min-w-[200px] text-[14px] text-black/70 dark:text-white/70 bg-gray-100 dark:bg-white/10 rounded-xl">
-                              <a href={committee.classroom || ""} className="hover:text-black dark:hover:text-white">• Classroom</a>
-                              <a href={committee.whatsapp || ""} className="hover:text-black dark:hover:text-white">• WhatsApp</a>
-                              <a href={committee.pdf || ""} className="hover:text-black dark:hover:text-white">• Baixar PDF</a>
+                              <button 
+                                onClick={handleComingSoonClick} 
+                                className="hover:text-black dark:hover:text-white text-left transition-colors"
+                              >
+                                • Classroom
+                              </button>
+                              <button 
+                                onClick={handleComingSoonClick} 
+                                className="hover:text-black dark:hover:text-white text-left transition-colors"
+                              >
+                                • WhatsApp
+                              </button>
+                              <button 
+                                onClick={handleComingSoonClick} 
+                                className="hover:text-black dark:hover:text-white text-left transition-colors"
+                              >
+                                • Baixar PDF
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -293,9 +325,24 @@ const Navbar: React.FC = () => {
                                 </button>
                                 <div className={`overflow-hidden transition-all duration-200 ${expandedCommittee === c.comite ? 'max-h-40' : 'max-h-0'}`}>
                                   <div className="flex flex-col gap-1 pl-14 py-2 text-[13px] text-[#0f172a]/70 dark:text-white/60">
-                                    <a href={c.classroom} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>• Classroom</a>
-                                    <a href={c.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>• WhatsApp</a>
-                                    <a href={c.pdf || "#"} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>• Baixar PDF</a>
+                                    <button 
+                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }} 
+                                      className="text-left"
+                                    >
+                                      • Classroom
+                                    </button>
+                                    <button 
+                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }} 
+                                      className="text-left"
+                                    >
+                                      • WhatsApp
+                                    </button>
+                                    <button 
+                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }} 
+                                      className="text-left"
+                                    >
+                                      • Baixar PDF
+                                    </button>
                                   </div>
                                 </div>
                               </div>
@@ -389,6 +436,32 @@ const Navbar: React.FC = () => {
                 </a>
                 <p className="text-xs text-gray-500 dark:text-gray-500">comunicacaosenamun@gmail.com</p>
               </div>
+            </div>
+          </div>,
+          document.body
+        )}
+
+        {/* Coming Soon Toast */}
+        {showComingSoonToast && isMounted && createPortal(
+          <div 
+            className={`fixed bottom-10 right-4 md:right-10 z-[10001] transition-all duration-500 ease-in-out ${
+              isExitingToast ? "opacity-0 translate-x-10" : "animate-in fade-in slide-in-from-right-10 opacity-100 translate-x-0"
+            }`}
+          >
+            <div 
+              className="relative bg-[#ffffff] dark:bg-[#0b1e2d] border-2 border-[#f39322] p-5 pr-12 rounded-2xl shadow-2xl w-[300px] md:w-[420px] transition-transform"
+            >
+              <button 
+                onClick={closeToast}
+                className="absolute top-3 right-4 text-[#f39322] hover:scale-125 transition-transform text-lg"
+                aria-label="Fechar aviso"
+              >
+                <i className="fa-solid fa-xmark" />
+              </button>
+              <p className="text-[#0b1e2d] dark:text-[#ffffff] font-bold text-[13px] md:text-sm leading-relaxed">
+                <i className="fa-solid fa-screwdriver-wrench mr-2 text-[#f39322]" />
+                Ainda estamos trabalhando nisso! Será liberado dentro de alguns meses!
+              </p>
             </div>
           </div>,
           document.body
