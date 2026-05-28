@@ -31,10 +31,10 @@ const dadosComites = [
     sinopse: "Espaço reservado para a sinopse do Conselho de Segurança.",
     chairs: [
       {
-        nome: "João Silva",
+        nome: "Melissa Mayra",
         cargo: "Head-Chair",
-        foto: "/images/Thaís Domingos.jpg",
-        bio: "Entusiasta de segurança internacional e geopolítica, participa de simulações desde 2022."
+        foto: "/images/Chairs/Melissa.jpeg",
+        bio: "Olá pessoal! Sou a Melissa Mayra, alumni do Senac e atualmente estou no Rio de Janeiro como graduanda em Defesa e Gestão Estratégica Internacional na Universidade Federal do Rio de Janeiro. Participo de MUNs desde o ensino médio — inclusive fui secretária na edição de 2024 — mas dei uma afastada para focar nos estudos, o que é até irônico, já que essa experiência influenciou fortemente minha escolha de carreira. Além do meu interesse por geopolítica e questões sociais, também sou apaixonada por dança, música e qualquer outra forma de expressão cultural. O Conselho de Segurança tem um lugar muito especial no meu coração e espero que vocês tenham uma experiência incrível não apenas nele, mas no evento como um todo! Estou ansiosa para conhecê-los em setembro! No caso de quaisquer dúvidas relacionadas à minha função, não hesitem em me contatar através do meu e-mail: sotomer.m@gmail.com"
       },
       {
         nome: "Beatriz Santos",
@@ -166,7 +166,7 @@ const dadosComites = [
         nome: "Luana Fugi",
         cargo: "Co-Chair",
         foto: "/images/Chairs/Luana Fugi.jpg",
-        bio: "Hello"
+        bio: "Hello delegates! My name is Luana Fugi, I am a ninth grader at St Nicholas School Alphaville, and I am beyond excited to be serving as your Co-Chair for the Human Rights Council in this year’s SENAMUN. My passion for MUN began when I was in sixth grade, and since then I have had multiple incredible opportunities to develop several skills through engaging and fruitful debates. All of these experiences have strengthened my passion for diplomacy. Outside of MUN, I enjoy listening to music, playing sports, and spending time with my friends and family. I cannot wait to meet all of you, and I hope this edition of the conference can be as special and meaningful to you as it already is to me. This year’s topic is extremely sensitive and important, as the issue of transgender safety and protection has become an increasingly urgent global human rights concern. Across many countries, transgender individuals continue to face violence, discrimination, limited access to healthcare and education, and unequal legal protections. While some nations have introduced progressive policies supporting LGBTQ+ rights, others maintain restrictive laws or oppose international intervention on the matter. This topic invites delegates to discuss how the international community can promote safety, equality, and dignity for transgender people while balancing cultural values, national sovereignty, and human rights obligations. If you have any doubts or concerns, please feel free to reach out to me at: luanafugi@gmail.com"
       }
     ],
   },
@@ -250,13 +250,13 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "ECOSOC 2053.JPG",
-    sinopse: "Espaço reservado para a sinopse do ECOSOC.",
+    sinopse: "Em 2053, o mundo vive as consequências da dependência extrema da inteligência artificial. Após a chamada “Corrida dos Insumos”, iniciada pela anexação de Taiwan pela China em 2042, países passaram a disputar água, minerais raros, energia e chips necessários para sustentar megacidades automatizadas e sistemas globais de IA. Enquanto potências tecnológicas dominam a automação mundial, milhões enfrentam desemprego estrutural, desigualdade e perda de espaço no mercado de trabalho. Em resposta, movimentos neo-ludistas crescem ao redor do planeta, realizando ataques contra centros tecnológicos e infraestrutura automatizada. Em meio ao caos econômico, vigilância digital e conflitos diplomáticos, a ECOSOC debate os limites éticos da inteligência artificial e tenta responder a principal questão do século XXI: ainda existe espaço para o ser humano em um mundo automatizado?",
     chairs: [
       {
-        nome: "João Silva",
+        nome: "Giovanna Queiroz",
         cargo: "Head-Chair",
-        foto: "/chairs/joao.png",
-        bio: "Pesquisador de tendências tecnológicas e impactos socioculturais da IA."
+        foto: "/images/Chairs/Giovanna Queiroz.jpg",
+        bio: "Oie, delegados! Me chamo Giovanna Queiroz e minha trajetória nas MUNs começou aos 16 anos, quando me apaixonei por esse universo. Minha primeira simulação foi em 2024 e superou todas as minhas expectativas. Além de participar de um comitê incrível, conquistei meu primeiro prêmio de “Melhor Documento de Posição”, o que tornou a experiência ainda mais especial. Desde então, participei de 10 simulações como delegada e atuei uma vez como chair. Também tive a honra de ser vice-secretária-geral do SenaMUN IV. Agora, retorno com o privilégio de assumir como Head Chair de um comitê tão inusitado. Estou muito feliz por fazer parte disso e garanto que esse comitê irá surpreender a todos!"
       },
       {
         nome: "Maria Luiza",
@@ -284,16 +284,23 @@ const dadosComites = [
     sinopse: "Espaço reservado para a sinopse da FAO.",
     chairs: [
       {
-        nome: "Ana Luiza",
+        nome: "Brenno",
         cargo: "Head-Chair",
         foto: "/chairs/ana.png",
         bio: "Especialista em segurança alimentar e desenvolvimento agrário."
       },
       {
+        nome: "Gabriela Sanches",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Gabi Sanches.JPEG",
+        bio: "Olá! Me chamo Gabriela Sanches e sou apaixonada por geopolítica. Participo de simulações desde o segundo ano do ensino médio e tive a honra de fazer parte do secretariado do SenaMUN IV, como Under Secretary General. Estou extremamente feliz em estar de volta!"
+      },
+      {
         nome: "Pietro de Lima",
         cargo: "Co-Chair",
         foto: "/chairs/pietro.png",
-        bio: "Interessado em políticas de desenvolvimento sustentável e agricultura."}
+        bio: "Interessado em políticas de desenvolvimento sustentável e agricultura."
+      }
     ],
   },
   {
@@ -343,8 +350,14 @@ const dadosComites = [
       {
         nome: "Sofia Vargas",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Sofia Vargas.png",
+        foto: "/images/Chairs/Sofia Vargas.jpg",
         bio: "Hello everyone, I’m Sofia Vargas, an 11th-grade student at Concept São Paulo, and at SenaMUN V I will be serving as the Head Chair for the Special Committee. MUN has always been very special to me because it is a space where people can grow, challenge themselves, and connect with others who are equally passionate about making an impact on the world. I truly believe this conference will be an incredible experience, and I cannot wait to meet all of you. I am deeply honored and excited to share this journey with everyone participating in the committee. If you have any questions whatsoever, please do not hesitate to reach out to me ([sofiabvargas09@gmail.com](mailto:sofiabvargas09@gmail.com))."
+      },
+      {
+        nome: "Nayara Lima",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Nayara Lima.jpg",
+        bio: "Hello delegates, my name is Nayara Lima, I am 18 years old, and I will have the honor of serving as Co-Chair of the Socrates’ Trial Committee! I have been actively involved in the world of debates since the past year, and during this time I have learned many valuable lessons that I carry with me in all areas of my life. I see MUNs as a space to learn, teach, socialize, and also have fun. I consider myself an approachable and easy person to talk to, so I hope to create a welcoming and supportive environment for all delegates whenever you may have doubts or need assistance. Please feel free to contact me at any time ([nayaraalvslima@gmail.com](mailto:nayaraalvslima@gmail.com))."
       }
     ],
   },
@@ -368,14 +381,14 @@ const dadosComites = [
       {
         nome: "Pablo Bleinat",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Pablo Bleinat.jpg",
-        bio: "Ó meo Pé"
+        foto: "/images/Chairs/Pablo Bleinat.png",
+        bio: "Oi pessoal, eu sou o Pablo Bleinat, tenho 17 anos e estudo no Senac Nações Unidas. Gosto muito de filmes e jogos de videogame, principalmente dos gêneros de ação e ficção científica, porque sempre achei interessantes histórias com universos diferentes, tecnologias avançadas e personagens marcantes. Além disso, também gosto bastante de conversar sobre cultura pop e acompanhar lançamentos de filmes, séries e jogos. Minha primeira participação em uma simulação da ONU foi em 2025, no SenaMUN, onde participei como delegado. Foi uma experiência muito divertida e enriquecedora, pois pude aprender mais sobre debates, diplomacia e trabalho em equipe, além de conhecer novas pessoas e trocar ideias com estudantes de diferentes turmas. Gostei tanto da experiência que decidi participar novamente neste ano. Estou muito ansioso para o SenaMUN 2026 e espero que todos vocês também tenham uma experiência incrível durante a conferência!"
       },
       {
         nome: "Sal",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Sal.png",
-        bio: "Olá, meu nome é Sal"
+        foto: "/images/Chairs/Sal.jpg",
+        bio: "Olá, delegados(as)! Meu nome é Sal, tenho 18 anos e estudo Cinema na FAAP! Sou apaixonado por filmes, séries e jogos, principalmente de ficção científica e terror, são os dois gêneros que mais penso em produzir quando finalizar a faculdade! Eu participo de simulações desde 2023. Nestes 3 anos participei três vezes da Simulação Interna do Colégio Magister, escola onde completei o Ensino Médio, participei da XIV SPMUN em 2025 e fiz 3 anos de Fórum FAAP, dois anos como delegado e em 2026 realizei meu primeiro ano como Staff Acadêmico no fórum, agora que estou estudando na FAAP. Me apaixonei por simulações nos primeiros anos do Ensino Médio e, mesmo cursando algo totalmente diferente, não quis abandonar esse universo que me amparou em vários momentos durante minha trajetória, além de me transformar na pessoa que sou hoje. Estou ansioso para o meu primeiro ano na equipe do SenaMUN e espero que os debates sejam proveitosos!"
       }
     ],
   },
