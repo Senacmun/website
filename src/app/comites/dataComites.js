@@ -112,7 +112,7 @@ const dadosComites = [
     pdf: null,
     idioma: "en",
     imagem: "Humans Rights Council.jpg",
-    sinopse: "Reserved space for the Human Rights committee synopsis.",
+    sinopse: "The World Health Organization only declared that being a transgender person is not a disease in 2019. Today, ethical and ideological differences restrain the UN from establishing a global framework for maintaining the rights of a people whose existence has been denied for centuries. In a world so often driven by diverse viewpoints, it is hard to engage in a fruitful discussion, to propose a universal mechanism to respect these individuals in multiple cultures. This is the challenge faced by the delegates of the Human Rights Council. To exercise diplomacy within a range of states that encompasses those criminalizing transgender individuals, and those institutionally supporting them from social oppression.",
     chairs: [
       {
         nome: "Enzo Aguiar",
@@ -274,13 +274,13 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "Especial.JPG",
-    sinopse: "Espaço reservado para a sinopse do comitê Especial.",
+    sinopse: "A integridade da Membrana que protege o nosso mundo está severamente comprometida, e a ascensão do Outro Lado ameaça a própria existência humana. Os delegados podem  lutar pela contenção do paranormal, apoiar sacrifícios para erradicar o paranormal, ou tomar medidas para continuar vivendo com ele, mesmo com seus riscos. Diante deste cenário de calamidade, caberá a este conselho deliberar e responder à questão definitiva: O paranormal deve existir? O futuro da Realidade depende das decisões tomadas nesse comitê.",
     chairs: [
       {
-        nome: "João Silva",
+        nome: "Eduarda Santos Cerri",
         cargo: "Head-Chair",
-        foto: "/chairs/joao.png",
-        bio: "Mestre de RPG e interessado em debates éticos sobre o desconhecido."
+        foto: "/time/academico/Eduarda Santos Cerri.JPG",
+        bio: "Oii, delegados! Muito prazer, eu sou a Eduarda, tenho 17 anos e estudo no SENAC. Gosto muito de séries antigas, como Supernatural, e de escutar músicas dos mais diversos estilos. Minha trajetória nas simulações começou em 2024, quando participei do SENAMUN e descobri meu amor por essa área. Desde então, participei de diversas conferências, como a AVEMUN, AngloMUN, PUC Cenários e, obviamente, o SENAMUN 2025. Ao longo desse tempo, as simulações se tornaram uma parte muito importante da minha vida, pois me ajudaram a conhecer novas pessoas que hoje são extremamente especiais para mim. Neste ano, também faço parte do projeto responsável por auxiliar na organização do evento, integrando a diretoria acadêmica. Estou muito animada para viver mais uma experiência incrível no SENAMUN. Espero que todos tenham um ótimo SENAMUN V e aproveitem essa experiência da melhor forma possível!"
       }
     ],
   },
