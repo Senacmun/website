@@ -41,6 +41,12 @@ const dadosComites = [
         cargo: "Co-Chair",
         foto: "/chairs/beatriz.png",
         bio: "Interessada em resolução de conflitos e mediação internacional no contexto multipolar."
+      },
+      {
+        nome: "Carolina",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Carolina.png",
+        bio: "Olá"
       }
     ],
   },
@@ -56,10 +62,22 @@ const dadosComites = [
     sinopse: "Espaço reservado para a sinopse do Conselho de Segurança.",
     chairs: [
       {
-        nome: "Ana Luiza",
+        nome: "Isabella Saorin",
         cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
+        foto: "/chairs/Isabella Saorin.png",
         bio: "Estudante apaixonada por direito internacional e diplomacia."
+      },
+      {
+        nome: "Laura Evol",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Laura Evol.png",
+        bio: "Entusiasta de história e relações internacionais, com foco em América Latina."
+      },
+      {
+        nome: "Sabrina Schoenfelder",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Sabrina Schoenfelder.png",
+        bio: "Olá"
       }
     ],
   },
@@ -79,6 +97,12 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/images/Chairs/Lucas Mielitz.png",
         bio: "Oi, gente! Sou Lucas Mielitz, tenho 19 anos e estudo Relações Internacionais na PUC-SP. Já participei de mais de 20 simulações da ONU e já fui secretário do SenaMUN, em 2024, por isso tenho grande apreço por esta simulação. Além disso, atualmente sou secretário geral institucional da simulação Cenários, da PUC. Gosto muito de simular e escolhi meu curso de bacharelado por causa das vivências que tive nessas conferências. "
+      },
+      {
+        nome: "Nicoly",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Nicoly.png",
+        bio: "Olá"
       }
     ],
   },
@@ -98,6 +122,18 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/images/Chairs/Felipe Éllero.JPEG",
         bio: "Meu nome é Felipe Éllero Silva, tenho 20 anos e sou graduando em psicologia e licenciando em história. Minha trajetória em simulações começou efetivamente em 2021, quando participei do XVII Fórum FAAP e a partir daí não parei mais. Participei de mais oito edições do Fórum FAAP como delegado, chefe de delegação e professor/conselheiro e conquistando o título de Melhor Delegação com minha instituição de ensino por 7 vezes consecutivas. Participei do Fórum interno de minha escola, o Fórum Emilie, em já 4 edições como delegado e mesa diretora. Debati também em edições do SPMUN, SINU, SIMULAI, SISC, ANGLOMUN, SICE, GVMUN, BANDMUN, entre outras, com várias premiações nesse processo. Por fim, fundei e sou Secretário-Geral Institucional da ASMUN, uma das maiores simulações do país, já caminhando para sua terceira edição."
+      },
+      {
+        nome: "Manuela",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Manuela.png",
+        bio: "Olá"
+      },
+      {
+        nome: "Murilo Ribeiro",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Murilo Ribeiro.JPEG",
+        bio: "Olá"
       }
     ],
   },
@@ -115,10 +151,22 @@ const dadosComites = [
     sinopse: "The World Health Organization only declared that being a transgender person is not a disease in 2019. Today, ethical and ideological differences restrain the UN from establishing a global framework for maintaining the rights of a people whose existence has been denied for centuries. In a world so often driven by diverse viewpoints, it is hard to engage in a fruitful discussion, to propose a universal mechanism to respect these individuals in multiple cultures. This is the challenge faced by the delegates of the Human Rights Council. To exercise diplomacy within a range of states that encompasses those criminalizing transgender individuals, and those institutionally supporting them from social oppression.",
     chairs: [
       {
+        nome: "David Campora",
+        cargo: "Head-Chair",
+        foto: "/images/Chairs/David Campora.jpg",
+        bio:"Hello delegates! My name is David Campora"
+      },      
+      {
         nome: "Enzo Aguiar",
         cargo: "Co-Chair",
         foto: "/images/Chairs/Enzo Aguiar.jpg",
         bio: "Hello delegates, my name is Enzo Aguiar, I am currently a sophomore at Senac Nações Unidas and it’s such an honor to serve as a chair in this year’s Human Rights Council. I am deeply excited to be your dais, accompanied by David and Luana, supporting you throughout this journey and working together to develop the best we can in the days ahead of the conference. I have been passionate about International Relations and debates since 6th grade, and I started my MUN journey in 2025. I found myself in this incredible world through debating and studying with amazing people, whom I couldn’t be more grateful to stand alongside. My first conference was SENAMUN last year, and my life has completely changed since then. I am truly excited to see you engage in this committee and witness all your efforts while studying and debating this incredible topic. Our goal as your chairs is to build a safe space where everyone can debate and work together for the best conference experience possible. Please never hesitate to contact me if you have any doubts or concerns regarding the committee. It is an honor to help guide you all on this journey. See you all in September! Best wishes, Enzo Aguiar (enzoaguiarsantosnunes@gmail.com)"
+      },
+      {
+        nome: "Luana Fugi",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Luana Fugi.jpg",
+        bio: "Hello"
       }
     ],
   },
@@ -184,6 +232,12 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/chairs/ana.png",
         bio: "Engajada em causas de saúde pública global e igualdade de gênero."
+      },
+      {
+        nome: "Mariana",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Mariana.png",
+        bio: "Olá"
       }
     ],
   },
@@ -203,6 +257,18 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/chairs/joao.png",
         bio: "Pesquisador de tendências tecnológicas e impactos socioculturais da IA."
+      },
+      {
+        nome: "Maria Luiza",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Malu Lima.png",
+        bio: "Olá"
+      },
+      {
+        nome: "Gabriela Daltro",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Gabriela.png",
+        bio: "Olá"
       }
     ],
   },
@@ -222,7 +288,12 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/chairs/ana.png",
         bio: "Especialista em segurança alimentar e desenvolvimento agrário."
-      }
+      },
+      {
+        nome: "Pietro de Lima",
+        cargo: "Co-Chair",
+        foto: "/chairs/pietro.png",
+        bio: "Interessado em políticas de desenvolvimento sustentável e agricultura."}
     ],
   },
   {
@@ -241,6 +312,18 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/images/Chairs/Vinicius de Souza.png",
         bio: "Meu nome é Vinicius de Souza, tenho 18 anos e é uma honra atuar como Head Chair do comitê da Organização Mundial do Comércio. Participo de simulações da ONU desde 2024, acumulando diversas experiências e aprendizados ao longo dessa trajetória. Foi por conta dessas conferências que decidi cursar Direito e, atualmente, estou no primeiro semestre da Universidade Presbiteriana Mackenzie. Estou muito animado por ter a oportunidade de auxiliar e apoiar todos vocês durante esta edição do SENAMUN! Qualquer dúvida ou preocupação, estou à disposição."
+      },
+      {
+        nome: "Raíssa Scarassatti",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Raissa Scarassatti.png",
+        bio:"Olá"
+      },
+      {
+        nome: "Vitor Oliveira",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Vitor Oliveira.png",
+        bio:"Olá"
       }
     ],
   },
@@ -281,6 +364,18 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/time/academico/Eduarda Santos Cerri.JPG",
         bio: "Oii, delegados! Muito prazer, eu sou a Eduarda, tenho 17 anos e estudo no SENAC. Gosto muito de séries antigas, como Supernatural, e de escutar músicas dos mais diversos estilos. Minha trajetória nas simulações começou em 2024, quando participei do SENAMUN e descobri meu amor por essa área. Desde então, participei de diversas conferências, como a AVEMUN, AngloMUN, PUC Cenários e, obviamente, o SENAMUN 2025. Ao longo desse tempo, as simulações se tornaram uma parte muito importante da minha vida, pois me ajudaram a conhecer novas pessoas que hoje são extremamente especiais para mim. Neste ano, também faço parte do projeto responsável por auxiliar na organização do evento, integrando a diretoria acadêmica. Estou muito animada para viver mais uma experiência incrível no SENAMUN. Espero que todos tenham um ótimo SENAMUN V e aproveitem essa experiência da melhor forma possível!"
+      },
+      {
+        nome: "Pablo Bleinat",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Pablo Bleinat.jpg",
+        bio: "Ó meo Pé"
+      },
+      {
+        nome: "Sal",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Sal.png",
+        bio: "Olá, meu nome é Sal"
       }
     ],
   },
