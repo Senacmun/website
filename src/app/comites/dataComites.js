@@ -186,6 +186,12 @@ const dadosComites = [
         cargo: "Co-Chair",
         foto: "/images/Chairs/Lívia Chiavone.JPEG",
         bio: "Hello delegates! My name is Lívia Chiavone, and I’m 16 years old. I’m a student at E.E. Prof. Pedro Fonseca, and it’s an honor to serve as a co-chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me really excited for this committee. I’ve been participating in MUNs for the past two years, mainly in security council and crisis committees, and through this journey I discovered how much I love debating and international relations. When I started MUNs, I was really nervous and intimidated, especially because I had no previous experience. Because of that, one of my main goals as part of the dais is to create a welcoming and safe environment where delegates feel comfortable participating, sharing ideas, and growing throughout the committee. I truly believe the best debates happen when people feel respected and supported, regardless of their level of experience. As someone who once felt intimidated stepping into their first committee, I know how important it is to have a dais that is approachable and encouraging. I’m really excited to meet all of you and share this experience together. Please never hesitate to reach out if you have any questions or concerns regarding the committee. See you all in September, Lívia Chiavone ( [livia.chiavone230210@gmail.com](mailto:livia.chiavone230210@gmail.com) )"
+      },
+      {
+        nome: "Cauê Garcia",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Caue Garcia.JPG",
+        bio: "Hello Delegates! I’m Cauê Garcia, I’m 17 years old, currently on a gap year, and it is an honor to serve as a Co-Chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me even more excited for this committee. I have been participating in MUNs for around a year, and it was through SENAMUN that I was introduced to this new and captivating world. MUNs, especially the first conferences, can often feel overwhelming and intimidating. Because of that, as a chair, I hope to create a welcoming environment where delegates feel comfortable fully and faithfully representing their delegations. I truly believe that the best committees are the ones in which delegates are not only enjoying themselves, but also encouraged to improve their performance throughout the sessions. I am really excited to meet all of you and share this experience together. Please feel free to reach out if you have any questions regarding the committee — I will gladly answer them in order to help create the best possible experience for everyone involved."
       }
     ],
   },
@@ -333,10 +339,10 @@ const dadosComites = [
         bio:"Olá"
       },
       {
-        nome: "Vitor Oliveira",
+        nome: "Vitor Morais",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Vitor Oliveira.png",
-        bio:"Olá"
+        foto: "/images/Chairs/Vitor Morais.png",
+        bio:"Caros Delegados, meu nome é Vitor Morais e posso dizer, de coração, que carrego um amor incondicional pelo SENAMUN. Afinal, foi a minha primeira simulação e, por algum motivo do destino, a decisão de participar dela me proporcionou oportunidades que transformaram completamente a minha vida. Participei do SENAMUN em 2024 e, desde então, já acumulo mais de 20 simulações entre participação e organização. Além disso, faço parte da Latin American Leadership Academy, uma ONG voltada ao desenvolvimento da América Latina por meio de projetos e pessoas. Inclusive, um fun fact sobre mim é que já fui selecionado para um evento do Programa das Nações Unidas para o Desenvolvimento! Atualmente, sou aluno de cursinho e também atuo como guia de acampamentos virtuais nacionais e internacionais. Sem dúvidas, o SENAMUN teve um papel fundamental na construção desse caminho, e eu mal posso esperar para voltar e conhecer todos os meus delegados! Sejam muito bem-vindos ao SENAMUN V!"
       }
     ],
   },
