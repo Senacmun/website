@@ -238,6 +238,12 @@ const dadosComites = [
         cargo: "Co-Chair",
         foto: "/images/Chairs/Mariana.png",
         bio: "Olá"
+      },
+      {
+        nome: "Hadassah Coimbra",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Hadassah Coimbra.png",
+        bio: "Prezados delegados, é uma honra cumprimentá-los. Meu nome é Hadassah Coimbra e terei o privilégio de atuar como Co-Chair neste comitê da OMS. Tenho 17 anos e curso o ensino médio técnico em Administração no Senac Nações Unidas. Iniciei minha participação em simulações em 2024, no primeiro ano, motivada por colegas, e desde então sigo engajada por ter encontrado grande afinidade com essa prática acadêmica. Já representei delegações em cinco comitês, mas esta será minha segunda experiência na função de Chair. Será um imenso prazer compartilhar este momento com todos vocês, caminharemos juntos nesta jornada!"
       }
     ],
   },
@@ -350,7 +356,7 @@ const dadosComites = [
       {
         nome: "Sofia Vargas",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Sofia Vargas.jpg",
+        foto: "/images/Chairs/Sophia Vargas.jpg",
         bio: "Hello everyone, I’m Sofia Vargas, an 11th-grade student at Concept São Paulo, and at SenaMUN V I will be serving as the Head Chair for the Special Committee. MUN has always been very special to me because it is a space where people can grow, challenge themselves, and connect with others who are equally passionate about making an impact on the world. I truly believe this conference will be an incredible experience, and I cannot wait to meet all of you. I am deeply honored and excited to share this journey with everyone participating in the committee. If you have any questions whatsoever, please do not hesitate to reach out to me ([sofiabvargas09@gmail.com](mailto:sofiabvargas09@gmail.com))."
       },
       {
