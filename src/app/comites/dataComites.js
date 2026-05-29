@@ -28,7 +28,7 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "Conselho de Segurança.AVIF",
-    sinopse: "Espaço reservado para a sinopse do Conselho de Segurança.",
+    sinopse: "O colapso dos regimes de controle nuclear tem intensificado as tensões entre as grandes potências e aumentado as chances e o medo de uma nova corrida armamentista. A suspensão de tratados históricos, o avanço do desenvolvimento de arsenais nucleares e o aumento de disputas geopolíticas em um cenário cada vez mais multipolar colocam em risco a estabilidade internacional construída ao longo das últimas décadas. Ao mesmo tempo, conflitos regionais e o fortalecimento de novas alianças militares ameacam os acordos e tratados de não proliferação. Nesse contexto, o Conselho de Segurança das Nações Unidas se reúne para discutir os impactos da fragilização global de segurança, os riscos de escalada nuclear e buscar soluções diplomáticas capazes de evitar uma instabilidade permanente e a ameaça à paz internacional.",
     chairs: [
       {
         nome: "Melissa Mayra",
@@ -46,7 +46,7 @@ const dadosComites = [
         nome: "Carolina",
         cargo: "Co-Chair",
         foto: "/images/Chairs/Carolina.png",
-        bio: "Olá"
+        bio: "Olá, pessoal! Meu nome é Carolina Rayol, sou aluna do Ensino Médio do Colégio Anglo Morumbi e serei mesa do comitê CSNU no SENAMUN. Comecei a participar de simulações da ONU em 2024, e minha primeira experiência debatendo foi justamente no CSNU, então tenho um carinho muito especial por esse comitê. Desde que entrei para o mundo das MUNs, me apaixonei ainda mais pela diplomacia e pela política, e sempre serei muito grata por todas as oportunidades de debater, aprender e crescer a cada simulação. Ao longo dessa trajetória, tive a oportunidade de atuar diversas vezes como mesa em outros comitês e também fui Secretária Administrativa da terceira edição da AngloMUN. Estou muito feliz por ter a chance de participar da simulação do SENAC, que tenho certeza de que será incrível. Além dos debates, sou apaixonada pela natureza e por livros, principalmente os de fantasia, romance e clássicos. Espero ver todos vocês no SENAMUN e que vocês amem essa simulação tanto quanto eu já amo. Espero também que, além de aprofundarmos nosso conhecimento, todos possam se divertir e aproveitar muito os debates!"
       }
     ],
   },
@@ -154,7 +154,7 @@ const dadosComites = [
         nome: "David Campora",
         cargo: "Head-Chair",
         foto: "/images/Chairs/David Campora.jpg",
-        bio:"Hello delegates! My name is David Campora"
+        bio:"Hello guys! I am David Campora, a sophomore at Concept, and at SenaMUN V, I will be the Head Chair of the Human Rights Council. As someone whose interests have always been debate and political science, MUN suited me perfectly. My journey in Model UN started as a junior delegate in late 2024, and it has captivated me since the very first committee session; a sensation I most definitely want you to have. The connections made and the expertise acquired were fundamental for the person I became and the professional I want to be. These years have taught me not about how to win awards, but how to think and understand complex contexts, comprehending the viewpoints of multiple actors and the necessities of each. Within such a polarized world, it is hard to stay true to one’s diplomatic and logical principles, which is why debating in educational environments is essential, and why it has shaped me so much through challenges and failures."
       },      
       {
         nome: "Enzo Aguiar",
@@ -179,13 +179,19 @@ const dadosComites = [
     pdf: null,
     idioma: "en",
     imagem: "Historical Security Council.PNG",
-    sinopse: "Reserved space for the Historical Security Council synopsis.",
+    sinopse: "The Russian Civil War was one of the most complex conflicts in modern history, rising up from years of accumulated political, social, and economic instability within the former Russian Empire. Triggered by the consequences of the Great War, severe shortages of food and fuel, and the growing dissatisfaction towards the autocratic regime, Russian citizens gradually saw themselves immersed in a scenario of crisis and instability that ultimately culminated in the events of 1917. A multilateral struggle for power rose, with different political groups and ideologies battling and seeking to determine the future of Russia. Now, set in September of 1919, as tensions between multilateral parties continue to intensify, the conflict reaches a decisive moment where international cooperation has never been more urgent amidst one of the greatest political crises of the 20th century.",
     chairs: [
+      {
+        nome: "Marina de Anna",
+        cargo: "Head-Chair",
+        foto: "/images/Chairs/Marina de Anna.jpeg",
+        bio: "Hello Delegates! My name is Marina de Anna and I will be serving as your Head Chair for the Historical Security Council! I could not be more excited to participate in this wonderful committee and have the opportunity to meet all of you. My own MUN journey started about four years ago, and since then my life has never been the same. Over the years, I have participated in various conferences and even had the honor of serving as Secretary-General of last year’s edition of SENAMUN! I have a deep passion for MUNs and truly believe they are the perfect space to learn, develop skills, engage in meaningful discussions, and, above all, create unforgettable memories. I wholeheartedly hope that your experience can be just as special as mine has been, and I am excited to help foster such an environment throughout the committee. I know that participating in conferences can feel intimidating at times, so if you have any concerns or doubts, please do not hesitate to contact me through my e-mail: marinadeanna3011@gmail.com. See you all at the conference!"
+      },
       {
         nome: "Lívia Chiavone",
         cargo: "Co-Chair",
         foto: "/images/Chairs/Lívia Chiavone.JPEG",
-        bio: "Hello delegates! My name is Lívia Chiavone, and I’m 16 years old. I’m a student at E.E. Prof. Pedro Fonseca, and it’s an honor to serve as a co-chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me really excited for this committee. I’ve been participating in MUNs for the past two years, mainly in security council and crisis committees, and through this journey I discovered how much I love debating and international relations. When I started MUNs, I was really nervous and intimidated, especially because I had no previous experience. Because of that, one of my main goals as part of the dais is to create a welcoming and safe environment where delegates feel comfortable participating, sharing ideas, and growing throughout the committee. I truly believe the best debates happen when people feel respected and supported, regardless of their level of experience. As someone who once felt intimidated stepping into their first committee, I know how important it is to have a dais that is approachable and encouraging. I’m really excited to meet all of you and share this experience together. Please never hesitate to reach out if you have any questions or concerns regarding the committee. See you all in September, Lívia Chiavone ( [livia.chiavone230210@gmail.com](mailto:livia.chiavone230210@gmail.com) )"
+        bio: "Hello delegates! My name is Lívia Chiavone, and I’m 16 years old. I’m a student at E.E. Prof. Pedro Fonseca, and it’s an honor to serve as a co-chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me really excited for this committee. I’ve been participating in MUNs for the past two years, mainly in security council and crisis committees, and through this journey I discovered how much I love debating and international relations. When I started MUNs, I was really nervous and intimidated, especially because I had no previous experience. Because of that, one of my main goals as part of the dais is to create a welcoming and safe environment where delegates feel comfortable participating, sharing ideas, and growing throughout the committee. I truly believe the best debates happen when people feel respected and supported, regardless of their level of experience. As someone who once felt intimidated stepping into their first committee, I know how important it is to have a dais that is approachable and encouraging. I’m really excited to meet all of you and share this experience together. Please never hesitate to reach out if you have any questions or concerns regarding the committee. See you all in September, Lívia Chiavone. livia.chiavone230210@gmail.com"
       },
       {
         nome: "Cauê Garcia",
@@ -242,8 +248,8 @@ const dadosComites = [
       {
         nome: "Mariana",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Mariana.png",
-        bio: "Olá"
+        foto: "/images/Chairs/Mariana Marques.png",
+        bio: "Me chamo Mariana Marques e Silva, tenho 16 anos e curso o 2º ano do Ensino Médio no Colégio Militar de São Paulo. Comecei minha trajetória em MUNs em 2024, tendo minha primeira participação na III MUNdoCMRJ como imprensa audiovisual. Em 2025, me aprofundei ainda mais nas simulações da ONU e comecei a atuar como delegada, conquistando Menção Honrosa na IV MUNdoCMRJ e sendo selecionada para a viagem da MUNdoCM, evento diplomático realizado durante o Desafio Global do Conhecimento, destinado a alunos selecionados do Sistema Colégio Militar do Brasil. Também participei do Secretariado do CRIO — Clube de Relações Internacionais Oswaldo Aranha — como Diretora de Relações Públicas, deixando o cargo após minha mudança para São Paulo. Estou extremamente animada para trabalhar neste comitê e integrar a Mesa Diretora, especialmente porque meu primeiro comitê como delegada também foi a Organização Mundial da Saúde! Espero que possamos aproveitar muito o SENAMUN. O comitê da OMS debate mecanismos para garantir o bem-estar físico, mental e social das mulheres diante das desigualdades globais. Fatores como pobreza, barreiras geográficas, sobrecarga de trabalho e violência de gênero funcionam como determinantes sociais que limitam o acesso à saúde, afetando drasticamente populações vulneráveis, como mulheres negras, indígenas e refugiadas. Para transformar esse cenário, a abordagem atual ultrapassa a visão tradicional focada apenas na saúde reprodutiva, incluindo também o combate a doenças crônicas, o rastreamento de cânceres e o cuidado com a saúde mental em todas as fases da vida. Entre os principais mecanismos propostos estão a Cobertura Universal de Saúde, políticas com perspectiva de gênero, coleta de dados desagregados e a integração de serviços médicos e jurídicos para acolher vítimas de violência, tornando a saúde feminina um verdadeiro pilar para os direitos humanos."
       },
       {
         nome: "Hadassah Coimbra",
