@@ -59,19 +59,19 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "Conselho de Segurança Histórico.png",
-    sinopse: "Espaço reservado para a sinopse do Conselho de Segurança.",
+    sinopse: "“Quem controla o passado controla o futuro; quem controla o presente controla o passado.” — George Orwell. Em 1977, em meio às tensões da Guerra Fria, a América Latina torna-se um dos principais palcos da disputa ideológica entre os Estados Unidos e a União Soviética. Regimes militares, movimentos revolucionários e intervenções estrangeiras moldam o cenário político da região, enquanto as nações buscam afirmar sua soberania perante a comunidade internacional. Nesse contexto, o Conselho de Segurança é convocado para debater os impactos da atuação internacional nas políticas latino-americanas, analisando operações de inteligência, apoio a ditaduras, financiamento de grupos armados e violações de direitos humanos. Diante desse cenário de crescente hostilidade, torna-se essencial promover a paz e a estabilidade, preservando a soberania, a autodeterminação e o futuro dos países da América Latina.",
     chairs: [
       {
         nome: "Isabella Saorin",
         cargo: "Head-Chair",
-        foto: "/chairs/Isabella Saorin.png",
-        bio: "Estudante apaixonada por direito internacional e diplomacia."
+        foto: "/images/Chairs/Isabella Saorin.png",
+        bio: "Prazer, delegados! Me chamo Isabella Saorin, tenho 18 anos e sou estudante de pré-vestibular. Entrei no mundo das simulações no segundo ano do ensino médio, quando um professor de geografia me levou a conhecer o modelo, e, depois disso, nunca mais larguei essa paixão. Atualmente, contabilizo mais de 15 eventos como delegada e mesa, sempre procurando me envolver em comitês que abordem temas de interesse (igualdade de gênero é meu favorito!). Espero que, nessa edição do SenaMUN, o CSNU de 77 proporcione uma experiência memorável não apenas dentro do ambiente de debate, mas ao longo de toda a conferência. Aguardo todos vocês :)"
       },
       {
         nome: "Laura Evol",
         cargo: "Co-Chair",
         foto: "/images/Chairs/Laura Evol.png",
-        bio: "Entusiasta de história e relações internacionais, com foco em América Latina."
+        bio: "Oie, queridos! Meu nome é Laura Evol, tenho 17 anos e comecei minha trajetória em MUNs em 2022, quando ainda estava no oitavo ano. Desde então, me apaixonei por esse universo e por tudo o que envolve debate, diplomacia e relações internacionais. Ao longo desses anos, tive a oportunidade de atuar algumas vezes como mesa e também de ser secretária-geral da simulação do meu colégio. Atualmente sou vestibulanda, mas é difícil me afastar das simulações, então continuo aparecendo por aí sempre que posso. Pessoalmente, o CSNU é o meu comitê favorito, especialmente em sua versão histórica, por isso estou muito feliz de estar aqui. É uma honra fazer parte da mesa, e podem ter certeza de que tudo foi preparado com muito carinho para recebê-los. Estou muito animada para conhecer cada delegado e espero que todos tenham ótimos estudos e uma experiência incrível com a gente. <3"
       },
       {
         nome: "Sabrina Schoenfelder",
@@ -103,6 +103,12 @@ const dadosComites = [
         cargo: "Co-Chair",
         foto: "/images/Chairs/Nicoly.png",
         bio: "Olá"
+      },
+      {
+        nome: "Isabella Ferreira",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Isabella Ferreira.png",
+        bio: "Me chamo Mariana Marques e Silva, tenho 16 anos e curso o 2º ano do Ensino Médio no Colégio Militar de São Paulo. Comecei minha trajetória em MUNs em 2024, tendo minha primeira participação na III MUNdoCMRJ como imprensa audiovisual. Em 2025, me aprofundei ainda mais nas simulações da ONU e comecei a atuar como delegada, conquistando Menção Honrosa na IV MUNdoCMRJ e sendo selecionada para a viagem da MUNdoCM, evento diplomático realizado durante o Desafio Global do Conhecimento, destinado a alunos selecionados do Sistema Colégio Militar do Brasil. Também participei do Secretariado do CRIO — Clube de Relações Internacionais Oswaldo Aranha — como Diretora de Relações Públicas, deixando o cargo após minha mudança para São Paulo. Estou extremamente animada para trabalhar neste comitê e integrar a Mesa Diretora, especialmente porque meu primeiro comitê como delegada também foi a Organização Mundial da Saúde! Espero que possamos aproveitar muito o SENAMUN. O comitê da OMS debate mecanismos para garantir o bem-estar físico, mental e social das mulheres diante das desigualdades globais. Fatores como pobreza, barreiras geográficas, sobrecarga de trabalho e violência de gênero funcionam como determinantes sociais que limitam o acesso à saúde, afetando drasticamente populações vulneráveis, como mulheres negras, indígenas e refugiadas. Para transformar esse cenário, a abordagem atual ultrapassa a visão tradicional focada apenas na saúde reprodutiva, incluindo também o combate a doenças crônicas, o rastreamento de cânceres e o cuidado com a saúde mental em todas as fases da vida. Entre os principais mecanismos propostos estão a Cobertura Universal de Saúde, políticas com perspectiva de gênero, coleta de dados desagregados e a integração de serviços médicos e jurídicos para acolher vítimas de violência, tornando a saúde feminina um verdadeiro pilar para os direitos humanos."
       }
     ],
   },
@@ -118,10 +124,10 @@ const dadosComites = [
     sinopse: "Nosso comitê irá debater sobre a crise de segurança ligada à imigração irregular nos Estados Unidos, que intensificou-se com o aumento dos fluxos migratórios nas fronteiras, especialmente na região sul do país. Nesse contexto, o Immigration and Customs Enforcement (ICE) ampliou operações de fiscalização, detenções e deportações de imigrantes em situação irregular e mesmo regular, gerando discussões sobre soberania, segurança nacional e direitos humanos. Defensores das ações do ICE argumentam que o fortalecimento do controle migratório combate crimes transnacionais, tráfico humano e entrada ilegal. Já críticos apontam violações de direitos civis, separação de famílias e condições inadequadas em centros de detenção. E cabe ao comitê decidir, o ICE acerta em suas decisões e é necessário, ou é uma arma eleitoreira do governo Trump.",
     chairs: [
       {
-        nome: "Felipe Éllero",
+        nome: "Maria Luiza",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Felipe Éllero.JPEG",
-        bio: "Meu nome é Felipe Éllero Silva, tenho 20 anos e sou graduando em psicologia e licenciando em história. Minha trajetória em simulações começou efetivamente em 2021, quando participei do XVII Fórum FAAP e a partir daí não parei mais. Participei de mais oito edições do Fórum FAAP como delegado, chefe de delegação e professor/conselheiro e conquistando o título de Melhor Delegação com minha instituição de ensino por 7 vezes consecutivas. Participei do Fórum interno de minha escola, o Fórum Emilie, em já 4 edições como delegado e mesa diretora. Debati também em edições do SPMUN, SINU, SIMULAI, SISC, ANGLOMUN, SICE, GVMUN, BANDMUN, entre outras, com várias premiações nesse processo. Por fim, fundei e sou Secretário-Geral Institucional da ASMUN, uma das maiores simulações do país, já caminhando para sua terceira edição."
+        foto: "/images/Chairs/Malu Gonçalves.JPG",
+        bio: "Olá, sou a Maria Luiza, mas todos me chamam de Malu! Tenho 19 anos e curso Relações Internacionais na Centro Universitário Belas Artes de São Paulo. Comecei minha trajetória em simulações da ONU em 2024 e, desde então, participei de diversos eventos tanto como delegada quanto como mesa. Sempre tive grande interesse por política, diplomacia e pelos desafios que envolvem a cooperação entre diferentes países, o que me aproximou naturalmente do universo das MUNs. Acredito que as simulações são uma das melhores formas de desenvolver habilidades de negociação, argumentação, pesquisa e trabalho em equipe, além de proporcionarem uma experiência extremamente enriquecedora para todos os participantes. Estou muito entusiasmada e com grandes expectativas para este comitê, pois o Parlamento Americano proporciona debates ricos e atuais, estimulando a negociação, a argumentação e o pensamento crítico. Como mesa, espero contribuir para que as sessões sejam produtivas, organizadas e enriquecedoras para todos os delegados."
       },
       {
         nome: "Manuela",
@@ -237,13 +243,13 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "OMS.jpeg",
-    sinopse: "Espaço reservado para a sinopse da OMS.",
+    sinopse: "No cenário global contemporâneo, apesar dos avanços conquistados pelas mulheres ao longo da história, como o acesso à educação, à saúde e à participação política, ainda persistem obstáculos estruturais que comprometem o pleno exercício de seus direitos e sua qualidade de vida. Em diversas regiões do mundo, sociedades marcadas por padrões patriarcais e desigualdades socioeconômicas limitam a autonomia feminina e dificultam o acesso a serviços de saúde, especialmente os de caráter preventivo. Nesse contexto, doenças como o câncer de mama e o câncer do colo do útero continuam apresentando elevados índices de mortalidade entre mulheres, sobretudo em países de baixa e média renda, onde barreiras econômicas, geográficas, culturais e institucionais restringem o diagnóstico precoce e o tratamento adequado. Diante dessa realidade, torna-se fundamental analisar quais fatores dificultam o acesso das mulheres a medidas preventivas de saúde e discutir soluções capazes de enfrentar essas desigualdades, promovendo sistemas de saúde mais inclusivos, acessíveis e eficazes para todas.",
     chairs: [
       {
-        nome: "Ana Luiza",
+        nome: "Isabella Cordeiro",
         cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
-        bio: "Engajada em causas de saúde pública global e igualdade de gênero."
+        foto: "/images/Chairs/Isabella.jpeg",
+        bio: "Me chamo Isabella Cordeiro, tenho 17 anos e entrei para o universo das MUNs em meados de 2024, muito influenciada pelo meu interesse por geopolítica e pelos conteúdos que acompanhava na internet. Desde então, participei de cinco simulações, incluindo duas edições do SENAMUN. Minha primeira experiência foi na AveMUN, em 2024, representando o Brasil em um comitê de Direitos Humanos que discutia o trabalho análogo à escravidão na atualidade. Após essa simulação, meu interesse pelo mundo das MUNs só cresceu. Ter a oportunidade de atuar como Head Chair de um comitê é algo que faz a Isabella de 2024 se orgulhar de toda a trajetória construída até aqui. O SENAMUN teve um papel fundamental no meu desenvolvimento, ajudando-me a aprimorar minha oratória, superar o receio de falar em público e aprofundar meus conhecimentos sobre política internacional e sobre o posicionamento dos países diante dos mais diversos temas."
       },
       {
         nome: "Mariana",
@@ -304,8 +310,8 @@ const dadosComites = [
       {
         nome: "Brenno",
         cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
-        bio: "Especialista em segurança alimentar e desenvolvimento agrário."
+        foto: "/images/Chairs/Brenno.jpeg",
+        bio: "Honoráveis colegas, é um prazer! O meu nome é Brenno Figueiredo, amante da geopolítica e fascinado pelas coisas do mundo. Faço simulações desde o segundo ano do ensino médio e tive o magnânimo prazer de fazer parte do secretariado geral do SenaMUN IV, como Secretário Geral. É uma honra ver novos e velhos rostos."
       },
       {
         nome: "Gabriela Sanches",
@@ -342,7 +348,7 @@ const dadosComites = [
         nome: "Raíssa Scarassatti",
         cargo: "Co-Chair",
         foto: "/images/Chairs/Raíssa.png",
-        bio:"Olá"
+        bio:"Estimados delegados, me chamo Raíssa e é um grande prazer compor a Mesa Diretora da Organização Mundial do Comércio como Co-Chair nesta edição do SENAMUN. Tenho 18 anos e atualmente curso Matemática na Universidade de São Paulo. Iniciei minha trajetória nas simulações da ONU em 2022, acumulando experiências nos mais variados comitês, mas sempre cultivando um interesse especial por aqueles de caráter econômico, nos quais a Matemática se encontra mais diretamente aplicada. Assim como minha experiência neste comitê foi extremamente enriquecedora em sua edição anterior, espero poder proporcionar aos senhores uma vivência igualmente marcante, repleta de desenvolvimento acadêmico, pessoal e de excelentes debates. Estarei à disposição de todos os delegados ao longo da conferência e desejo que aproveitem ao máximo esta experiência."
       },
       {
         nome: "Vitor Morais",
@@ -376,6 +382,12 @@ const dadosComites = [
         cargo: "Co-Chair",
         foto: "/images/Chairs/Nayara.jpeg",
         bio: "Hello delegates, my name is Nayara Lima, I am 18 years old, and I will have the honor of serving as Co-Chair of the Socrates’ Trial Committee! I have been actively involved in the world of debates since the past year, and during this time I have learned many valuable lessons that I carry with me in all areas of my life. I see MUNs as a space to learn, teach, socialize, and also have fun. I consider myself an approachable and easy person to talk to, so I hope to create a welcoming and supportive environment for all delegates whenever you may have doubts or need assistance. Please feel free to contact me at any time ([nayaraalvslima@gmail.com](mailto:nayaraalvslima@gmail.com))."
+      },
+      {
+        nome: "Sthefany Cruz",
+        cargo: "Co-Chair",
+        foto: "/time/academico/Sthefany da Cruz Moreira.jpg",
+        bio: "Hello! How are you doing? My name is Sthefany Cruz, and I might just be your future chair. I’m 17 years old and currently in the final year of my school journey. I absolutely love philosophy, art, deep conversations under the moonlight, and a good cup of black tea. My journey with MUNs has been one of the most meaningful parts of the last two years of my life. They became something like a driver’s license to express ideas I would not normally have the chance to share — speaking not only with my own voice, but also with the voices of those whose stories have shaped history and impacted millions of lives. I truly believe the world can become a better place when we discuss it, seek to understand it, and dare to question it. MUNs entered my life and showed me that I can contribute to building a better reality — for myself, for others, and for all of us. If you ever need anything, please feel free to reach out to me. You can contact me at: sthefanycruz0666@gmail.com"
       }
     ],
   },
