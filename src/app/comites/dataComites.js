@@ -9,13 +9,25 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "Direitos Humanos.jpg",
-    sinopse: "Espaço reservado para a sinopse detalhada do comitê de Direitos Humanos, onde serão discutidas as intervenções internacionais.",
+    sinopse: "O Comitê de Direitos Humanos debaterá como a escalada de conflitos armados e as disputas por hegemonia geopolítica fragilizam o Direito Internacional e a proteção dos direitos mais fundamentais. Em um cenário global de profunda instabilidade, o foco central desta simulação recairá sobre o histórico e complexo impasse entre os Estados Unidos e o Irã. Os delegados deverão analisar os impactos humanitários decorrentes de sanções econômicas, guerras por procuração e agressões a infraestruturas civis, os quais afetam diretamente a integridade de populações vulneráveis.",
     chairs: [
       {
-        nome: "Ana Luiza",
+        nome: "Gabriella Ribeiro",
         cargo: "Head-Chair",
-        foto: "/chairs/ana.png",
-        bio: "Estudante apaixonada por direito internacional e diplomacia, com foco em direitos humanos."
+        foto: "/images/Chairs/Gabriella Ribeiro.jpg",
+        bio: "Prazer, pessoaaaal! Sou Gabriella Ribeiro e serei mesária deste comitê juntamente com a Mel e a Sophia! Concluí o curso Técnico em Multimídia e segui para a área de Tecnologia, dando continuidade à minha trajetória acadêmica no Senac como graduanda em Sistemas de Informação. Sou corinthiana e apaixonada por inovação, negócios e esportes! Entrei no universo das MUNs em 2023 e, desde então, a arte de simular se tornou uma grande paixão, proporcionando conhecimentos valiosos e experiências inesquecíveis. Das mais de 15 simulações das quais participei, cada uma foi única e especial à sua maneira. Em 2024, tive o privilégio de atuar como Secretária-Geral do SENAMUN, uma experiência pela qual tenho um carinho enorme, e neste ano tenho a honra de fazer parte da equipe mais uma vez. Estou muito animada para conhecer ou reencontrar todos vocês, delegados! Quaisquer dúvidas, anseios ou preocupações, sintam-se à vontade para entrar em contato comigo pelo e-mail: gabi.ribeiro1409@gmail.com. Vejo vocês em breve! =)"
+      },
+      {
+        nome: "Melissa Barros",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Mel.jpg",
+        bio: "Olá, Delegados! É um prazer estar com vocês em mais uma simulação. Me chamo Mel Barros, trabalho como consultora SAP em uma multinacional de tecnologia e atualmente estou cursando o segundo ano do Bacharelado em Sistemas de Informação junto com a mesária Gabi. Minha relação com os debates começou ainda no ensino médio, período em que tive a oportunidade de participar de diversas simulações ao lado da minha fiel dupla e também mesária de vocês, Sophia. Em 2023, tive a honra de assumir o cargo de Secretária-Geral do SENAMUN, uma experiência verdadeiramente enriquecedora e marcante na minha trajetória. Sou apaixonada por viver novas experiências, seja viajando, indo a shows ou mergulhando nos mais diversos universos literários, especialmente os distópicos. Geopolítica e relações internacionais estão entre os meus maiores interesses e são o que me motivam a continuar retornando ao universo das simulações. Desejo a todos um excelente debate e uma experiência enriquecedora e inesquecível. Qualquer dúvida, estarei à disposição para ajudá-los!"
+      },
+      {
+        nome: "Sophia",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Sophia.jpg",
+        bio: "Sou a Sophia C.N., tenho 20 anos e fui aluna do Ensino Médio Técnico em Administração no Senac. Atualmente, continuo no campus cursando o terceiro ano do Bacharelado em Arquitetura e Urbanismo, completando cinco anos e meio de trajetória no Senac neste semestre. Sou apaixonada por geopolítica, direito internacional e história, embora eu jure que sou de exatas — e utilizo todas as minhas habilidades de argumentação para defender meus ideais e projetos. Minha primeira experiência com simulações aconteceu em 2023, quando participei da AveMUN representando a Rússia no comitê de Direitos Humanos ao lado da Mel, ocasião em que recebemos uma Menção Honrosa. Ainda naquele ano, atuei como Secretária Internacional da segunda edição do SENAMUN e, após me formar, passei a retornar esporadicamente como mesária principal em diferentes comitês. É um enorme prazer poder orientar novos alunos do Ensino Médio em mais uma MUN, e espero que todos tenham uma experiência incrível, repleta de aprendizado, debates enriquecedores e momentos inesquecíveis."
       }
     ],
   },
@@ -76,8 +88,8 @@ const dadosComites = [
       {
         nome: "Sabrina Schoenfelder",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Sabrina Schoenfelder.png",
-        bio: "Olá"
+        foto: "/images/Chairs/Sabrina.png",
+        bio: "Oi, delegados! Meu nome é Sabrina Schoenfelder, tenho 17 anos e é um enorme prazer servir como chair nesta maravilhosa edição do SENAMUN. Ingressei no universo das simulações da ONU em 2023 por meio da ONG Nada é Impossível e, desde então, continuo me encantando com pessoas incríveis que sempre têm algo novo para ensinar e compartilhar. O SENAMUN será a minha 15ª conferência, e estou muito animada para aprender e crescer ao lado de delegados que tenho certeza de que serão excepcionais. Espero que esta experiência seja tão enriquecedora para vocês quanto as simulações têm sido para mim, e mal posso esperar para acompanhá-los ao longo dessa jornada!"
       }
     ],
   },
@@ -97,12 +109,6 @@ const dadosComites = [
         cargo: "Head-Chair",
         foto: "/images/Chairs/Lucas Mielitz.png",
         bio: "Oi, gente! Sou Lucas Mielitz, tenho 19 anos e estudo Relações Internacionais na PUC-SP. Já participei de mais de 20 simulações da ONU e já fui secretário do SenaMUN, em 2024, por isso tenho grande apreço por esta simulação. Além disso, atualmente sou secretário geral institucional da simulação Cenários, da PUC. Gosto muito de simular e escolhi meu curso de bacharelado por causa das vivências que tive nessas conferências. "
-      },
-      {
-        nome: "Nicoly",
-        cargo: "Co-Chair",
-        foto: "/images/Chairs/Nicoly.png",
-        bio: "Olá"
       },
       {
         nome: "Isabella Ferreira",
@@ -130,15 +136,9 @@ const dadosComites = [
         bio: "Olá, sou a Maria Luiza, mas todos me chamam de Malu! Tenho 19 anos e curso Relações Internacionais na Centro Universitário Belas Artes de São Paulo. Comecei minha trajetória em simulações da ONU em 2024 e, desde então, participei de diversos eventos tanto como delegada quanto como mesa. Sempre tive grande interesse por política, diplomacia e pelos desafios que envolvem a cooperação entre diferentes países, o que me aproximou naturalmente do universo das MUNs. Acredito que as simulações são uma das melhores formas de desenvolver habilidades de negociação, argumentação, pesquisa e trabalho em equipe, além de proporcionarem uma experiência extremamente enriquecedora para todos os participantes. Estou muito entusiasmada e com grandes expectativas para este comitê, pois o Parlamento Americano proporciona debates ricos e atuais, estimulando a negociação, a argumentação e o pensamento crítico. Como mesa, espero contribuir para que as sessões sejam produtivas, organizadas e enriquecedoras para todos os delegados."
       },
       {
-        nome: "Manuela",
+        nome: "Nicoly",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Manuela.png",
-        bio: "Olá"
-      },
-      {
-        nome: "Murilo Ribeiro",
-        cargo: "Co-Chair",
-        foto: "/images/Chairs/Murilo Ribeiro.JPEG",
+        foto: "/images/Chairs/Nicoly.png",
         bio: "Olá"
       }
     ],
