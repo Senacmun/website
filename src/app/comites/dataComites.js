@@ -305,7 +305,7 @@ const dadosComites = [
     pdf: null,
     idioma: "ptbr",
     imagem: "FAO.PNG",
-    sinopse: "Espaço reservado para a sinopse da FAO.",
+    sinopse: "A reforma agrária é amplamente debatida como uma estratégia para combater a fome e fortalecer a segurança alimentar mundial. A concentração de terras, a pobreza rural e a desigualdade no acesso à produção agrícola dificultam o desenvolvimento sustentável em diversos países. Nesse contexto, governos e organizações internacionais discutem formas de ampliar o acesso à terra, fortalecer pequenos agricultores e incentivar práticas agrícolas sustentáveis. Ao mesmo tempo, o tema gera divergências entre países que defendem modelos voltados ao livre mercado e aqueles que priorizam maior intervenção estatal. Além disso, fatores como mudanças climáticas, guerras, crises econômicas e crescimento populacional intensificam os desafios alimentares globais. Assim, a FAO busca promover cooperação internacional, desenvolvimento rural e políticas agrícolas capazes de garantir acesso estável e igualitário aos alimentos.",
     chairs: [
       {
         nome: "Brenno",
@@ -322,8 +322,8 @@ const dadosComites = [
       {
         nome: "Pietro de Lima",
         cargo: "Co-Chair",
-        foto: "/chairs/pietro.png",
-        bio: "Interessado em políticas de desenvolvimento sustentável e agricultura."
+        foto: "/images/Chairs/Pietro.png",
+        bio: "Distintos delegados, é um prazer! Meu nome é Pietro Unti, tenho 17 anos e sou do interior de São Paulo, sou apaixonado por geopolítica e assuntos que falam principalmente sobre direitos humanos. Faço simulações desde o segundo ano do ensino médio, e tive minha primeira experiência como chair no SenaMun ano passado, na Câmara dos Deputados, então estou imensamente feliz em estar de volta!"
       }
     ],
   },
