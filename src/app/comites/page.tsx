@@ -284,7 +284,7 @@ export default function ComitesPage() {
           
           {/* Container Relativo para as Camadas - Ajustado para não quebrar o tamanho */}
           <div className="relative flex w-full max-w-[550px] flex-col items-center gap-4">
-            <div className="relative flex h-[550px] max-h-[calc(100vh-120px)] w-full items-center justify-center">
+            <div className="relative flex h-[650px] max-h-[calc(100vh-120px)] w-full items-center justify-center">
             
             {/* CARD SECUNDÁRIO (CHAIRS) - Fica atrás ou na frente dependendo do estado */}
             <div
@@ -348,7 +348,7 @@ export default function ComitesPage() {
 
             {/* CARD PRINCIPAL (INFORMAÇÕES) */}
             <div
-              className={`absolute flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-8 shadow-2xl transition-all duration-700 ease-in-out ${
+              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-8 shadow-2xl transition-all duration-700 ease-in-out ${
                 showChairs 
                 ? "z-10 translate-y-8 opacity-0 scale-90 pointer-events-none" 
                 : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
@@ -368,7 +368,7 @@ export default function ComitesPage() {
               </div>
 
               {/* Grid de Informações Rápidas */}
-              <div className="mt-6 grid shrink-0 grid-cols-2 gap-4 text-xs">
+              <div className="mt-4 grid shrink-0 grid-cols-2 gap-3 text-xs">
                 <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                   <p className="text-white/40 mb-1 uppercase font-bold tracking-wider">{modalData.idioma === 'en' ? 'Modality' : 'Modalidade'}</p>
                   <p className="text-white font-medium">{modalData.modalidade}</p>
@@ -380,7 +380,7 @@ export default function ComitesPage() {
               </div>
 
               {/* Seção de Sinopse */}
-              <div className="mt-6 flex-1 overflow-y-auto rounded-xl border border-white/10 bg-white/5 p-6 custom-scrollbar">
+              <div className="mt-4 flex-1 min-h-[160px] md:min-h-[240px] overflow-y-auto custom-scrollbar rounded-xl border border-white/10 bg-white/5 p-5">
                 <h3 className="text-sm font-black uppercase tracking-widest text-yellow-custom mb-2">
                   {modalData.idioma === 'en' ? 'Synopsis' : 'Sinopse'}
                 </h3>
@@ -390,7 +390,7 @@ export default function ComitesPage() {
               </div>
 
               {/* Ações */}
-              <div className="mt-6 flex shrink-0 flex-col gap-3">
+              <div className="mt-4 flex shrink-0 flex-col gap-3">
                 <button
                   onClick={() => setShowChairs(true)}
                   className="w-full flex items-center justify-center gap-2 rounded-xl bg-yellow-custom py-3 text-sm font-bold text-black shadow-sm transition-all duration-300 ease-in-out hover:brightness-110 hover:text-white hover:scale-[1.02] hover:shadow-md active:scale-95"

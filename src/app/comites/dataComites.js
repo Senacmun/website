@@ -138,8 +138,8 @@ const dadosComites = [
       {
         nome: "Nicoly",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Nicoly.png",
-        bio: "Olá"
+        foto: "/images/Chairs/Nicoly.jpeg",
+        bio: "Olá, pessoal! Sou a Nicoly Piasentin, Mesa Diretora do Parlamento Americano, e é uma honra participar deste evento tão especial. Minha trajetória nas simulações começou em 2023, inicialmente em conferências online e, posteriormente, em simulações presenciais. Desde o primeiro contato com esse universo, percebi que não queria mais me afastar dele. Ao longo dessa jornada, fundei um projeto de MUN na minha escola e tive a oportunidade de atuar como Mesa Diretora em diversas simulações, sempre priorizando o bem-estar dos delegados e buscando proporcionar uma experiência única e enriquecedora para todos. Foi nesse ambiente que me encontrei nas Relações Internacionais, área pela qual sou profundamente apaixonada. Acredito que as Simulações da ONU são uma excelente ferramenta para desenvolver habilidades que vão muito além dos comitês, preparando-nos para diferentes desafios da vida acadêmica, profissional e pessoal. É com grande entusiasmo que faço parte da equipe do SENAMUN, trabalhando para garantir um evento memorável e de alta qualidade. Estou muito animada para moderar este comitê e contribuir para debates marcados pela diplomacia, pelo aprendizado e pela construção de memórias inesquecíveis."
       }
     ],
   },
