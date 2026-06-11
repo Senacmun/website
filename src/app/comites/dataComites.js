@@ -283,16 +283,10 @@ const dadosComites = [
         bio: "Oie, delegados! Me chamo Giovanna Queiroz e minha trajetória nas MUNs começou aos 16 anos, quando me apaixonei por esse universo. Minha primeira simulação foi em 2024 e superou todas as minhas expectativas. Além de participar de um comitê incrível, conquistei meu primeiro prêmio de “Melhor Documento de Posição”, o que tornou a experiência ainda mais especial. Desde então, participei de 10 simulações como delegada e atuei uma vez como chair. Também tive a honra de ser vice-secretária-geral do SenaMUN IV. Agora, retorno com o privilégio de assumir como Head Chair de um comitê tão inusitado. Estou muito feliz por fazer parte disso e garanto que esse comitê irá surpreender a todos!"
       },
       {
-        nome: "Maria Luiza",
+        nome: "Pietro de Lima",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Malu Lima.png",
-        bio: "Olá"
-      },
-      {
-        nome: "Gabriela Daltro",
-        cargo: "Co-Chair",
-        foto: "/images/Chairs/Gabriela.png",
-        bio: "Olá"
+        foto: "/images/Chairs/Pietro.png",
+        bio: "Distintos delegados, é um prazer! Meu nome é Pietro Unti, tenho 17 anos e sou do interior de São Paulo, sou apaixonado por geopolítica e assuntos que falam principalmente sobre direitos humanos. Faço simulações desde o segundo ano do ensino médio, e tive minha primeira experiência como chair no SenaMun ano passado, na Câmara dos Deputados, então estou imensamente feliz em estar de volta!"
       }
     ],
   },
@@ -319,12 +313,6 @@ const dadosComites = [
         foto: "/images/Chairs/Gabi Sanches.JPEG",
         bio: "Olá! Me chamo Gabriela Sanches e sou apaixonada por geopolítica. Participo de simulações desde o segundo ano do ensino médio e tive a honra de fazer parte do secretariado do SenaMUN IV, como Under Secretary General. Estou extremamente feliz em estar de volta!"
       },
-      {
-        nome: "Pietro de Lima",
-        cargo: "Co-Chair",
-        foto: "/images/Chairs/Pietro.png",
-        bio: "Distintos delegados, é um prazer! Meu nome é Pietro Unti, tenho 17 anos e sou do interior de São Paulo, sou apaixonado por geopolítica e assuntos que falam principalmente sobre direitos humanos. Faço simulações desde o segundo ano do ensino médio, e tive minha primeira experiência como chair no SenaMun ano passado, na Câmara dos Deputados, então estou imensamente feliz em estar de volta!"
-      }
     ],
   },
   {
