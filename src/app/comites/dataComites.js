@@ -184,7 +184,7 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "en",
-    imagem: "Historical Security Council.PNG",
+    imagem: "Historical Security Council.png",
     sinopse: "The Russian Civil War was one of the most complex conflicts in modern history, rising up from years of accumulated political, social, and economic instability within the former Russian Empire. Triggered by the consequences of the Great War, severe shortages of food and fuel, and the growing dissatisfaction towards the autocratic regime, Russian citizens gradually saw themselves immersed in a scenario of crisis and instability that ultimately culminated in the events of 1917. A multilateral struggle for power rose, with different political groups and ideologies battling and seeking to determine the future of Russia. Now, set in September of 1919, as tensions between multilateral parties continue to intensify, the conflict reaches a decisive moment where international cooperation has never been more urgent amidst one of the greatest political crises of the 20th century.",
     chairs: [
       {
@@ -298,7 +298,7 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "FAO.PNG",
+    imagem: "FAO.png",
     sinopse: "A reforma agrária é amplamente debatida como uma estratégia para combater a fome e fortalecer a segurança alimentar mundial. A concentração de terras, a pobreza rural e a desigualdade no acesso à produção agrícola dificultam o desenvolvimento sustentável em diversos países. Nesse contexto, governos e organizações internacionais discutem formas de ampliar o acesso à terra, fortalecer pequenos agricultores e incentivar práticas agrícolas sustentáveis. Ao mesmo tempo, o tema gera divergências entre países que defendem modelos voltados ao livre mercado e aqueles que priorizam maior intervenção estatal. Além disso, fatores como mudanças climáticas, guerras, crises econômicas e crescimento populacional intensificam os desafios alimentares globais. Assim, a FAO busca promover cooperação internacional, desenvolvimento rural e políticas agrícolas capazes de garantir acesso estável e igualitário aos alimentos.",
     chairs: [
       {
@@ -323,7 +323,7 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "OMC.PNG",
+    imagem: "OMC.png",
     sinopse: "A privatização de setores essenciais têm impactado diretamente o comércio internacional, trazendo debates sobre crescimento econômico, influência de grandes empresas e acesso da população a serviços básicos. Neste comitê, os delegados discutirão os desafios de equilibrar desenvolvimento, soberania nacional e direitos essenciais no cenário global.",
     chairs: [
       {
@@ -374,7 +374,7 @@ const dadosComites = [
       {
         nome: "Sthefany Cruz",
         cargo: "Co-Chair",
-        foto: "/time/academico/Sthefany da Cruz Moreira.jpg",
+        foto: "/time/academico/Sthefany da Cruz Moreira.JPG",
         bio: "Hello! How are you doing? My name is Sthefany Cruz, and I might just be your future chair. I’m 17 years old and currently in the final year of my school journey. I absolutely love philosophy, art, deep conversations under the moonlight, and a good cup of black tea. My journey with MUNs has been one of the most meaningful parts of the last two years of my life. They became something like a driver’s license to express ideas I would not normally have the chance to share — speaking not only with my own voice, but also with the voices of those whose stories have shaped history and impacted millions of lives. I truly believe the world can become a better place when we discuss it, seek to understand it, and dare to question it. MUNs entered my life and showed me that I can contribute to building a better reality — for myself, for others, and for all of us. If you ever need anything, please feel free to reach out to me. You can contact me at: sthefanycruz0666@gmail.com"
       }
     ],
