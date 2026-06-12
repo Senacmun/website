@@ -223,7 +223,7 @@ const dadosComites = [
       {
         nome: "Antonio Natale",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Antonio Natale.png",
+        foto: "/images/Chairs/Antonio Natale.jpg",
         bio: "Greetings, my name is Antonio Natale, a freshman at Escola Concept SP, and I will serve as Head Chair of the Junior ECOSOC at SenaMUN V alongside Anna. My journey with United Nations simulations began three years ago, when my school invited me to participate in an internal conference and explore a diplomatic world that was entirely new to me. From the moment I stepped into the committee room and delivered my first speech, I discovered a version of myself I had never imagined: someone who believes in a better world and feels capable of inspiring change. After attending more than 20 conferences, I feel confident and honored to take on this responsibility. I hope we can work together throughout the conference to make this event a truly memorable experience for everyone involved. Please feel free to contact me with any questions or concerns regarding the committee ([oantonionatale@gmail.com](mailto:oantonionatale@gmail.com))."
       },
       {
