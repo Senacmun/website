@@ -283,13 +283,13 @@ export default function ComitesPage() {
         >
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
           
-          {/* Container Relativo para as Camadas - Ajustado para não quebrar o tamanho */}
-          <div className="relative flex w-full max-w-[550px] flex-col items-center gap-4">
-            <div className="relative flex h-[650px] max-h-[calc(100vh-120px)] w-full items-center justify-center">
+          {/* Container Relativo para as Camadas - Centralizado e contido na largura da tela */}
+          <div className="relative flex w-full max-w-[550px] flex-col items-center gap-3 md:gap-4 max-h-[92vh] md:max-h-none overflow-hidden">
+            <div className="relative flex h-[70vh] md:h-[650px] max-h-[75vh] md:max-h-[calc(100vh-120px)] w-full items-center justify-center">
             
             {/* CARD SECUNDÁRIO (CHAIRS) - Fica atrás ou na frente dependendo do estado */}
             <div
-              className={`absolute h-full w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#1c3a5e] p-8 shadow-2xl transition-all duration-700 ease-in-out custom-scrollbar dark:bg-[#0d1b2e] ${
+              className={`absolute h-full w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#1c3a5e] p-5 md:p-8 shadow-2xl transition-all duration-700 ease-in-out custom-scrollbar dark:bg-[#0d1b2e] ${
                 showChairs 
                 ? "z-30 translate-x-0 translate-y-0 opacity-100 scale-100" 
                 : "z-10 md:translate-x-6 md:-translate-y-6 opacity-40 scale-95 blur-[1px]"
@@ -350,7 +350,7 @@ export default function ComitesPage() {
 
             {/* CARD PRINCIPAL (INFORMAÇÕES) */}
             <div
-              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-4 md:p-8 shadow-2xl transition-all duration-700 ease-in-out max-h-[90vh] ${
+              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-5 md:p-8 shadow-2xl transition-all duration-700 ease-in-out ${
                 showChairs 
                 ? "z-10 translate-y-8 opacity-0 scale-90 pointer-events-none" 
                 : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
@@ -382,7 +382,7 @@ export default function ComitesPage() {
               </div>
 
               {/* Seção de Sinopse */}
-              <div className="mt-4 flex-1 min-h-[160px] md:min-h-[240px] overflow-y-auto custom-scrollbar rounded-xl border border-white/10 bg-white/5 p-5">
+              <div className="mt-4 flex-1 min-h-[120px] md:min-h-[240px] overflow-y-auto custom-scrollbar rounded-xl border border-white/10 bg-white/5 p-5">
                 <h3 className="text-sm font-black uppercase tracking-widest text-yellow-custom mb-2">
                   {modalData.idioma === 'en' ? 'Synopsis' : 'Sinopse'}
                 </h3>
