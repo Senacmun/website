@@ -9,7 +9,7 @@ const data = [
   {
     id: "delegacoes",
     title: "Delegações",
-    href: "https://forms.gle/LcoZxPhci9bx8nqR6",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSdEl0gx6tAC3dE-ejZgtLDJ8LxPgZnetKYDCZTIpGSxnuRk7A/viewform?usp=publish-editor",
     icon: FaUserTie,
   },
   {
