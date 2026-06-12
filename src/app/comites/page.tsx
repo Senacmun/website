@@ -131,26 +131,27 @@ export default function ComitesPage() {
               key={`${committee.comite}-${index}`}
               type="button"
               onClick={() => openModal(committee)}
-              className="flex w-full min-h-[90px] h-auto bg-[#1c3a5e] dark:bg-[#0d1b2e] border border-white/10 dark:border-white/10 rounded-lg overflow-hidden text-left shadow-sm active:scale-[0.98] transition-transform"
+              className="flex w-full min-h-[120px] bg-[#1c3a5e] dark:bg-[#0d1b2e] border border-white/10 dark:border-white/10 rounded-lg overflow-hidden text-left shadow-sm active:scale-[0.98] transition-transform"
             >
-              <div className="w-[40%] h-full relative shrink-0">
+              <div className="w-[40%] h-[120px] relative shrink-0">
                 <Image
-                  src={committee.imagem ? `/comites/${committee.imagem}` : "/logo-senamun.png"}
+                  src={committee.imagem ? encodeURI(`/comites/${committee.imagem}`) : "/logo-senamun.png"}
                   alt={committee.comite}
                   fill
-                  className="object-cover rounded-l-lg"
+                  className="object-cover object-center rounded-l-lg"
+                  style={{ objectPosition: committee.posicao || "center" }}
+                  sizes="40vw"
                 />
               </div>
-              <div className="w-[60%] p-3 flex flex-col justify-center py-4">
-                <h3 className="font-bold text-[15px] leading-tight text-white">
-                  {committee.comite}
+              <div className="w-[60%] p-3 flex flex-col justify-center">
+                <h3 className="font-bold text-[14px] leading-tight text-white mb-1.5 line-clamp-2">
+                  {committee.tema || committee.comite}
                 </h3>
-                <div className="mt-1 text-[12px] text-white/70 dark:text-gray-400">
-                  <p>{committee.idioma === 'en' ? 'Committee' : 'Comitê'}: {committee.comite}</p>
+                <div className="text-[11px] text-white/70 dark:text-gray-400 space-y-0.5">
                   <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
                   <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
                   {committee.chairs && committee.chairs.length > 0 && (
-                    <p>Chairs: {committee.chairs.map(c => c.nome).join(", ")}</p>
+                    <p className="truncate">{committee.idioma === 'en' ? 'Chairs' : 'Chairs'}: {committee.chairs.map(c => c.nome).join(", ")}</p>
                   )}
                 </div>
               </div>
