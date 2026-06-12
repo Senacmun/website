@@ -349,7 +349,7 @@ export default function ComitesPage() {
 
             {/* CARD PRINCIPAL (INFORMAÇÕES) */}
             <div
-              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-8 shadow-2xl transition-all duration-700 ease-in-out ${
+              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-4 md:p-8 shadow-2xl transition-all duration-700 ease-in-out max-h-[90vh] ${
                 showChairs 
                 ? "z-10 translate-y-8 opacity-0 scale-90 pointer-events-none" 
                 : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
