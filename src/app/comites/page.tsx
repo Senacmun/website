@@ -312,8 +312,9 @@ export default function ComitesPage() {
                 <div className="flex flex-col gap-6">
                   {modalData.chairs && [...modalData.chairs]
                     .sort((a, b) => {
-                      const hierarchy: Record<string, number> = { "Head-Chair": 1, "Co-Chair": 2, "Diretor": 3 };
-                      return (hierarchy[a.cargo] || 99) - (hierarchy[b.cargo] || 99);
+                      const hierarchy: Record<string, number> = { "head chair": 1, "co chair": 2, "diretor": 3 };
+                      const getChairLevel = (cargo: string) => hierarchy[cargo.toLowerCase().replace("-", " ")] || 99;
+                      return getChairLevel(a.cargo) - getChairLevel(b.cargo);
                     })
                     .map((chair, i) => (
                       <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-5 bg-black/20 p-5 rounded-2xl border border-white/5 transition-all hover:bg-black/30">
