@@ -22,14 +22,12 @@ export default function TeamMemberGalleryModal({
   onNext,
   onPrev,
 }: TeamMemberGalleryModalProps) {
-  if (!members || members.length === 0) {
-    return null;
-  }
-
-  const currentMember = members[currentIndex];
-
   // Keyboard navigation for accessibility
   useEffect(() => {
+    if (!members || members.length === 0) {
+      return;
+    }
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
@@ -47,7 +45,13 @@ export default function TeamMemberGalleryModal({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [onClose, onPrev, onNext]);
+  }, [members, onClose, onPrev, onNext]);
+
+  if (!members || members.length === 0) {
+    return null;
+  }
+
+  const currentMember = members[currentIndex];
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm p-4" onClick={onClose}>

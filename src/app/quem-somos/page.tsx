@@ -89,7 +89,7 @@ export default function QuemSomosPage() {
               Visão
             </h3>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto mt-5">
-              Tornar-se referência na área de MUN's pela excelência acadêmica, pluralidade, inclusão e impacto social.
+              Tornar-se referência na área de MUN&apos;s pela excelência acadêmica, pluralidade, inclusão e impacto social.
             </p>
           </div>
           <div className="md:order-1 relative h-[280px] rounded-2xl overflow-hidden shadow-lg hover:scale-105 transition duration-300">
