@@ -8,25 +8,25 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Direitos Humanos.jpg",
+    imagem: "Direitos Humanos.png",
     sinopse: "O Comitê de Direitos Humanos debaterá como a escalada de conflitos armados e as disputas por hegemonia geopolítica fragilizam o Direito Internacional e a proteção dos direitos mais fundamentais. Em um cenário global de profunda instabilidade, o foco central desta simulação recairá sobre o histórico e complexo impasse entre os Estados Unidos e o Irã. Os delegados deverão analisar os impactos humanitários decorrentes de sanções econômicas, guerras por procuração e agressões a infraestruturas civis, os quais afetam diretamente a integridade de populações vulneráveis.",
     chairs: [
       {
         nome: "Gabriella Ribeiro",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Gabriella Ribeiro.jpg",
+        foto: "/images/Chairs/Gabriella Ribeiro.png",
         bio: "Prazer, pessoaaaal! Sou Gabriella Ribeiro e serei mesária deste comitê juntamente com a Mel e a Sophia! Concluí o curso Técnico em Multimídia e segui para a área de Tecnologia, dando continuidade à minha trajetória acadêmica no Senac como graduanda em Sistemas de Informação. Sou corinthiana e apaixonada por inovação, negócios e esportes! Entrei no universo das MUNs em 2023 e, desde então, a arte de simular se tornou uma grande paixão, proporcionando conhecimentos valiosos e experiências inesquecíveis. Das mais de 15 simulações das quais participei, cada uma foi única e especial à sua maneira. Em 2024, tive o privilégio de atuar como Secretária-Geral do SENAMUN, uma experiência pela qual tenho um carinho enorme, e neste ano tenho a honra de fazer parte da equipe mais uma vez. Estou muito animada para conhecer ou reencontrar todos vocês, delegados! Quaisquer dúvidas, anseios ou preocupações, sintam-se à vontade para entrar em contato comigo pelo e-mail: gabi.ribeiro1409@gmail.com. Vejo vocês em breve! =)"
       },
       {
         nome: "Melissa Barros",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Mel.jpg",
+        foto: "/images/Chairs/Mel.png",
         bio: "Olá, Delegados! É um prazer estar com vocês em mais uma simulação. Me chamo Mel Barros, trabalho como consultora SAP em uma multinacional de tecnologia e atualmente estou cursando o segundo ano do Bacharelado em Sistemas de Informação junto com a mesária Gabi. Minha relação com os debates começou ainda no ensino médio, período em que tive a oportunidade de participar de diversas simulações ao lado da minha fiel dupla e também mesária de vocês, Sophia. Em 2023, tive a honra de assumir o cargo de Secretária-Geral do SENAMUN, uma experiência verdadeiramente enriquecedora e marcante na minha trajetória. Sou apaixonada por viver novas experiências, seja viajando, indo a shows ou mergulhando nos mais diversos universos literários, especialmente os distópicos. Geopolítica e relações internacionais estão entre os meus maiores interesses e são o que me motivam a continuar retornando ao universo das simulações. Desejo a todos um excelente debate e uma experiência enriquecedora e inesquecível. Qualquer dúvida, estarei à disposição para ajudá-los!"
       },
       {
         nome: "Sophia",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Sophia.jpg",
+        foto: "/images/Chairs/Sophia.png",
         bio: "Sou a Sophia C.N., tenho 20 anos e fui aluna do Ensino Médio Técnico em Administração no Senac. Atualmente, continuo no campus cursando o terceiro ano do Bacharelado em Arquitetura e Urbanismo, completando cinco anos e meio de trajetória no Senac neste semestre. Sou apaixonada por geopolítica, direito internacional e história, embora eu jure que sou de exatas — e utilizo todas as minhas habilidades de argumentação para defender meus ideais e projetos. Minha primeira experiência com simulações aconteceu em 2023, quando participei da AveMUN representando a Rússia no comitê de Direitos Humanos ao lado da Mel, ocasião em que recebemos uma Menção Honrosa. Ainda naquele ano, atuei como Secretária Internacional da segunda edição do SENAMUN e, após me formar, passei a retornar esporadicamente como mesária principal em diferentes comitês. É um enorme prazer poder orientar novos alunos do Ensino Médio em mais uma MUN, e espero que todos tenham uma experiência incrível, repleta de aprendizado, debates enriquecedores e momentos inesquecíveis."
       }
     ],
@@ -39,19 +39,19 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Conselho de Segurança.AVIF",
+    imagem: "Conselho de Segurança.png",
     sinopse: "O colapso dos regimes de controle nuclear tem intensificado as tensões entre as grandes potências e aumentado as chances e o medo de uma nova corrida armamentista. A suspensão de tratados históricos, o avanço do desenvolvimento de arsenais nucleares e o aumento de disputas geopolíticas em um cenário cada vez mais multipolar colocam em risco a estabilidade internacional construída ao longo das últimas décadas. Ao mesmo tempo, conflitos regionais e o fortalecimento de novas alianças militares ameacam os acordos e tratados de não proliferação. Nesse contexto, o Conselho de Segurança das Nações Unidas se reúne para discutir os impactos da fragilização global de segurança, os riscos de escalada nuclear e buscar soluções diplomáticas capazes de evitar uma instabilidade permanente e a ameaça à paz internacional.",
     chairs: [
       {
         nome: "Melissa Mayra",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Melissa.jpeg",
+        foto: "/images/Chairs/Melissa.png",
         bio: "Olá pessoal! Sou a Melissa Mayra, alumni do Senac e atualmente estou no Rio de Janeiro como graduanda em Defesa e Gestão Estratégica Internacional na Universidade Federal do Rio de Janeiro. Participo de MUNs desde o ensino médio — inclusive fui secretária na edição de 2024 — mas dei uma afastada para focar nos estudos, o que é até irônico, já que essa experiência influenciou fortemente minha escolha de carreira. Além do meu interesse por geopolítica e questões sociais, também sou apaixonada por dança, música e qualquer outra forma de expressão cultural. O Conselho de Segurança tem um lugar muito especial no meu coração e espero que vocês tenham uma experiência incrível não apenas nele, mas no evento como um todo! Estou ansiosa para conhecê-los em setembro! No caso de quaisquer dúvidas relacionadas à minha função, não hesitem em me contatar através do meu e-mail: sotomer.m@gmail.com"
       },
       {
         nome: "Bruno",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Bruno.jpg",
+        foto: "/images/Chairs/Bruno.png",
         bio: "Olá pessoal! Meu nome é Bruno e serei parte da mesa do CSNU. Durante o período da conferência, estarei com 20 anos e cursando o segundo semestre de Relações Internacionais na Fundação Escola de Comércio Álvares Penteado. Gosto muito de jogar videogame, vôlei e baralho, além de ter cursado o ensino médio no Senac, onde me formei como técnico em multimídia. Comecei minha trajetória em MUNs na metade do segundo ano do ensino médio e, até minha formatura, participei de cerca de 20 simulações, tanto como mesa quanto como delegado. Durante esse período, desenvolvi uma grande paixão pelo debate político e pelos estudos na área, o que me levou a conquistar alguns prêmios e também influenciou minha escolha de graduação. Acredito que a prática das simulações pode ser extremamente enriquecedora e é justamente por isso que estou aqui. Espero que todos tenham uma experiência incrível no SENAMUN, assim como eu tive durante meus dois anos de participação. Por fim, sintam-se à vontade para entrar em contato comigo caso tenham quaisquer dúvidas. Atenciosamente, Bruno Tachian Zacharauskas tachianb@gmail.com."
       },
       {
@@ -101,7 +101,7 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Câmara dos Deputados.JPG",
+    imagem: "Câmara dos Deputados.png",
     sinopse: "O debate sobre a escala de trabalho de 44 horas semanais (6x1) vem se tornando cada vez mais relevante e necessário. No Brasil, um dos países mais desiguais do mundo, essa se torna a realidade - e muitas vezes, a única possibilidade - de milhões de trabalhadores que buscam se sustentar com o custo de vida cada vez mais alto. Por um outro lado, empresários e parlamentares julgam como necessário tal jornada para manter a economia e o comércio de pé. Quais serão as consequências desse embate?",
     chairs: [
       {
@@ -126,19 +126,19 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Parlamento Americano.WEBP",
+    imagem: "Parlamento Americano.png",
     sinopse: "Nosso comitê irá debater sobre a crise de segurança ligada à imigração irregular nos Estados Unidos, que intensificou-se com o aumento dos fluxos migratórios nas fronteiras, especialmente na região sul do país. Nesse contexto, o Immigration and Customs Enforcement (ICE) ampliou operações de fiscalização, detenções e deportações de imigrantes em situação irregular e mesmo regular, gerando discussões sobre soberania, segurança nacional e direitos humanos. Defensores das ações do ICE argumentam que o fortalecimento do controle migratório combate crimes transnacionais, tráfico humano e entrada ilegal. Já críticos apontam violações de direitos civis, separação de famílias e condições inadequadas em centros de detenção. E cabe ao comitê decidir, o ICE acerta em suas decisões e é necessário, ou é uma arma eleitoreira do governo Trump.",
     chairs: [
       {
         nome: "Maria Luiza",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Malu Gonçalves.JPG",
+        foto: "/images/Chairs/Malu Gonçalves.png",
         bio: "Olá, sou a Maria Luiza, mas todos me chamam de Malu! Tenho 19 anos e curso Relações Internacionais na Centro Universitário Belas Artes de São Paulo. Comecei minha trajetória em simulações da ONU em 2024 e, desde então, participei de diversos eventos tanto como delegada quanto como mesa. Sempre tive grande interesse por política, diplomacia e pelos desafios que envolvem a cooperação entre diferentes países, o que me aproximou naturalmente do universo das MUNs. Acredito que as simulações são uma das melhores formas de desenvolver habilidades de negociação, argumentação, pesquisa e trabalho em equipe, além de proporcionarem uma experiência extremamente enriquecedora para todos os participantes. Estou muito entusiasmada e com grandes expectativas para este comitê, pois o Parlamento Americano proporciona debates ricos e atuais, estimulando a negociação, a argumentação e o pensamento crítico. Como mesa, espero contribuir para que as sessões sejam produtivas, organizadas e enriquecedoras para todos os delegados."
       },
       {
         nome: "Nicoly",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Nicoly.jpeg",
+        foto: "/images/Chairs/Nicoly.png",
         bio: "Olá, pessoal! Sou a Nicoly Piasentin, Mesa Diretora do Parlamento Americano, e é uma honra participar deste evento tão especial. Minha trajetória nas simulações começou em 2023, inicialmente em conferências online e, posteriormente, em simulações presenciais. Desde o primeiro contato com esse universo, percebi que não queria mais me afastar dele. Ao longo dessa jornada, fundei um projeto de MUN na minha escola e tive a oportunidade de atuar como Mesa Diretora em diversas simulações, sempre priorizando o bem-estar dos delegados e buscando proporcionar uma experiência única e enriquecedora para todos. Foi nesse ambiente que me encontrei nas Relações Internacionais, área pela qual sou profundamente apaixonada. Acredito que as Simulações da ONU são uma excelente ferramenta para desenvolver habilidades que vão muito além dos comitês, preparando-nos para diferentes desafios da vida acadêmica, profissional e pessoal. É com grande entusiasmo que faço parte da equipe do SENAMUN, trabalhando para garantir um evento memorável e de alta qualidade. Estou muito animada para moderar este comitê e contribuir para debates marcados pela diplomacia, pelo aprendizado e pela construção de memórias inesquecíveis."
       }
     ],
@@ -153,25 +153,25 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "en",
-    imagem: "Humans Rights Council.jpg",
+    imagem: "Humans Rights Council.png",
     sinopse: "The World Health Organization only declared that being a transgender person is not a disease in 2019. Today, ethical and ideological differences restrain the UN from establishing a global framework for maintaining the rights of a people whose existence has been denied for centuries. In a world so often driven by diverse viewpoints, it is hard to engage in a fruitful discussion, to propose a universal mechanism to respect these individuals in multiple cultures. This is the challenge faced by the delegates of the Human Rights Council. To exercise diplomacy within a range of states that encompasses those criminalizing transgender individuals, and those institutionally supporting them from social oppression.",
     chairs: [
       {
         nome: "David Campora",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/David Campora.jpg",
+        foto: "/images/Chairs/David Campora.png",
         bio:"Hello guys! I am David Campora, a sophomore at Concept, and at SenaMUN V, I will be the Head Chair of the Human Rights Council. As someone whose interests have always been debate and political science, MUN suited me perfectly. My journey in Model UN started as a junior delegate in late 2024, and it has captivated me since the very first committee session; a sensation I most definitely want you to have. The connections made and the expertise acquired were fundamental for the person I became and the professional I want to be. These years have taught me not about how to win awards, but how to think and understand complex contexts, comprehending the viewpoints of multiple actors and the necessities of each. Within such a polarized world, it is hard to stay true to one’s diplomatic and logical principles, which is why debating in educational environments is essential, and why it has shaped me so much through challenges and failures."
       },      
       {
         nome: "Enzo Aguiar",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Enzo Aguiar.jpg",
+        foto: "/images/Chairs/Enzo Aguiar.png",
         bio: "Hello delegates, my name is Enzo Aguiar, I am currently a sophomore at Senac Nações Unidas and it’s such an honor to serve as a chair in this year’s Human Rights Council. I am deeply excited to be your dais, accompanied by David and Luana, supporting you throughout this journey and working together to develop the best we can in the days ahead of the conference. I have been passionate about International Relations and debates since 6th grade, and I started my MUN journey in 2025. I found myself in this incredible world through debating and studying with amazing people, whom I couldn’t be more grateful to stand alongside. My first conference was SENAMUN last year, and my life has completely changed since then. I am truly excited to see you engage in this committee and witness all your efforts while studying and debating this incredible topic. Our goal as your chairs is to build a safe space where everyone can debate and work together for the best conference experience possible. Please never hesitate to contact me if you have any doubts or concerns regarding the committee. It is an honor to help guide you all on this journey. See you all in September! Best wishes, Enzo Aguiar (enzoaguiarsantosnunes@gmail.com)"
       },
       {
         nome: "Luana Fugi",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Luana Fugi.jpg",
+        foto: "/images/Chairs/Luana Fugi.png",
         bio: "Hello delegates! My name is Luana Fugi, I am a ninth grader at St Nicholas School Alphaville, and I am beyond excited to be serving as your Co-Chair for the Human Rights Council in this year’s SENAMUN. My passion for MUN began when I was in sixth grade, and since then I have had multiple incredible opportunities to develop several skills through engaging and fruitful debates. All of these experiences have strengthened my passion for diplomacy. Outside of MUN, I enjoy listening to music, playing sports, and spending time with my friends and family. I cannot wait to meet all of you, and I hope this edition of the conference can be as special and meaningful to you as it already is to me. This year’s topic is extremely sensitive and important, as the issue of transgender safety and protection has become an increasingly urgent global human rights concern. Across many countries, transgender individuals continue to face violence, discrimination, limited access to healthcare and education, and unequal legal protections. While some nations have introduced progressive policies supporting LGBTQ+ rights, others maintain restrictive laws or oppose international intervention on the matter. This topic invites delegates to discuss how the international community can promote safety, equality, and dignity for transgender people while balancing cultural values, national sovereignty, and human rights obligations. If you have any doubts or concerns, please feel free to reach out to me at: luanafugi@gmail.com"
       }
     ],
@@ -190,19 +190,19 @@ const dadosComites = [
       {
         nome: "Marina de Anna",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Marina de Anna.jpeg",
+        foto: "/images/Chairs/marina de anna.png",
         bio: "Hello Delegates! My name is Marina de Anna and I will be serving as your Head Chair for the Historical Security Council! I could not be more excited to participate in this wonderful committee and have the opportunity to meet all of you. My own MUN journey started about four years ago, and since then my life has never been the same. Over the years, I have participated in various conferences and even had the honor of serving as Secretary-General of last year’s edition of SENAMUN! I have a deep passion for MUNs and truly believe they are the perfect space to learn, develop skills, engage in meaningful discussions, and, above all, create unforgettable memories. I wholeheartedly hope that your experience can be just as special as mine has been, and I am excited to help foster such an environment throughout the committee. I know that participating in conferences can feel intimidating at times, so if you have any concerns or doubts, please do not hesitate to contact me through my e-mail: marinadeanna3011@gmail.com. See you all at the conference!"
       },
       {
         nome: "Lívia Chiavone",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Lívia Chiavone.JPEG",
+        foto: "/images/Chairs/Lívia Chiavone.png",
         bio: "Hello delegates! My name is Lívia Chiavone, and I’m 16 years old. I’m a student at E.E. Prof. Pedro Fonseca, and it’s an honor to serve as a co-chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me really excited for this committee. I’ve been participating in MUNs for the past two years, mainly in security council and crisis committees, and through this journey I discovered how much I love debating and international relations. When I started MUNs, I was really nervous and intimidated, especially because I had no previous experience. Because of that, one of my main goals as part of the dais is to create a welcoming and safe environment where delegates feel comfortable participating, sharing ideas, and growing throughout the committee. I truly believe the best debates happen when people feel respected and supported, regardless of their level of experience. As someone who once felt intimidated stepping into their first committee, I know how important it is to have a dais that is approachable and encouraging. I’m really excited to meet all of you and share this experience together. Please never hesitate to reach out if you have any questions or concerns regarding the committee. See you all in September, Lívia Chiavone. livia.chiavone230210@gmail.com"
       },
       {
         nome: "Cauê Garcia",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Caue Garcia.JPG",
+        foto: "/images/Chairs/Caue Garcia.png",
         bio: "Hello Delegates! I’m Cauê Garcia, I’m 17 years old, currently on a gap year, and it is an honor to serve as a Co-Chair of the Historical Security Council at SENAMUN this year. This will be my first experience as a chair, which makes me even more excited for this committee. I have been participating in MUNs for around a year, and it was through SENAMUN that I was introduced to this new and captivating world. MUNs, especially the first conferences, can often feel overwhelming and intimidating. Because of that, as a chair, I hope to create a welcoming environment where delegates feel comfortable fully and faithfully representing their delegations. I truly believe that the best committees are the ones in which delegates are not only enjoying themselves, but also encouraged to improve their performance throughout the sessions. I am really excited to meet all of you and share this experience together. Please feel free to reach out if you have any questions regarding the committee — I will gladly answer them in order to help create the best possible experience for everyone involved."
       }
     ],
@@ -217,13 +217,13 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "en",
-    imagem: "Junior ECOSOC.JPG",
+    imagem: "Junior ECOSOC.png",
     sinopse: "By the year 2100, humanity is expected to face unprecedented challenges regarding access to essential resources for human life. Starting from a dystopian scenario created by the chairs, the committee will explore the causes and consequences of the future. Rapid population growth, climate change, environmental degradation, and unequal global development threaten the availability of most needed resources, such as clean water, food, energy, and habitable land. As resources diminished, poverty, migration, and conflicts all around the world became more and more frequent. On the other hand, there is a famous cliché: flying cars and robots are everywhere; artificial intelligences are dominating e-sports, manual work, climate governance, and healthcare. Delegates will be encouraged to think creatively and enjoy a mix of creativity and diplomacy. Remember that the future is uncertain, but leadership begins here. Embrace ideas, proposals, and speeches—because, except for the chairs, no one knows how the world will be in 2100.",
     chairs: [
       {
         nome: "Antonio Natale",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Antonio Natale.jpg",
+        foto: "/images/Chairs/Antonio Natale.png",
         bio: "Greetings, my name is Antonio Natale, a freshman at Escola Concept SP, and I will serve as Head Chair of the Junior ECOSOC at SenaMUN V alongside Anna. My journey with United Nations simulations began three years ago, when my school invited me to participate in an internal conference and explore a diplomatic world that was entirely new to me. From the moment I stepped into the committee room and delivered my first speech, I discovered a version of myself I had never imagined: someone who believes in a better world and feels capable of inspiring change. After attending more than 20 conferences, I feel confident and honored to take on this responsibility. I hope we can work together throughout the conference to make this event a truly memorable experience for everyone involved. Please feel free to contact me with any questions or concerns regarding the committee ([oantonionatale@gmail.com](mailto:oantonionatale@gmail.com))."
       },
       {
@@ -242,13 +242,13 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "OMS.jpeg",
+    imagem: "OMS.png",
     sinopse: "No cenário global contemporâneo, apesar dos avanços conquistados pelas mulheres ao longo da história, como o acesso à educação, à saúde e à participação política, ainda persistem obstáculos estruturais que comprometem o pleno exercício de seus direitos e sua qualidade de vida. Em diversas regiões do mundo, sociedades marcadas por padrões patriarcais e desigualdades socioeconômicas limitam a autonomia feminina e dificultam o acesso a serviços de saúde, especialmente os de caráter preventivo. Nesse contexto, doenças como o câncer de mama e o câncer do colo do útero continuam apresentando elevados índices de mortalidade entre mulheres, sobretudo em países de baixa e média renda, onde barreiras econômicas, geográficas, culturais e institucionais restringem o diagnóstico precoce e o tratamento adequado. Diante dessa realidade, torna-se fundamental analisar quais fatores dificultam o acesso das mulheres a medidas preventivas de saúde e discutir soluções capazes de enfrentar essas desigualdades, promovendo sistemas de saúde mais inclusivos, acessíveis e eficazes para todas.",
     chairs: [
       {
         nome: "Isabella Cordeiro",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Isabella.jpeg",
+        foto: "/images/Chairs/Isabella.png",
         bio: "Me chamo Isabella Cordeiro, tenho 17 anos e entrei para o universo das MUNs em meados de 2024, muito influenciada pelo meu interesse por geopolítica e pelos conteúdos que acompanhava na internet. Desde então, participei de cinco simulações, incluindo duas edições do SENAMUN. Minha primeira experiência foi na AveMUN, em 2024, representando o Brasil em um comitê de Direitos Humanos que discutia o trabalho análogo à escravidão na atualidade. Após essa simulação, meu interesse pelo mundo das MUNs só cresceu. Ter a oportunidade de atuar como Head Chair de um comitê é algo que faz a Isabella de 2024 se orgulhar de toda a trajetória construída até aqui. O SENAMUN teve um papel fundamental no meu desenvolvimento, ajudando-me a aprimorar minha oratória, superar o receio de falar em público e aprofundar meus conhecimentos sobre política internacional e sobre o posicionamento dos países diante dos mais diversos temas."
       },
       {
@@ -273,13 +273,13 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "ECOSOC 2053.JPG",
+    imagem: "ECOSOC 2053.png",
     sinopse: "Em 2053, o mundo vive as consequências da dependência extrema da inteligência artificial. Após a chamada “Corrida dos Insumos”, iniciada pela anexação de Taiwan pela China em 2042, países passaram a disputar água, minerais raros, energia e chips necessários para sustentar megacidades automatizadas e sistemas globais de IA. Enquanto potências tecnológicas dominam a automação mundial, milhões enfrentam desemprego estrutural, desigualdade e perda de espaço no mercado de trabalho. Em resposta, movimentos neo-ludistas crescem ao redor do planeta, realizando ataques contra centros tecnológicos e infraestrutura automatizada. Em meio ao caos econômico, vigilância digital e conflitos diplomáticos, a ECOSOC debate os limites éticos da inteligência artificial e tenta responder a principal questão do século XXI: ainda existe espaço para o ser humano em um mundo automatizado?",
     chairs: [
       {
         nome: "Giovanna Queiroz",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Giovanna Queiroz.jpg",
+        foto: "/images/Chairs/Giovanna Queiroz.png",
         bio: "Oie, delegados! Me chamo Giovanna Queiroz e minha trajetória nas MUNs começou aos 16 anos, quando me apaixonei por esse universo. Minha primeira simulação foi em 2024 e superou todas as minhas expectativas. Além de participar de um comitê incrível, conquistei meu primeiro prêmio de “Melhor Documento de Posição”, o que tornou a experiência ainda mais especial. Desde então, participei de 10 simulações como delegada e atuei uma vez como chair. Também tive a honra de ser vice-secretária-geral do SenaMUN IV. Agora, retorno com o privilégio de assumir como Head Chair de um comitê tão inusitado. Estou muito feliz por fazer parte disso e garanto que esse comitê irá surpreender a todos!"
       },
       {
@@ -304,13 +304,13 @@ const dadosComites = [
       {
         nome: "Brenno",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Brenno.jpeg",
+        foto: "/images/Chairs/Brenno.png",
         bio: "Honoráveis colegas, é um prazer! O meu nome é Brenno Figueiredo, amante da geopolítica e fascinado pelas coisas do mundo. Faço simulações desde o segundo ano do ensino médio e tive o magnânimo prazer de fazer parte do secretariado geral do SenaMUN IV, como Secretário Geral. É uma honra ver novos e velhos rostos."
       },
       {
         nome: "Gabriela Sanches",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Gabi Sanches.JPEG",
+        foto: "/images/Chairs/Gabi Sanches.png",
         bio: "Olá! Me chamo Gabriela Sanches e sou apaixonada por geopolítica. Participo de simulações desde o segundo ano do ensino médio e tive a honra de fazer parte do secretariado do SenaMUN IV, como Under Secretary General. Estou extremamente feliz em estar de volta!"
       },
     ],
@@ -356,19 +356,19 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "en",
-    imagem: "Special - Trial of Socrates.jpg",
+    imagem: "Special - Trial of Socrates.png",
     sinopse: "In this Special Committee, we will be entertaining the Trial of Socrates. In which we will focus on one of history’s most famous trials, that of the philosopher Socrates. In this trial, Socrates has been accused of corrupting the youth, impiety, disrespect of the gods, and challenging Athenian values. Delegates must deal with the political instability in Athens following the Peloponnesian War; they must also grapple with the broader themes of justice, democracy, freedom of speech, morality, and public opinion. In this committee, delegates must decide whether Socrates was indeed a threat or a visionary by representing the prosecution, defence, and witness. This committee challenges delegates to examine the balance between justice and freedom of thought.",
     chairs: [
       {
         nome: "Sofia Vargas",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Sophia Vargas.jpg",
+        foto: "/images/Chairs/Sophia Vargas.png",
         bio: "Hello everyone, I’m Sofia Vargas, an 11th-grade student at Concept São Paulo, and at SenaMUN V I will be serving as the Head Chair for the Special Committee. MUN has always been very special to me because it is a space where people can grow, challenge themselves, and connect with others who are equally passionate about making an impact on the world. I truly believe this conference will be an incredible experience, and I cannot wait to meet all of you. I am deeply honored and excited to share this journey with everyone participating in the committee. If you have any questions whatsoever, please do not hesitate to reach out to me ([sofiabvargas09@gmail.com](mailto:sofiabvargas09@gmail.com))."
       },
       {
         nome: "Nayara Lima",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Nayara.jpeg",
+        foto: "/images/Chairs/Nayara.png",
         bio: "Hello delegates, my name is Nayara Lima, I am 18 years old, and I will have the honor of serving as Co-Chair of the Socrates’ Trial Committee! I have been actively involved in the world of debates since the past year, and during this time I have learned many valuable lessons that I carry with me in all areas of my life. I see MUNs as a space to learn, teach, socialize, and also have fun. I consider myself an approachable and easy person to talk to, so I hope to create a welcoming and supportive environment for all delegates whenever you may have doubts or need assistance. Please feel free to contact me at any time ([nayaraalvslima@gmail.com](mailto:nayaraalvslima@gmail.com))."
       },
       {
@@ -387,7 +387,7 @@ const dadosComites = [
     whatsapp: "",
     pdf: null,
     idioma: "ptbr",
-    imagem: "Especial.JPG",
+    imagem: "Especial.png",
     sinopse: "A integridade da Membrana que protege o nosso mundo está severamente comprometida, e a ascensão do Outro Lado ameaça a própria existência humana. Os delegados podem  lutar pela contenção do paranormal, apoiar sacrifícios para erradicar o paranormal, ou tomar medidas para continuar vivendo com ele, mesmo com seus riscos. Diante deste cenário de calamidade, caberá a este conselho deliberar e responder à questão definitiva: O paranormal deve existir? O futuro da Realidade depende das decisões tomadas nesse comitê.",
     chairs: [
       {
@@ -405,7 +405,7 @@ const dadosComites = [
       {
         nome: "Sal",
         cargo: "Co-Chair",
-        foto: "/images/Chairs/Sal.jpg",
+        foto: "/images/Chairs/Sal.png",
         bio: "Olá, delegados(as)! Meu nome é Sal, tenho 18 anos e estudo Cinema na FAAP! Sou apaixonado por filmes, séries e jogos, principalmente de ficção científica e terror, são os dois gêneros que mais penso em produzir quando finalizar a faculdade! Eu participo de simulações desde 2023. Nestes 3 anos participei três vezes da Simulação Interna do Colégio Magister, escola onde completei o Ensino Médio, participei da XIV SPMUN em 2025 e fiz 3 anos de Fórum FAAP, dois anos como delegado e em 2026 realizei meu primeiro ano como Staff Acadêmico no fórum, agora que estou estudando na FAAP. Me apaixonei por simulações nos primeiros anos do Ensino Médio e, mesmo cursando algo totalmente diferente, não quis abandonar esse universo que me amparou em vários momentos durante minha trajetória, além de me transformar na pessoa que sou hoje. Estou ansioso para o meu primeiro ano na equipe do SenaMUN e espero que os debates sejam proveitosos!"
       }
     ],
