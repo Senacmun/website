@@ -363,7 +363,7 @@ const dadosComites = [
         nome: "Nayara Lima",
         cargo: "Head Chair",
         foto: "/images/Chairs/Nayara.png",
-        bio: "Hello delegates, my name is Nayara Lima, I am 18 years old, and I will have the honor of serving as Co-Chair of the Socrates’ Trial Committee! I have been actively involved in the world of debates since the past year, and during this time I have learned many valuable lessons that I carry with me in all areas of my life. I see MUNs as a space to learn, teach, socialize, and also have fun. I consider myself an approachable and easy person to talk to, so I hope to create a welcoming and supportive environment for all delegates whenever you may have doubts or need assistance. Please feel free to contact me at any time ([nayaraalvslima@gmail.com](mailto:nayaraalvslima@gmail.com))."
+        bio: "Hello delegates, my name is Nayara Lima, I am 18 years old, and I will have the honor of serving as Co-Chair of the Socrates’ Trial Committee! I have been actively involved in the world of debates since the past year, and during this time I have learned many valuable lessons that I carry with me in all areas of my life. I see MUNs as a space to learn, teach, socialize, and also have fun. I consider myself an approachable and easy person to talk to, so I hope to create a welcoming and supportive environment for all delegates whenever you may have doubts or need assistance. Please feel free to contact me at any time nayaraalvslima@gmail.com"
       },
       {
         nome: "Sthefany Cruz",
