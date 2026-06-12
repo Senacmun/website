@@ -130,7 +130,7 @@ const dadosMembros = {
     {
       nome: "Matheus Schunck",
       cargo: "Crise",
-      imagem: "Matheus Schunck.JPEG",
+      imagem: "Matheus Schunck.jpg",
     },
   ],
 

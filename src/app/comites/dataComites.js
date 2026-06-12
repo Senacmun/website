@@ -76,7 +76,7 @@ const dadosComites = [
       {
         nome: "Isabella Saorin",
         cargo: "Head-Chair",
-        foto: "/images/Chairs/Isabella Saorin.png",
+        foto: "/images/Chairs/Isabella Saorin.jpg",
         bio: "Prazer, delegados! Me chamo Isabella Saorin, tenho 18 anos e sou estudante de pré-vestibular. Entrei no mundo das simulações no segundo ano do ensino médio, quando um professor de geografia me levou a conhecer o modelo, e, depois disso, nunca mais larguei essa paixão. Atualmente, contabilizo mais de 15 eventos como delegada e mesa, sempre procurando me envolver em comitês que abordem temas de interesse (igualdade de gênero é meu favorito!). Espero que, nessa edição do SenaMUN, o CSNU de 77 proporcione uma experiência memorável não apenas dentro do ambiente de debate, mas ao longo de toda a conferência. Aguardo todos vocês :)"
       },
       {
