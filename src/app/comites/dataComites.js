@@ -177,7 +177,7 @@ const dadosComites = [
     ],
   },
   {
-    tema: "Historical Security Council: Adressing the Russian Civil War (1922)",
+    tema: "Adressing the Russian Civil War in 1919",
     comite: "Historical Security Council",
     modalidade: "Single",
     classroom: "https://classroom.google.com/c/Nzk3MDI1NzE0ODQ2?cjc=pofkhlng",
