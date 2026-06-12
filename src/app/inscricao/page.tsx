@@ -21,7 +21,7 @@ const data = [
   {
     id: "imprensa",
     title: "Imprensa (Press)",
-    href: "https://forms.gle/9rEKLuBD9iLj5tot9",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLSfhBprdTpVEpvBLACg0QpTpMUrpFGiI96GAlVjUzbR-I_fTpA/viewform?usp=publish-editor",
     icon: FaCamera,
   },
   {
