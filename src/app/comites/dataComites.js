@@ -293,7 +293,7 @@ const dadosComites = [
   {
     tema: "Debatendo a reforma agrária como estratégia para garantir a segurança alimentar mundial.",
     comite: "FAO",
-    modalidade: "Dupla",
+    modalidade: "Individual",
     classroom: "https://classroom.google.com/c/Nzk3MDI1NDM4MzM5?cjc=6ox5p33g",
     whatsapp: "",
     pdf: null,

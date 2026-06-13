@@ -151,7 +151,7 @@ export default function ComitesPage() {
                   <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
                   <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
                   {committee.chairs && committee.chairs.length > 0 && (
-                    <p className="truncate">{committee.idioma === 'en' ? 'Chairs' : 'Chairs'}: {committee.chairs.map(c => c.nome).join(", ")}</p>
+                    <p className="truncate">Chairs: {committee.chairs.map(c => c.nome).join(", ")}</p>
                   )}
                 </div>
               </div>
@@ -279,17 +279,17 @@ export default function ComitesPage() {
 
       {isOpen && modalData && (
         <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] flex items-start justify-center p-3 overflow-y-auto md:items-center md:p-4"
         >
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
           
-          {/* Container Relativo para as Camadas - Centralizado e contido na largura da tela */}
-          <div className="relative flex w-full max-w-[550px] flex-col items-center gap-3 md:gap-4 max-h-[92vh] md:max-h-none overflow-hidden">
-            <div className="relative flex h-[70vh] md:h-[650px] max-h-[75vh] md:max-h-[calc(100vh-120px)] w-full items-center justify-center">
+          {/* Container Principal do Modal */}
+          <div className="relative flex w-full max-w-[550px] flex-col items-center gap-3 md:gap-4 my-4 md:my-0">
+            <div className="relative flex h-auto w-full md:h-[650px] md:items-center md:justify-center overflow-hidden md:overflow-visible">
             
             {/* CARD SECUNDÁRIO (CHAIRS) - Fica atrás ou na frente dependendo do estado */}
             <div
-              className={`absolute h-full w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#1c3a5e] p-5 md:p-8 shadow-2xl transition-all duration-700 ease-in-out custom-scrollbar dark:bg-[#0d1b2e] ${
+              className={`${showChairs ? "relative z-30 opacity-100 scale-100" : "hidden md:absolute z-10 md:opacity-40 md:scale-95 md:blur-[1px] pointer-events-none"} h-auto md:h-full w-full overflow-y-auto rounded-[16px] md:rounded-2xl border border-white/10 bg-[#0d1b2e] md:bg-[#1c3a5e] dark:md:bg-[#0d1b2e] p-4 md:p-8 shadow-2xl transition-all duration-700 ease-in-out custom-scrollbar ${
                 showChairs 
                 ? "z-30 translate-x-0 translate-y-0 opacity-100 scale-100" 
                 : "z-10 md:translate-x-6 md:-translate-y-6 opacity-40 scale-95 blur-[1px]"
@@ -323,7 +323,7 @@ export default function ComitesPage() {
                           type="button"
                           onClick={() => setSelectedChair(chair)}
                           className="group relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border-2 border-yellow-custom/30 shadow-xl transition-all hover:border-yellow-custom hover:scale-105 active:scale-95"
-                        >
+                        > 
                           <Image
                             src={chair.foto || "/logo-senamun.png"}
                             alt={chair.nome}
@@ -350,15 +350,15 @@ export default function ComitesPage() {
 
             {/* CARD PRINCIPAL (INFORMAÇÕES) */}
             <div
-              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-5 md:p-8 shadow-2xl transition-all duration-700 ease-in-out ${
-                showChairs 
-                ? "z-10 translate-y-8 opacity-0 scale-90 pointer-events-none" 
-                : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
+              className={`relative md:absolute flex h-auto md:h-full w-full max-w-full flex-col rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-4 md:p-8 shadow-2xl transition-all duration-700 ease-in-out md:overflow-y-auto custom-scrollbar overflow-hidden ${
+                showChairs
+                  ? "z-10 md:translate-y-8 opacity-0 md:scale-90 pointer-events-none hidden md:flex"
+                  : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
               }`}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Título Principal */}
-              <div className="min-h-[100px] h-auto shrink-0 pr-1">
+              <div className="h-auto shrink-0 pr-1">
                 <div className="inline-block px-3 py-1 rounded-full bg-yellow-custom/10 border border-yellow-custom/20 mb-3">
                   <span className="text-[11px] font-black uppercase tracking-[0.15em] text-yellow-custom">
                     {modalData.comite}
@@ -437,8 +437,8 @@ export default function ComitesPage() {
 
             {/* Botão de Fechar Externo */}
             <button
-              onClick={closeModal}
-              className="relative z-40 w-full rounded-xl border border-white/10 bg-black/20 py-3 text-sm font-black uppercase tracking-wider text-white/60 backdrop-blur-md transition-all hover:border-[#f87171]/50 hover:bg-[#f87171]/10 hover:text-[#f87171] active:scale-[0.99]"
+              onClick={closeModal} // Adicionado border-top e ajustado estilos para mobile
+              className="relative z-40 w-full border-t-[0.5px] border-white/10 mt-4 pt-4 bg-transparent py-3 text-sm font-black uppercase tracking-wider text-gray-400 text-white/60 backdrop-blur-md transition-all hover:border-[#f87171]/50 hover:bg-[#f87171]/10 hover:text-[#f87171] active:scale-[0.99] min-h-[44px]"
             >
               {modalData.idioma === 'en' ? 'CLOSE' : 'FECHAR'}
             </button>
