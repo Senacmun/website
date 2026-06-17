@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import dados from "./dataComites";
-
-const blurBackground = "backdrop-blur-md";
 
 interface Chair {
   nome: string;
@@ -70,14 +68,11 @@ export default function ComitesPage() {
     e.preventDefault();
     setIsExitingToast(false);
     setShowClassroomToast(true);
-    
-    // O toast desaparece automaticamente após 4 segundos
     setTimeout(() => closeToast(), 4000);
   };
 
   const closeToast = () => {
     setIsExitingToast(true);
-    // Aguarda a animação de fade-out (500ms) antes de remover do DOM
     setTimeout(() => setShowClassroomToast(false), 500);
   };
 
@@ -98,344 +93,350 @@ export default function ComitesPage() {
     rows.push(primaryCommittees.slice(i, i + 3));
   }
 
-  const specialCommittee = committees[12]; // Special
-  const especialCommittee = committees[13]; // Especial
+  const specialCommittee = committees[12];
+  const especialCommittee = committees[13];
 
   const getCommitteeImage = (committee: Committee) => {
     const imagePath = committee.imagem
       ? `/comites/${committee.imagem}`
       : "/logo-senamun.png";
-
     return `url("${encodeURI(imagePath)}")`;
   };
 
   return (
     <div className="min-h-screen bg-white transition-colors duration-300 dark:bg-[#0B1E2D]">
+      {/* Reduzido py-10 md:py-16 para py-4 md:py-8 para economizar espaço vertical */}
       <section
-        className={`mx-auto w-full max-w-5xl px-5 py-10 md:py-16 transition-all duration-700 ${
+        className={`w-full py-4 md:py-8 transition-all duration-700 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         }`}
       >
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-yellow-custom md:text-5xl">
+        {/* Título da Página (Fica fora do overlay) */}
+        <div className="mx-auto max-w-5xl px-5 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-yellow-custom">
             Comitês
           </h1>
-        <div className="mx-auto mt-4 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
-      </div>
-
-      <div className="mx-auto mt-8 md:mt-10 max-w-[42rem]">
-        {/* Mobile List Layout */}
-        <div className="flex flex-col gap-[12px] md:hidden">
-          {committees.map((committee, index) => (
-            <button
-              key={`${committee.comite}-${index}`}
-              type="button"
-              onClick={() => openModal(committee)}
-              className="flex w-full min-h-[120px] bg-[#1c3a5e] dark:bg-[#0d1b2e] border border-white/10 dark:border-white/10 rounded-lg overflow-hidden text-left shadow-sm active:scale-[0.98] transition-transform"
-            >
-              <div className="w-[40%] h-[120px] relative shrink-0">
-                <Image
-                  src={committee.imagem ? encodeURI(`/comites/${committee.imagem}`) : "/logo-senamun.png"}
-                  alt={committee.comite}
-                  fill
-                  className="object-cover object-center rounded-l-lg"
-                  style={{ objectPosition: committee.posicao || "center" }}
-                  sizes="40vw"
-                />
-              </div>
-              <div className="w-[60%] p-3 flex flex-col justify-center">
-                <h3 className="font-bold text-[14px] leading-tight text-white mb-1.5 line-clamp-2">
-                  {committee.tema || committee.comite}
-                </h3>
-                <div className="text-[11px] text-white/70 dark:text-gray-400 space-y-0.5">
-                  <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
-                  <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
-                  {committee.chairs && committee.chairs.length > 0 && (
-                    <p className="truncate">{committee.idioma === 'en' ? 'Chairs' : 'Chairs'}: {committee.chairs.map(c => c.nome).join(", ")}</p>
-                  )}
-                </div>
-              </div>
-            </button>
-          ))}
-          <Link href="/" className="flex items-center justify-center pt-8">
-            <Image
-              src="/logo-senamun.png"
-              alt="Logo SenaMUN"
-              width={140}
-              height={140}
-              className="object-contain"
-            />
-          </Link>
+          <div className="mx-auto mt-2 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
         </div>
 
-        {/* Desktop Grid Layout (unchanged logic) */}
-        <div className="hidden md:flex md:flex-col md:gap-8 lg:gap-10">
-          {rows.map((row, rowIndex) => (
-            <div key={rowIndex} className="grid grid-cols-3 gap-8 lg:gap-10">
-              {row.map((committee, index) => (
-                <button
-                  key={`${committee.comite}-${index}`}
-                  type="button"
-                  onClick={() => openModal(committee)}
-                  className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20 focus:outline-none focus:ring-2 focus:ring-light-blue-custom focus:ring-offset-2 dark:hover:shadow-black/30 dark:focus:ring-offset-[#0B1E2D]"
-                >
-                  <div
-                    className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                    style={{
-                      backgroundImage: getCommitteeImage(committee),
-                      backgroundPosition: committee.posicao || "center",
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-                  <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                    <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                    <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
-                  </div>
-                  <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                    <h2 className="translate-y-0 text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5 px-2">
-                      <span>{committee.comite}</span>
-                    </h2>
-                  </div>
-                </button>
-              ))}
-            </div>
-          ))}
-
-          <div className="grid grid-cols-3 items-center gap-8 lg:gap-10">
-            <div className="flex justify-center">
-              {specialCommittee && (
-              <button
-                type="button"
-                onClick={() => openModal(specialCommittee)}
-                className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20"
-              >
+        {/* Container Relativo para o Overlay e Conteúdo */}
+        {/* Reduzido mt-8 md:mt-10 para mt-4 md:mt-6 */}
+        <div className="relative w-full mt-4 md:mt-6">
+          
+          {/* CONTEÚDO DOS COMITÊS (Obscurecido) */}
+          <div className="mx-auto max-w-5xl px-5 grayscale opacity-10 blur-md pointer-events-none select-none">
+            
+            {/* Mobile List Layout (Compactado) */}
+            <div className="flex flex-col gap-3 md:hidden">
+              {committees.map((committee, index) => (
                 <div
-                  className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                  style={{
-                    backgroundImage: getCommitteeImage(specialCommittee),
-                    backgroundPosition: specialCommittee.posicao || "center",
-                  }}
+                  key={`${committee.comite}-${index}`}
+                  className="flex w-full min-h-[90px] bg-[#1c3a5e] dark:bg-[#0d1b2e] border border-white/10 rounded-lg overflow-hidden text-left shadow-sm"
+                >
+                  <div className="w-[35%] h-[90px] relative shrink-0">
+                    <Image
+                      src={committee.imagem ? encodeURI(`/comites/${committee.imagem}`) : "/logo-senamun.png"}
+                      alt={committee.comite}
+                      fill
+                      className="object-cover object-center rounded-l-lg"
+                      style={{ objectPosition: committee.posicao || "center" }}
+                      sizes="35vw"
+                    />
+                  </div>
+                  <div className="w-[65%] p-2.5 flex flex-col justify-center">
+                    <h3 className="font-bold text-[13px] leading-tight text-white mb-1 line-clamp-2">
+                      {committee.tema || committee.comite}
+                    </h3>
+                    <div className="text-[10px] text-white/70 dark:text-gray-400 space-y-0.5">
+                      <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
+                      <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <Link href="/" className="flex items-center justify-center pt-4">
+                <Image
+                  src="/logo-senamun.png"
+                  alt="Logo SenaMUN"
+                  width={100}
+                  height={100}
+                  className="object-contain"
                 />
-                <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-                <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                  <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
-                </div>
-                <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                  <h2 className="translate-y-0 text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5 px-2">
-                    <span>{specialCommittee.comite}</span>
-                  </h2>
-                </div>
-              </button>
-              )}
-            </div>
-
-            <div className="flex justify-center">
-              <Link href="/" className="flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-              <Image
-                src="/logo-senamun.png"
-                alt="Logo SenaMUN"
-                width={180}
-                height={180}
-                className="h-auto w-[180px] object-contain"
-              />
               </Link>
             </div>
 
-            <div className="flex justify-center">
-              {especialCommittee && (
-              <button
-                type="button"
-                onClick={() => openModal(especialCommittee)}
-                className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-light-blue-custom/20"
-              >
-                <div
-                  className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:opacity-0"
-                  style={{
-                    backgroundImage: getCommitteeImage(especialCommittee),
-                    backgroundPosition: especialCommittee.posicao || "center",
-                  }}
-                />
-                <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out group-hover:bg-black/0 group-hover:opacity-0" />
-                <div className="absolute inset-0 bg-gradient-to-br from-light-blue-custom via-[#1F6FEB] to-blue-custom opacity-0 transition-all duration-700 ease-out group-hover:opacity-100" />
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100">
-                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl" />
-                  <div className="absolute -bottom-12 -left-6 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+            {/* Desktop Grid Layout (Compactado) */}
+            <div className="hidden md:flex md:flex-col md:gap-4 lg:gap-6">
+              {rows.map((row, rowIndex) => (
+                <div key={rowIndex} className="grid grid-cols-3 gap-3 lg:gap-4">
+                  {row.map((committee, index) => (
+                    <div
+                      key={`${committee.comite}-${index}`}
+                      // Trocado aspect-square por h-36 md:h-44 para reduzir altura
+                      className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left"
+                    >
+                      <div
+                        className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
+                        style={{
+                          backgroundImage: getCommitteeImage(committee),
+                          backgroundPosition: committee.posicao || "center",
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
+                      <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
+                        <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
+                          <span>{committee.comite}</span>
+                        </h2>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="relative z-10 flex h-full items-center justify-center p-5 text-center">
-                  <h2 className="translate-y-0 text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 flex flex-wrap justify-center items-center gap-x-1.5 px-2">
-                    <span>{especialCommittee.comite}</span>
-                  </h2>
+              ))}
+
+              <div className="grid grid-cols-3 items-center gap-3 lg:gap-4">
+                <div className="flex justify-center">
+                  {specialCommittee && (
+                    <div className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left">
+                      <div
+                        className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
+                        style={{
+                          backgroundImage: getCommitteeImage(specialCommittee),
+                          backgroundPosition: specialCommittee.posicao || "center",
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
+                      <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
+                        <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
+                          <span>{specialCommittee.comite}</span>
+                        </h2>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </button>
-              )}
+
+                <div className="flex justify-center">
+                  <Link href="/" className="flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+                    <Image
+                      src="/logo-senamun.png"
+                      alt="Logo SenaMUN"
+                      width={120}
+                      height={120}
+                      className="h-auto w-[120px] object-contain"
+                    />
+                  </Link>
+                </div>
+
+                <div className="flex justify-center">
+                  {especialCommittee && (
+                    <div className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left">
+                      <div
+                        className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
+                        style={{
+                          backgroundImage: getCommitteeImage(especialCommittee),
+                          backgroundPosition: especialCommittee.posicao || "center",
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
+                      <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
+                        <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
+                          <span>{especialCommittee.comite}</span>
+                        </h2>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* OVERLAY DE INTERDIÇÃO - COMPACTADO E PROPORCIONAL */}
+          <div className="absolute inset-0 z-50 pointer-events-none overflow-hidden">
+            {/* Camada de Blur e Escurecimento de Fundo */}
+            <div className="absolute inset-0 backdrop-blur-md bg-black/40"></div>
+
+            {/* === FAIXA 1: Topo (Selando a parte de cima) === */}
+            <div className="absolute top-[2%] left-[-50vw] w-[200vw] h-8 md:h-12 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center -rotate-[3deg] shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+              <span className="text-black font-black text-[10px] md:text-xl uppercase tracking-tighter whitespace-nowrap px-4">
+                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+              </span>
+            </div>
+
+            {/* === FAIXA 2: Base (Selando a parte de baixo) === */}
+            <div className="absolute bottom-[2%] left-[-50vw] w-[200vw] h-8 md:h-12 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center rotate-[3deg] shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+              <span className="text-black font-black text-[10px] md:text-xl uppercase tracking-tighter whitespace-nowrap px-4">
+                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+              </span>
+            </div>
+
+            {/* === FAIXA 3: Diagonal do X (Canto Superior Esquerdo → Inferior Direito) === */}
+            <div className="absolute top-1/2 left-[-50vw] w-[200vw] h-12 md:h-20 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center rotate-[12deg] -translate-y-1/2 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+              <span className="text-black font-black text-xs md:text-2xl uppercase tracking-tighter whitespace-nowrap px-4">
+                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+              </span>
+            </div>
+
+            {/* === FAIXA 4: Diagonal do X (Canto Superior Direito → Inferior Esquerdo) === */}
+            <div className="absolute top-1/2 left-[-50vw] w-[200vw] h-12 md:h-20 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center -rotate-[12deg] -translate-y-1/2 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+              <span className="text-black font-black text-xs md:text-2xl uppercase tracking-tighter whitespace-nowrap px-4">
+                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* MODAL DE INFORMAÇÕES DO COMITÊ */}
       {isOpen && modalData && (
-        <div
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
-        >
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
           
-          {/* Container Relativo para as Camadas - Ajustado para não quebrar o tamanho */}
           <div className="relative flex w-full max-w-[550px] flex-col items-center gap-4">
             <div className="relative flex h-[650px] max-h-[calc(100vh-120px)] w-full items-center justify-center">
             
-            {/* CARD SECUNDÁRIO (CHAIRS) - Fica atrás ou na frente dependendo do estado */}
-            <div
-              className={`absolute h-full w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#1c3a5e] p-8 shadow-2xl transition-all duration-700 ease-in-out custom-scrollbar dark:bg-[#0d1b2e] ${
-                showChairs 
-                ? "z-30 translate-x-0 translate-y-0 opacity-100 scale-100" 
-                : "z-10 md:translate-x-6 md:-translate-y-6 opacity-40 scale-95 blur-[1px]"
-              }`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex flex-col h-full">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-xl font-bold text-white">
-                    {modalData.idioma === 'en' ? 'Committee Chairs' : 'Chairs do Comitê'}
-                  </h3>
-                  <button
+              {/* CARD SECUNDÁRIO (CHAIRS) */}
+              <div
+                className={`absolute h-full w-full overflow-y-auto rounded-2xl border border-white/10 bg-[#1c3a5e] p-8 shadow-2xl transition-all duration-700 ease-in-out custom-scrollbar dark:bg-[#0d1b2e] ${
+                  showChairs 
+                  ? "z-30 translate-x-0 translate-y-0 opacity-100 scale-100" 
+                  : "z-10 md:translate-x-6 md:-translate-y-6 opacity-40 scale-95 blur-[1px]"
+                }`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex flex-col h-full">
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-xl font-bold text-white">
+                      {modalData.idioma === 'en' ? 'Committee Chairs' : 'Chairs do Comitê'}
+                    </h3>
+                    <button
                       onClick={() => setShowChairs(false)}
-                    className="flex items-center gap-2 text-sm font-bold text-yellow-custom hover:text-white transition-colors group"
+                      className="flex items-center gap-2 text-sm font-bold text-yellow-custom hover:text-white transition-colors group"
                     >
-                    <i className="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1" />
-                    {modalData.idioma === 'en' ? 'Back to Info' : 'Voltar para Informações'}
+                      <i className="fa-solid fa-arrow-left transition-transform group-hover:-translate-x-1" />
+                      {modalData.idioma === 'en' ? 'Back to Info' : 'Voltar para Informações'}
                     </button>
-                </div>
+                  </div>
 
-                <div className="flex flex-col gap-6">
-                  {modalData.chairs && [...modalData.chairs]
-                    .sort((a, b) => {
-                      const hierarchy: Record<string, number> = { "head chair": 1, "co chair": 2, "diretor": 3 };
-                      const getChairLevel = (cargo: string) => hierarchy[cargo.toLowerCase().replace("-", " ")] || 99;
-                      return getChairLevel(a.cargo) - getChairLevel(b.cargo);
-                    })
-                    .map((chair, i) => (
-                      <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-5 bg-black/20 p-5 rounded-2xl border border-white/5 transition-all hover:bg-black/30">
-                        <button
-                          type="button"
-                          onClick={() => setSelectedChair(chair)}
-                          className="group relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border-2 border-yellow-custom/30 shadow-xl transition-all hover:border-yellow-custom hover:scale-105 active:scale-95"
-                        >
-                          <Image
-                            src={chair.foto || "/logo-senamun.png"}
-                            alt={chair.nome}
-                            fill
-                            className="object-cover object-top"
-                            sizes="96px"
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
-                            <i className="fa-solid fa-magnifying-glass-plus text-white opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="flex flex-col gap-6">
+                    {modalData.chairs && [...modalData.chairs]
+                      .sort((a, b) => {
+                        const hierarchy: Record<string, number> = { "head chair": 1, "co chair": 2, "diretor": 3 };
+                        const getChairLevel = (cargo: string) => hierarchy[cargo.toLowerCase().replace("-", " ")] || 99;
+                        return getChairLevel(a.cargo) - getChairLevel(b.cargo);
+                      })
+                      .map((chair, i) => (
+                        <div key={i} className="flex flex-col md:flex-row items-center md:items-start gap-5 bg-black/20 p-5 rounded-2xl border border-white/5 transition-all hover:bg-black/30">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedChair(chair)}
+                            className="group relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl border-2 border-yellow-custom/30 shadow-xl transition-all hover:border-yellow-custom hover:scale-105 active:scale-95"
+                          >
+                            <Image
+                              src={chair.foto || "/logo-senamun.png"}
+                              alt={chair.nome}
+                              fill
+                              className="object-cover object-top"
+                              sizes="96px"
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/30">
+                              <i className="fa-solid fa-magnifying-glass-plus text-white opacity-0 transition-opacity group-hover:opacity-100" />
+                            </div>
+                          </button>
+                          <div className="flex-1 text-center md:text-left">
+                            <p className="text-yellow-custom font-bold text-lg">{chair.nome}</p>
+                            <p className="text-white/60 text-sm font-medium mb-2">{chair.cargo}</p>
+                            <p className="text-gray-300 text-xs leading-relaxed italic">
+                              &ldquo;{chair.bio}&rdquo;
+                            </p>
                           </div>
-                        </button>
-                        <div className="flex-1 text-center md:text-left">
-                          <p className="text-yellow-custom font-bold text-lg">{chair.nome}</p>
-                          <p className="text-white/60 text-sm font-medium mb-2">{chair.cargo}</p>
-                          <p className="text-gray-300 text-xs leading-relaxed italic">
-                            &ldquo;{chair.bio}&rdquo;
-                          </p>
                         </div>
-                      </div>
-                    ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CARD PRINCIPAL (INFORMAÇÕES) */}
-            <div
-              className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-4 md:p-8 shadow-2xl transition-all duration-700 ease-in-out max-h-[90vh] ${
-                showChairs 
-                ? "z-10 translate-y-8 opacity-0 scale-90 pointer-events-none" 
-                : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
-              }`}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Título Principal */}
-              <div className="min-h-[100px] h-auto shrink-0 pr-1">
-                <div className="inline-block px-3 py-1 rounded-full bg-yellow-custom/10 border border-yellow-custom/20 mb-3">
-                  <span className="text-[11px] font-black uppercase tracking-[0.15em] text-yellow-custom">
-                    {modalData.comite}
-                  </span>
-                </div>
-                <h2 className="text-xl md:text-2xl font-bold text-white leading-tight">
-                  {modalData.tema || "Tema a definir"}
-                </h2>
-              </div>
-
-              {/* Grid de Informações Rápidas */}
-              <div className="mt-4 grid shrink-0 grid-cols-2 gap-3 text-xs">
-                <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                  <p className="text-white/40 mb-1 uppercase font-bold tracking-wider">{modalData.idioma === 'en' ? 'Modality' : 'Modalidade'}</p>
-                  <p className="text-white font-medium">{modalData.modalidade}</p>
-                </div>
-                <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                  <p className="text-white/40 mb-1 uppercase font-bold tracking-wider">{modalData.idioma === 'en' ? 'Language' : 'Idioma'}</p>
-                  <p className="text-white font-medium">{modalData.idioma.toUpperCase()}</p>
+                      ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Seção de Sinopse */}
-              <div className="mt-4 flex-1 min-h-[160px] md:min-h-[240px] overflow-y-auto custom-scrollbar rounded-xl border border-white/10 bg-white/5 p-5">
-                <h3 className="text-sm font-black uppercase tracking-widest text-yellow-custom mb-2">
-                  {modalData.idioma === 'en' ? 'Synopsis' : 'Sinopse'}
-                </h3>
-                <p className="text-[14px] text-gray-200 leading-relaxed italic opacity-90">
-                  {modalData.sinopse || "A sinopse deste comitê estará disponível em breve para consulta dos delegados."}
-                </p>
-              </div>
+              {/* CARD PRINCIPAL (INFORMAÇÕES) */}
+              <div
+                className={`absolute flex h-full w-full flex-col overflow-y-auto custom-scrollbar rounded-2xl border border-white/10 bg-[#1c3a5e] dark:bg-[#0d1b2e] p-4 md:p-8 shadow-2xl transition-all duration-700 ease-in-out max-h-[90vh] ${
+                  showChairs 
+                  ? "z-10 translate-y-8 opacity-0 scale-90 pointer-events-none" 
+                  : "z-20 translate-x-0 translate-y-0 opacity-100 scale-100"
+                }`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="min-h-[100px] h-auto shrink-0 pr-1">
+                  <div className="inline-block px-3 py-1 rounded-full bg-yellow-custom/10 border border-yellow-custom/20 mb-3">
+                    <span className="text-[11px] font-black uppercase tracking-[0.15em] text-yellow-custom">
+                      {modalData.comite}
+                    </span>
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                    {modalData.tema || "Tema a definir"}
+                  </h2>
+                </div>
 
-              {/* Ações */}
-              <div className="mt-4 flex shrink-0 flex-col gap-3">
-                <button
-                  onClick={() => setShowChairs(true)}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-yellow-custom py-3 text-sm font-bold text-black shadow-sm transition-all duration-300 ease-in-out hover:brightness-110 hover:text-white hover:scale-[1.02] hover:shadow-md active:scale-95"
-                >
-                  <i className="fa-solid fa-users" />
-                  {modalData.idioma === 'en' ? 'Meet the Chairs' : 'Ver Chairs / Mesários'}
-                </button>
+                <div className="mt-4 grid shrink-0 grid-cols-2 gap-3 text-xs">
+                  <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                    <p className="text-white/40 mb-1 uppercase font-bold tracking-wider">{modalData.idioma === 'en' ? 'Modality' : 'Modalidade'}</p>
+                    <p className="text-white font-medium">{modalData.modalidade}</p>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg border border-white/5">
+                    <p className="text-white/40 mb-1 uppercase font-bold tracking-wider">{modalData.idioma === 'en' ? 'Language' : 'Idioma'}</p>
+                    <p className="text-white font-medium">{modalData.idioma.toUpperCase()}</p>
+                  </div>
+                </div>
 
-                <div className="flex gap-2 text-xs">
+                <div className="mt-4 flex-1 min-h-[160px] md:min-h-[240px] overflow-y-auto custom-scrollbar rounded-xl border border-white/10 bg-white/5 p-5">
+                  <h3 className="text-sm font-black uppercase tracking-widest text-yellow-custom mb-2">
+                    {modalData.idioma === 'en' ? 'Synopsis' : 'Sinopse'}
+                  </h3>
+                  <p className="text-[14px] text-gray-200 leading-relaxed italic opacity-90">
+                    {modalData.sinopse || "A sinopse deste comitê estará disponível em breve para consulta dos delegados."}
+                  </p>
+                </div>
+
+                <div className="mt-4 flex shrink-0 flex-col gap-3">
                   <button
-                    type="button"
-                    onClick={handleComingSoonClick}
-                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-2 font-bold text-white transition-all hover:bg-blue-700 active:scale-95"
+                    onClick={() => setShowChairs(true)}
+                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-yellow-custom py-3 text-sm font-bold text-black shadow-sm transition-all duration-300 ease-in-out hover:brightness-110 hover:text-white hover:scale-[1.02] hover:shadow-md active:scale-95"
                   >
-                    Classroom
+                    <i className="fa-solid fa-users" />
+                    {modalData.idioma === 'en' ? 'Meet the Chairs' : 'Ver Chairs / Mesários'}
                   </button>
-                  <button
-                    type="button"
-                    onClick={handleComingSoonClick}
-                    className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 py-2 font-bold text-white transition-all hover:bg-green-700 active:scale-95"
-                  >
-                    WhatsApp
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleComingSoonClick}
-                    className="flex-1 inline-flex flex-col items-center justify-center rounded-xl bg-gray-400 py-1 text-center font-bold text-white active:scale-95 leading-tight"
-                  >
+
+                  <div className="flex gap-2 text-xs">
+                    <button
+                      type="button"
+                      onClick={handleComingSoonClick}
+                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-2 font-bold text-white transition-all hover:bg-blue-700 active:scale-95"
+                    >
+                      Classroom
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleComingSoonClick}
+                      className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 py-2 font-bold text-white transition-all hover:bg-green-700 active:scale-95"
+                    >
+                      WhatsApp
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleComingSoonClick}
+                      className="flex-1 inline-flex flex-col items-center justify-center rounded-xl bg-gray-400 py-1 text-center font-bold text-white active:scale-95 leading-tight"
+                    >
                       <div className="flex flex-col items-center leading-tight">
-                      <span className="text-[10px]">
-                        {modalData.idioma === 'en' ? 'Study Guides' : 'Guias de Estudo'}
-                      </span>
-                      <span className="text-[9px] font-medium opacity-80 mt-0.5">
-                        {modalData.idioma === 'en' ? '(Coming Soon)' : '(Em Breve)'}
-                      </span>
+                        <span className="text-[10px]">
+                          {modalData.idioma === 'en' ? 'Study Guides' : 'Guias de Estudo'}
+                        </span>
+                        <span className="text-[9px] font-medium opacity-80 mt-0.5">
+                          {modalData.idioma === 'en' ? '(Coming Soon)' : '(Em Breve)'}
+                        </span>
                       </div>
-                  </button>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            </div>
 
-            {/* Botão de Fechar Externo */}
             <button
               onClick={closeModal}
               className="relative z-40 w-full rounded-xl border border-white/10 bg-black/20 py-3 text-sm font-black uppercase tracking-wider text-white/60 backdrop-blur-md transition-all hover:border-[#f87171]/50 hover:bg-[#f87171]/10 hover:text-[#f87171] active:scale-[0.99]"

@@ -9,19 +9,22 @@ const data = [
   {
     id: "delegacoes",
     title: "Delegações",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSdEl0gx6tAC3dE-ejZgtLDJ8LxPgZnetKYDCZTIpGSxnuRk7A/viewform?usp=publish-editor",
+    // href: "https://docs.google.com/forms/d/e/1FAIpQLSdEl0gx6tAC3dE-ejZgtLDJ8LxPgZnetKYDCZTIpGSxnuRk7A/viewform?usp=publish-editor",
+    href: "#",
     icon: FaUserTie,
   },
   {
     id: "crises",
     title: "Performance de Crises",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSe5OZYK45_mZCdfOtMYGt_ZSuu3G-x8kwmS70U1bDRGP29_LA/viewform",
+    // href: "https://docs.google.com/forms/d/e/1FAIpQLSe5OZYK45_mZCdfOtMYGt_ZSuu3G-x8kwmS70U1bDRGP29_LA/viewform",
+    href: "#",
     icon: FaFire,
   },
   {
     id: "imprensa",
     title: "Imprensa (Press)",
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSfhBprdTpVEpvBLACg0QpTpMUrpFGiI96GAlVjUzbR-I_fTpA/viewform?usp=publish-editor",
+    // href: "https://docs.google.com/forms/d/e/1FAIpQLSfhBprdTpVEpvBLACg0QpTpMUrpFGiI96GAlVjUzbR-I_fTpA/viewform?usp=publish-editor",
+    href: "#",
     icon: FaCamera,
   },
   {
@@ -64,7 +67,7 @@ export default function InscricaoPage() {
             </h1>
             <p className="mx-auto mt-3 max-w-[700px] text-lg font-medium text-gray-700 dark:text-gray-300">
               <span className="block">
-                AS INSCRIÇÕES PARA O SENAMUN V ESTÃO ABERTAS
+                AS INSCRIÇÕES PARA O SENAMUN V LOGO MAIS ESTARÃO ABERTAS
               </span>
               <span className="block">VENHA DEBATER O MUNDO!</span>
             </p>
@@ -73,13 +76,19 @@ export default function InscricaoPage() {
         </div>
       </section>
 
-      <section className="w-full pb-12 pt-4 md:pb-20">
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 md:grid-cols-2">
+      <section className="relative w-full pb-12 pt-4 md:pb-20">
+        {/* Overlay que bloqueia cliques e aplica o blur */}
+        <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-lg pointer-events-auto">
+          <h2 className="px-6 text-center text-4xl font-black uppercase leading-tight text-[#f39322] drop-shadow-[0_0_20px_rgba(243,147,34,0.8)] md:text-6xl">
+            Estamos trabalhando nisso,<br /> nos vemos em breve!
+          </h2>
+        </div>
+
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 md:grid-cols-2 opacity-60 grayscale-[0.3]">
           {data.map((item, index) => (
             <div
               key={index}
-              onClick={() => handleClick(item.id, item.href)}
-              className="group flex cursor-pointer flex-col items-center gap-6 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl active:scale-95 focus:outline-none dark:border-[#044b8b] dark:bg-[#022c43] dark:hover:bg-[#044b8b]"
+              className="group flex flex-col items-center gap-6 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md transition-all duration-300 dark:border-[#044b8b] dark:bg-[#022c43]"
             >
               <div className="relative">
                 {item.id === "imprensa" ? (
@@ -135,7 +144,7 @@ export default function InscricaoPage() {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {item.title}
               </h3>
-              <Button className="mt-2 h-auto w-full rounded-xl bg-blue-600 px-8 py-3 text-base font-semibold text-white shadow-sm transition-all duration-300 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 sm:w-auto">
+              <Button disabled className="mt-2 h-auto w-full rounded-xl bg-gray-400 dark:bg-gray-600 px-8 py-3 text-base font-semibold text-white shadow-sm cursor-not-allowed sm:w-auto">
                 Inscrever-se
               </Button>
             </div>
