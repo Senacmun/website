@@ -80,7 +80,7 @@ export default function InscricaoPage() {
         {/* Overlay que bloqueia cliques e aplica o blur */}
         <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-lg pointer-events-auto">
           <h2 className="px-6 text-center text-4xl font-black uppercase leading-tight text-[#f39322] drop-shadow-[0_0_20px_rgba(243,147,34,0.8)] md:text-6xl">
-            Estamos trabalhando nisso,<br /> nos vemos em breve!
+            Estamos trabalhando nisso<br /> nos vemos em breve!
           </h2>
         </div>
 

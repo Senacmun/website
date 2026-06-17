@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
     <>
       <StickyNavbarHandler />
       <style dangerouslySetInnerHTML={{ __html: scrollbarStyles }} />
-      <nav ref={navRef} className="bg-blue-custom relative z-50 w-full h-20 shadow-md">
+      <nav ref={navRef} className="bg-blue-custom relative z-[70] w-full h-20 shadow-md">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-4">
             <Image src={IconHeader} alt="Icone" width={45} />
@@ -175,7 +175,7 @@ const Navbar: React.FC = () => {
                           onClick={() => setExpandedCommittee(expandedCommittee === committee.comite ? null : committee.comite)}
                           className="flex items-center justify-between w-full px-3 py-1.5 text-[14px] transition-colors dark:text-white text-[#1a1a2e] hover:bg-[#1f6feb] hover:text-white rounded"
                         >
-                          <span className="truncate">{committee.comite}</span>
+                          <span className="truncate">???</span>
                           <FiChevronRight className={`text-[12px] opacity-50 flex-shrink-0 transition-transform duration-200 ${expandedCommittee === committee.comite ? 'rotate-90' : ''}`} />
                         </button>
 
@@ -183,16 +183,18 @@ const Navbar: React.FC = () => {
                           expandedCommittee === committee.comite ? 'max-h-40 mt-1' : 'max-h-0'
                         }`}>
                           <div className="pl-6">
-                            <div className="inline-flex flex-col gap-2 px-8 py-3 min-w-[200px] text-[14px] text-black/70 dark:text-white/70 bg-gray-100 dark:bg-white/10 rounded-xl">
+                            <div className="inline-flex flex-col gap-2 px-8 py-3 min-w-[200px] text-[14px] text-black/70 dark:text-white/70 bg-gray-100 dark:bg-white/10 rounded-xl opacity-50 cursor-not-allowed">
                               <button 
-                                onClick={handleComingSoonClick} 
-                                className="hover:text-black dark:hover:text-white text-left transition-colors"
+                                onClick={handleComingSoonClick}
+                                disabled
+                                className="text-left"
                               >
                                 • Classroom
                               </button>
                               <button 
-                                onClick={handleComingSoonClick} 
-                                className="hover:text-black dark:hover:text-white text-left transition-colors"
+                                onClick={handleComingSoonClick}
+                                disabled
+                                className="text-left"
                               >
                                 • WhatsApp
                               </button>
@@ -330,26 +332,29 @@ const Navbar: React.FC = () => {
                                   onClick={() => setExpandedCommittee(expandedCommittee === c.comite ? null : c.comite)}
                                   className="w-full flex items-center justify-between pl-10 pr-6 py-2 text-[14px] text-[#0f172a]/70 dark:text-white/70 hover:bg-[#2563eb]/[0.06] dark:hover:bg-white/5"
                                 >
-                                  <span className="truncate max-w-[200px]">{c.comite}</span>
+                                  <span className="truncate max-w-[200px]">???</span>
                                   <FiChevronRight className={`text-xs text-[#0f172a] dark:text-white transition-transform duration-200 ${expandedCommittee === c.comite ? 'rotate-90' : ''}`} />
                                 </button>
                                 <div className={`overflow-hidden transition-all duration-200 ${expandedCommittee === c.comite ? 'max-h-40' : 'max-h-0'}`}>
                                   <div className="flex flex-col gap-1 pl-14 py-2 text-[13px] text-[#0f172a]/70 dark:text-white/60">
                                     <button 
-                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }} 
-                                      className="text-left"
+                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }}
+                                      disabled
+                                      className="text-left opacity-50 cursor-not-allowed"
                                     >
                                       • Classroom
                                     </button>
                                     <button 
-                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }} 
-                                      className="text-left"
+                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }}
+                                      disabled
+                                      className="text-left opacity-50 cursor-not-allowed"
                                     >
                                       • WhatsApp
                                     </button>
                                     <button 
-                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }} 
-                                      className="text-left"
+                                      onClick={(e) => { handleComingSoonClick(e); setMobileMenuOpen(false); }}
+                                      disabled
+                                      className="text-left opacity-50 cursor-not-allowed"
                                     >
                                       • Baixar PDF
                                     </button>

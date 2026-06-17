@@ -44,6 +44,20 @@ export default function ComitesPage() {
     setIsMounted(true);
   }, []);
 
+  // 🔒 TRAVA O SCROLL DO HTML/BODY SEMPRE QUE A PÁGINA ESTÁ MONTADA
+  useEffect(() => {
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const originalBodyOverflow = document.body.style.overflow;
+    
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    
+    return () => {
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      document.body.style.overflow = originalBodyOverflow;
+    };
+  }, []);
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") { 
@@ -59,7 +73,7 @@ export default function ComitesPage() {
     if (isOpen || selectedChair) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = "hidden"; // Mantém travado mesmo sem modal
     }
     return () => { document.body.style.overflow = ""; };
   }, [isOpen, selectedChair]);
@@ -104,188 +118,195 @@ export default function ComitesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white transition-colors duration-300 dark:bg-[#0B1E2D]">
-      {/* Reduzido py-10 md:py-16 para py-4 md:py-8 para economizar espaço vertical */}
+    <div className="h-screen bg-white transition-colors duration-300 dark:bg-[#0B1E2D] overflow-hidden">
+      {/* ============================================================ */}
+      {/* CAMADA 1: CONTEÚDO DOS COMITÊS (ao fundo, desfocado)         */}
+      {/* ============================================================ */}
       <section
-        className={`w-full py-4 md:py-8 transition-all duration-700 ${
+        className={`relative w-full pt-28 md:pt-36 pb-8 md:pb-12 transition-all duration-700 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         }`}
       >
-        {/* Título da Página (Fica fora do overlay) */}
-        <div className="mx-auto max-w-5xl px-5 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-yellow-custom">
-            Comitês
-          </h1>
-          <div className="mx-auto mt-2 h-px w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom/30 to-transparent dark:via-white/10"></div>
-        </div>
-
-        {/* Container Relativo para o Overlay e Conteúdo */}
-        {/* Reduzido mt-8 md:mt-10 para mt-4 md:mt-6 */}
-        <div className="relative w-full mt-4 md:mt-6">
+        {/* CONTEÚDO DOS COMITÊS (Obscurecido - serve como textura de fundo) */}
+        <div className="mx-auto max-w-5xl px-5 grayscale opacity-20 blur-sm pointer-events-none select-none">
           
-          {/* CONTEÚDO DOS COMITÊS (Obscurecido) */}
-          <div className="mx-auto max-w-5xl px-5 grayscale opacity-10 blur-md pointer-events-none select-none">
-            
-            {/* Mobile List Layout (Compactado) */}
-            <div className="flex flex-col gap-3 md:hidden">
-              {committees.map((committee, index) => (
-                <div
-                  key={`${committee.comite}-${index}`}
-                  className="flex w-full min-h-[90px] bg-[#1c3a5e] dark:bg-[#0d1b2e] border border-white/10 rounded-lg overflow-hidden text-left shadow-sm"
-                >
-                  <div className="w-[35%] h-[90px] relative shrink-0">
-                    <Image
-                      src={committee.imagem ? encodeURI(`/comites/${committee.imagem}`) : "/logo-senamun.png"}
-                      alt={committee.comite}
-                      fill
-                      className="object-cover object-center rounded-l-lg"
-                      style={{ objectPosition: committee.posicao || "center" }}
-                      sizes="35vw"
-                    />
+          {/* Mobile List Layout */}
+          <div className="flex flex-col gap-3 md:hidden">
+            {committees.map((committee, index) => (
+              <div
+                key={`${committee.comite}-${index}`}
+                className="flex w-full min-h-[90px] bg-[#1c3a5e] dark:bg-[#0d1b2e] border border-white/10 rounded-lg overflow-hidden text-left shadow-sm"
+              >
+                <div className="w-[35%] h-[90px] relative shrink-0">
+                  <Image
+                    src={committee.imagem ? encodeURI(`/comites/${committee.imagem}`) : "/logo-senamun.png"}
+                    alt={committee.comite}
+                    fill
+                    className="object-cover object-center rounded-l-lg"
+                    style={{ objectPosition: committee.posicao || "center" }}
+                    sizes="35vw"
+                  />
+                </div>
+                <div className="w-[65%] p-2.5 flex flex-col justify-center">
+                  <h3 className="font-bold text-[13px] leading-tight text-white mb-1 line-clamp-2">
+                    {committee.tema || committee.comite}
+                  </h3>
+                  <div className="text-[10px] text-white/70 dark:text-gray-400 space-y-0.5">
+                    <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
+                    <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
                   </div>
-                  <div className="w-[65%] p-2.5 flex flex-col justify-center">
-                    <h3 className="font-bold text-[13px] leading-tight text-white mb-1 line-clamp-2">
-                      {committee.tema || committee.comite}
-                    </h3>
-                    <div className="text-[10px] text-white/70 dark:text-gray-400 space-y-0.5">
-                      <p>{committee.idioma === 'en' ? 'Modality' : 'Modalidade'}: {committee.modalidade}</p>
-                      <p>{committee.idioma === 'en' ? 'Language' : 'Idioma'}: {committee.idioma.toUpperCase()}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              <Link href="/" className="flex items-center justify-center pt-4">
-                <Image
-                  src="/logo-senamun.png"
-                  alt="Logo SenaMUN"
-                  width={100}
-                  height={100}
-                  className="object-contain"
-                />
-              </Link>
-            </div>
-
-            {/* Desktop Grid Layout (Compactado) */}
-            <div className="hidden md:flex md:flex-col md:gap-4 lg:gap-6">
-              {rows.map((row, rowIndex) => (
-                <div key={rowIndex} className="grid grid-cols-3 gap-3 lg:gap-4">
-                  {row.map((committee, index) => (
-                    <div
-                      key={`${committee.comite}-${index}`}
-                      // Trocado aspect-square por h-36 md:h-44 para reduzir altura
-                      className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left"
-                    >
-                      <div
-                        className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
-                        style={{
-                          backgroundImage: getCommitteeImage(committee),
-                          backgroundPosition: committee.posicao || "center",
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
-                      <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
-                        <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
-                          <span>{committee.comite}</span>
-                        </h2>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ))}
-
-              <div className="grid grid-cols-3 items-center gap-3 lg:gap-4">
-                <div className="flex justify-center">
-                  {specialCommittee && (
-                    <div className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left">
-                      <div
-                        className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
-                        style={{
-                          backgroundImage: getCommitteeImage(specialCommittee),
-                          backgroundPosition: specialCommittee.posicao || "center",
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
-                      <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
-                        <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
-                          <span>{specialCommittee.comite}</span>
-                        </h2>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex justify-center">
-                  <Link href="/" className="flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
-                    <Image
-                      src="/logo-senamun.png"
-                      alt="Logo SenaMUN"
-                      width={120}
-                      height={120}
-                      className="h-auto w-[120px] object-contain"
-                    />
-                  </Link>
-                </div>
-
-                <div className="flex justify-center">
-                  {especialCommittee && (
-                    <div className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left">
-                      <div
-                        className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
-                        style={{
-                          backgroundImage: getCommitteeImage(especialCommittee),
-                          backgroundPosition: especialCommittee.posicao || "center",
-                        }}
-                      />
-                      <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
-                      <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
-                        <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
-                          <span>{especialCommittee.comite}</span>
-                        </h2>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
-            </div>
+            ))}
+            <Link href="/" className="flex items-center justify-center pt-4">
+              <Image
+                src="/logo-senamun.png"
+                alt="Logo SenaMUN"
+                width={100}
+                height={100}
+                className="object-contain"
+              />
+            </Link>
           </div>
 
-          {/* OVERLAY DE INTERDIÇÃO - COMPACTADO E PROPORCIONAL */}
-          <div className="absolute inset-0 z-50 pointer-events-none overflow-hidden">
-            {/* Camada de Blur e Escurecimento de Fundo */}
-            <div className="absolute inset-0 backdrop-blur-md bg-black/40"></div>
+          {/* Desktop Grid Layout */}
+          <div className="hidden md:flex md:flex-col md:gap-4 lg:gap-6">
+            {rows.map((row, rowIndex) => (
+              <div key={rowIndex} className="grid grid-cols-3 gap-3 lg:gap-4">
+                {row.map((committee, index) => (
+                  <div
+                    key={`${committee.comite}-${index}`}
+                    className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left"
+                  >
+                    <div
+                      className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
+                      style={{
+                        backgroundImage: getCommitteeImage(committee),
+                        backgroundPosition: committee.posicao || "center",
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
+                    <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
+                      <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
+                        <span>{committee.comite}</span>
+                      </h2>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
 
-            {/* === FAIXA 1: Topo (Selando a parte de cima) === */}
-            <div className="absolute top-[2%] left-[-50vw] w-[200vw] h-8 md:h-12 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center -rotate-[3deg] shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <span className="text-black font-black text-[10px] md:text-xl uppercase tracking-tighter whitespace-nowrap px-4">
-                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
-              </span>
-            </div>
+            <div className="grid grid-cols-3 items-center gap-3 lg:gap-4">
+              <div className="flex justify-center">
+                {specialCommittee && (
+                  <div className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left">
+                    <div
+                      className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
+                      style={{
+                        backgroundImage: getCommitteeImage(specialCommittee),
+                        backgroundPosition: specialCommittee.posicao || "center",
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
+                    <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
+                      <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
+                        <span>{specialCommittee.comite}</span>
+                      </h2>
+                    </div>
+                  </div>
+                )}
+              </div>
 
-            {/* === FAIXA 2: Base (Selando a parte de baixo) === */}
-            <div className="absolute bottom-[2%] left-[-50vw] w-[200vw] h-8 md:h-12 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center rotate-[3deg] shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-              <span className="text-black font-black text-[10px] md:text-xl uppercase tracking-tighter whitespace-nowrap px-4">
-                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
-              </span>
-            </div>
+              <div className="flex justify-center">
+                <Link href="/" className="flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110">
+                  <Image
+                    src="/logo-senamun.png"
+                    alt="Logo SenaMUN"
+                    width={120}
+                    height={120}
+                    className="h-auto w-[120px] object-contain"
+                  />
+                </Link>
+              </div>
 
-            {/* === FAIXA 3: Diagonal do X (Canto Superior Esquerdo → Inferior Direito) === */}
-            <div className="absolute top-1/2 left-[-50vw] w-[200vw] h-12 md:h-20 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center rotate-[12deg] -translate-y-1/2 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
-              <span className="text-black font-black text-xs md:text-2xl uppercase tracking-tighter whitespace-nowrap px-4">
-                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
-              </span>
-            </div>
-
-            {/* === FAIXA 4: Diagonal do X (Canto Superior Direito → Inferior Esquerdo) === */}
-            <div className="absolute top-1/2 left-[-50vw] w-[200vw] h-12 md:h-20 bg-yellow-400 border-y-2 md:border-y-6 border-black flex items-center justify-center -rotate-[12deg] -translate-y-1/2 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
-              <span className="text-black font-black text-xs md:text-2xl uppercase tracking-tighter whitespace-nowrap px-4">
-                INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
-              </span>
+              <div className="flex justify-center">
+                {especialCommittee && (
+                  <div className="group relative block w-full h-36 md:h-44 overflow-hidden rounded-xl text-left">
+                    <div
+                      className="absolute inset-0 scale-100 bg-cover transition-all duration-700 ease-out"
+                      style={{
+                        backgroundImage: getCommitteeImage(especialCommittee),
+                        backgroundPosition: especialCommittee.posicao || "center",
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-black/45 transition-all duration-700 ease-out" />
+                    <div className="relative z-10 flex h-full items-center justify-center p-4 text-center">
+                      <h2 className="text-sm md:text-base font-bold text-white underline underline-offset-2 drop-shadow flex flex-wrap justify-center items-center gap-x-1.5 px-2">
+                        <span>{especialCommittee.comite}</span>
+                      </h2>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MODAL DE INFORMAÇÕES DO COMITÊ */}
+      {/* ============================================================ */}
+      {/* CAMADA 2: OVERLAY DE BLUR (fixed, cobre toda a viewport)     */}
+      {/* ============================================================ */}
+      <div className="fixed inset-0 z-40 pointer-events-none backdrop-blur-md bg-black/55">
+        {/* ========================================================== */}
+        {/* CAMADA 3: FAIXAS AMARELAS (ajustadas - mais baixas)        */}
+        {/* ========================================================== */}
+        <div className="absolute inset-0 z-50 pointer-events-none">
+          
+          {/* === FAIXA 1: Topo (DESCIDA - agora em 28%) === */}
+          <div className="absolute top-[28%] left-[-100vw] w-[300vw] h-10 md:h-14 bg-yellow-400 border-y-3 md:border-y-[6px] border-black flex items-center justify-center -rotate-[4deg] shadow-[0_0_30px_rgba(0,0,0,0.6)]">
+            <span className="text-black font-black text-xs md:text-2xl uppercase tracking-tighter whitespace-nowrap px-4">
+              INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+            </span>
+          </div>
+
+          {/* === FAIXA 2: Base (MAIS AFASTADA - agora em 14%) === */}
+          <div className="absolute bottom-[14%] left-[-100vw] w-[300vw] h-10 md:h-14 bg-yellow-400 border-y-3 md:border-y-[6px] border-black flex items-center justify-center rotate-[4deg] shadow-[0_0_30px_rgba(0,0,0,0.6)]">
+            <span className="text-black font-black text-xs md:text-2xl uppercase tracking-tighter whitespace-nowrap px-4">
+              INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+            </span>
+          </div>
+
+          {/* === FAIXA 3: Diagonal do X (↘) === */}
+          <div className="absolute top-1/2 left-[-100vw] w-[300vw] h-14 md:h-24 bg-yellow-400 border-y-3 md:border-y-[6px] border-black flex items-center justify-center rotate-[10deg] -translate-y-1/2 shadow-[0_0_40px_rgba(0,0,0,0.7)]">
+            <span className="text-black font-black text-sm md:text-3xl uppercase tracking-tighter whitespace-nowrap px-4">
+              INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+            </span>
+          </div>
+
+          {/* === FAIXA 4: Diagonal do X (↙) === */}
+          <div className="absolute top-1/2 left-[-100vw] w-[300vw] h-14 md:h-24 bg-yellow-400 border-y-3 md:border-y-[6px] border-black flex items-center justify-center -rotate-[10deg] -translate-y-1/2 shadow-[0_0_40px_rgba(0,0,0,0.7)]">
+            <span className="text-black font-black text-sm md:text-3xl uppercase tracking-tighter whitespace-nowrap px-4">
+              INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN • INTERDITADO PELO SENAMUN
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* ============================================================ */}
+      {/* CAMADA 4: TÍTULO "COMITÊS" (nítido, acima do blur)           */}
+      {/* ============================================================ */}
+      <div className="fixed top-20 md:top-24 left-0 right-0 z-[60] pointer-events-none">
+        <div className="mx-auto max-w-5xl px-5 text-center">
+          <h1 className="text-4xl md:text-5xl font-black text-yellow-custom drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+            Comitês
+          </h1>
+          <div className="mx-auto mt-3 h-[2px] w-full max-w-xs bg-gradient-to-r from-transparent via-yellow-custom to-transparent drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"></div>
+        </div>
+      </div>
+
+      {/* ============================================================ */}
+      {/* MODAL DE INFORMAÇÕES DO COMITÊ                               */}
+      {/* ============================================================ */}
       {isOpen && modalData && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" onClick={closeModal} />
