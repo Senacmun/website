@@ -77,14 +77,7 @@ export default function InscricaoPage() {
       </section>
 
       <section className="relative w-full pb-12 pt-4 md:pb-20">
-        {/* Overlay que bloqueia cliques e aplica o blur */}
-        <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-lg pointer-events-auto">
-          <h2 className="px-6 text-center text-4xl font-black uppercase leading-tight text-[#f39322] drop-shadow-[0_0_20px_rgba(243,147,34,0.8)] md:text-6xl">
-            Estamos trabalhando nisso<br /> nos vemos em breve!
-          </h2>
-        </div>
-
-        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 md:grid-cols-2 opacity-60 grayscale-[0.3]">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-6 md:grid-cols-2">
           {data.map((item, index) => (
             <div
               key={index}
@@ -144,7 +137,10 @@ export default function InscricaoPage() {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                 {item.title}
               </h3>
-              <Button disabled className="mt-2 h-auto w-full rounded-xl bg-gray-400 dark:bg-gray-600 px-8 py-3 text-base font-semibold text-white shadow-sm cursor-not-allowed sm:w-auto">
+              <Button
+                onClick={() => handleClick(item.id, item.href)}
+                className="mt-2 h-auto w-full rounded-xl bg-blue-600 hover:bg-blue-700 dark:bg-[#f39322] dark:hover:bg-[#d97d10] px-8 py-3 text-base font-semibold text-white shadow-sm transition-all sm:w-auto"
+              >
                 Inscrever-se
               </Button>
             </div>

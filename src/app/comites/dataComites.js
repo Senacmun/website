@@ -383,6 +383,12 @@ const dadosComites = [
         cargo: "Co-Chair",
         foto: "/time/academico/Sthefany da Cruz Moreira.JPG",
         bio: "Hello! How are you doing? My name is Sthefany Cruz, and I might just be your future chair. I’m 17 years old and currently in the final year of my school journey. I absolutely love philosophy, art, deep conversations under the moonlight, and a good cup of black tea. My journey with MUNs has been one of the most meaningful parts of the last two years of my life. They became something like a driver’s license to express ideas I would not normally have the chance to share — speaking not only with my own voice, but also with the voices of those whose stories have shaped history and impacted millions of lives. I truly believe the world can become a better place when we discuss it, seek to understand it, and dare to question it. MUNs entered my life and showed me that I can contribute to building a better reality — for myself, for others, and for all of us. If you ever need anything, please feel free to reach out to me. You can contact me at: sthefanycruz0666@gmail.com"
+      },
+      {
+        nome: "Marina Rosalem",
+        cargo: "Co-Chair",
+        foto: "/images/Chairs/Marina.png",
+        bio: "Hi! My name is Marina, I’m 16 years old, I'm a sophomore from Liceu Jardim and I’ll be one of your co-chairs for the Trial of Socrates!! I really love books, music, movies (I’m a HUGE fan of Star Wars, romcoms, and, of course, Christopher Nolan films), and astronomy! MUNs have become one of the best parts of my high school experience, and I’m really happy to be sharing this committee with you. I hope we can create a space where everyone feels comfortable speaking up, exchanging ideas, and having a great time. And, of course, if you have any questions, concerns, or just want to talk about the committee, feel free to reach out to me anytime. I’ll be more than happy to help! Can’t wait to meet you all!"
       }
     ],
   },
