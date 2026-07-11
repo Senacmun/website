@@ -9,22 +9,19 @@ const data = [
   {
     id: "delegacoes",
     title: "Delegações",
-    // href: "https://docs.google.com/forms/d/e/1FAIpQLSdEl0gx6tAC3dE-ejZgtLDJ8LxPgZnetKYDCZTIpGSxnuRk7A/viewform?usp=publish-editor",
-    href: "#",
+    href: "https://forms.gle/Xqodrv72poUva7YW6s",
     icon: FaUserTie,
   },
   {
     id: "crises",
     title: "Performance de Crises",
-    // href: "https://docs.google.com/forms/d/e/1FAIpQLSe5OZYK45_mZCdfOtMYGt_ZSuu3G-x8kwmS70U1bDRGP29_LA/viewform",
-    href: "#",
+    href: "https://forms.gle/Xqodrv72poUva7YW6",
     icon: FaFire,
   },
   {
     id: "imprensa",
     title: "Imprensa (Press)",
-    // href: "https://docs.google.com/forms/d/e/1FAIpQLSfhBprdTpVEpvBLACg0QpTpMUrpFGiI96GAlVjUzbR-I_fTpA/viewform?usp=publish-editor",
-    href: "#",
+    href: "https://forms.gle/Xqodrv72poUva7YW6",
     icon: FaCamera,
   },
   {
@@ -67,7 +64,7 @@ export default function InscricaoPage() {
             </h1>
             <p className="mx-auto mt-3 max-w-[700px] text-lg font-medium text-gray-700 dark:text-gray-300">
               <span className="block">
-                AS INSCRIÇÕES PARA O SENAMUN V LOGO MAIS ESTARÃO ABERTAS
+                AS INSCRIÇÕES PARA O SENAMUN V ESTÃO ABERTAS
               </span>
               <span className="block">VENHA DEBATER O MUNDO!</span>
             </p>
