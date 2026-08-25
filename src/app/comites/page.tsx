@@ -423,16 +423,20 @@ export default function ComitesPage() {
                   </button>
                   <button
                     type="button"
-                    onClick={handleComingSoonClick}
-                    className="flex-1 inline-flex flex-col items-center justify-center rounded-xl bg-gray-400 py-1 text-center font-bold text-white active:scale-95 leading-tight"
+                    onClick={(e) => handleResourceClick(e, modalData.pdf || "")}
+                    className={`flex-1 inline-flex flex-col items-center justify-center rounded-xl py-1 text-center font-bold text-white active:scale-95 leading-tight ${modalData.pdf ? "bg-[#ff8d29] hover:bg-[#f27b14]" : "bg-gray-400"}`}
                   >
                       <div className="flex flex-col items-center leading-tight">
-                      <span className="text-[10px]">
-                        {modalData.idioma === 'en' ? 'Study Guides' : 'Guias de Estudo'}
+                      <span className="text-xs">
+                        {modalData.pdf
+                          ? (modalData.idioma === 'en' ? 'Download Study Guide' : 'Baixar PDF')
+                          : (modalData.idioma === 'en' ? 'Study Guides' : 'Guias de Estudo')}
                       </span>
-                      <span className="text-[9px] font-medium opacity-80 mt-0.5">
-                        {modalData.idioma === 'en' ? '(Coming Soon)' : '(Em Breve)'}
-                      </span>
+                      {!modalData.pdf && (
+                        <span className="text-[9px] font-medium opacity-80 mt-0.5">
+                          {modalData.idioma === 'en' ? '(Coming Soon)' : '(Em Breve)'}
+                        </span>
+                      )}
                       </div>
                   </button>
                 </div>
