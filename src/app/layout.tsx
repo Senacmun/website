@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StickyNavbarHandler from "@/components/StickyNavbarHandler";
+import SkeletonEasterEgg from "@/components/SkeletonEasterEgg";
 import ThemeProvider from "@/components/Theme/ThemeProvider";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ThemeProvider>
           <StickyNavbarHandler />
+          <SkeletonEasterEgg />
           <Navbar />
           <div className="min-h-screen">{children}</div>
           <Footer />
