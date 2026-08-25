@@ -75,6 +75,11 @@ export default function ComitesPage() {
     setTimeout(() => closeToast(), 4000);
   };
 
+  const handleResourceClick = (e: React.MouseEvent, url: string) => {
+    if (url) window.open(url, "_blank");
+    else handleComingSoonClick(e);
+  };
+
   const closeToast = () => {
     setIsExitingToast(true);
     // Aguarda a animação de fade-out (500ms) antes de remover do DOM
@@ -404,14 +409,14 @@ export default function ComitesPage() {
                 <div className="flex gap-2 text-xs">
                   <button
                     type="button"
-                    onClick={handleComingSoonClick}
+                    onClick={(e) => handleResourceClick(e, modalData.classroom)}
                     className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-2 font-bold text-white transition-all hover:bg-blue-700 active:scale-95"
                   >
                     Classroom
                   </button>
                   <button
                     type="button"
-                    onClick={handleComingSoonClick}
+                    onClick={(e) => handleResourceClick(e, modalData.whatsapp)}
                     className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 py-2 font-bold text-white transition-all hover:bg-green-700 active:scale-95"
                   >
                     WhatsApp
