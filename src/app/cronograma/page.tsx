@@ -36,7 +36,7 @@ const TabelaDia = ({ dia }: { dia: typeof dia1 }) => (
       <div
         key={i}
         className={`grid grid-cols-3 border-b border-slate-300 dark:border-white/10 transition-colors duration-200 hover:bg-slate-200 dark:hover:bg-white/5 ${
-          item.destaque ? "bg-green-100 dark:bg-green-900/30" : (i % 2 === 0 ? "bg-slate-100 dark:bg-[#0B1E2D]" : "bg-slate-200 dark:bg-[#0d2235]")
+          i % 2 === 0 ? "bg-slate-100 dark:bg-[#0B1E2D]" : "bg-slate-200 dark:bg-[#0d2235]"
         }`}
       >
         <div className="px-4 py-4 text-slate-800 dark:text-white text-sm text-center border-r border-slate-300 dark:border-white/10 flex items-center justify-center">
