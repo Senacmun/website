@@ -19,7 +19,7 @@ const dia2 = {
     { horario: "10h50 – 11h", atividade: "Intervalo", local: "-" },
     { horario: "11h – 12h20", atividade: "Sessão 4", local: "Salas Específicas" },
     { horario: "12h20 – 13h20", atividade: "Almoço", local: "-" },
-    { horario: "13h20 – 14h55", atividade: "Sessão 5", local: "Salas Específicas", destaque: true },
+    { horario: "13h20 – 14h55", atividade: "Sessão 5", local: "Salas Específicas" },
     { horario: "15h – 16h30", atividade: "Cerimônia de Encerramento", local: "Quadra Interna" },
   ],
 };
