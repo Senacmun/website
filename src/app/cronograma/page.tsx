@@ -2,7 +2,7 @@ const dia1 = {
   data: "11 de Setembro",
   diaSemana: "sexta-feira",
   atividades: [
-    { horario: "12h20 – 13h", atividade: "Credenciamento", local: "Centro de Convenções" },
+    { horario: "12h21 – 13h", atividade: "Credenciamento", local: "Centro de Convenções" },
     { horario: "13h05 – 14h30", atividade: "Cerimônia de Abertura", local: "Centro de Convenções" },
     { horario: "14h40 – 15h50", atividade: "Sessão 1", local: "Salas Específicas" },
     { horario: "15h50 – 16h10", atividade: "Intervalo", local: "-" },
