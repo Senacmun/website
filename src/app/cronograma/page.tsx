@@ -2,13 +2,11 @@ const dia1 = {
   data: "11 de Setembro",
   diaSemana: "sexta-feira",
   atividades: [
-    { horario: "12h30 – 13h", atividade: "Credenciamento", local: "Centro de Convenções" },
-    { horario: "13h – 14h20", atividade: "Cerimônia de Abertura", local: "Centro de Convenções" },
-    { horario: "14h20 – 14h30", atividade: "Intervalo", local: "-" },
-    { horario: "14h30 – 15h50", atividade: "Sessão 1", local: "Salas Específicas" },
-    { horario: "15h50 – 16h", atividade: "Intervalo", local: "-" },
-    { horario: "16h – 18h", atividade: "Sessão 2", local: "Salas Específicas" },
-    { horario: "18h", atividade: "Encerramento Sessão", local: "Salas Específicas" },
+    { horario: "12h20 – 13h", atividade: "Credenciamento", local: "Centro de Convenções" },
+    { horario: "13h05 – 14h30", atividade: "Cerimônia de Abertura", local: "Centro de Convenções" },
+    { horario: "14h40 – 15h50", atividade: "Sessão 1", local: "Salas Específicas" },
+    { horario: "15h50 – 16h10", atividade: "Intervalo", local: "-" },
+    { horario: "16h10 – 18h", atividade: "Sessão 2", local: "Salas Específicas" },
   ],
 };
 
@@ -16,12 +14,13 @@ const dia2 = {
   data: "12 de Setembro",
   diaSemana: "sábado",
   atividades: [
-    { horario: "09h – 10h20", atividade: "Sessão 3", local: "Salas Específicas" },
-    { horario: "10h20 – 10h40", atividade: "Intervalo", local: "-" },
-    { horario: "10h40 – 12h20", atividade: "Sessão 4", local: "Salas Específicas" },
-    { horario: "12h20 – 13h", atividade: "Almoço", local: "-" },
-    { horario: "13h – 14h50", atividade: "Sessão 5", local: "Salas Específicas" },
-    { horario: "14h50 – 16h20", atividade: "Cerimônia de Encerramento do Evento", local: "Quadra Interna" },
+    { horario: "09h – 09h25", atividade: "Reunião Secretariado", local: "Salas Específicas" },
+    { horario: "09h30 – 10h50", atividade: "Sessão 3", local: "Salas Específicas" },
+    { horario: "10h50 – 11h", atividade: "Intervalo", local: "-" },
+    { horario: "11h – 12h20", atividade: "Sessão 4", local: "Salas Específicas" },
+    { horario: "12h20 – 13h20", atividade: "Almoço", local: "-" },
+    { horario: "13h20 – 14h55", atividade: "Sessão 5", local: "Salas Específicas", destaque: true },
+    { horario: "15h – 16h30", atividade: "Cerimônia de Encerramento", local: "Quadra Interna" },
   ],
 };
 
@@ -37,7 +36,7 @@ const TabelaDia = ({ dia }: { dia: typeof dia1 }) => (
       <div
         key={i}
         className={`grid grid-cols-3 border-b border-slate-300 dark:border-white/10 transition-colors duration-200 hover:bg-slate-200 dark:hover:bg-white/5 ${
-          i % 2 === 0 ? "bg-slate-100 dark:bg-[#0B1E2D]" : "bg-slate-200 dark:bg-[#0d2235]"
+          item.destaque ? "bg-green-100 dark:bg-green-900/30" : (i % 2 === 0 ? "bg-slate-100 dark:bg-[#0B1E2D]" : "bg-slate-200 dark:bg-[#0d2235]")
         }`}
       >
         <div className="px-4 py-4 text-slate-800 dark:text-white text-sm text-center border-r border-slate-300 dark:border-white/10 flex items-center justify-center">
